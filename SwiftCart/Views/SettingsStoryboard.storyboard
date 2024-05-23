@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V57-7o-vPG">
+                                <rect key="frame" x="16" y="90" width="360" height="42"/>
+                                <color key="backgroundColor" red="1" green="0.47480074321016108" blue="0.53674493889090913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGT-oj-1et">
+                                <rect key="frame" x="16" y="203" width="358" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.47480074319999999" blue="0.53674493889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fl-3e-Ash">
+                                <rect key="frame" x="16" y="274" width="358" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.47480074319999999" blue="0.53674493889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnW-fM-DPo">
+                                <rect key="frame" x="16" y="333" width="358" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.47480074319999999" blue="0.53674493889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uP-FV-n6d">
+                                <rect key="frame" x="16" y="408" width="360" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="1" green="0.47480074319999999" blue="0.53674493889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="52Q-9h-7cG">
+                                <rect key="frame" x="115" y="580.66666666666663" width="176" height="32"/>
+                                <segments>
+                                    <segment title="Light Mood"/>
+                                    <segment title="Dark Mood"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-ho-W7s">
+                                <rect key="frame" x="136" y="667.66666666666663" width="126" height="34.666666666666629"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Logout">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.47480074319999999" blue="0.53674493889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3uP-FV-n6d" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="1Q0-3U-5xw"/>
+                            <constraint firstItem="52Q-9h-7cG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="115" id="1f7-J1-LBS"/>
+                            <constraint firstItem="7fl-3e-Ash" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="2Hg-ns-gbw"/>
+                            <constraint firstItem="52Q-9h-7cG" firstAttribute="top" secondItem="3uP-FV-n6d" secondAttribute="bottom" constant="144.66666666666663" id="3hp-ZE-tr1"/>
+                            <constraint firstItem="ZnW-fM-DPo" firstAttribute="top" secondItem="7fl-3e-Ash" secondAttribute="bottom" constant="31" id="5Ai-AU-Yke"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3uP-FV-n6d" secondAttribute="trailing" constant="14" id="6wb-Wx-KG1"/>
+                            <constraint firstItem="V57-7o-vPG" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" constant="-341" id="Bkl-ao-OVk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V57-7o-vPG" secondAttribute="trailing" constant="14" id="FUe-0W-v5s"/>
+                            <constraint firstItem="ZnW-fM-DPo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OVU-i2-LSw"/>
+                            <constraint firstItem="V57-7o-vPG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="On0-jD-zwB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="52Q-9h-7cG" secondAttribute="trailing" constant="99" id="VuC-F4-Cnq"/>
+                            <constraint firstItem="OGT-oj-1et" firstAttribute="firstBaseline" secondItem="V57-7o-vPG" secondAttribute="baseline" constant="101.66666666666666" id="VuP-Ap-BbL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZnW-fM-DPo" secondAttribute="trailing" constant="16" id="Wau-vQ-mK5"/>
+                            <constraint firstItem="3uP-FV-n6d" firstAttribute="top" secondItem="ZnW-fM-DPo" secondAttribute="bottom" constant="48" id="ZLs-P4-shI"/>
+                            <constraint firstItem="OGT-oj-1et" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="gTW-Qz-jSU"/>
+                            <constraint firstItem="7fl-3e-Ash" firstAttribute="top" secondItem="OGT-oj-1et" secondAttribute="bottom" constant="43" id="iCv-lA-6oe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OGT-oj-1et" secondAttribute="trailing" constant="16" id="icj-UF-MbZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="szI-ho-W7s" secondAttribute="trailing" constant="128" id="mKL-6K-j06"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7fl-3e-Ash" secondAttribute="trailing" constant="16" id="ryg-7E-Ip2"/>
+                            <constraint firstItem="szI-ho-W7s" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="136" id="wzm-mD-em7"/>
+                            <constraint firstItem="V57-7o-vPG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="43" id="xEX-Fs-LTI"/>
+                            <constraint firstItem="szI-ho-W7s" firstAttribute="top" secondItem="52Q-9h-7cG" secondAttribute="bottom" constant="56" id="xhx-52-8Iu"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129.76744186046511" y="-28.969957081545065"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

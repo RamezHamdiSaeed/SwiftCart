@@ -20,6 +20,7 @@
 		1ED98EC92BFF882300948409 /* SwiftCartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */; };
 		1ED98ED92BFF89BF00948409 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98ED82BFF89BF00948409 /* Authentication.storyboard */; };
 		1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */; };
+		DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1ED98ED82BFF89BF00948409 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
+		DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				1ED98ED82BFF89BF00948409 /* Authentication.storyboard */,
 				1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */,
 				1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */,
+				DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ED98ED92BFF89BF00948409 /* Authentication.storyboard in Resources */,
+				DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */,
 				1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */,
 				1ED98EB22BFF882300948409 /* LaunchScreen.storyboard in Resources */,
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
