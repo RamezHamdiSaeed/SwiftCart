@@ -8,7 +8,7 @@
 import Foundation
 class BrandService{
     static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void){
-       let urlStr = "https://mad-ism-and.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=482865238&access_token=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"
+       let urlStr = "https://mad-ism-ios-2.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=482865238&access_token=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"
         
         let url = URL(string: urlStr)
         let request = URLRequest(url: url!)
