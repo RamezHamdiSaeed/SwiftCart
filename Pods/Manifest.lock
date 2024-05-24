@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (5.9.1)
+  - lottie-ios (4.4.3)
+  - NVActivityIndicatorView (5.2.0):
+    - NVActivityIndicatorView/Base (= 5.2.0)
+  - NVActivityIndicatorView/Base (5.2.0)
+  - ReachabilitySwift (5.2.3)
+  - SDWebImage (5.19.1):
+    - SDWebImage/Core (= 5.19.1)
+  - SDWebImage/Core (5.19.1)
+  - SwiftMessages (10.0.0):
+    - SwiftMessages/App (= 10.0.0)
+  - SwiftMessages/App (10.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - lottie-ios
+  - NVActivityIndicatorView
+  - ReachabilitySwift
+  - SDWebImage
+  - SwiftMessages
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - lottie-ios
+    - NVActivityIndicatorView
+    - ReachabilitySwift
+    - SDWebImage
+    - SwiftMessages
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
+  NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
+  SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
+  SwiftMessages: d3540f0f981dfbac25bd2ae9a662effa48f76f92
+
+PODFILE CHECKSUM: 62c800266cbce5b448647743bdc4e92056bd68ab
+
+COCOAPODS: 1.15.2
