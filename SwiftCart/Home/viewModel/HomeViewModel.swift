@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class HomeViewMdel {
+class HomeViewModel {
     var brandsClosure : ([SmartCollection])->Void = {_ in }
     
     func getBrands (){

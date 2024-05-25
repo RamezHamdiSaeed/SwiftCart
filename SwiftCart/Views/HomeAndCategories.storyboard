@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="kTg-qx-RxO">
             <objects>
-                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="Home" id="CRq-Uf-X1T" customClass="HomeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" id="CRq-Uf-X1T" customClass="HomeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEh-HQ-Td3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,7 +8,7 @@ import UIKit
 import SDWebImage
 class HomeViewController: UIViewController {
     
-    var homeViewModel = HomeViewMdel()
+    var homeViewModel = HomeViewModel()
     var brandsArray   : [SmartCollection] = []
     
     @IBOutlet weak var adsLabel: UILabel!
