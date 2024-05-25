@@ -42,6 +42,9 @@
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
                                     <color key="baseBackgroundColor" name="UIButtonsAndText"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="continuseAsAGuestBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="16j-CZ-ovB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aV2-eW-WnT">
                                 <rect key="frame" x="87" y="627" width="219" height="52"/>
@@ -50,12 +53,18 @@
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
                                     <color key="baseBackgroundColor" name="UIButtonsAndText"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WNG-4p-0ba"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9U-dn-6vv">
                                 <rect key="frame" x="284" y="734" width="65.666666666666686" height="35"/>
                                 <color key="tintColor" name="UIButtonsAndText"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="logInBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gtb-T2-q56"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -87,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="1019.0839694656488" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="s9g-1b-WNw">
             <objects>
-                <viewController id="HUc-CF-plr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="HUc-CF-plr" customClass="SignUpViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dg5-gE-JsY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,10 +113,13 @@
                                     <constraint firstAttribute="height" constant="52" id="Qoz-jo-76P"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Continue as a Guest">
+                                <buttonConfiguration key="configuration" style="filled" title="SignUP">
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
                                     <color key="baseBackgroundColor" name="UIButtonsAndText"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userSignUpBtn:" destination="HUc-CF-plr" eventType="touchUpInside" id="TLc-GP-5YS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-2b-CLw">
                                 <rect key="frame" x="48" y="724" width="235" height="35"/>
@@ -120,6 +132,9 @@
                                 <color key="tintColor" name="UIButtonsAndText"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="logInBtn:" destination="HUc-CF-plr" eventType="touchUpInside" id="r7X-4N-1Xr"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your first name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vz-VY-1ju">
                                 <rect key="frame" x="104" y="306" width="185" height="34"/>
@@ -187,15 +202,22 @@
                             <constraint firstItem="0vz-VY-1ju" firstAttribute="centerX" secondItem="Ltg-80-LA8" secondAttribute="centerX" id="x0u-VX-a0x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="ayd-Fl-2fB" id="VeP-dV-aFi"/>
+                        <outlet property="email" destination="o9Q-Sy-Jo8" id="f2S-Iy-ace"/>
+                        <outlet property="firstName" destination="0vz-VY-1ju" id="Hal-AA-jwm"/>
+                        <outlet property="lastName" destination="hyz-Jo-xb3" id="MyG-Ee-6Ut"/>
+                        <outlet property="password" destination="gD3-xi-J3R" id="m5T-bN-w48"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAa-FR-MRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1936.6412213740457" y="-464.08450704225356"/>
         </scene>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="1Y9-qb-4hV">
             <objects>
-                <viewController id="5ff-3F-Yjv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="5ff-3F-Yjv" customClass="LogInViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1hV-0B-NGq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,6 +236,9 @@
                                 <color key="tintColor" name="UIButtonsAndText"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="SignUp"/>
+                                <connections>
+                                    <action selector="signUpBtn:" destination="5ff-3F-Yjv" eventType="touchUpInside" id="dlH-I2-rh1"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HG4-0j-CsV">
                                 <rect key="frame" x="104" y="422" width="179" height="34"/>
@@ -239,6 +264,9 @@
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
                                     <color key="baseBackgroundColor" name="UIButtonsAndText"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userLogInBtn:" destination="5ff-3F-Yjv" eventType="touchUpInside" id="WcU-44-DXe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nco-bM-P42">
                                 <rect key="frame" x="108" y="649" width="177" height="52"/>
@@ -250,6 +278,9 @@
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
                                     <color key="baseBackgroundColor" name="UIButtonsAndText"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="userLogInBtnWithApple:" destination="5ff-3F-Yjv" eventType="touchUpInside" id="FXg-DH-7Sf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w7y-wB-WjY"/>
@@ -276,6 +307,10 @@
                             <constraint firstItem="nco-bM-P42" firstAttribute="trailing" secondItem="x2n-u9-i9f" secondAttribute="trailing" id="yBg-NJ-6zB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="HG4-0j-CsV" id="rkB-4g-tKW"/>
+                        <outlet property="password" destination="2ip-bh-n5k" id="OsA-oB-Lj2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8V-Bg-9pU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

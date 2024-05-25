@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FirebaseAuth{
-    func signUp(email : String, password : String)
+    func signUp(email : String, password : String,firstName: String, lastName : String)
     func logIn(email : String, password : String)
     func signOut()
 }

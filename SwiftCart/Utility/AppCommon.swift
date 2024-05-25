@@ -9,5 +9,6 @@ import Foundation
 
 
 class AppCommon{
-    static let user = User()
+    static var user = User()
+    static let feedbackManager = FeedbackManager()
 }
