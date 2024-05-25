@@ -10,6 +10,12 @@
 		1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */; };
 		1E813A772C00D4E10094A5C4 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */; };
 		1E813A792C00DC130094A5C4 /* MainAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */; };
+		1E855C042C011E6B0008BB66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E855C032C011E6A0008BB66 /* GoogleService-Info.plist */; };
+		1E8934372C01164800DF4036 /* FirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8934362C01164800DF4036 /* FirebaseAuthImpl.swift */; };
+		1E8934392C01165E00DF4036 /* FirebaseSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8934382C01165E00DF4036 /* FirebaseSync.swift */; };
+		1E89343B2C01171100DF4036 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89343A2C01171100DF4036 /* FirebaseAuth.swift */; };
+		1E89343E2C0117C000DF4036 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89343D2C0117C000DF4036 /* User.swift */; };
+		1E8934402C0119AB00DF4036 /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89343F2C0119AB00DF4036 /* AppCommon.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
 		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
@@ -22,9 +28,8 @@
 		1ED98EC92BFF882300948409 /* SwiftCartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */; };
 		1ED98ED92BFF89BF00948409 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98ED82BFF89BF00948409 /* Authentication.storyboard */; };
 		1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */; };
+		1EED90B62C01ED7100D36F16 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EED90B52C01ED7100D36F16 /* InputValidator.swift */; };
 		486BB447897FEF7BE72D578E /* Pods_SwiftCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF659B7EC0E224F2706FCDF5 /* Pods_SwiftCart.framework */; };
-		5D4CC83DED06DA934919D6B6 /* Pods_SwiftCart_SwiftCartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F91D7DD077FACAFC49B23A /* Pods_SwiftCart_SwiftCartUITests.framework */; };
-		AD93F7C35805E5B4689B26D8 /* Pods_SwiftCartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9BEBF9CC62CBA1241A2DE9 /* Pods_SwiftCartTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		11F91D7DD077FACAFC49B23A /* Pods_SwiftCart_SwiftCartUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart_SwiftCartUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeAndCategories.storyboard; sourceTree = "<group>"; };
 		1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
 		1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAuthViewController.swift; sourceTree = "<group>"; };
+		1E855C032C011E6A0008BB66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1E8934362C01164800DF4036 /* FirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImpl.swift; sourceTree = "<group>"; };
+		1E8934382C01165E00DF4036 /* FirebaseSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSync.swift; sourceTree = "<group>"; };
+		1E89343A2C01171100DF4036 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
+		1E89343D2C0117C000DF4036 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1E89343F2C0119AB00DF4036 /* AppCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,13 +75,9 @@
 		1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1ED98ED82BFF89BF00948409 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
-		2D119FB3AF221660790622D4 /* Pods-SwiftCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.release.xcconfig"; sourceTree = "<group>"; };
-		54C774A722398897247606E3 /* Pods-SwiftCart-SwiftCartUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart-SwiftCartUITests.release.xcconfig"; path = "Target Support Files/Pods-SwiftCart-SwiftCartUITests/Pods-SwiftCart-SwiftCartUITests.release.xcconfig"; sourceTree = "<group>"; };
-		71873EF10B6005AB6636CDF5 /* Pods-SwiftCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1EED90B52C01ED7100D36F16 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		8C668A97CFE1FA27609875F5 /* Pods-SwiftCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.release.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.release.xcconfig"; sourceTree = "<group>"; };
-		B86A70919D42B22F523F0AB1 /* Pods-SwiftCart-SwiftCartUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart-SwiftCartUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart-SwiftCartUITests/Pods-SwiftCart-SwiftCartUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9E2FE695D1853247CDAF5C8 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
-		CB9BEBF9CC62CBA1241A2DE9 /* Pods_SwiftCartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF659B7EC0E224F2706FCDF5 /* Pods_SwiftCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD93F7C35805E5B4689B26D8 /* Pods_SwiftCartTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D4CC83DED06DA934919D6B6 /* Pods_SwiftCart_SwiftCartUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +111,19 @@
 			isa = PBXGroup;
 			children = (
 				1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */,
+				1E89343F2C0119AB00DF4036 /* AppCommon.swift */,
+				1EED90B52C01ED7100D36F16 /* InputValidator.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		1E89343C2C01177A00DF4036 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1E89343A2C01171100DF4036 /* FirebaseAuth.swift */,
+				1E8934362C01164800DF4036 /* FirebaseAuthImpl.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		1ED98E962BFF882100948409 = {
@@ -144,6 +159,7 @@
 				1ED98EA42BFF882100948409 /* SceneDelegate.swift */,
 				1ED98EAE2BFF882300948409 /* Assets.xcassets */,
 				1ED98EB02BFF882300948409 /* LaunchScreen.storyboard */,
+				1E855C032C011E6A0008BB66 /* GoogleService-Info.plist */,
 				1ED98EB32BFF882300948409 /* Info.plist */,
 				1ED98EAB2BFF882100948409 /* SwiftCart.xcdatamodeld */,
 			);
@@ -190,6 +206,9 @@
 		1ED98ED72BFF896600948409 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1E89343C2C01177A00DF4036 /* Authentication */,
+				1E8934382C01165E00DF4036 /* FirebaseSync.swift */,
+				1E89343D2C0117C000DF4036 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,8 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				FF659B7EC0E224F2706FCDF5 /* Pods_SwiftCart.framework */,
-				11F91D7DD077FACAFC49B23A /* Pods_SwiftCart_SwiftCartUITests.framework */,
-				CB9BEBF9CC62CBA1241A2DE9 /* Pods_SwiftCartTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,10 +226,6 @@
 			children = (
 				B9E2FE695D1853247CDAF5C8 /* Pods-SwiftCart.debug.xcconfig */,
 				8C668A97CFE1FA27609875F5 /* Pods-SwiftCart.release.xcconfig */,
-				B86A70919D42B22F523F0AB1 /* Pods-SwiftCart-SwiftCartUITests.debug.xcconfig */,
-				54C774A722398897247606E3 /* Pods-SwiftCart-SwiftCartUITests.release.xcconfig */,
-				71873EF10B6005AB6636CDF5 /* Pods-SwiftCartTests.debug.xcconfig */,
-				2D119FB3AF221660790622D4 /* Pods-SwiftCartTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -243,7 +256,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ED98ECF2BFF882300948409 /* Build configuration list for PBXNativeTarget "SwiftCartTests" */;
 			buildPhases = (
-				022EB93FFDC00F1BF849CF3D /* [CP] Check Pods Manifest.lock */,
 				1ED98EB42BFF882300948409 /* Sources */,
 				1ED98EB52BFF882300948409 /* Frameworks */,
 				1ED98EB62BFF882300948409 /* Resources */,
@@ -262,11 +274,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ED98ED22BFF882300948409 /* Build configuration list for PBXNativeTarget "SwiftCartUITests" */;
 			buildPhases = (
-				3FC2C558DE1B899F14E652F0 /* [CP] Check Pods Manifest.lock */,
 				1ED98EBE2BFF882300948409 /* Sources */,
 				1ED98EBF2BFF882300948409 /* Frameworks */,
 				1ED98EC02BFF882300948409 /* Resources */,
-				A4761B98F04D195AEB5BF651 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -332,6 +342,7 @@
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
 				1ED98EAA2BFF882100948409 /* Main.storyboard in Resources */,
 				1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */,
+				1E855C042C011E6B0008BB66 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,67 +363,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		022EB93FFDC00F1BF849CF3D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftCartTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FC2C558DE1B899F14E652F0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwiftCart-SwiftCartUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4761B98F04D195AEB5BF651 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftCart-SwiftCartUITests/Pods-SwiftCart-SwiftCartUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftCart-SwiftCartUITests/Pods-SwiftCart-SwiftCartUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftCart-SwiftCartUITests/Pods-SwiftCart-SwiftCartUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F00A7DCFACA915094250D668 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,11 +409,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E89343B2C01171100DF4036 /* FirebaseAuth.swift in Sources */,
+				1EED90B62C01ED7100D36F16 /* InputValidator.swift in Sources */,
 				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1E813A792C00DC130094A5C4 /* MainAuthViewController.swift in Sources */,
 				1ED98EAD2BFF882100948409 /* SwiftCart.xcdatamodeld in Sources */,
+				1E8934402C0119AB00DF4036 /* AppCommon.swift in Sources */,
+				1E8934392C01165E00DF4036 /* FirebaseSync.swift in Sources */,
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
 				1E813A772C00D4E10094A5C4 /* OnBoardingManager.swift in Sources */,
+				1E8934372C01164800DF4036 /* FirebaseAuthImpl.swift in Sources */,
+				1E89343E2C0117C000DF4036 /* User.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +600,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -655,7 +612,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = self.SwiftCart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.Trendy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -673,6 +630,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -684,7 +642,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = self.SwiftCart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.Trendy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -694,7 +652,6 @@
 		};
 		1ED98ED02BFF882300948409 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71873EF10B6005AB6636CDF5 /* Pods-SwiftCartTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -714,7 +671,6 @@
 		};
 		1ED98ED12BFF882300948409 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D119FB3AF221660790622D4 /* Pods-SwiftCartTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -734,7 +690,6 @@
 		};
 		1ED98ED32BFF882300948409 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B86A70919D42B22F523F0AB1 /* Pods-SwiftCart-SwiftCartUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -752,7 +707,6 @@
 		};
 		1ED98ED42BFF882300948409 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54C774A722398897247606E3 /* Pods-SwiftCart-SwiftCartUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
