@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '16.2'
+# platform :ios, '9.0'
 
 target 'SwiftCart' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -13,13 +13,5 @@ pod 'lottie-ios'
 pod 'SwiftMessages'
 pod 'ReachabilitySwift'
 
-  target 'SwiftCartTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SwiftCartUITests' do
-    # Pods for testing
-  end
 
 end
