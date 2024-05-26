@@ -5,10 +5,12 @@
 //  Created by marwa on 24/05/2024.
 //
 
+//"https://mad44-ism-ios1.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=484442439955&access_token=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"
+
 import Foundation
 class BrandService{
     static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void){
-       let urlStr = "https://mad-ism-ios-2.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=482865238&access_token=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"
+       let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/smart_collections.json"
         
         let url = URL(string: urlStr)
         let request = URLRequest(url: url!)

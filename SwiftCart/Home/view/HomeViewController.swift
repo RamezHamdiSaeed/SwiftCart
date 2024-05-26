@@ -59,11 +59,6 @@ class HomeViewController: UIViewController {
         }
         
     }
-    
-
-    
-
-    
 
 }
 
@@ -80,7 +75,6 @@ extension HomeViewController : UICollectionViewDataSource {
         
         //cell data
         cell.cellLabel.text = brandsArray[indexPath.item].title
-       // cell.cellImage.image = UIImage(named: "catimg")
         cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
         
         // cell design
@@ -88,8 +82,7 @@ extension HomeViewController : UICollectionViewDataSource {
         cell.contentView.layer.borderColor = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
         cell.contentView.layer.cornerRadius = 25
         cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-       
-                
+              
         return cell
     }
 }
@@ -98,7 +91,12 @@ extension HomeViewController : UICollectionViewDataSource {
 
 extension HomeViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("")
+        print("navigationController")
+        
+        let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
+        
+        brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
+        navigationController?.pushViewController( brandDetails! , animated: true )
     }
 }
 
