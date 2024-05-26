@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E284C132C0347C5000F1E1A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E284C122C0347C5000F1E1A /* AuthViewModel.swift */; };
+		1E284C152C034978000F1E1A /* AuthViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E284C142C034978000F1E1A /* AuthViewModelImpl.swift */; };
 		1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */; };
 		1E813A772C00D4E10094A5C4 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */; };
 		1E813A792C00DC130094A5C4 /* MainAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E284C122C0347C5000F1E1A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		1E284C142C034978000F1E1A /* AuthViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelImpl.swift; sourceTree = "<group>"; };
 		1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeAndCategories.storyboard; sourceTree = "<group>"; };
 		1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
 		1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAuthViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E284C0A2C033EFA000F1E1A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1E284C122C0347C5000F1E1A /* AuthViewModel.swift */,
+				1E284C142C034978000F1E1A /* AuthViewModelImpl.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1E284C0B2C033F26000F1E1A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				1ED98EA62BFF882100948409 /* ViewController.swift */,
+				1ED98EA82BFF882100948409 /* Main.storyboard */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		1E50FD6F2C033BB700FB8F4E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1E284C0A2C033EFA000F1E1A /* ViewModels */,
+				1E50FD702C033C1400FB8F4E /* Views */,
+				1ED98ED72BFF896600948409 /* Models */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1E50FD702C033C1400FB8F4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1ED98ED82BFF89BF00948409 /* Authentication.storyboard */,
+				1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */,
+				1EED90B72C01F7D400D36F16 /* SignUpViewController.swift */,
+				1EED90B92C01F7F000D36F16 /* LogInViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1E813A752C00D4BF0094A5C4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,8 +201,9 @@
 		1ED98EA12BFF882100948409 /* SwiftCart */ = {
 			isa = PBXGroup;
 			children = (
+				1E284C0B2C033F26000F1E1A /* OnBoarding */,
+				1E50FD6F2C033BB700FB8F4E /* Authentication */,
 				1E813A752C00D4BF0094A5C4 /* Utility */,
-				1ED98ED72BFF896600948409 /* Models */,
 				1ED98ED62BFF895C00948409 /* Views */,
 				1ED98ED52BFF895000948409 /* ViewModels */,
 				1ED98EA22BFF882100948409 /* AppDelegate.swift */,
@@ -200,14 +244,8 @@
 		1ED98ED62BFF895C00948409 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1ED98EA62BFF882100948409 /* ViewController.swift */,
-				1ED98EA82BFF882100948409 /* Main.storyboard */,
-				1ED98ED82BFF89BF00948409 /* Authentication.storyboard */,
 				1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */,
 				1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */,
-				1E813A782C00DC130094A5C4 /* MainAuthViewController.swift */,
-				1EED90B72C01F7D400D36F16 /* SignUpViewController.swift */,
-				1EED90B92C01F7F000D36F16 /* LogInViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,9 +465,11 @@
 				1E8934392C01165E00DF4036 /* FirebaseSync.swift in Sources */,
 				1EED90BC2C02053A00D36F16 /* FeedbackManager.swift in Sources */,
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
+				1E284C152C034978000F1E1A /* AuthViewModelImpl.swift in Sources */,
 				1E813A772C00D4E10094A5C4 /* OnBoardingManager.swift in Sources */,
 				1E8934372C01164800DF4036 /* FirebaseAuthImpl.swift in Sources */,
 				1EED90BA2C01F7F000D36F16 /* LogInViewController.swift in Sources */,
+				1E284C132C0347C5000F1E1A /* AuthViewModel.swift in Sources */,
 				1E89343E2C0117C000DF4036 /* User.swift in Sources */,
 				1EED90B82C01F7D400D36F16 /* SignUpViewController.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
@@ -610,6 +650,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TP2RAS597Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -640,6 +681,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TP2RAS597Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";

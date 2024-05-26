@@ -23,41 +23,60 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmPassword: UITextField!
     
+    var authVC : AuthViewModel?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        authVC = AuthViewModelImpl(signUPNavigationHandler: {}, logInNavigationHandler: logInNavigation, continueAsAGuestHandler: {}, logInHandler: {}, signUpHandler: userSignUp)
+        authVC?.setSuccessMessage(successMessage: {
+            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed Up In Successfully")
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.isSecureTextEntry = true
+        confirmPassword.isSecureTextEntry = true
     }
     
 
     @IBAction func userSignUpBtn(_ sender: Any) {
+        authVC!.signUp()
+
+       
         
+    }
+    
+    @IBAction func logInBtn(_ sender: Any) {
+        authVC!.logInNavigation()
+
+    }
+    
+    
+    func userSignUp(){
         let isValidEmail = InputValidator.isValidEmail(email: email.text ?? "")
         let isValidPassword = InputValidator.isValidPassword(password: password.text ?? "")
         
         if(isValidEmail && isValidPassword){
             
             FirebaseAuthImpl.user.signUp(email: email.text!, password: password.text!,firstName: firstName.text ?? "", lastName: lastName.text ?? "")
-            FeedbackManager.rigularSwiftMessage(title: "Prompt", body: "Signed Up Successfully")
 
-            
         }
         else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.rigularSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
         }
         else{
             
             password.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.rigularSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
 
         }
         
-        
     }
     
-    @IBAction func logInBtn(_ sender: Any) {
-        
-        let logInVC:LogInViewController = LogInViewController()
+    func logInNavigation(){
+        let logInVC:LogInViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController")) as! LogInViewController
         self.navigationController?.pushViewController(logInVC, animated: true)
     }
 }

@@ -14,7 +14,7 @@ class InputValidator{
         return regexPredicate.evaluate(with: email)
     }
     static func isValidPassword(password : String) -> Bool{
-        let regex = "^(?=.[A-Z])(?=.[!@#$&])(?=.[0-9])(?=.*[a-z]).{8,64}$"
+        let regex = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
         let regexPredicate = NSPredicate(format: "SELF MATCHES %@", regex)
         return regexPredicate.evaluate(with: password)
     }
