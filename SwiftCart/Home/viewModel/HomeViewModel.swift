@@ -10,7 +10,7 @@ class HomeViewModel {
     var brandsClosure : ([SmartCollection])->Void = {_ in }
     
     func getBrands (){
-        BrandService.fetchBrands { [weak self] res in
+        BrandServiceImp.fetchBrands { [weak self] res in
             switch res {
             case .success(let response) :
                 self?.brandsClosure(response.smartCollections)

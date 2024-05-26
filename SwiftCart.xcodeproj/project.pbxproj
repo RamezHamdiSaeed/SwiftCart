@@ -28,7 +28,7 @@
 		43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A232102BFFC67F000BCF24 /* HomeViewController.swift */; };
 		43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C64FE42C00C047002BBDBA /* HomeViewModel.swift */; };
 		43EBCB042C00B11B00A2A49A /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBCB032C00B11B00A2A49A /* BrandModel.swift */; };
-		43EBCB062C00B14F00A2A49A /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBCB052C00B14F00A2A49A /* BrandService.swift */; };
+		43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBCB052C00B14F00A2A49A /* BrandServiceImp.swift */; };
 		4B3D669C448D841577BF8800 /* Pods_SwiftCart_SwiftCartUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25B21EBB85B0A28EC172CAF /* Pods_SwiftCart_SwiftCartUITests.framework */; };
 		5F9DC7785C4CC6EA3D3190FB /* Pods_SwiftCartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4C943D9ED7A1735A238A00 /* Pods_SwiftCartTests.framework */; };
 		977E9A2D390C64FEC7A0C2D1 /* Pods_SwiftCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726A17F9FC5D24A89467B198 /* Pods_SwiftCart.framework */; };
@@ -79,7 +79,7 @@
 		43A232102BFFC67F000BCF24 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		43C64FE42C00C047002BBDBA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		43EBCB032C00B11B00A2A49A /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
-		43EBCB052C00B14F00A2A49A /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		43EBCB052C00B14F00A2A49A /* BrandServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandServiceImp.swift; sourceTree = "<group>"; };
 		4D4C943D9ED7A1735A238A00 /* Pods_SwiftCartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		726A17F9FC5D24A89467B198 /* Pods_SwiftCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25B21EBB85B0A28EC172CAF /* Pods_SwiftCart_SwiftCartUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart_SwiftCartUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				43EBCB032C00B11B00A2A49A /* BrandModel.swift */,
-				43EBCB052C00B14F00A2A49A /* BrandService.swift */,
+				43EBCB052C00B14F00A2A49A /* BrandServiceImp.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 				4380A4F32C02A3BE0035CF76 /* BrandDetailsViewController.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 				43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */,
-				43EBCB062C00B14F00A2A49A /* BrandService.swift in Sources */,
+				43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */,
 				4369C0F42BFFD14B0099BAFD /* HomeCollectionViewCell.swift in Sources */,
 				43EBCB042C00B11B00A2A49A /* BrandModel.swift in Sources */,
 			);

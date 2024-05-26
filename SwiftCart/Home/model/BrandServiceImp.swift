@@ -8,7 +8,11 @@
 //"https://mad44-ism-ios1.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=484442439955&access_token=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"
 
 import Foundation
-class BrandService{
+protocol BrandService{
+    static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void)
+    
+}
+class BrandServiceImp{
     static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void){
        let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/smart_collections.json"
         
