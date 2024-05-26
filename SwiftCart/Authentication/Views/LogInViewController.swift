@@ -22,6 +22,9 @@ class LogInViewController: UIViewController {
         authVC?.setSuccessMessage(successMessage: {
             FeedbackManager.successSwiftMessage(title: "Prompt", body: "Logged In Successfully")
         })
+        authVC?.setFailMessage(failMessage: {
+            FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
+        })
     }
     override func viewDidLoad() {
         super.viewDidLoad()

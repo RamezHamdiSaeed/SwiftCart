@@ -31,6 +31,9 @@ class SignUpViewController: UIViewController {
         authVC?.setSuccessMessage(successMessage: {
             FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed Up In Successfully")
         })
+        authVC?.setFailMessage(failMessage: {
+            FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
+        })
     }
     
     override func viewDidLoad() {

@@ -12,13 +12,17 @@ class FirebaseAuthImpl : FirebaseAuth{
     
     static let user = FirebaseAuthImpl()
      var successMessage : (()->())?
-    
+    var failMessage : (()->())?
     private init(){
         FirebaseApp.configure()
     }
     
     func successMessage(successMessage : @escaping ()->()){
         self.successMessage = successMessage
+    }
+    
+    func failMessage(failMessage : @escaping ()->()){
+        self.failMessage = failMessage
     }
     
     func signUp(email: String, password: String,firstName: String, lastName : String) {
@@ -31,6 +35,7 @@ class FirebaseAuthImpl : FirebaseAuth{
                 return
                 
             }
+            self.failMessage!()
             print(error.localizedDescription)
         }
     }
@@ -43,6 +48,7 @@ class FirebaseAuthImpl : FirebaseAuth{
 
                 AppCommon.user.email = email
                 return}
+            self.failMessage!()
             print(error.localizedDescription)
         }
     }

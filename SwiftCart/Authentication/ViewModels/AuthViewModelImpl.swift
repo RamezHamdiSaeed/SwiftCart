@@ -27,6 +27,9 @@ class AuthViewModelImpl : AuthViewModel{
         FirebaseAuthImpl.user.successMessage(successMessage: successMessage)
         
     }
+    func setFailMessage(failMessage: @escaping (() -> ())){
+        FirebaseAuthImpl.user.failMessage(failMessage: failMessage)
+    }
     
     func signUpNavigation() {
         self.signUPNavigationHandler()

@@ -14,4 +14,5 @@ protocol AuthViewModel{
     func logIn()
     func signUp()
     func setSuccessMessage(successMessage:@escaping(()->()))
+    func setFailMessage(failMessage: @escaping (() -> ()))
 }
