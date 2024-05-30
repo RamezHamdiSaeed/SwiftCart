@@ -20,6 +20,11 @@
 		1ED98EC92BFF882300948409 /* SwiftCartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */; };
 		1ED98ED92BFF89BF00948409 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98ED82BFF89BF00948409 /* Authentication.storyboard */; };
 		1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */; };
+		DA0B5EFE2C084FEB00D02E9C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5EFD2C084FEB00D02E9C /* MapViewController.swift */; };
+		DA0B5F012C08550400D02E9C /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F002C08550400D02E9C /* LocationViewModel.swift */; };
+		DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F032C08744700D02E9C /* AddressesNetwork.swift */; };
+		DA0B5F062C089DE800D02E9C /* CurrencyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F052C089DE800D02E9C /* CurrencyNetwork.swift */; };
+		DA0B5F082C09244C00D02E9C /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */; };
 		DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */; };
 		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
@@ -61,6 +66,11 @@
 		1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1ED98ED82BFF89BF00948409 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
+		DA0B5EFD2C084FEB00D02E9C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DA0B5F002C08550400D02E9C /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		DA0B5F032C08744700D02E9C /* AddressesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesNetwork.swift; sourceTree = "<group>"; };
+		DA0B5F052C089DE800D02E9C /* CurrencyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyNetwork.swift; sourceTree = "<group>"; };
+		DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adresses.swift; sourceTree = SOURCE_ROOT; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -174,11 +184,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		DA0B5EFF2C0854D000D02E9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DA0B5F002C08550400D02E9C /* LocationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DA0B5F022C08740B00D02E9C /* AddressesNetwork  */ = {
+			isa = PBXGroup;
+			children = (
+				DA0B5F032C08744700D02E9C /* AddressesNetwork.swift */,
+				DA0B5F052C089DE800D02E9C /* CurrencyNetwork.swift */,
+			);
+			path = "AddressesNetwork ";
+			sourceTree = "<group>";
+		};
 		DAFDD36A2C03276A00A842A4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DA0B5F022C08740B00D02E9C /* AddressesNetwork  */,
+				DA0B5EFF2C0854D000D02E9C /* ViewModels */,
 				DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */,
 				DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */,
+				DA0B5EFD2C084FEB00D02E9C /* MapViewController.swift */,
+				DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -322,9 +353,14 @@
 				1ED98EAD2BFF882100948409 /* SwiftCart.xcdatamodeld in Sources */,
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
 				DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */,
+				DA0B5F082C09244C00D02E9C /* AboutUsViewController.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
+				DA0B5F062C089DE800D02E9C /* CurrencyNetwork.swift in Sources */,
+				DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */,
 				DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */,
 				DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */,
+				DA0B5F012C08550400D02E9C /* LocationViewModel.swift in Sources */,
+				DA0B5EFE2C084FEB00D02E9C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

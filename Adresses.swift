@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import CoreLocation
+
 struct Adresses {
-    var long : Double
-    var Lat :Double
-    var city :String
-    var street :String
+//    var long : Double
+//    var Lat :Double
+//    var city :String
+//    var street :String
+    var name : String
+    var coordinate : CLLocationCoordinate2D
     
 }

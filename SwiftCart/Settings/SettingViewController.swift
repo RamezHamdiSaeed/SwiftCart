@@ -15,10 +15,23 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var currency: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var logout: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         logout.layer.cornerRadius = 10
+        setHeader()
 
+    }
+    func setHeader(){
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Settings"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        let setting  = UIBarButtonItem (customView: settingsLabel)
+        self.navigationItem.titleView = settingsLabel
+        
     }
     
     @IBAction func navigateToAdresses(_ sender: Any) {
@@ -28,6 +41,13 @@ class SettingViewController: UIViewController {
         
     }
     
+    @IBAction func navigateToAboutUs(_ sender: Any) {
+        if let aboutUsViewController = (storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController")) as? AboutUsViewController{
+        //    self.navigationController?.pushViewController(aboutUsViewController, animated: true)
+            self.navigationController?.pushViewController(aboutUsViewController, animated: true)
+        }
+        
+    }
     
 
 }
