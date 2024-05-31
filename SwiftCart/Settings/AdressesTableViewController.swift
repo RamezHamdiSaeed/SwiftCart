@@ -64,10 +64,8 @@ class AdressesTableViewController: UITableViewController {
                  // Pass the view model to the MapViewController
                  mapViewController.viewModel = viewModel
                  
-                 // Wrap the MapViewController in a UINavigationController for proper navigation and title bar
                  let navigationController = UINavigationController(rootViewController: mapViewController)
                  
-                 // Present the MapViewController modally
                  present(navigationController, animated: true, completion: nil)
              }
          }
