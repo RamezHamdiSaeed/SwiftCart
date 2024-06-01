@@ -30,10 +30,12 @@
 		1ED98EC92BFF882300948409 /* SwiftCartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */; };
 		1ED98ED92BFF89BF00948409 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98ED82BFF89BF00948409 /* Authentication.storyboard */; };
 		1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */; };
+		1EDC06DD2C0BDB36006083E1 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC06DC2C0BDB36006083E1 /* NetworkingManager.swift */; };
 		1EED90B62C01ED7100D36F16 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EED90B52C01ED7100D36F16 /* InputValidator.swift */; };
 		1EED90B82C01F7D400D36F16 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EED90B72C01F7D400D36F16 /* SignUpViewController.swift */; };
 		1EED90BA2C01F7F000D36F16 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EED90B92C01F7F000D36F16 /* LogInViewController.swift */; };
 		1EED90BC2C02053A00D36F16 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EED90BB2C02053A00D36F16 /* FeedbackManager.swift */; };
+		1EEF217E2C0BE87600ADC3B3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEF217D2C0BE87600ADC3B3 /* LocationManager.swift */; };
 		486BB447897FEF7BE72D578E /* Pods_SwiftCart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF659B7EC0E224F2706FCDF5 /* Pods_SwiftCart.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,10 +84,12 @@
 		1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1ED98ED82BFF89BF00948409 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1ED98EDA2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
+		1EDC06DC2C0BDB36006083E1 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		1EED90B52C01ED7100D36F16 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		1EED90B72C01F7D400D36F16 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1EED90B92C01F7F000D36F16 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		1EED90BB2C02053A00D36F16 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
+		1EEF217D2C0BE87600ADC3B3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8C668A97CFE1FA27609875F5 /* Pods-SwiftCart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.release.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.release.xcconfig"; sourceTree = "<group>"; };
 		B9E2FE695D1853247CDAF5C8 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
 		FF659B7EC0E224F2706FCDF5 /* Pods_SwiftCart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,10 +163,9 @@
 		1E813A752C00D4BF0094A5C4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */,
+				1EDC06DB2C0BDB11006083E1 /* Validators */,
+				1EDC06DA2C0BDAF0006083E1 /* Managers */,
 				1E89343F2C0119AB00DF4036 /* AppCommon.swift */,
-				1EED90B52C01ED7100D36F16 /* InputValidator.swift */,
-				1EED90BB2C02053A00D36F16 /* FeedbackManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -205,7 +208,6 @@
 				1E50FD6F2C033BB700FB8F4E /* Authentication */,
 				1E813A752C00D4BF0094A5C4 /* Utility */,
 				1ED98ED62BFF895C00948409 /* Views */,
-				1ED98ED52BFF895000948409 /* ViewModels */,
 				1ED98EA22BFF882100948409 /* AppDelegate.swift */,
 				1ED98EA42BFF882100948409 /* SceneDelegate.swift */,
 				1ED98EAE2BFF882300948409 /* Assets.xcassets */,
@@ -234,13 +236,6 @@
 			path = SwiftCartUITests;
 			sourceTree = "<group>";
 		};
-		1ED98ED52BFF895000948409 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		1ED98ED62BFF895C00948409 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +253,25 @@
 				1E89343D2C0117C000DF4036 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1EDC06DA2C0BDAF0006083E1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1E813A762C00D4E10094A5C4 /* OnBoardingManager.swift */,
+				1EED90BB2C02053A00D36F16 /* FeedbackManager.swift */,
+				1EDC06DC2C0BDB36006083E1 /* NetworkingManager.swift */,
+				1EEF217D2C0BE87600ADC3B3 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1EDC06DB2C0BDB11006083E1 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				1EED90B52C01ED7100D36F16 /* InputValidator.swift */,
+			);
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		80366060A2DA242B77E14114 /* Frameworks */ = {
@@ -471,7 +485,9 @@
 				1EED90BA2C01F7F000D36F16 /* LogInViewController.swift in Sources */,
 				1E284C132C0347C5000F1E1A /* AuthViewModel.swift in Sources */,
 				1E89343E2C0117C000DF4036 /* User.swift in Sources */,
+				1EDC06DD2C0BDB36006083E1 /* NetworkingManager.swift in Sources */,
 				1EED90B82C01F7D400D36F16 /* SignUpViewController.swift in Sources */,
+				1EEF217E2C0BE87600ADC3B3 /* LocationManager.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
