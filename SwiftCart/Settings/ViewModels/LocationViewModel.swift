@@ -11,6 +11,7 @@ import CoreLocation
 class LocationViewModel {
     var locations: [Adresses] = []
     var currencies: [Currency] = []
+    var addressesNetwork = AddressesNetwork()
     
     var selectedCurrency: Currency? {
         didSet {
@@ -22,7 +23,8 @@ class LocationViewModel {
     
     var onCurrencyChanged: ((Currency?) -> Void)?
     var onExchangeRatesFetched: (() -> Void)?
-    
+    var onLocationsFetched: (() -> Void)?
+
     func fetchExchangeRate() {
         CurrencyNetwork.fetchExchangeRate { [weak self] currencies, error in
             guard let self = self else { return }
@@ -53,17 +55,27 @@ class LocationViewModel {
         return currencies
     }
     
-    func addLocation(name: String, coordinate: CLLocationCoordinate2D) {
+    func addLocation(customerId: Int, email: String, name: String, coordinate: CLLocationCoordinate2D) {
         let newLocation = Adresses(name: name, coordinate: coordinate)
         locations.append(newLocation)
-        saveLocations()
+        addressesNetwork.saveLocationToShopify(customerId: customerId, email: email, name: name, coordinates: coordinate) { success in
+            if success {
+                DispatchQueue.main.async {
+                    self.onLocationsFetched?()
+                }
+            }
+        }
     }
     
-    func saveLocations() {
-        // Save to user defaults or post to Shopify
-    }
-    
-    func loadLocations() {
-        // Load from Shopify
+    func loadLocations(customerId: Int) {
+        addressesNetwork.fetchLocationsFromShopify(customerId: customerId) { [weak self] fetchedLocations in
+            guard let self = self else { return }
+            if let fetchedLocations = fetchedLocations {
+                self.locations = fetchedLocations
+                DispatchQueue.main.async {
+                    self.onLocationsFetched?()
+                }
+            }
+        }
     }
 }
