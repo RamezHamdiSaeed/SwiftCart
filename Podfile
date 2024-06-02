@@ -12,14 +12,8 @@ pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
 pod 'ReachabilitySwift'
+pod 'RxSwift'
+pod 'RxCocoa'
 
-  target 'SwiftCartTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SwiftCartUITests' do
-    # Pods for testing
-  end
 
 end
