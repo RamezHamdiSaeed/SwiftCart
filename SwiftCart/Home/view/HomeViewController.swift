@@ -11,8 +11,7 @@ class HomeViewController: UIViewController {
     var homeViewModel = HomeViewModel()
     var brandsArray   : [SmartCollection] = []
     
-    @IBOutlet weak var adsLabel: UILabel!
-    @IBOutlet weak var adsScrollView: UIScrollView!
+    @IBOutlet weak var AdsCollectionView: UICollectionView!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     
     
@@ -27,22 +26,11 @@ class HomeViewController: UIViewController {
         
         brandsCollectionView.dataSource = self
         brandsCollectionView.delegate = self
+        AdsCollectionView.dataSource = self
+        AdsCollectionView.delegate = self
         brandsCollectionView.reloadData()
-  
-        // Set up the scroll view
-        adsLabel.text = "Lovely Marwa"
-        adsScrollView.contentSize = CGSize(width: CGFloat(imageNames.count) * adsScrollView.frame.width, height: 200)
-        adsScrollView.isPagingEnabled = true
-        adsScrollView.showsHorizontalScrollIndicator = false
+        AdsCollectionView.reloadData()
         
-        // Add the images to the scroll view
-        for (index, imageName) in imageNames.enumerated() {
-            let imageView = UIImageView(image: UIImage(named: imageName))
-            imageView.frame = CGRect(x: CGFloat(index) * 300, y: 0
-                                     , width: 300, height: 200)
-            adsScrollView.addSubview(imageView)
-            
-            
         //get Data of Brands
             homeViewModel.brandsClosure = { [weak self]
                 res in
@@ -58,25 +46,50 @@ class HomeViewController: UIViewController {
         
     }
 
-}
+
 
 
 extension HomeViewController : UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return brandsArray.count
+        if collectionView == AdsCollectionView{
+            return imageNames.count
+        }
+        else
+        {
+            return brandsArray.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell
-        guard let cell = cell else { return UICollectionViewCell() }
-        
-        //cell data
-        cell.cellLabel.text = brandsArray[indexPath.item].title
-        cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
-         
-        CollectionViewDesign.collectionViewCell(cell: cell)
-        return cell
+       
+        if collectionView == AdsCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? AddsCollectionViewCell
+            guard let cell = cell else { return UICollectionViewCell() }
+            
+            //cell data
+            cell.adsLabel.text = "Marwa"
+            cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
+             
+            CollectionViewDesign.collectionViewCell(cell: cell)
+            return cell
+            
+            
+        }
+        else
+        {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell
+            guard let cell = cell else { return UICollectionViewCell() }
+            
+            //cell data
+            cell.cellLabel.text = brandsArray[indexPath.item].title
+            cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
+             
+            CollectionViewDesign.collectionViewCell(cell: cell)
+            return cell
+            
+            
+        }
     }
 }
 
@@ -98,6 +111,16 @@ extension HomeViewController : UICollectionViewDelegate {
 extension HomeViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 160)
+        
+        if collectionView == AdsCollectionView{
+            return CGSize(width: 356, height: 201)
+        }
+        else
+        {
+            return CGSize(width: 150, height: 160)
+        }
+
     }
+    
+    
 }
