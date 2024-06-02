@@ -135,9 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				43A2320A2BFFC488000BCF24 /* Home */,
-				1ED98ED72BFF896600948409 /* Models */,
 				1ED98ED62BFF895C00948409 /* Views */,
-				1ED98ED52BFF895000948409 /* ViewModels */,
 				1ED98EA22BFF882100948409 /* AppDelegate.swift */,
 				1ED98EA42BFF882100948409 /* SceneDelegate.swift */,
 				1ED98EAE2BFF882300948409 /* Assets.xcassets */,
@@ -165,13 +163,6 @@
 			path = SwiftCartUITests;
 			sourceTree = "<group>";
 		};
-		1ED98ED52BFF895000948409 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		1ED98ED62BFF895C00948409 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,13 +173,6 @@
 				1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1ED98ED72BFF896600948409 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		43A2320A2BFFC488000BCF24 /* Home */ = {
