@@ -1,4 +1,3 @@
-//
 //  LocationViewModel.swift
 //  SwiftCart
 //
@@ -15,9 +14,7 @@ class LocationViewModel {
     
     var selectedCurrency: Currency? {
         didSet {
-            DispatchQueue.main.async {
-                self.onCurrencyChanged?(self.selectedCurrency)
-            }
+            onCurrencyChanged?(selectedCurrency)
         }
     }
     
@@ -25,6 +22,8 @@ class LocationViewModel {
     var onExchangeRatesFetched: (() -> Void)?
     var onLocationsFetched: (() -> Void)?
 
+    // MARK: - Public Methods
+    
     func fetchExchangeRate() {
         CurrencyNetwork.fetchExchangeRate { [weak self] currencies, error in
             guard let self = self else { return }
@@ -46,9 +45,7 @@ class LocationViewModel {
     }
     
     func changeCurrency(to code: String) {
-        if let currency = currencies.first(where: { $0.code == code }) {
-            selectedCurrency = currency
-        }
+        selectedCurrency = currencies.first { $0.code == code }
     }
     
     func getCurrencies() -> [Currency] {
@@ -56,13 +53,11 @@ class LocationViewModel {
     }
     
     func addLocation(customerId: Int, email: String, name: String, coordinate: CLLocationCoordinate2D) {
-        let newLocation = Adresses(name: name, coordinate: coordinate)
+        let newLocation = Adresses(id: customerId, name: name, coordinate: coordinate)
         locations.append(newLocation)
-        addressesNetwork.saveLocationToShopify(customerId: customerId, email: email, name: name, coordinates: coordinate) { success in
+        addressesNetwork.saveLocationToShopify(customerId: customerId, name: name) { success in
             if success {
-                DispatchQueue.main.async {
-                    self.onLocationsFetched?()
-                }
+                self.onLocationsFetched?()
             }
         }
     }

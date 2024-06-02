@@ -1,8 +1,7 @@
+// AdressesTableViewController.swift
+// SwiftCart
 //
-//  AdressesTableViewController.swift
-//  SwiftCart
-//
-//  Created by rwan elmtary on 26/05/2024.
+// Created by rwan elmtary on 26/05/2024.
 //
 
 import UIKit
@@ -12,7 +11,7 @@ class AdressesTableViewController: UITableViewController {
     var viewModel = LocationViewModel()
     let customerId = 7504636444923
     let email = "ramez12.cetta@gmail.com"
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton()
@@ -20,11 +19,15 @@ class AdressesTableViewController: UITableViewController {
         
         viewModel.onLocationsFetched = { [weak self] in
             self?.adresses = self?.viewModel.locations ?? []
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
         
         viewModel.loadLocations(customerId: customerId)
     }
+
+    
 
     // MARK: - Table view data source
 

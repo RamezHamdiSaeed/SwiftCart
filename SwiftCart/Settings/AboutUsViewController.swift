@@ -17,14 +17,16 @@ class AboutUsViewController: UIViewController {
     }
     
 
-    func setHeader(){
-        let settingsLabel = UILabel()
-        settingsLabel.text = "About Us"
-        settingsLabel.textColor = .systemPink
-        settingsLabel.font = .boldSystemFont(ofSize: 25)
-        settingsLabel.sizeToFit()
-        let setting  = UIBarButtonItem (customView: settingsLabel)
-        self.navigationItem.titleView = settingsLabel
+   private func setHeader(){
+        let titleLabel = UILabel()
+               titleLabel.text = "About Us"
+               titleLabel.textColor = .systemPink
+               titleLabel.font = .boldSystemFont(ofSize: 25)
+               titleLabel.sizeToFit()
+
+               let titleItem = UIBarButtonItem(customView: titleLabel)
+               navigationItem.titleView = titleLabel
+           
         
     }
 }

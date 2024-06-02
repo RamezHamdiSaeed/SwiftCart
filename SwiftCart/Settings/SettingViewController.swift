@@ -23,12 +23,12 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         logout.layer.cornerRadius = 10
         setHeader()
-        
+
         locationViewModel.fetchExchangeRate()
         locationViewModel.onCurrencyChanged = { [weak self] selectedCurrency in
             self?.updateCurrencyLabel()
         }
-        
+
         locationViewModel.onExchangeRatesFetched = { [weak self] in
             self?.updateCurrencyLabel()
         }
@@ -52,6 +52,7 @@ class SettingViewController: UIViewController {
     @IBAction func navigateToAboutUs(_ sender: Any) {
         if let aboutUsViewController = (storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController")) as? AboutUsViewController {
             self.navigationController?.pushViewController(aboutUsViewController, animated: true)
+            print("button tapped")
         }
     }
     
@@ -59,7 +60,7 @@ class SettingViewController: UIViewController {
         let selectedSegmentIndex = sender.selectedSegmentIndex
         let selectedCurrencyCode = selectedSegmentIndex == 0 ? "USD" : "EGP"
         print("Selected currency: \(selectedCurrencyCode)")
-        locationViewModel.changeCurrency(to: selectedCurrencyCode)
+     //   locationViewModel.changeCurrency(to: selectedCurrencyCode)
     }
 
     private func updateCurrencyLabel() {
