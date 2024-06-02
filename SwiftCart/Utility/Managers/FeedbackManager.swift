@@ -32,12 +32,13 @@ class FeedbackManager{
 
 
 extension FeedbackManager{
-    func showAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style) {
+    func showAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,present:(UIAlertController)->()) {
           let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: alertStyle)
           let okAction = UIAlertAction(title: "OK", style: .default) { _ in
               print("OK tapped")
           }
           alertController.addAction(okAction)
-          present(alertController, animated: true, completion: nil)
+        present(alertController)
+//          present(alertController, animated: true, completion: nil)
       }
 }
