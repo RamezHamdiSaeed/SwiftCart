@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
         
         if(isValidEmail && isValidPassword){
             
-            FirebaseAuthImpl.user.signUp(email: email.text!, password: password.text!,firstName: firstName.text ?? "", lastName: lastName.text ?? "")
+            FirebaseAuthImpl.user.signUp(email: email.text!, password: password.text!)
 
         }
         else if (!isValidEmail){

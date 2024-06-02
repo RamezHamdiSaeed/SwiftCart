@@ -25,13 +25,11 @@ class FirebaseAuthImpl : FirebaseAuth{
         self.failMessage = failMessage
     }
     
-    func signUp(email: String, password: String,firstName: String, lastName : String) {
+    func signUp(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password){
             result, error in
             guard let error else {
                 self.successMessage!()
-                AppCommon.user.firstName = firstName
-                AppCommon.user.lastName = lastName
                 return
                 
             }
@@ -40,22 +38,23 @@ class FirebaseAuthImpl : FirebaseAuth{
         }
     }
     
-    func logIn(email: String, password: String) {
+    func logIn(email: String, password: String,whenSuccess:@escaping()->()) {
         Auth.auth().signIn(withEmail: email, password: password){
             result, error in
             guard let error else {
                 self.successMessage!()
-
                 AppCommon.user.email = email
+                whenSuccess()
                 return}
             self.failMessage!()
             print(error.localizedDescription)
         }
     }
     
-    func signOut() {
+    func signOut(whenSuccess:@escaping()->()) {
         do{
             try Auth.auth().signOut()
+            whenSuccess()
         }
         catch{
             

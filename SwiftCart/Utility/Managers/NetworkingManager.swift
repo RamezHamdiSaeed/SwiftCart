@@ -7,16 +7,16 @@
 
 import Foundation
 
-class NetworkingManager{
+class NetworkingManager {
     
-    static func networkingRequest<T:Codable>(path:String,queryItems:[URLQueryItem]?,method:NetworkingMethods,requestBody:Codable?,responseData:T?, networkResponse:@escaping (Result)->Void) ->Void{
-        let baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com//admin/api/2024-04"
+    func networkingRequest<T: Codable>(path: String, queryItems: [URLQueryItem]?, method: NetworkingMethods, requestBody: Codable?, networkResponse: @escaping (Result<T, NetworkError>) -> Void) {
+        let baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com/admin/api/2024-04"
         
         var urlComponents = URLComponents(string: baseURL + path)!
         urlComponents.queryItems = queryItems
         
         guard let url = urlComponents.url else {
-            networkResponse(.failure(error: NetworkError.inValidUrl))
+            networkResponse(.failure(error: .inValidUrl))
             return
         }
 
@@ -27,19 +27,16 @@ class NetworkingManager{
             do {
                 request.httpBody = try JSONEncoder().encode(requestBody)
             } catch {
-                
-                networkResponse(.failure(error: NetworkError.invalidData))
+                networkResponse(.failure(error: .invalidData))
                 print("Error encoding request body: \(error.localizedDescription)")
             }
-
         }
 
         let session = URLSession.shared
 
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                
-                networkResponse(.failure(error: NetworkError.inValidResponse))
+                networkResponse(.failure(error: .inValidResponse))
                 print("Error: \(error.localizedDescription)")
                 return
             }
@@ -49,13 +46,12 @@ class NetworkingManager{
             }
 
             if let data = data {
-                
                 do {
                     let responseData = try JSONDecoder().decode(T.self, from: data)
                     networkResponse(.success(data: responseData))
                     print("Response Data: \(responseData)")
                 } catch {
-                    networkResponse(.failure(error: NetworkError.inValidResponse))
+                    networkResponse(.failure(error: .inValidResponse))
                     print("Error parsing JSON: \(error.localizedDescription)")
                 }
             }
@@ -63,8 +59,13 @@ class NetworkingManager{
 
         task.resume()
     }
-    
 }
+
+enum Result<T, E: Error> {
+    case success(data: T)
+    case failure(error: E)
+}
+
 
 enum NetworkingKeys : String{
     case accessTocken = "6f14721eafce0d8aee32fc7b400c138c"
@@ -72,10 +73,6 @@ enum NetworkingKeys : String{
     case shop = "mad-ios-ism-2"
 }
 
-enum Result {
-    case success(data: Any)
-    case failure(error: Error)
-}
 
 enum NetworkError : Error{
     case inValidUrl
