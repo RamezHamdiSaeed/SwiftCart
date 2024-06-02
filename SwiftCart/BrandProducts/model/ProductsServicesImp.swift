@@ -7,6 +7,7 @@
 
 //"https://mad44-ism-ios1.myshopify.com/admin/api/2024-04/products.json?collection_id=\(collectionId)&access_token=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"
 
+
 import Foundation
 
 protocol ProductsServices {

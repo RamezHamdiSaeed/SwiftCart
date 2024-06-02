@@ -22,10 +22,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //design Collection
-        self.brandsCollectionView.layer.borderWidth = 1.0
-        self.brandsCollectionView.layer.borderColor = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        self.brandsCollectionView.layer.cornerRadius = 25
+
+        CollectionViewDesign.collectionView(colView: brandsCollectionView)
         
         brandsCollectionView.dataSource = self
         brandsCollectionView.delegate = self
@@ -76,13 +74,8 @@ extension HomeViewController : UICollectionViewDataSource {
         //cell data
         cell.cellLabel.text = brandsArray[indexPath.item].title
         cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
-        
-        // cell design
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor(red: 0.0/255.0, green: 121.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        cell.contentView.layer.cornerRadius = 25
-        cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-              
+         
+        CollectionViewDesign.collectionViewCell(cell: cell)
         return cell
     }
 }
@@ -94,9 +87,9 @@ extension HomeViewController : UICollectionViewDelegate {
         print("navigationController")
         
         let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
-        
         brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
         navigationController?.pushViewController( brandDetails! , animated: true )
+
     }
 }
 
