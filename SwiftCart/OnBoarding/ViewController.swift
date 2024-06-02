@@ -10,7 +10,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        BrandService.fetchBrands { res in
+        BrandServiceImp.fetchBrands { res in
             switch res {
             case .success(_) : print("success")
             case .failure(_):
