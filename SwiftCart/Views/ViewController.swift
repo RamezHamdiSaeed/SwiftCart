@@ -20,11 +20,23 @@ class ViewController: UIViewController {
         }
         
     }
+
     override func viewWillAppear(_ animated: Bool) {
         let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
         let home = (storyboard1.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController)!
         navigationController?.pushViewController(home, animated: true)
     }
    
+
+
+
+    @IBAction func navigate(_ sender: Any) {
+        let settingStoryboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        if let viewcontroller = settingStoryboard.instantiateViewController(withIdentifier: "SettingViewController") as?
+            SettingViewController{
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        }
+    }
+
 }
 
