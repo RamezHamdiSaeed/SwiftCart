@@ -25,9 +25,9 @@
 		DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F032C08744700D02E9C /* AddressesNetwork.swift */; };
 		DA0B5F062C089DE800D02E9C /* CurrencyNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F052C089DE800D02E9C /* CurrencyNetwork.swift */; };
 		DA0B5F082C09244C00D02E9C /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */; };
-		DA0B5F0A2C09E21400D02E9C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F092C09E21400D02E9C /* Currency.swift */; };
 		DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */; };
-		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
+		DACD7A802C0DA19C00B72D00 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD7A7F2C0DA19C00B72D00 /* Adresses.swift */; };
+		DACD7A822C0DA1BC00B72D00 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD7A812C0DA1BB00B72D00 /* Currency.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
 		DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -72,9 +72,9 @@
 		DA0B5F032C08744700D02E9C /* AddressesNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesNetwork.swift; sourceTree = "<group>"; };
 		DA0B5F052C089DE800D02E9C /* CurrencyNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyNetwork.swift; sourceTree = "<group>"; };
 		DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		DA0B5F092C09E21400D02E9C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = SwiftCart/Settings/Currency.swift; sourceTree = SOURCE_ROOT; };
 		DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
-		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adresses.swift; sourceTree = SOURCE_ROOT; };
+		DACD7A7F2C0DA19C00B72D00 /* Adresses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adresses.swift; sourceTree = "<group>"; };
+		DACD7A812C0DA1BB00B72D00 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,9 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				DAFDD36A2C03276A00A842A4 /* Settings */,
-				1ED98ED72BFF896600948409 /* Models */,
 				1ED98ED62BFF895C00948409 /* Views */,
-				1ED98ED52BFF895000948409 /* ViewModels */,
 				1ED98EA22BFF882100948409 /* AppDelegate.swift */,
 				1ED98EA42BFF882100948409 /* SceneDelegate.swift */,
 				1ED98EAE2BFF882300948409 /* Assets.xcassets */,
@@ -158,13 +156,6 @@
 			path = SwiftCartUITests;
 			sourceTree = "<group>";
 		};
-		1ED98ED52BFF895000948409 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		1ED98ED62BFF895C00948409 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,15 +167,6 @@
 				DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1ED98ED72BFF896600948409 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DAFDD3682C03265D00A842A4 /* Adresses.swift */,
-				DA0B5F092C09E21400D02E9C /* Currency.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		DA0B5EFF2C0854D000D02E9C /* ViewModels */ = {
@@ -204,15 +186,33 @@
 			path = "AddressesNetwork ";
 			sourceTree = "<group>";
 		};
+		DACD7A7D2C0DA0E500B72D00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */,
+				DA0B5EFD2C084FEB00D02E9C /* MapViewController.swift */,
+				DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */,
+				DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DACD7A7E2C0DA12C00B72D00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DACD7A7F2C0DA19C00B72D00 /* Adresses.swift */,
+				DACD7A812C0DA1BB00B72D00 /* Currency.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DAFDD36A2C03276A00A842A4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DACD7A7E2C0DA12C00B72D00 /* Models */,
+				DACD7A7D2C0DA0E500B72D00 /* View */,
 				DA0B5F022C08740B00D02E9C /* AddressesNetwork  */,
 				DA0B5EFF2C0854D000D02E9C /* ViewModels */,
-				DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */,
-				DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */,
-				DA0B5EFD2C084FEB00D02E9C /* MapViewController.swift */,
-				DA0B5F072C09244C00D02E9C /* AboutUsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -355,15 +355,15 @@
 				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1ED98EAD2BFF882100948409 /* SwiftCart.xcdatamodeld in Sources */,
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
-				DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */,
 				DA0B5F082C09244C00D02E9C /* AboutUsViewController.swift in Sources */,
+				DACD7A802C0DA19C00B72D00 /* Adresses.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 				DA0B5F062C089DE800D02E9C /* CurrencyNetwork.swift in Sources */,
 				DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */,
-				DA0B5F0A2C09E21400D02E9C /* Currency.swift in Sources */,
 				DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */,
 				DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */,
 				DA0B5F012C08550400D02E9C /* LocationViewModel.swift in Sources */,
+				DACD7A822C0DA1BC00B72D00 /* Currency.swift in Sources */,
 				DA0B5EFE2C084FEB00D02E9C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
