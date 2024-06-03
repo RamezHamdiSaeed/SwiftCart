@@ -50,7 +50,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func navigateToAboutUs(_ sender: Any) {
-        if let aboutUsViewController = (storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController")) as? AboutUsViewController {
+	        if let aboutUsViewController = (storyboard?.instantiateViewController(withIdentifier: "AboutUsViewController")) as? AboutUsViewController {
             self.navigationController?.pushViewController(aboutUsViewController, animated: true)
             print("button tapped")
         }
