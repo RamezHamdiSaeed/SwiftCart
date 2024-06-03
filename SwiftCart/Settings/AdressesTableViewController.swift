@@ -7,7 +7,7 @@
 import UIKit
 
 class AdressesTableViewController: UITableViewController {
-    var adresses: [Adresses] = []
+    var adresses: [Address] = []
     var viewModel = LocationViewModel()
     let customerId = 7504636444923
     let email = "ramez12.cetta@gmail.com"
@@ -18,18 +18,13 @@ class AdressesTableViewController: UITableViewController {
         setHeader()
         
         viewModel.onLocationsFetched = { [weak self] in
-            self?.adresses = self?.viewModel.locations ?? []
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+            self?.renderToView()
+
+            
         }
         
         viewModel.loadLocations(customerId: customerId)
     }
-
-    
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -41,8 +36,9 @@ class AdressesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "adresscell", for: indexPath)
-        let adress = adresses[indexPath.row]
-        cell.textLabel?.text = adress.name
+        let address = adresses[indexPath.row]
+        cell.textLabel?.text = address.city
+        cell.detailTextLabel?.text = address.address2
         return cell
     }
 
@@ -68,6 +64,15 @@ class AdressesTableViewController: UITableViewController {
             mapViewController.email = email
             let navigationController = UINavigationController(rootViewController: mapViewController)
             present(navigationController, animated: true, completion: nil)
+        }
+    }
+    func renderToView() {
+        DispatchQueue.main.async {
+            self.adresses = self.viewModel.locations ?? []
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
         }
     }
 }

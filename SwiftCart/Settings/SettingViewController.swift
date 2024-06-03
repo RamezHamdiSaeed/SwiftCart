@@ -24,7 +24,7 @@ class SettingViewController: UIViewController {
         logout.layer.cornerRadius = 10
         setHeader()
 
-        locationViewModel.fetchExchangeRate()
+      //  locationViewModel.fetchExchangeRate()
         locationViewModel.onCurrencyChanged = { [weak self] selectedCurrency in
             self?.updateCurrencyLabel()
         }

@@ -7,8 +7,17 @@
 import Foundation
 import CoreLocation
 
-struct Adresses {
-    var id: Int
-    var name: String
-    var coordinate: CLLocationCoordinate2D
+struct Address: Decodable {
+    var city: String?
+    var address2: String?
+}
+
+struct Customer: Decodable {
+    var verified_email: Bool?
+    var first_name: String?
+    var addresses: [Address]?
+}
+
+struct CustomerResponse: Decodable {
+    var customer: Customer?
 }

@@ -50,7 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             if let locationName = alert.textFields?.first?.text, !locationName.isEmpty {
-                self.saveLocation(name: locationName, coordinate: coordinate)
+                //self.saveLocation(name: locationName, coordinate: coordinate)
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -61,8 +61,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         present(alert, animated: true, completion: nil)
     }
 
-    func saveLocation(name: String, coordinate: CLLocationCoordinate2D) {
-        viewModel?.addLocation(customerId: customerId, email: email, name: name, coordinate: coordinate)
+    func saveLocation(name: String, coordinate: String, email: String , customerid:Int) {
+        viewModel?.addLocation(customerId: customerid, email: email, name: name, coordinate: coordinate)
         dismiss(animated: true, completion: nil)
     }
 }
