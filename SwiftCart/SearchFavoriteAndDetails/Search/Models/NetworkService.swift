@@ -22,7 +22,6 @@ class NetworkService {
                     switch result {
                     case .success(let productResponse):
                         if let products = productResponse.products {
-//                            self.products = Observable.just(products)
                             print(products)
                         } else {
                             print("empty returned products")
