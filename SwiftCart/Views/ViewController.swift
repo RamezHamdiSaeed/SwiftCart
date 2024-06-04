@@ -23,7 +23,10 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
-        let home = (storyboard1.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController)!
+        let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
+       
+//        home.modalPresentationStyle = .fullScreen
+//        present(home, animated: true)
         navigationController?.pushViewController(home, animated: true)
     }
    
