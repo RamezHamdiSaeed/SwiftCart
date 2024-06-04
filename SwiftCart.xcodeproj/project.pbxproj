@@ -32,8 +32,6 @@
 		1E8E17BB2C0C57D000E762D7 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E17BA2C0C57D000E762D7 /* FavoriteViewController.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
-		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
-		1ED98EAA2BFF882100948409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EA82BFF882100948409 /* Main.storyboard */; };
 		1ED98EAD2BFF882100948409 /* SwiftCart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EAB2BFF882100948409 /* SwiftCart.xcdatamodeld */; };
 		1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EAE2BFF882300948409 /* Assets.xcassets */; };
 		1ED98EB22BFF882300948409 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED98EB02BFF882300948409 /* LaunchScreen.storyboard */; };
@@ -99,8 +97,6 @@
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1ED98EA62BFF882100948409 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1ED98EA92BFF882100948409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ED98EAC2BFF882100948409 /* SwiftCart.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftCart.xcdatamodel; sourceTree = "<group>"; };
 		1ED98EAE2BFF882300948409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ED98EB12BFF882300948409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,15 +158,6 @@
 				1E284C142C034978000F1E1A /* AuthViewModelImpl.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		1E284C0B2C033F26000F1E1A /* OnBoarding */ = {
-			isa = PBXGroup;
-			children = (
-				1ED98EA62BFF882100948409 /* ViewController.swift */,
-				1ED98EA82BFF882100948409 /* Main.storyboard */,
-			);
-			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		1E50FD6F2C033BB700FB8F4E /* Authentication */ = {
@@ -338,7 +325,6 @@
 				1EDB42B52C0C9F7B001DDF62 /* model */,
 				1EDB42B42C0C9F6D001DDF62 /* view */,
 				1EDE2B7A2C0C55B000A8C3B9 /* SearchFavoriteAndDetails */,
-				1E284C0B2C033F26000F1E1A /* OnBoarding */,
 				1E50FD6F2C033BB700FB8F4E /* Authentication */,
 				1E813A752C00D4BF0094A5C4 /* Utility */,
 				1ED98ED62BFF895C00948409 /* Views */,
@@ -585,7 +571,6 @@
 				1ED98EDB2BFF8A1E00948409 /* ProductsSearchDetailsAndFav.storyboard in Resources */,
 				1ED98EB22BFF882300948409 /* LaunchScreen.storyboard in Resources */,
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
-				1ED98EAA2BFF882100948409 /* Main.storyboard in Resources */,
 				1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */,
 				1E855C042C011E6B0008BB66 /* GoogleService-Info.plist in Resources */,
 			);
@@ -659,7 +644,6 @@
 				1EDB42B12C0C9F0B001DDF62 /* HomeViewController.swift in Sources */,
 				1EDB42B32C0C9F2C001DDF62 /* HomeViewModel.swift in Sources */,
 				1E7CAA682C0F8421000908B6 /* DetailsViewController.swift in Sources */,
-				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1E813A792C00DC130094A5C4 /* MainAuthViewController.swift in Sources */,
 				1ED98EAD2BFF882100948409 /* SwiftCart.xcdatamodeld in Sources */,
 				1EDB42B02C0C9F0B001DDF62 /* HomeCollectionViewCell.swift in Sources */,
@@ -725,14 +709,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1ED98EA82BFF882100948409 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1ED98EA92BFF882100948409 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1ED98EB02BFF882300948409 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
