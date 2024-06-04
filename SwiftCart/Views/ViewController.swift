@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
-        let home = (storyboard1.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController)!
-        navigationController?.pushViewController(home, animated: true)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
+//        let home = (storyboard1.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController)!
+//        navigationController?.pushViewController(home, animated: true)
+//    }
    
 
 

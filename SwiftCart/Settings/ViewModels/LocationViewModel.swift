@@ -29,16 +29,18 @@ class LocationViewModel {
     var onLocationsFetched: (() -> Void)?
     
     
-       func addLocation(customerId: Int, email: String, name: String, coordinate: String) {
-            let newLocation = Address( city: name, address2: coordinate)
-           locations?.append(newLocation)
-            AddressesNetwork.saveLocationToShopify(customerId: customerId, name: name) { success in
-                if success {
-                    DispatchQueue.main.async {
-                        self.onLocationsFetched?()
-                    }
-                }
+    
+    func addLocation(customerId: Int, addressData: AddressData) {
+        AddressesNetwork.saveLocationToShopify(customerId: customerId, addressData: addressData) { result in
+            switch result {
+            case .success(let data):
+                print("Added address successfully: \(data)")
+                self.loadLocations(customerId: customerId) 
+            case .failure(let error):
+                print("Failed to add address: \(error)")
+              
             }
+        }
         }
 
     func loadLocations(customerId: Int) {
