@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
         navigationController?.pushViewController(home, animated: true)
     }
-   
+
 
 
 
