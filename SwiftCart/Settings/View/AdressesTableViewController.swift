@@ -6,18 +6,18 @@
 
 import UIKit
 
-class AdressesTableViewController: UITableViewController ,ReloadProtocol{
-   
-    
+class AdressesTableViewController: UITableViewController, ReloadProtocol {
     var adresses: [Address] = []
-    var viewModel = LocationViewModel()
+    var viewModel : LocationViewModel!
     let customerId = 7504636444923
     let email = "ramez12.cetta@gmail.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LocationViewModel()
         addButton()
         setHeader()
+        reload()
         
         viewModel.onLocationsFetched = { [weak self] in
             self?.renderToView()
@@ -28,9 +28,8 @@ class AdressesTableViewController: UITableViewController ,ReloadProtocol{
     
     func reload() {
         DispatchQueue.main.async {
-                   self.tableView.reloadData()
-               }
-           
+            self.tableView.reloadData()
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,9 +67,7 @@ class AdressesTableViewController: UITableViewController ,ReloadProtocol{
         if let mapViewController = storyboard.instantiateViewController(withIdentifier: "AddressSettingViewController") as? AddressSettingViewController {
             mapViewController.viewModel = viewModel
             mapViewController.customerId = customerId
-         //   mapViewController.email = email
             mapViewController.delegate = self // Set delegate here
-
             let navigationController = UINavigationController(rootViewController: mapViewController)
             present(navigationController, animated: true, completion: nil)
         }
@@ -80,7 +77,7 @@ class AdressesTableViewController: UITableViewController ,ReloadProtocol{
         DispatchQueue.main.async {
             print("Rendering to view")
             self.adresses = self.viewModel.locations ?? []
-            print("Addresses: \(self.adresses)")
+            print("Addresses: \(self.adresses)") // Debug print
             self.tableView.reloadData()
         }
     }

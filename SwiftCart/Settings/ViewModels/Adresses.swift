@@ -47,5 +47,7 @@ struct AddressData: Decodable {
 
 struct CustomerId: Decodable {
     var id: Int?
+     var email: String?
+     var addresses: [Address]?
 }
 
