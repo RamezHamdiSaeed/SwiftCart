@@ -11,7 +11,7 @@ pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
-pod 'ReachabilitySwift'
+pod 'JJFloatingActionButton'
 
   target 'SwiftCartTests' do
     inherit! :search_paths

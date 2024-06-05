@@ -125,7 +125,9 @@
                             <constraint firstItem="BO1-0r-vCq" firstAttribute="bottom" secondItem="I3x-iH-iCI" secondAttribute="bottom" constant="27" id="bex-6h-B9G"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="uB4-DJ-edt"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="uB4-DJ-edt">
+                        <color key="badgeColor" systemColor="systemRedColor"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="LOA-qg-Dsl"/>
                     <connections>
                         <outlet property="AdsCollectionView" destination="8co-ag-vZY" id="VNF-f0-0tZ"/>
@@ -293,7 +295,6 @@
         <!--Home-->
         <scene sceneID="Igi-0m-Q7j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xGC-dy-RbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="emO-iP-rVl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="kYc-QZ-f13"/>
                     <toolbarItems/>
@@ -306,6 +307,7 @@
                         <segue destination="hCM-DT-YHs" kind="relationship" relationship="rootViewController" id="Kdo-xe-m6X"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGC-dy-RbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525.9541984732823" y="-22.535211267605636"/>
         </scene>
@@ -336,6 +338,9 @@
         <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

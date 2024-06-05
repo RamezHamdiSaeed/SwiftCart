@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import JJFloatingActionButton
 
 class CategoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
     var categoryProductsArray: [Product] = []
     var viewModel : CategoriesViewModel!
+    let actionButton = JJFloatingActionButton()
     
     @IBOutlet weak var categorySigmentedButton: UISegmentedControl!
     @IBOutlet weak var singleCategoryProducts: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayFloatingButton()
         CollectionViewDesign.collectionView(colView: singleCategoryProducts)
         viewModel = CategoriesViewModelImp()
         singleCategoryProducts.dataSource = self
@@ -98,6 +101,43 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
              print("no Value")
         }
     }
+    
+    
+       func displayFloatingButton(){
+           let actionButton = JJFloatingActionButton()
+           actionButton.buttonColor = UIColor.systemPink
+           
+           actionButton.buttonImage = UIImage(named: "menu")
+
+           actionButton.addItem(title: "Shoes", image: UIImage(named: "shoes")?.withRenderingMode(.alwaysTemplate)) { [self] item in
+
+             
+               categoryProductsArray = categoryProductsArray.filter{
+                    $0.productType == "SHOES"
+                }
+                singleCategoryProducts.reloadData()
+
+
+           }
+
+           actionButton.addItem(title: "T-Shirts", image: UIImage(named: "tshirt")?.withRenderingMode(.alwaysTemplate)) {
+               [self] item in
+                  categoryProductsArray = categoryProductsArray.filter{
+                       $0.productType == "T-SHIRTS"
+                   }
+                   singleCategoryProducts.reloadData()
+           }
+
+           actionButton.addItem(title: "Accessories", image: UIImage(named: "jewelry")?.withRenderingMode(.alwaysTemplate)) {
+               [self] item in
+                  categoryProductsArray = categoryProductsArray.filter{
+                       $0.productType == "ACCESSORIES"
+                   }
+                   singleCategoryProducts.reloadData()
+               
+           }
+           actionButton.display(inViewController: self)
+       }
     
 }
 extension CategoriesViewController : UICollectionViewDelegateFlowLayout {
