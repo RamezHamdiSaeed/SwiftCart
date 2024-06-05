@@ -82,8 +82,7 @@ class HomeViewController: UIViewController {
          stackView.addArrangedSubview(button3)
          
          let barButtonItem = UIBarButtonItem(customView: stackView)
-        
-   //      navigationItem.rightBarButtonItem = barButtonItem
+
         tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
      }
     
