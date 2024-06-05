@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BF2A15FEC3F3424BBC4B9AD5F86F2D54"
-               BuildableName = "LottiePrivacyInfo.bundle"
-               BlueprintName = "lottie-ios-LottiePrivacyInfo"
+               BlueprintIdentifier = "E109C6B6B466F202BA0B94E76B45D72B"
+               BuildableName = "JJFloatingActionButton.framework"
+               BlueprintName = "JJFloatingActionButton"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
