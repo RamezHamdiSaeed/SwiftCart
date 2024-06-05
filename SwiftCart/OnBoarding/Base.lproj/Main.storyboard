@@ -16,20 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acx-fd-TNW">
-                                <rect key="frame" x="159" y="396" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="navigate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4rZ-Tp-mOm"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBy-w5-twD">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eBy-w5-twD" secondAttribute="trailing" id="Lc3-fJ-OU8"/>
+                            <constraint firstItem="eBy-w5-twD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pq2-TJ-OLa"/>
+                            <constraint firstItem="eBy-w5-twD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y81-cd-ftS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eBy-w5-twD" secondAttribute="bottom" id="oUS-8i-hFF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gkI-p4-C4w"/>
+                    <connections>
+                        <outlet property="horizontalScrollOnBoarding" destination="eBy-w5-twD" id="NB8-VT-a1C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
