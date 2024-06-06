@@ -72,7 +72,8 @@ extension BrandDetailViewController: UICollectionViewDataSource {
         cell.productPrice.text = " \(product.variants[0].price ?? "0.0") EGP "
         
         CollectionViewDesign.collectionViewCell(cell: cell)
-        
+        cell.product = product
+
 
         return cell
     }
