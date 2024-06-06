@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
-    private let viewModel: ProductsViewModel = ProductsViewModel(networkService: NetworkService())
+    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: NetworkService())
        private let disposeBag = DisposeBag()
        
        required init?(coder: NSCoder) {
@@ -79,11 +79,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
             }
             .disposed(by: disposeBag)
         
-           productsCollectionView.rx.modelSelected(Product.self)
-               .subscribe(onNext: { [weak self] product in
-                   self?.viewModel.toggleFavorite(for: product)
-               })
-               .disposed(by: disposeBag)
+//           productsCollectionView.rx.modelSelected(Product.self)
+//               .subscribe(onNext: { [weak self] product in
+//                   self?.viewModel.toggleFavorite(for: product)
+//               })
+//               .disposed(by: disposeBag)
        }
 
 }

@@ -6,7 +6,8 @@
 //
 
 import Foundation
-
+import RxSwift
+import RxCocoa
 class DetailsViewModel{
     private let networkService: NetworkService
     private let disposeBag = DisposeBag()

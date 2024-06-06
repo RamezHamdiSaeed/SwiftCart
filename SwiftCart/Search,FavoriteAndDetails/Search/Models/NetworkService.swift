@@ -21,11 +21,8 @@ class NetworkService {
                 networkResponse: { (result: Result<ProductResponse, NetworkError>) in
                     switch result {
                     case .success(let productResponse):
-                        if let products = productResponse.products {
-                            print(products)
-                        } else {
-                            print("empty returned products")
-                        }
+//                         products = productResponse.products
+                        print(productResponse.products)
                     case .failure(let error):
                         print("network fetch products error: \(error.localizedDescription)")
                     }

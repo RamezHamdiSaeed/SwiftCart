@@ -32,12 +32,12 @@ class CategoriesServicesImp : CategoriesServices{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(error: error))
                 print("ProductsServicesImp error error")
                 return
             }
             guard let data = data else {
-                completion(.failure(error!))
+                completion(.failure(error: error!))
                 print("ProductsServicesImp error data")
                 return
             }
@@ -47,9 +47,9 @@ class CategoriesServicesImp : CategoriesServices{
                 
                 let products = try json.decode(ProductsResponse.self,from: data)
               
-                completion(.success(products))
+                completion(.success(data: products))
                }catch let error as Error{
-                completion(.failure(error))
+                   completion(.failure(error: error))
                    print("ProductsServicesImp error catch : ",error )
             }
         }
@@ -63,12 +63,12 @@ class CategoriesServicesImp : CategoriesServices{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(error: error))
                 print("ProductsServicesImp error error")
                 return
             }
             guard let data = data else {
-                completion(.failure(error!))
+                completion(.failure(error: error!))
                 print("ProductsServicesImp error data")
                 return
             }
@@ -78,9 +78,9 @@ class CategoriesServicesImp : CategoriesServices{
                 
                 let products = try json.decode(ProductsResponse.self,from: data)
               
-                completion(.success(products))
+                completion(.success(data: products))
                }catch let error as Error{
-                completion(.failure(error))
+                   completion(.failure(error: error))
                    print("ProductsServicesImp error catch : ",error )
             }
         }

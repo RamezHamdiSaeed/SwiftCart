@@ -22,13 +22,13 @@ class BrandServiceImp{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(error: error))
                 
                    print("fetchBrands error error")
                 return
             }
             guard let data = data else {
-                completion(.failure(error!))
+                completion(.failure(error: error!))
                 
                    print("fetchBrands error data")
                 return
@@ -39,10 +39,10 @@ class BrandServiceImp{
                 
                 let brands = try json.decode(SmartCollectionsResponse.self,from: data)
               
-                completion(.success(brands))
+                completion(.success(data: brands))
                 print(brands.smartCollections[0])
                }catch let error as Error{
-                completion(.failure(error))
+                   completion(.failure(error: error))
                    print("fetchBrands error catch : ",error )
             }
         }

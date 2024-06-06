@@ -13,6 +13,9 @@ pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
+pod 'ReachabilitySwift'
+pod 'RxSwift'
+pod 'RxCocoa'
 
 
   target 'SwiftCartTests' do

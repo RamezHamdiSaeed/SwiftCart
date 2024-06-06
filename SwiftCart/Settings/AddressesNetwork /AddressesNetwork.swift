@@ -75,7 +75,7 @@ class AddressesNetwork {
                 request.httpBody = jsonData
             } catch {
                 print("Error creating JSON data: \(error)")
-                completion(.failure(error))
+                completion(.failure(error: error))
                 return
             }
             
@@ -86,7 +86,7 @@ class AddressesNetwork {
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print("Error saving address: \(error)")
-                    completion(.failure(error))
+                    completion(.failure(error: error))
                     return
                 }
                 
@@ -97,14 +97,14 @@ class AddressesNetwork {
                         print("Response Data: \(responseString ?? "No response data")")
                     }
                     if httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
-                        completion(.success(true))
+                        completion(.success(data: true))
                     } else {
                         let error = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: "Failed to save address"])
-                        completion(.failure(error))
+                        completion(.failure(error: error))
                     }
                 } else {
                     let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No response from server"])
-                    completion(.failure(error))
+                    completion(.failure(error: error))
                 }
             }.resume()
         }

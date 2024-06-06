@@ -24,13 +24,13 @@ class ProductsServicesImp : ProductsServices{
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(error: error))
                 
                    print("ProductsServicesImp error error")
                 return
             }
             guard let data = data else {
-                completion(.failure(error!))
+                completion(.failure(error: error!))
                 
                    print("ProductsServicesImp error data")
                 return
@@ -41,10 +41,10 @@ class ProductsServicesImp : ProductsServices{
                 
                 let products = try json.decode(ProductResponse.self,from: data)
               
-                completion(.success(products))
+                completion(.success(data: products))
               //  print(products.products[0])
                }catch let error as Error{
-                completion(.failure(error))
+                   completion(.failure(error: error))
                    print("ProductsServicesImp error catch : ",error )
             }
         }
