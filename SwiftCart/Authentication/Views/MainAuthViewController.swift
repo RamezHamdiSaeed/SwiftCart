@@ -44,7 +44,10 @@ class MainAuthViewController: UIViewController {
     }
     
     func continueAsAGuest(){
+        let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
+               let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
         
+               navigationController?.pushViewController(home, animated: true)
     }
     
 }

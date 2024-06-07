@@ -50,9 +50,11 @@ class LogInViewController: UIViewController {
         if(isValidEmail && isValidPassword){
             
             FirebaseAuthImpl.user.logIn(email: email.text!, password: password.text!){
-                let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
-                let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "SearchViewController"))
-                self.navigationController?.pushViewController(SearchViewController, animated: true)
+
+                let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
+                       let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
+                
+                self.navigationController?.pushViewController(home, animated: true)
             }
             
             
