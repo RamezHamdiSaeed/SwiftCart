@@ -88,12 +88,16 @@ class HomeViewController: UIViewController {
     
     @objc func icon1Tapped() {
         // Handle icon1 tap
-        print("Icon 1 tapped")
+                        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+                        let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "SearchViewController"))
+                        self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
     @objc func icon2Tapped() {
         // Handle icon2 tap
-        print("Icon 2 tapped")
+                        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+                        let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
+                        self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
     @objc func icon3Tapped() {
