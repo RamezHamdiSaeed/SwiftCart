@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class NetworkService {
+class SearchNetworkService {
     
     var products  : Observable<[ProductTemp]> = Observable.just([])
     

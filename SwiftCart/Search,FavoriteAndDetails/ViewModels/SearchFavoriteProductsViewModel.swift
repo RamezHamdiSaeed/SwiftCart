@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class SearchFavoriteProductsViewModel {
-    private let networkService: NetworkService
+    private let networkService: SearchNetworkService
     private let disposeBag = DisposeBag()
     
     let searchText = BehaviorRelay<String>(value: "")
@@ -18,7 +18,7 @@ class SearchFavoriteProductsViewModel {
     
     let filteredProducts: Observable<[ProductTemp]>
     
-    init(networkService: NetworkService) {
+    init(networkService: SearchNetworkService) {
         self.networkService = networkService
         
         let allProducts = networkService.fetchProducts()
@@ -29,7 +29,7 @@ class SearchFavoriteProductsViewModel {
             priceRange.asObservable()
         ) { products, searchText, priceRange in
             return products.filter { product in
-                product.name.lowercased().contains(searchText.lowercased()) &&
+                (searchText.isEmpty || product.name.lowercased().contains(searchText.lowercased())) &&
                 priceRange.contains(product.price)
             }
         }

@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
-    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: NetworkService())
+    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
        private let disposeBag = DisposeBag()
        
        required init?(coder: NSCoder) {

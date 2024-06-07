@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 class DetailsViewModel{
-    private let networkService: NetworkService
+    private let networkService: SearchNetworkService
     private let disposeBag = DisposeBag()
     
     let searchText = BehaviorRelay<String>(value: "")
@@ -17,7 +17,7 @@ class DetailsViewModel{
     
     let filteredProducts: Observable<[ProductTemp]>
     
-    init(networkService: NetworkService) {
+    init(networkService: SearchNetworkService) {
         self.networkService = networkService
         
         let allProducts = networkService.fetchProducts()
