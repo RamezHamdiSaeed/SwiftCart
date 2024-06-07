@@ -19,7 +19,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
-    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: NetworkService())
+    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
        private let disposeBag = DisposeBag()
        
        required init?(coder: NSCoder) {
@@ -28,15 +28,18 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSearchController()
-        setupCollectionView()
-        setupBindings()
+//        setupSearchController()
+//        setupCollectionView()
+//        setupBindings()
 
 
 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+        let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "DetailsViewController"))
+        self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
    
@@ -69,7 +72,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                .disposed(by: disposeBag)
            
            priceSlider.rx.value
-               .map { Double($0)...Double($0 + 50) }
+            .map { Double(0.0)...Double($0) }
                .bind(to: viewModel.priceRange)
                .disposed(by: disposeBag)
            
