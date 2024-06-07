@@ -36,6 +36,10 @@
 		1E2464B82C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2464B72C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard */; };
 		1E2464C02C10B33400745CA8 /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464BF2C10B33400745CA8 /* AppCommon.swift */; };
 		1E4A618D2C13484700F09A35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */; };
+		1E4A618F2C134B4700F09A35 /* ShopifyAuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */; };
+		1E4A61912C134C7D00F09A35 /* SignedUpCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */; };
+		1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */; };
+		1E4A61952C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */; };
 		1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
@@ -133,6 +137,10 @@
 		1E2464B72C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
 		1E2464BF2C10B33400745CA8 /* AppCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
 		1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkService.swift; sourceTree = "<group>"; };
+		1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUpCustomerInfo.swift; sourceTree = "<group>"; };
+		1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCustomerInfo.swift; sourceTree = "<group>"; };
+		1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkServiceImpl.swift; sourceTree = "<group>"; };
 		1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeAndCategories.storyboard; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +251,8 @@
 			children = (
 				1E2464722C10983900745CA8 /* Authentication */,
 				1E2464772C1098C000745CA8 /* User.swift */,
+				1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */,
+				1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,6 +282,8 @@
 			children = (
 				1E2464732C10985D00745CA8 /* FirebaseAuth.swift */,
 				1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */,
+				1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */,
+				1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -937,6 +949,7 @@
 				1E2464902C109C0400745CA8 /* OnBoardingManager.swift in Sources */,
 				1E2464A62C109DAB00745CA8 /* ProductTemp.swift in Sources */,
 				1E2464C02C10B33400745CA8 /* AppCommon.swift in Sources */,
+				1E4A61952C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift in Sources */,
 				1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */,
 				1E24649F2C109D9F00745CA8 /* CollectionViewCell.swift in Sources */,
 				DA79E2062C0DF8C2006A9DAB /* AddressSettingViewController.swift in Sources */,
@@ -948,6 +961,7 @@
 				43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */,
 				4380A4ED2C02A3520035CF76 /* ProductsModel.swift in Sources */,
 				43899CD02C08B29000793CBC /* CollectionViewDesign.swift in Sources */,
+				1E4A61912C134C7D00F09A35 /* SignedUpCustomerInfo.swift in Sources */,
 				DA79E2142C0EF944006A9DAB /* CartTableViewCell.swift in Sources */,
 				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1E2464B62C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift in Sources */,
@@ -960,12 +974,14 @@
 				43AC2B472C077F48007A674E /* CategoriesViewModel.swift in Sources */,
 				4380A4F12C02A3960035CF76 /* ProductsViewModel.swift in Sources */,
 				4380A4F32C02A3BE0035CF76 /* BrandDetailsViewController.swift in Sources */,
+				1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */,
 				1E2464782C1098C000745CA8 /* User.swift in Sources */,
 				1E2464882C109BF000745CA8 /* InputValidator.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 				43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */,
 				1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */,
 				1E24648F2C109C0400745CA8 /* NetworkingManager.swift in Sources */,
+				1E4A618F2C134B4700F09A35 /* ShopifyAuthNetworkService.swift in Sources */,
 				43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */,
 				43899CD22C08C66800793CBC /* ProductsCollectionViewCell.swift in Sources */,
 				4369C0F42BFFD14B0099BAFD /* HomeCollectionViewCell.swift in Sources */,

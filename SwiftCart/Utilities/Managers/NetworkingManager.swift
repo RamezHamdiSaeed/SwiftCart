@@ -10,8 +10,8 @@ import Foundation
 class NetworkingManager {
     
     func networkingRequest<T: Codable>(path: String, queryItems: [URLQueryItem]?, method: NetworkingMethods, requestBody: Codable?, networkResponse: @escaping (Result<T, NetworkError>) -> Void) {
-        let baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com/admin/api/2024-04"
-        
+        let baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com//admin/api/2024-04"
+        print(baseURL+path)
         var urlComponents = URLComponents(string: baseURL + path)!
         urlComponents.queryItems = queryItems
         
@@ -22,10 +22,14 @@ class NetworkingManager {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+       // request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         if let requestBody = requestBody {
             do {
+                
                 request.httpBody = try JSONEncoder().encode(requestBody)
+                let jsonString = String(data: request.httpBody!, encoding: .utf8)
+                print("Raw Body Data: \(jsonString ?? "Unable to convert data to string")")
             } catch {
                 networkResponse(.failure(error: .invalidData))
                 print("Error encoding request body: \(error.localizedDescription)")
@@ -43,18 +47,24 @@ class NetworkingManager {
 
             if let httpResponse = response as? HTTPURLResponse {
                 print("Response Status Code: \(httpResponse.statusCode)")
-            }
-
-            if let data = data {
-                do {
-                    let responseData = try JSONDecoder().decode(T.self, from: data)
-                    networkResponse(.success(data: responseData))
-                    print("Response Data: \(responseData)")
-                } catch {
-                    networkResponse(.failure(error: .inValidResponse))
-                    print("Error parsing JSON: \(error.localizedDescription)")
+                if httpResponse.statusCode == 200 {
+                    
+                    if let data = data {
+                        do {
+                            let jsonString = String(data: data, encoding: .utf8)
+                            print("Raw Response Data: \(jsonString ?? "Unable to convert data to string")")
+                            let responseData = try JSONDecoder().decode(T.self, from: data)
+                            networkResponse(.success(data: responseData))
+                            print("Response Data: \(responseData)")
+                        } catch {
+                            networkResponse(.failure(error: .inValidResponse))
+                            print("Error parsing JSON: \(error.localizedDescription)")
+                        }
+                    }
                 }
             }
+            
+
         }
 
         task.resume()

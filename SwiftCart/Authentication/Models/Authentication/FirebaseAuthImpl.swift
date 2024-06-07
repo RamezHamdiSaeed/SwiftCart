@@ -30,6 +30,7 @@ class FirebaseAuthImpl : FirebaseAuth{
             result, error in
             guard let error else {
                 self.successMessage!()
+                ShopifyAuthNetworkServiceImpl.createCustomer(customer: SignedUpCustomer(customer: SignedUpCustomerInfo(email: email,verifiedEmail: true,state: "enabled")))
                 return
                 
             }
@@ -43,7 +44,7 @@ class FirebaseAuthImpl : FirebaseAuth{
             result, error in
             guard let error else {
                 self.successMessage!()
-                AppCommon.user.email = email
+                ShopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email)
                 whenSuccess()
                 return}
             self.failMessage!()
@@ -58,6 +59,7 @@ class FirebaseAuthImpl : FirebaseAuth{
         }
         catch{
             
+            print("signOutError")
         }
     }
     
