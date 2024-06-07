@@ -9,28 +9,22 @@ import Foundation
 import RxSwift
 import RxCocoa
 class DetailsViewModel{
-    private let networkService: SearchNetworkService
-    private let disposeBag = DisposeBag()
+    private let detailsnetworkService: DetailsNetworkService
     
-    let searchText = BehaviorRelay<String>(value: "")
-    let priceRange = BehaviorRelay<ClosedRange<Double>>(value: 0...100)
+    var productDetails: ProductDetailsResponse?
     
-    let filteredProducts: Observable<[ProductTemp]>
+    var updateView : ()->() = {}
     
-    init(networkService: SearchNetworkService) {
-        self.networkService = networkService
-        
-        let allProducts = networkService.fetchProducts()
-        
-        filteredProducts = Observable.combineLatest(
-            allProducts,
-            searchText.asObservable(),
-            priceRange.asObservable()
-        ) { products, searchText, priceRange in
-            return products.filter { product in
-                product.name.lowercased().contains(searchText.lowercased()) &&
-                priceRange.contains(product.price)
-            }
-        }
+    init(detailsnetworkService: DetailsNetworkService) {
+                self.detailsnetworkService = detailsnetworkService
+
+    }
+    func getProductDetails(productID:String){
+        detailsnetworkService.fetchProductDetails(id: productID,productsDetailsResult: {productDetails in
+            
+            self.productDetails = productDetails
+            self.updateView()
+            
+        } )
     }
 }

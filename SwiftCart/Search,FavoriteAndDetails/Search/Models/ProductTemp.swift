@@ -7,9 +7,9 @@
 
 import Foundation
 struct ProductTemp: Codable {
-    let id: String
-    let name: String
-    let price: Double
+    var id: Int
+    var name: String
+    var price: String
     var isFavorite: Bool
     var image : String
 }

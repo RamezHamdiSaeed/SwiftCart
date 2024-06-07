@@ -10,29 +10,40 @@ import RxSwift
 
 class SearchNetworkService {
     
-    var products  : Observable<[ProductTemp]> = Observable.just([])
+    var products  : Observable<[ProductTemp]> = Observable.just([ProductTemp]())
     
-    func fetchProducts() -> Observable<[ProductTemp]> {
-            AppCommon.networkingManager.networkingRequest(
-                path: "/products.json",
-                queryItems: nil,
-                method: .GET,
-                requestBody: nil,
-                networkResponse: { (result: Result<ProductResponse, NetworkError>) in
-                    switch result {
-                    case .success(let productResponse):
-//                         products = productResponse.products
-                        print(productResponse.products)
-                    case .failure(let error):
-                        print("network fetch products error: \(error.localizedDescription)")
+    func fetchProducts(fetchedProducts: @escaping (Observable<[ProductTemp]>) -> Void) {
+        AppCommon.networkingManager.networkingRequest(
+            path: "/products.json",
+            queryItems: [URLQueryItem(name: "limit", value: "10")],
+            method: .GET,
+            requestBody: nil,
+            networkResponse: { (result: Result<SearchedProductsResponse, NetworkError>) in
+                switch result {
+                case .success(let searchedProductsResponse):
+                    //print(searchedProductsResponse.products ?? [])
+                    
+                    var fetchedProductsOverTheNetwork: [ProductTemp] = []
+                    
+                    if let products = searchedProductsResponse.products {
+                        for product in products {
+                            if let id = product.id,
+                               let title = product.title,
+                               let price = product.variants?.first?.price {
+                                let imageSrc = product.image?.src
+                                let productTemp = ProductTemp(id: id, name: title, price: price, isFavorite: false, image: imageSrc!)
+                                fetchedProductsOverTheNetwork.append(productTemp)
+                            }
+                        }
                     }
+                    
+                    fetchedProducts(Observable.just(fetchedProductsOverTheNetwork))
+                case .failure(let error):
+                    print("network fetch products error: \(error.localizedDescription)")
                 }
-            )
-        
-        return Observable.just([
-                   ProductTemp(id: "1", name: "Back Bag", price: 0.0, isFavorite: false,image: "https://cdn.shopify.com/s/files/1/0702/9630/5915/files/8072c8b5718306d4be25aac21836ce16.jpg?v=1716706068"),
-                   ProductTemp(id: "2", name: "Back Bag | Addidas", price: 2.0, isFavorite: true,image: "https://cdn.shopify.com/s/files/1/0702/9630/5915/files/8072c8b5718306d4be25aac21836ce16.jpg?v=1716706068")
-               ])
+            }
+        )
     }
+
 }
 
