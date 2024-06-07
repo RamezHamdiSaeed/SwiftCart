@@ -15,12 +15,15 @@ class HomeViewController: UIViewController {
     var homeViewModel = HomeViewModel()
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
+    let imageNames = ["mod7", "mod6", "mod1", "mod2", "mod3"]
+    
 
     @IBOutlet weak var AdsCollectionView: UICollectionView!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     
-    let imageNames = ["catimg", "catimg", "catimg", "catimg", "catimg"]
+    @IBOutlet var brandWordLabel: UIView!
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,23 +62,26 @@ class HomeViewController: UIViewController {
          stackView.alignment = .center
          stackView.distribution = .equalSpacing
          
-         let button1 = UIButton(type: .system)
+        let button1 = UIButton(type: .system)
         button1.setImage(UIImage(named: "searchIcons"), for: .normal)
-         button1.tintColor = .systemPink
-         button1.addTarget(self, action: #selector(icon1Tapped), for: .touchUpInside)
+        button1.tintColor = .systemPink
+        button1.addTarget(self, action: #selector(icon1Tapped), for: .touchUpInside)
         button1.widthAnchor.constraint(equalToConstant: 30).isActive = true
-       
-         let button2 = UIButton(type: .system)
-         button2.setImage(UIImage(named: "like"), for: .normal)
-         button2.tintColor = .systemPink
-         button2.addTarget(self, action: #selector(icon2Tapped), for: .touchUpInside)
-        button2.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button1.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-         let button3 = UIButton(type: .system)
-         button3.setImage(UIImage(named: "shoppingCart"), for: .normal)
+        let button2 = UIButton(type: .system)
+        button2.setImage(UIImage(named: "like"), for: .normal)
+        button2.tintColor = .systemPink
+        button2.addTarget(self, action: #selector(icon2Tapped), for: .touchUpInside)
+        button2.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button2.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        let button3 = UIButton(type: .system)
+        button3.setImage(UIImage(named: "shoppingCart"), for: .normal)
         button3.tintColor = .systemPink
-         button3.addTarget(self, action: #selector(icon3Tapped), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(icon3Tapped), for: .touchUpInside)
         button3.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button3.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
          stackView.addArrangedSubview(button1)
          stackView.addArrangedSubview(button2)
@@ -126,7 +132,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = cell else { return UICollectionViewCell() }
             
             // Cell data
-            cell.adsLabel.text = "Marwa"
+            cell.adsLabel.text = "50%"
             cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
              
             CollectionViewDesign.collectionViewCell(cell: cell)
