@@ -88,10 +88,9 @@ class ViewController: UIViewController {
     }
     
     func navigate(){
-        let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
-               let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
-        
-               navigationController?.pushViewController(home, animated: true)
+        let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        let mainAuthVC = authenticationStoryBoard.instantiateViewController(withIdentifier: "MainAuthViewController")
+        self.navigationController?.pushViewController(mainAuthVC, animated: true)
     }
 
 
