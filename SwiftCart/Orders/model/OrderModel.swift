@@ -487,12 +487,12 @@ struct CustomerForOrders: Codable {
     let adminGraphqlApiId: String?
 }
 
-struct EmailMarketingConsent: Codable {
-    let state: String?
-    let optInLevel: String?
-    let consentUpdatedAt: String?
-}
-
+//struct EmailMarketingConsent: Codable {
+//    let state: String?
+//    let optInLevel: String?
+//    let consentUpdatedAt: String?
+//}
+//
 struct LineItem: Codable {
     let id: Int?
     let adminGraphqlApiId: String?

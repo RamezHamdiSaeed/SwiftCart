@@ -140,7 +140,7 @@
 		1E2464B52C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFavoriteProductsViewModel.swift; sourceTree = "<group>"; };
 		1E2464B72C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
 		1E2464BF2C10B33400745CA8 /* AppCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
-		1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkService.swift; sourceTree = "<group>"; };
 		1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUpCustomerInfo.swift; sourceTree = "<group>"; };
 		1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCustomerInfo.swift; sourceTree = "<group>"; };
@@ -1065,7 +1065,7 @@
 				DA0B5F0A2C09E21400D02E9C /* Currency.swift in Sources */,
 				1E24649E2C109D9F00745CA8 /* SearchViewController.swift in Sources */,
 				1E2464A42C109DAB00745CA8 /* SearchNetworkService.swift in Sources */,
-				1E2464A42C109DAB00745CA8 /* NetworkService.swift in Sources */,
+				1E2464A42C109DAB00745CA8 /* SearchNetworkService.swift in Sources */,
 				4399B1B32C13CA8C004E6F67 /* OrdersViewModel.swift in Sources */,
 				1E2464B22C109EAC00745CA8 /* DetailsViewModel.swift in Sources */,
 				1E24648D2C109C0400745CA8 /* FeedbackManager.swift in Sources */,
