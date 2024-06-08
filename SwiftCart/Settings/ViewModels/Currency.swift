@@ -20,4 +20,6 @@ import Foundation
 struct Currency: Codable {
     let code: String
     let rate: Double
+    var usd : Float
+    var egp : Float
 }

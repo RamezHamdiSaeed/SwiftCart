@@ -11,6 +11,8 @@ pod 'SDWebImage'
 pod 'NVActivityIndicatorView'
 pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
+pod 'PayPalCheckout'
+
 
 
   target 'SwiftCartTests' do

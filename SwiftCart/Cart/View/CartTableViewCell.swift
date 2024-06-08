@@ -15,8 +15,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var itemImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
+        itemImg.layer.cornerRadius = itemImg.frame.size.width / 2
+        itemImg.clipsToBounds = true    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

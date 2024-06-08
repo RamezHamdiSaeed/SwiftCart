@@ -156,10 +156,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x1a-Gp-mmF">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x1a-Gp-mmF">
                                 <rect key="frame" x="52" y="187" width="287" height="433"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">We are team consits of three persons   Marwa ,Ramez , and Rwan , we hope this project seems good for you and thank you for your time</string>
+                                <string key="text">We are team consits of three persons   Marwa ,Ramez , and Rwan , we hope this project seems good for you our project is a m_commerce app that shows products ,categories , items and its details then you can pick an item to add it ti favourite or cart then you can check out and pay in cash or not then we take your info to compelete your address  thank you for your time</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
