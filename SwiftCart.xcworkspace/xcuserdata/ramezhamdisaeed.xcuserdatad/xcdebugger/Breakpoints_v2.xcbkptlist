@@ -7,17 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D0FC5F0-F4CE-4416-B4AF-E808872BC18E"
+            uuid = "ADF82053-E807-4AD3-9F5C-D8DED725B690"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftCart/Authentication/Models/Authentication/ShopifyAuthNetworkServiceImpl.swift"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Details/Views/DetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "selectColorSegControl(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E108E40-2D0B-45FC-84D9-F349036BCBE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Details/ViewModels/DetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "filterProductVarients()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6E108E40-2D0B-45FC-84D9-F349036BCBE5 - 2d02457d3240eeb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftCart.DetailsViewModel.filterProductVarients() -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Documents/GitHub/SwiftCart/SwiftCart/Search,FavoriteAndDetails/Details/ViewModels/DetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  uuid = "6E108E40-2D0B-45FC-84D9-F349036BCBE5 - eb8d24eb69df2a72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftCart.ProductDetailsVariant) -&gt; Swift.Bool in SwiftCart.DetailsViewModel.filterProductVarients() -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Documents/GitHub/SwiftCart/SwiftCart/Search,FavoriteAndDetails/Details/ViewModels/DetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

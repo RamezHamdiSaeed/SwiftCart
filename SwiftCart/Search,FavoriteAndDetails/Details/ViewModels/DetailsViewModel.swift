@@ -43,11 +43,11 @@ class DetailsViewModel{
                     
                 }
                 if(!selectedOptions[1].isEmpty){
-                   result = productVarient.option2 == selectedOptions[1]
+                   result =  result && productVarient.option2 == selectedOptions[1]
                     
                 }
                 if(!selectedOptions[2].isEmpty){
-                   result = productVarient.option3 == selectedOptions[2]
+                   result = result && productVarient.option3 == selectedOptions[2]
                     
                 }
                 return result
