@@ -12,7 +12,8 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var productImage: UIImageView!
     
-    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var productTitle: UITextView!
+    
     @IBOutlet weak var productRatings: UILabel!
     
     @IBOutlet weak var productPrice: UILabel!
@@ -22,6 +23,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var productColors: UISegmentedControl!
     
     @IBOutlet weak var productDetails: UITextView!
+    @IBOutlet weak var addToCartBtn: UIButton!
     var productID : String = "8624930816251"
     var detailsViewModel : DetailsViewModel!
     
@@ -34,13 +36,31 @@ class DetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        addToCartBtn.isEnabled = false
         detailsViewModel = DetailsViewModel(detailsnetworkService: DetailsNetworkService())
         detailsViewModel.updateView = { [self] in
             
 
             DispatchQueue.main.async { [self] in
-                productImage.sd_setImage(with: URL(string: (detailsViewModel.productDetails?.product?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
-                self.productDetails.text = detailsViewModel.productDetails?.product?.bodyHtml
+                let currentProduct = detailsViewModel.productDetails?.product
+                self.productImage.sd_setImage(with: URL(string: (currentProduct?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
+                self.productTitle.text = currentProduct?.title
+                self.productDetails.text = currentProduct?.bodyHtml
+                self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
+                
+                // setup segment control of sizes
+                self.productSizes.removeAllSegments()
+                let sizes = currentProduct?.options![0].values
+                for i in 0 ..< sizes!.count{
+                    self.productSizes.insertSegment(withTitle: sizes![i], at: i, animated: true)
+                }
+                
+                // setup segment control of colors
+                self.productColors.removeAllSegments()
+                let colors = currentProduct?.options![1].values
+                for i in 0 ..< colors!.count{
+                    self.productColors.insertSegment(withTitle: colors![i], at: i, animated: true)
+                }
 
             }
         }
@@ -48,9 +68,20 @@ class DetailsViewController: UIViewController {
     }
 
     @IBAction func selectSizeSegControl(_ sender: Any) {
+        let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
+        let selectedSegmentTitle = (sender as AnyObject).titleForSegment(at: selectedSegmentIndex)
+        detailsViewModel.selectedOptions[0] = selectedSegmentTitle ?? ""
+        detailsViewModel.filterProductVarients()
+        addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
     }
     @IBAction func selectColorSegControl(_ sender: Any) {
+        let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
+        let selectedSegmentTitle = (sender as AnyObject).titleForSegment(at: selectedSegmentIndex)
+        detailsViewModel.selectedOptions[1] = selectedSegmentTitle ?? ""
+        detailsViewModel.filterProductVarients()
+        addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
     }
     @IBAction func addToCartBtn(_ sender: Any) {
+        print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
     }
 }
