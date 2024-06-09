@@ -91,7 +91,7 @@ class DetailsViewController: UIViewController {
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
     }
     func updateView(title:String,price:String){
-        self.productTitle.text = title
-        self.productPrice.text = price
+        self.productTitle.text = title + " $"
+        self.productPrice.text = price + " $"
     }
 }

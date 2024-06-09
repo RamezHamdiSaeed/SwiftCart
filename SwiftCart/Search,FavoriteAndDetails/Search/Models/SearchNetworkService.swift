@@ -12,32 +12,32 @@ class SearchNetworkService {
     
     var products  : Observable<[ProductTemp]> = Observable.just([ProductTemp]())
     
-    func fetchProducts(fetchedProducts: @escaping (Observable<[ProductTemp]>) -> Void) {
+    func fetchProducts(fetchedProducts: @escaping ([ProductTemp]) -> Void) {
         AppCommon.networkingManager.networkingRequest(
             path: "/products.json",
-            queryItems: [URLQueryItem(name: "limit", value: "10")],
+            queryItems: nil,
             method: .GET,
             requestBody: nil,
             networkResponse: { (result: Result<SearchedProductsResponse, NetworkError>) in
                 switch result {
                 case .success(let searchedProductsResponse):
-                    //print(searchedProductsResponse.products ?? [])
+                    print("search products count \(String(describing: searchedProductsResponse.products?.count))")
                     
                     var fetchedProductsOverTheNetwork: [ProductTemp] = []
                     
                     if let products = searchedProductsResponse.products {
                         for product in products {
-                            if let id = product.id,
-                               let title = product.title,
-                               let price = product.variants?.first?.price {
+                             let id = product.id
+                               let title = product.title
+                               let price = product.variants?.first?.price
                                 let imageSrc = product.image?.src
-                                let productTemp = ProductTemp(id: id, name: title, price: price, isFavorite: false, image: imageSrc!)
+                            let productTemp = ProductTemp(id: id!, name: title!, price: price!, isFavorite: false, image: imageSrc!)
                                 fetchedProductsOverTheNetwork.append(productTemp)
-                            }
+                            
                         }
                     }
                     
-                    fetchedProducts(Observable.just(fetchedProductsOverTheNetwork))
+                    fetchedProducts(fetchedProductsOverTheNetwork)
                 case .failure(let error):
                     print("network fetch products error: \(error.localizedDescription)")
                 }

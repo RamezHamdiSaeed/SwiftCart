@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
     var searchController: UISearchController!
 
+    @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var priceSlider: UISlider!
     
@@ -28,18 +29,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupSearchController()
-//        setupCollectionView()
-//        setupBindings()
+        setupSearchController()
+        setupCollectionView()
+        setupBindings()
 
 
 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
-        let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "DetailsViewController"))
-        self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
    
@@ -60,7 +58,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                 layout.minimumLineSpacing = 10
                 
                 let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 1.5)
+                layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 2)
                 layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
                 layout.invalidateLayout()
 
@@ -75,18 +73,27 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
             .map { Double(0.0)...Double($0) }
                .bind(to: viewModel.priceRange)
                .disposed(by: disposeBag)
+        
+        priceSlider.rx.value
+            .map { String(format: "%.2f", $0) }
+            .bind(to: priceLabel.rx.text)
+            .disposed(by: disposeBag)
            
+               
         viewModel.filteredProducts
             .bind(to: productsCollectionView.rx.items(cellIdentifier: "CollectionViewCell", cellType: CollectionViewCell.self)) { row, product, cell in
                 cell.configure(with: product)
             }
             .disposed(by: disposeBag)
         
-//           productsCollectionView.rx.modelSelected(Product.self)
-//               .subscribe(onNext: { [weak self] product in
-//                   self?.viewModel.toggleFavorite(for: product)
-//               })
-//               .disposed(by: disposeBag)
+           productsCollectionView.rx.modelSelected(ProductTemp.self)
+               .subscribe(onNext: { [weak self] product in
+                           let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+                   let detailsViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "DetailsViewController")) as! DetailsViewController
+                   detailsViewController.productID = String(product.id)
+                   self?.navigationController?.pushViewController(detailsViewController, animated: true)
+               })
+               .disposed(by: disposeBag)
        }
 
 }
