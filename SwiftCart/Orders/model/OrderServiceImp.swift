@@ -6,13 +6,18 @@
 //
 
 import Foundation
+
+//https://mad-ios-ism-2.myshopify.com//admin/api/2024-04/customers/7495574716667/orders.json
+
+//https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com/admin/api/2024-04/orders.json?status=any
+
 protocol OrdersService{
-    static func fetchOrders (completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void)
+    static func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void)
     
 }
 class OrdersServiceImp : OrdersService{
-    static func fetchOrders (completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void){
-       let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/customers/7421196239083/orders.json"
+    static func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void){
+       let urlStr = "https://mad-ios-ism-2.myshopify.com//admin/api/2024-04/customers/\(customerId)/orders.json"
         
         let url = URL(string: urlStr)
         var request = URLRequest(url: url!)
@@ -28,7 +33,7 @@ class OrdersServiceImp : OrdersService{
             guard let data = data else {
                 completion(.failure(error: error!))
                 
-                   print("fetchOrders error data")
+                   print("fetchOrderss error data")
                 return
             }
             do {
@@ -38,9 +43,10 @@ class OrdersServiceImp : OrdersService{
                 let brands = try json.decode(OrdersResponse.self,from: data)
               
                 completion(.success(data: brands))
+                print("fetchOrderss  : ")
                }catch let error as Error{
                    completion(.failure(error: error))
-                   print("fetchBrands error catch : ",error )
+                   print("fetchOrderss error catch : ",error )
             }
         }
         task.resume()

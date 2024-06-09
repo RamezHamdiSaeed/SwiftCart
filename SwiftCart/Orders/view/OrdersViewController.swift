@@ -44,19 +44,26 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         
         // Configure Cell
         let order = orders[indexPath.item]
-        /*
+        
         cell.orderDateLabel.text = order.createdAt
         cell.orderPhoneLabel.text = order.phone
         cell.orderNumberLabel.text = "\(indexPath.item)"
         cell.orderPriceLabel.text = order.totalPrice
-        cell.orderSippedLabel.text = order.shippingAddress
-         */
+        cell.orderSippedLabel.text = order.shippingAddress?.address1
+         
 
 
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200 }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let orderDetails = storyboard?.instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController
+        orderDetails?.order = orders[indexPath.item]
+        navigationController?.pushViewController(orderDetails!, animated: true)
+    }
 }
 
 
