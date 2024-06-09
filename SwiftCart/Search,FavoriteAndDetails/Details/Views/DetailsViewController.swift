@@ -45,8 +45,8 @@ class DetailsViewController: UIViewController {
                 let currentProduct = detailsViewModel.productDetails?.product
                 self.productImage.sd_setImage(with: URL(string: (currentProduct?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
                 self.productTitle.text = currentProduct?.title
-                self.productDetails.text = currentProduct?.bodyHtml
                 self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
+                self.productDetails.text = currentProduct?.bodyHtml
                 
                 // setup segment control of sizes
                 self.productSizes.removeAllSegments()
@@ -73,6 +73,9 @@ class DetailsViewController: UIViewController {
         detailsViewModel.selectedOptions[0] = selectedSegmentTitle ?? ""
         detailsViewModel.filterProductVarients()
         addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
+        if addToCartBtn.isEnabled {
+            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price: (detailsViewModel.selectedProductVarient?.price)!)
+        }
     }
     @IBAction func selectColorSegControl(_ sender: Any) {
         let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
@@ -80,8 +83,15 @@ class DetailsViewController: UIViewController {
         detailsViewModel.selectedOptions[1] = selectedSegmentTitle ?? ""
         detailsViewModel.filterProductVarients()
         addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
+        if addToCartBtn.isEnabled {
+            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price: (detailsViewModel.selectedProductVarient?.price)!!)
+        }
     }
     @IBAction func addToCartBtn(_ sender: Any) {
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
+    }
+    func updateView(title:String,price:String){
+        self.productTitle.text = title
+        self.productPrice.text = price
     }
 }
