@@ -5,7 +5,7 @@
 //  Created by marwa on 24/05/2024.
 //
 
-//"https://mad44-ism-ios1.myshopify.com/admin/api/2024-04/smart_collections.json?since_id=484442439955&access_token=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"
+
 
 import Foundation
 protocol BrandService{
