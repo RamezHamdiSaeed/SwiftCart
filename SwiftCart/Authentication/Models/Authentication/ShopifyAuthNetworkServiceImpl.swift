@@ -19,7 +19,7 @@ class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
         })
     }
     
-   static func getLoggedInCustomerByEmail(email: String){
+   static func getLoggedInCustomerByEmail(email: String,whenSuccess:@escaping()->()){
         AppCommon.networkingManager.networkingRequest(path: "/customers/search.json", queryItems: [URLQueryItem(name: "query", value: email)], method: .GET, requestBody: nil, networkResponse: { (result: Result<LoggedInCustomers, NetworkError>) in
             switch result {
             case .success(let LoggedInCustomersInfoResponse):
@@ -28,6 +28,7 @@ class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
                 print("User id : \(User.id)")
                 print("User email : \(User.email)")
                 print("this userdata is fetched successfully from shopifyDB successfully \(LoggedInCustomersInfoResponse.customers![0].email)")
+                whenSuccess()
             case .failure(let error):
                 print("network post Customer error: \(error.localizedDescription)")
             }

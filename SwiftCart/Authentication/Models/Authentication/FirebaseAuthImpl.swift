@@ -44,8 +44,9 @@ class FirebaseAuthImpl : FirebaseAuth{
             result, error in
             guard let error else {
                 self.successMessage!()
-                ShopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email)
+                ShopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email){
                 whenSuccess()
+                }
                 return}
             self.failMessage!()
             print(error.localizedDescription)

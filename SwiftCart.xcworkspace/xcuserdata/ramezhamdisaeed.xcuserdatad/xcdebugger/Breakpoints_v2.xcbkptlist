@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            landmarkName = "getLoggedInCustomerByEmail(email:whenSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            landmarkName = "getLoggedInCustomerByEmail(email:whenSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            landmarkName = "getLoggedInCustomerByEmail(email:whenSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            landmarkName = "getLoggedInCustomerByEmail(email:whenSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,7 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "getLoggedInCustomerByEmail(email:)"
+            landmarkName = "getLoggedInCustomerByEmail(email:whenSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
