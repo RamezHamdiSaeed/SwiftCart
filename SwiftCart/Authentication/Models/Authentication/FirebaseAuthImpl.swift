@@ -7,7 +7,6 @@
 
 import Foundation
 import Firebase
-
 class FirebaseAuthImpl : FirebaseAuth{
     
     static let user = FirebaseAuthImpl()
