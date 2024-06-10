@@ -1,6 +1,7 @@
+import Foundation
 
-struct User{
-    var email : String?
-    var id : Double?
-    var Address : String?
+class User{
+    static var email : String?
+    static var id : Double?
+    static var Address : String?
 }

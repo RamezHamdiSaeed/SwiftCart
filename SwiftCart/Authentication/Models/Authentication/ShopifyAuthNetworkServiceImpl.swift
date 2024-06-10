@@ -23,9 +23,10 @@ class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
         AppCommon.networkingManager.networkingRequest(path: "/customers/search.json", queryItems: [URLQueryItem(name: "query", value: email)], method: .GET, requestBody: nil, networkResponse: { (result: Result<LoggedInCustomers, NetworkError>) in
             switch result {
             case .success(let LoggedInCustomersInfoResponse):
-                AppCommon.user.email = LoggedInCustomersInfoResponse.customers![0].email
-                AppCommon.user.id = LoggedInCustomersInfoResponse.customers![0].id
-                
+                User.email = LoggedInCustomersInfoResponse.customers![0].email
+                User.id = LoggedInCustomersInfoResponse.customers![0].id
+                print("User id : \(User.id)")
+                print("User email : \(User.email)")
                 print("this userdata is fetched successfully from shopifyDB successfully \(LoggedInCustomersInfoResponse.customers![0].email)")
             case .failure(let error):
                 print("network post Customer error: \(error.localizedDescription)")

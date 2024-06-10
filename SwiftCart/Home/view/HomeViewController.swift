@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
                 print("", self?.brandsArray[0].title)
                 self?.brandsCollectionView.reloadData()
             }
+                print("User id Home: \(User.id)")
         }
         homeViewModel.getBrands()
         
