@@ -9,7 +9,7 @@ import Foundation
 
 class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
     static func createCustomer(customer: SignedUpCustomer) {
-        AppCommon.networkingManager.networkingRequest(path: "/customers.json", queryItems: nil, method: .POST, requestBody: customer, networkResponse: { (result: Result<SignedUpCustomerResponse, NetworkError>) in
+        AppCommon.networkingManager.networkingRequest(path: "/customers.json", queryItems: nil, method: .POST, requestBody: customer,completeBaseURL: "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04",networkResponse: { (result: Result<SignedUpCustomerResponse, NetworkError>) in
             switch result {
             case .success(let loggedInCustomerInfoResponse):
                 print("this user is created at shopifyDB successfully \(loggedInCustomerInfoResponse.customer?.email)")

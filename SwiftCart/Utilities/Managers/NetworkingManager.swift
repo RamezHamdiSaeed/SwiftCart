@@ -9,8 +9,13 @@ import Foundation
 
 class NetworkingManager {
     
-    func networkingRequest<T: Codable>(path: String, queryItems: [URLQueryItem]?, method: NetworkingMethods, requestBody: Codable?, networkResponse: @escaping (Result<T, NetworkError>) -> Void) {
-        let baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com//admin/api/2024-04"
+    func networkingRequest<T: Codable>(path: String, queryItems: [URLQueryItem]?, method: NetworkingMethods, requestBody: Codable?, completeBaseURL:String? = nil , networkResponse: @escaping (Result<T, NetworkError>) -> Void) {
+        var baseURL = ""
+        if  let completeBaseURL = completeBaseURL {
+            baseURL = completeBaseURL
+        } else{
+            baseURL = "https://\(NetworkingKeys.accessTocken.rawValue):\(NetworkingKeys.adminKey.rawValue)@\(NetworkingKeys.shop.rawValue).myshopify.com//admin/api/2024-04"
+        }
         print(baseURL+path)
         var urlComponents = URLComponents(string: baseURL + path)!
         urlComponents.queryItems = queryItems
@@ -22,8 +27,10 @@ class NetworkingManager {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-       // request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if method == .POST {
+            request.addValue(NetworkingKeys.adminKey.rawValue, forHTTPHeaderField: "X-Shopify-Access-Token")
+        }
         if let requestBody = requestBody {
             do {
                 
