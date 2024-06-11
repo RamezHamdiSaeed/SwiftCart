@@ -9,7 +9,7 @@ import Foundation
 struct ProductTemp: Codable {
     var id: Int
     var name: String
-    var price: String
+    var price: Double
     var isFavorite: Bool
     var image : String
 }

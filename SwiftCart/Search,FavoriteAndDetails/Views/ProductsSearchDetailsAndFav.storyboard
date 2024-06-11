@@ -62,12 +62,15 @@
                                                         <color key="baseForegroundColor" name="UIButtonsAndText"/>
                                                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="favoriteToggleBtn:" destination="mIE-gE-A4g" eventType="touchUpInside" id="dtK-JM-0eU"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oIN-Jm-1vw">
                                                     <rect key="frame" x="8" y="8" width="151" height="142"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLX-IH-CyI">
-                                                    <rect key="frame" x="8" y="158" width="57.666666666666657" height="28.666666666666657"/>
+                                                    <rect key="frame" x="7.9999999999999964" y="158" width="57.666666666666657" height="28.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -374,7 +377,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-rj-iHd">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="0.0" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ABG-rj-iHd">
                                 <rect key="frame" x="11" y="206" width="365" height="31"/>
                                 <color key="minimumTrackTintColor" name="UIButtonsAndText"/>
                                 <color key="maximumTrackTintColor" name="HintTextAndIcon"/>
@@ -418,6 +421,9 @@
                                                         <color key="baseForegroundColor" name="UIButtonsAndText"/>
                                                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="favoriteToggleBtn:" destination="CcR-WO-Pdf" eventType="touchUpInside" id="uqd-FE-UJv"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MP7-lS-Jzg">
                                                     <rect key="frame" x="8" y="8" width="151" height="122"/>
@@ -455,6 +461,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="500.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8d-CG-9hR">
+                                <rect key="frame" x="68" y="176" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S0G-pZ-fsP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -471,8 +484,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="rjN-FX-MIh"/>
                     <connections>
-                        <outlet property="priceSlider" destination="ABG-rj-iHd" id="Bes-yi-cWm"/>
-                        <outlet property="productsCollectionView" destination="tpS-Gw-Yvp" id="Fhf-FB-RKV"/>
+                        <outlet property="priceLabel" destination="C8d-CG-9hR" id="t1f-lc-Ebx"/>
+                        <outlet property="priceSlider" destination="ABG-rj-iHd" id="5KX-ed-Ogt"/>
+                        <outlet property="productsCollectionView" destination="tpS-Gw-Yvp" id="F7J-VU-bGV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qO-Tm-VgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

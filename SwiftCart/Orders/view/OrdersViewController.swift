@@ -12,7 +12,6 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
     var ordersViewModel : OrdersViewModel!
     
     @IBOutlet weak var ordersTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ordersTableView.delegate = self
