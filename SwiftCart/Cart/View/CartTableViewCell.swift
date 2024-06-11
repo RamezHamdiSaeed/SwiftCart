@@ -20,8 +20,10 @@ class CartTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        stepprButton.addTarget(<#T##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
 
-        // Configure the view for the selected state
+
     }
+    
     
 }
