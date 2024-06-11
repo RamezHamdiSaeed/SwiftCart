@@ -99,6 +99,10 @@
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
 		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
 		DAE2A6772C18443300F80C5E /* CartTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */; };
+		DAE2A67B2C18C89C00F80C5E /* AdressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6792C18C89C00F80C5E /* AdressesViewController.swift */; };
+		DAE2A67C2C18C89C00F80C5E /* AdressesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A67A2C18C89C00F80C5E /* AdressesViewController.xib */; };
+		DAE2A67F2C18C8D600F80C5E /* AdressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A67D2C18C8D600F80C5E /* AdressTableViewCell.swift */; };
+		DAE2A6802C18C8D600F80C5E /* AdressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */; };
 		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
 		DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */; };
@@ -222,6 +226,10 @@
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
 		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableCellDelegate.swift; sourceTree = "<group>"; };
+		DAE2A6792C18C89C00F80C5E /* AdressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesViewController.swift; sourceTree = "<group>"; };
+		DAE2A67A2C18C89C00F80C5E /* AdressesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesViewController.xib; sourceTree = "<group>"; };
+		DAE2A67D2C18C8D600F80C5E /* AdressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressTableViewCell.swift; sourceTree = "<group>"; };
+		DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressTableViewCell.xib; sourceTree = "<group>"; };
 		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Adresses.swift; path = SwiftCart/Settings/ViewModels/Adresses.swift; sourceTree = SOURCE_ROOT; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesTableViewController.swift; sourceTree = "<group>"; };
@@ -488,6 +496,7 @@
 		1ED98EA12BFF882100948409 /* SwiftCart */ = {
 			isa = PBXGroup;
 			children = (
+				DAE2A6782C18C84C00F80C5E /* Addresses */,
 				1E8EB8AA2C175B11009CF99F /* ProductsDB */,
 				4399B1A42C139A46004E6F67 /* Orders */,
 				43E5D78E2C131D6900F2D8AB /* MeScreen */,
@@ -813,6 +822,17 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DAE2A6782C18C84C00F80C5E /* Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				DAE2A6792C18C89C00F80C5E /* AdressesViewController.swift */,
+				DAE2A67A2C18C89C00F80C5E /* AdressesViewController.xib */,
+				DAE2A67D2C18C8D600F80C5E /* AdressTableViewCell.swift */,
+				DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */,
+			);
+			path = Addresses;
+			sourceTree = "<group>";
+		};
 		DAFDD36A2C03276A00A842A4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,8 +954,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA79E2152C0EF944006A9DAB /* CartTableViewCell.xib in Resources */,
+				DAE2A6802C18C8D600F80C5E /* AdressTableViewCell.xib in Resources */,
 				DA79E2112C0EF8C2006A9DAB /* CartViewController.xib in Resources */,
 				DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */,
+				DAE2A67C2C18C89C00F80C5E /* AdressesViewController.xib in Resources */,
 				1E24647A2C1099BE00745CA8 /* Authentication.storyboard in Resources */,
 				1ED98EB22BFF882300948409 /* LaunchScreen.storyboard in Resources */,
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
@@ -1080,6 +1102,7 @@
 				1E2464842C109B9D00745CA8 /* AuthViewModelImpl.swift in Sources */,
 				1E2464802C1099DD00745CA8 /* MainAuthViewController.swift in Sources */,
 				43AC2B492C077F7B007A674E /* CategoriesModel.swift in Sources */,
+				DAE2A67B2C18C89C00F80C5E /* AdressesViewController.swift in Sources */,
 				DA79E2092C0E8E81006A9DAB /* Reload.swift in Sources */,
 				43F01F662C0C8426008CAD0D /* AddsCollectionViewCell.swift in Sources */,
 				43E5D7912C131DC100F2D8AB /* MeViewController.swift in Sources */,
@@ -1098,6 +1121,7 @@
 				43AC2B4B2C077F98007A674E /* CategoriesServicesImp.swift in Sources */,
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
 				43AC2B472C077F48007A674E /* CategoriesViewModel.swift in Sources */,
+				DAE2A67F2C18C8D600F80C5E /* AdressTableViewCell.swift in Sources */,
 				4380A4F12C02A3960035CF76 /* ProductsViewModel.swift in Sources */,
 				4380A4F32C02A3BE0035CF76 /* BrandDetailsViewController.swift in Sources */,
 				1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */,

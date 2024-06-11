@@ -109,8 +109,8 @@ class DetailsViewController: UIViewController {
                     return
                 }
                 
-        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1) // Assuming quantity is 1
-        CartViewModel.shared.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
+        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
+                cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)        
 
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
     }

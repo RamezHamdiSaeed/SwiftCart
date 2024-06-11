@@ -45,9 +45,11 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func navigateToAdresses(_ sender: Any) {
-        if let adressesViewController = (storyboard?.instantiateViewController(withIdentifier: "AdressesTableViewController")) as? AdressesTableViewController {
-            self.navigationController?.pushViewController(adressesViewController, animated: true)
-        }
+//        if let adressesViewController = (storyboard?.instantiateViewController(withIdentifier: "AdressesViewController")) as? AdressesViewController {
+//            self.navigationController?.pushViewController(adressesViewController, animated: true)
+            let addresses = AdressesViewController()
+                   self.navigationController?.pushViewController(addresses, animated: true)
+       // }
     }
     
     @IBAction func navigateToAboutUs(_ sender: Any) {

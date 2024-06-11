@@ -19,9 +19,9 @@ class AdressesTableViewController: UITableViewController, ReloadProtocol {
         setHeader()
         reload()
         
-        viewModel.onLocationsFetched = { [weak self] in
-            self?.renderToView()
-        }
+//        viewModel.onLocationsFetched = { [weak self] in
+//            self?.renderToView()
+//        }
         
         viewModel.loadLocations(customerId: customerId)
     }

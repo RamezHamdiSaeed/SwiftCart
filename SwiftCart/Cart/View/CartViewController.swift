@@ -119,7 +119,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let indexPath = cartTable.indexPath(for: cell) else { return }
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row], let draftOrderID = draftOrder.id {
-            let lineItemRequest = LineItemRequest(variantID: lineItem.variantID ?? 0, quantity: quantity)
+            let lineItemRequest = LineItemRequest(variantID: lineItem.variantID ?? 0, quantity: quantity,imageUrl: lineItem.productImage ?? "")
             cartViewModel.updateOrder(customerID: customerId ?? 0, draftOrderID: draftOrderID, lineItem: lineItemRequest) { [weak self] success in
                 if success {
                     DispatchQueue.main.async {

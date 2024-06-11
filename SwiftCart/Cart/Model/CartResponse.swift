@@ -202,10 +202,14 @@ struct DraftOrderRequestBody: Encodable {
 struct LineItemRequest: Encodable {
     let variantID: Int
     let quantity: Int
+    let imageUrl: String?
+
     
     enum CodingKeys: String, CodingKey {
         case variantID = "variant_id"
         case quantity
+        case imageUrl
+
     }
 }
 

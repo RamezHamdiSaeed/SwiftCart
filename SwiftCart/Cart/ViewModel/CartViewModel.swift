@@ -14,7 +14,6 @@ class CartViewModel {
             bindResultToViewController?()
         }
     }
-    static let shared = CartViewModel()
        
     var bindResultToViewController: (() -> Void)?
     
@@ -75,8 +74,8 @@ class CartViewModel {
     }
     
     //static method for testing
-      func addStaticProductToCart(customerId: Int) {
-          let staticLineItem = LineItemRequest(variantID: 46036215628027, quantity: 1)
-          addToCart(customerId: customerId, lineItem: staticLineItem)
-      }
+//      func addStaticProductToCart(customerId: Int) {
+//          let staticLineItem = LineItemRequest(variantID: 46036215628027, quantity: 1)
+//          addToCart(customerId: customerId, lineItem: staticLineItem)
+//      }
 }
