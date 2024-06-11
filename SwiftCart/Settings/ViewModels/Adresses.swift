@@ -12,14 +12,14 @@ struct Address: Decodable {
     var address2: String?
 }
 
-struct Customer: Decodable {
+struct Customr: Decodable {
     var verified_email: Bool?
     var first_name: String?
     var addresses: [Address]?
 }
 
 struct CustomerResponse: Decodable {
-    var customer: Customer?
+    var customer: Customr?
 }
 
 struct AddressData: Decodable {

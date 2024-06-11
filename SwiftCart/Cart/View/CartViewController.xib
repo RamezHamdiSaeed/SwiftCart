@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="cartTable" destination="F2n-DQ-a98" id="6HO-Ie-ffk"/>
                 <outlet property="goToPayment" destination="Q8r-iH-G5d" id="5JF-qJ-B6y"/>
+                <outlet property="totalPrice" destination="gb2-dl-el1" id="RR0-DE-QMC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

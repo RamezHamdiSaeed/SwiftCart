@@ -8,14 +8,15 @@ target 'SwiftCart' do
   # Pods for SwiftCart
 
 pod 'SDWebImage'
-pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
-pod 'ReachabilitySwift'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'FirebaseUI'
+pod 'FirebaseCore'
+pod 'FirebaseUI/Auth'
 
 
   target 'SwiftCartTests' do

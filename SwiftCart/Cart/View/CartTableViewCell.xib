@@ -38,14 +38,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9h-kc-K7a">
+                        <rect key="frame" x="7" y="83" width="37" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="itemImg" destination="ouj-hH-1w7" id="eDB-In-GMC"/>
-                <outlet property="itemName" destination="wjl-FZ-qEG" id="Jtz-Hc-Ufu"/>
-                <outlet property="itemPrice" destination="YrU-tw-eJ9" id="c19-lR-c95"/>
-                <outlet property="stepprButton" destination="7zQ-m7-9HS" id="HtM-PS-q9b"/>
+                <outlet property="itemImg" destination="ouj-hH-1w7" id="NfO-V1-3ay"/>
+                <outlet property="itemName" destination="wjl-FZ-qEG" id="BPI-6Z-geo"/>
+                <outlet property="itemPrice" destination="YrU-tw-eJ9" id="WSJ-O0-gi1"/>
+                <outlet property="quantity" destination="w9h-kc-K7a" id="ffr-nH-Dde"/>
+                <outlet property="stepprButton" destination="7zQ-m7-9HS" id="OXy-lk-JYc"/>
             </connections>
             <point key="canvasLocation" x="162.30769230769229" y="-11.018957345971563"/>
         </tableViewCell>
