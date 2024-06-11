@@ -26,6 +26,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var addToCartBtn: UIButton!
     var productID : String = "8624930816251"
     var detailsViewModel : DetailsViewModel!
+    var customerID = User.id
+    var productimgUrl = ""
+    let cartViewModel = CartViewModel()
+
     
     
     
@@ -44,6 +48,8 @@ class DetailsViewController: UIViewController {
             DispatchQueue.main.async { [self] in
                 let currentProduct = detailsViewModel.productDetails?.product
                 self.productImage.sd_setImage(with: URL(string: (currentProduct?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
+                self.productimgUrl =  currentProduct?.image?.src ?? "catImage"
+
                 self.productTitle.text = currentProduct?.title
                 self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
                 self.productDetails.text = currentProduct?.bodyHtml
@@ -88,6 +94,24 @@ class DetailsViewController: UIViewController {
         }
     }
     @IBAction func addToCartBtn(_ sender: Any) {
+        guard let selectedVariant = detailsViewModel.selectedProductVarient else {
+                print("No variant selected")
+                return
+            }
+            
+            let variantID = selectedVariant.id
+            
+            
+            print("The selected product variant added to cart: \(variantID)")
+            
+        guard let selectedVariant = detailsViewModel.selectedProductVarient else {
+                    print("No variant selected")
+                    return
+                }
+                
+        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1) // Assuming quantity is 1
+        CartViewModel.shared.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
+
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
     }
     func updateView(title:String,price:String){

@@ -12,7 +12,7 @@ struct ProductDetailsResponse: Codable {
 }
 
 struct ProductDetails: Codable {
-    let id: Int64?
+    let id: Int?
     let title: String?
     let bodyHtml: String?
     let vendor: String?
@@ -54,7 +54,7 @@ struct ProductDetails: Codable {
 }
 
 struct ProductDetailsVariant: Codable {
-    let id: Int64?
+    let id: Int?
     let productId: Int64?
     let title: String?
     let price: String?
@@ -128,7 +128,7 @@ struct ProductDetailsOption: Codable {
 }
 
 struct ProductDetailsImage: Codable {
-    let id: Int64?
+    let id: Int?
     let alt: String?
     let position: Int?
     let productId: Int64?

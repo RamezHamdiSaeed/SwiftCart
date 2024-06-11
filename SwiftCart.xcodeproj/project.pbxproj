@@ -93,6 +93,8 @@
 		DA79E2152C0EF944006A9DAB /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA79E2132C0EF944006A9DAB /* CartTableViewCell.xib */; };
 		DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6702C18413000F80C5E /* CartResponse.swift */; };
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
+		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
+		DAE2A6772C18443300F80C5E /* CartTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */; };
 		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
 		DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */; };
@@ -210,6 +212,8 @@
 		DA79E2132C0EF944006A9DAB /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		DAE2A6702C18413000F80C5E /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
+		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableCellDelegate.swift; sourceTree = "<group>"; };
 		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Adresses.swift; path = SwiftCart/Settings/ViewModels/Adresses.swift; sourceTree = SOURCE_ROOT; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesTableViewController.swift; sourceTree = "<group>"; };
@@ -748,6 +752,7 @@
 				DAE2A66C2C17F88400F80C5E /* ViewModel */,
 				DAE2A66B2C17F87500F80C5E /* Model */,
 				DA79E20D2C0EF899006A9DAB /* View */,
+				DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -775,6 +780,7 @@
 		DAE2A66C2C17F88400F80C5E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DAE2A6742C18441100F80C5E /* CartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1065,6 +1071,7 @@
 				43AC2B472C077F48007A674E /* CategoriesViewModel.swift in Sources */,
 				4380A4F12C02A3960035CF76 /* ProductsViewModel.swift in Sources */,
 				4380A4F32C02A3BE0035CF76 /* BrandDetailsViewController.swift in Sources */,
+				DAE2A6772C18443300F80C5E /* CartTableCellDelegate.swift in Sources */,
 				1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */,
 				1E2464782C1098C000745CA8 /* User.swift in Sources */,
 				1E2464882C109BF000745CA8 /* InputValidator.swift in Sources */,
@@ -1096,6 +1103,7 @@
 				1E24649E2C109D9F00745CA8 /* SearchViewController.swift in Sources */,
 				43BCF4982C147BD100883711 /* OrderDetailsViewController.swift in Sources */,
 				1E2464A42C109DAB00745CA8 /* SearchNetworkService.swift in Sources */,
+				DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */,
 				1E2464A42C109DAB00745CA8 /* SearchNetworkService.swift in Sources */,
 				4385B28E2C14A2A60056B4D3 /* OrderDetailTableViewCell.swift in Sources */,
 				4399B1B32C13CA8C004E6F67 /* OrdersViewModel.swift in Sources */,

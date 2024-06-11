@@ -39,7 +39,7 @@ class AddressesNetwork {
                 }
                 
                 let decoder = JSONDecoder()
-                let response = try decoder.decode(Customer.self, from: data)
+                let response = try decoder.decode(Customr.self, from: data)
                 completion(response.addresses)
             } catch {
                 print("Error parsing addresses: \(error.localizedDescription)")

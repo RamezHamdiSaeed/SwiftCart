@@ -24,7 +24,7 @@ struct EmailMarketingConsent: Codable {
 
 // MARK: - Customer
 struct LoggedInCustomerInfo: Codable {
-    let id: Double?
+    let id: Int?
     let email: String?
     let createdAt: String?
     let updatedAt: String?
