@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="gTV-IL-0wX" customClass="SingleProductCollectionViewCell" customModule="SwiftCart" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="254"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="254"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9b-4U-8MH">
+                        <rect key="frame" x="0.0" y="146" width="144" height="28.666666666666657"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zNi-c3-1Cj">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="140" id="VJg-Tg-6eM"/>
+                            <constraint firstAttribute="width" constant="150" id="m6N-1B-mBG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOA-5n-gkq">
+                        <rect key="frame" x="6" y="184" width="137" height="20.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSp-Ym-kHY">
+                        <rect key="frame" x="92" y="211" width="51" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system">
+                            <color key="baseForegroundColor" name="UIButtonsAndText"/>
+                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="productAddToFavBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="UUU-tG-wjh"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="tOA-5n-gkq" firstAttribute="top" secondItem="P9b-4U-8MH" secondAttribute="bottom" constant="9.3300000000000001" id="2II-kD-K1o"/>
+                <constraint firstAttribute="bottom" secondItem="vSp-Ym-kHY" secondAttribute="bottom" constant="8" id="3YW-x6-Hcg"/>
+                <constraint firstItem="vSp-Ym-kHY" firstAttribute="top" secondItem="tOA-5n-gkq" secondAttribute="bottom" constant="6.6699999999999999" id="9QI-Yg-dxh"/>
+                <constraint firstItem="zNi-c3-1Cj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F2v-Da-dIR"/>
+                <constraint firstAttribute="trailing" secondItem="vSp-Ym-kHY" secondAttribute="trailing" constant="7" id="Glk-BK-Ngt"/>
+                <constraint firstAttribute="trailing" secondItem="zNi-c3-1Cj" secondAttribute="trailing" id="Lzu-u2-8ue"/>
+                <constraint firstItem="P9b-4U-8MH" firstAttribute="top" secondItem="zNi-c3-1Cj" secondAttribute="bottom" constant="6" id="SdJ-i2-xz7"/>
+                <constraint firstItem="zNi-c3-1Cj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bdb-GM-QAR"/>
+                <constraint firstItem="P9b-4U-8MH" firstAttribute="top" secondItem="zNi-c3-1Cj" secondAttribute="bottom" constant="6" id="c6U-B7-k5v"/>
+                <constraint firstItem="tOA-5n-gkq" firstAttribute="top" secondItem="P9b-4U-8MH" secondAttribute="bottom" constant="9.3300000000000001" id="cPK-Xi-8Nw"/>
+                <constraint firstAttribute="trailing" secondItem="tOA-5n-gkq" secondAttribute="trailing" constant="7" id="ciC-x4-05L"/>
+                <constraint firstItem="vSp-Ym-kHY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="92" id="kda-ae-ZOR"/>
+                <constraint firstAttribute="trailing" secondItem="P9b-4U-8MH" secondAttribute="trailing" constant="6" id="lfq-Wy-7Yc"/>
+                <constraint firstItem="vSp-Ym-kHY" firstAttribute="top" secondItem="tOA-5n-gkq" secondAttribute="bottom" constant="6.6699999999999999" id="wFo-dv-G9I"/>
+                <constraint firstItem="tOA-5n-gkq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="yGp-XE-spZ"/>
+                <constraint firstItem="P9b-4U-8MH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zBe-kV-ngV"/>
+            </constraints>
+            <size key="customSize" width="394" height="319"/>
+            <connections>
+                <outlet property="productImage" destination="zNi-c3-1Cj" id="j0p-5B-pkS"/>
+                <outlet property="productName" destination="P9b-4U-8MH" id="Ewv-Dh-uCA"/>
+                <outlet property="productPrice" destination="tOA-5n-gkq" id="D8b-cQ-wZU"/>
+            </connections>
+            <point key="canvasLocation" x="213.74045801526717" y="-28.169014084507044"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <namedColor name="UIButtonsAndText">
+            <color red="1" green="0.54509803921568623" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

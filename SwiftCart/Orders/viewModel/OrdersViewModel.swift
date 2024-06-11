@@ -8,7 +8,9 @@
 import Foundation
 class OrdersViewModel {
     var ordersClosure : ([Order])->Void = {_ in }
-    var customerId :  String = "7495574716667"
+    //rwanId = 7520873382139
+    var customerId :  String = "7520873382139"
+    //defaultId "7495574716667"
     
     func getOrders (){
         OrdersServiceImp.fetchOrders(customerId: customerId) { [weak self] res in

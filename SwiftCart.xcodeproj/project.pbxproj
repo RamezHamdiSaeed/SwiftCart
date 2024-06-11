@@ -73,6 +73,8 @@
 		43AC2B472C077F48007A674E /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC2B462C077F48007A674E /* CategoriesViewModel.swift */; };
 		43AC2B492C077F7B007A674E /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC2B482C077F7B007A674E /* CategoriesModel.swift */; };
 		43AC2B4B2C077F98007A674E /* CategoriesServicesImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AC2B4A2C077F97007A674E /* CategoriesServicesImp.swift */; };
+		43AFF4422C18E1EA007C649C /* SingleProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AFF4402C18E1EA007C649C /* SingleProductCollectionViewCell.swift */; };
+		43AFF4432C18E1EA007C649C /* SingleProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AFF4412C18E1EA007C649C /* SingleProductCollectionViewCell.xib */; };
 		43BCF4982C147BD100883711 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCF4972C147BD100883711 /* OrderDetailsViewController.swift */; };
 		43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C64FE42C00C047002BBDBA /* HomeViewModel.swift */; };
 		43E5D7912C131DC100F2D8AB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E5D7902C131DC100F2D8AB /* MeViewController.swift */; };
@@ -194,6 +196,8 @@
 		43AC2B462C077F48007A674E /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		43AC2B482C077F7B007A674E /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		43AC2B4A2C077F97007A674E /* CategoriesServicesImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesServicesImp.swift; sourceTree = "<group>"; };
+		43AFF4402C18E1EA007C649C /* SingleProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		43AFF4412C18E1EA007C649C /* SingleProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		43BCF4972C147BD100883711 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		43C64FE42C00C047002BBDBA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		43E5D7902C131DC100F2D8AB /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 				1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */,
 				1ED98EB32BFF882300948409 /* Info.plist */,
 				1ED98EAB2BFF882100948409 /* SwiftCart.xcdatamodeld */,
+				43AFF4402C18E1EA007C649C /* SingleProductCollectionViewCell.swift */,
+				43AFF4412C18E1EA007C649C /* SingleProductCollectionViewCell.xib */,
 			);
 			path = SwiftCart;
 			sourceTree = "<group>";
@@ -934,6 +940,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA79E2152C0EF944006A9DAB /* CartTableViewCell.xib in Resources */,
+				43AFF4432C18E1EA007C649C /* SingleProductCollectionViewCell.xib in Resources */,
 				DA79E2112C0EF8C2006A9DAB /* CartViewController.xib in Resources */,
 				DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */,
 				1E24647A2C1099BE00745CA8 /* Authentication.storyboard in Resources */,
@@ -1130,6 +1137,7 @@
 				DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */,
 				1E24647E2C1099DD00745CA8 /* LogInViewController.swift in Sources */,
 				DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */,
+				43AFF4422C18E1EA007C649C /* SingleProductCollectionViewCell.swift in Sources */,
 				DA0B5F0A2C09E21400D02E9C /* Currency.swift in Sources */,
 				1E24649E2C109D9F00745CA8 /* SearchViewController.swift in Sources */,
 				43BCF4982C147BD100883711 /* OrderDetailsViewController.swift in Sources */,
