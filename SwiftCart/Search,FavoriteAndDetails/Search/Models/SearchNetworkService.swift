@@ -31,7 +31,7 @@ class SearchNetworkService {
                                let title = product.title
                                let price = product.variants?.first?.price
                                 let imageSrc = product.image?.src
-                            let productTemp = ProductTemp(id: id!, name: title!, price: price!, isFavorite: false, image: imageSrc!)
+                            let productTemp = ProductTemp(id: id!, name: title!, price: Double(price!)!, isFavorite: false, image: imageSrc!)
                                 fetchedProductsOverTheNetwork.append(productTemp)
                             
                         }

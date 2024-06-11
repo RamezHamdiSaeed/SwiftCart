@@ -9,11 +9,8 @@ import Foundation
 
 protocol LocalDataSource{
     
-    func getProductsFromFav()->[Product]?
-    func insertProductToFav(product: Product)
-    func isFav(league: Product)->Bool
-    func deleteProductFromFav(league: Product)
-//    func getProduct(index:Int)
-
-    
+    func getProductsFromFav()->[ProductTemp]?
+    func insertProductToFav(product: ProductTemp)
+    func isFav(product: ProductTemp)->Bool
+    func deleteProductFromFav(product: ProductTemp)
 }

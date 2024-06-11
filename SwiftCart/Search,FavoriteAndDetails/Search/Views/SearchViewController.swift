@@ -20,7 +20,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
-    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    private let viewModel: SearchFavoriteProductsViewModel = {
+        
+        let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+        searchFavoriteProductsVC.fetchProducts()
+        searchFavoriteProductsVC.getFavoriteProductsDB()
+        return searchFavoriteProductsVC
+    }()
        private let disposeBag = DisposeBag()
        
        required init?(coder: NSCoder) {
@@ -82,7 +88,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                
         viewModel.filteredProducts
             .bind(to: productsCollectionView.rx.items(cellIdentifier: "CollectionViewCell", cellType: CollectionViewCell.self)) { row, product, cell in
-                cell.configure(with: product)
+                var myProduct = product
+                myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
+                cell.configure(with: myProduct)
             }
             .disposed(by: disposeBag)
         
