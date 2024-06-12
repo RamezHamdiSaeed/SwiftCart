@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     var homeViewModel = HomeViewModel()
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
-    let imageNames = ["mod7", "mod6", "mod1", "mod2", "mod3"]
+    let imageNames = ["60", "50", "10", "15", "25"]
     
 
     @IBOutlet weak var AdsCollectionView: UICollectionView!
@@ -132,7 +132,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = cell else { return UICollectionViewCell() }
             
             // Cell data
-            cell.adsLabel.text = "50%"
+           // cell.adsLabel.text = "50%"
             cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
              
             CollectionViewDesign.collectionViewCell(cell: cell)
