@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     var homeViewModel = HomeViewModel()
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
-    let imageNames = ["mod7", "mod6", "mod1", "mod2", "mod3"]
+    let imageNames = ["60", "50", "10", "15", "25"]
     
 
     @IBOutlet weak var AdsCollectionView: UICollectionView!
@@ -26,6 +26,12 @@ class HomeViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add background image
+         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+         backgroundImage.image = UIImage(named: "bacground") // Replace with your image name
+         backgroundImage.contentMode = .scaleAspectFill
+         self.view.insertSubview(backgroundImage, at: 0)
         
         // Setup collection view
         CollectionViewDesign.collectionView(colView: brandsCollectionView)
@@ -64,26 +70,14 @@ class HomeViewController: UIViewController {
          stackView.distribution = .equalSpacing
          
         let button1 = UIButton(type: .system)
-        button1.setImage(UIImage(named: "searchIcons"), for: .normal)
-        button1.tintColor = .systemPink
-        button1.addTarget(self, action: #selector(icon1Tapped), for: .touchUpInside)
-        button1.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        button1.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+        setUpNavBarBtn(button: button1, imageName: "searchIcons", selector: #selector(icon1Tapped))
+
         let button2 = UIButton(type: .system)
-        button2.setImage(UIImage(named: "like"), for: .normal)
-        button2.tintColor = .systemPink
-        button2.addTarget(self, action: #selector(icon2Tapped), for: .touchUpInside)
-        button2.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        button2.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+        setUpNavBarBtn(button: button2, imageName: "like", selector: #selector(icon2Tapped))
+      
         let button3 = UIButton(type: .system)
-        button3.setImage(UIImage(named: "shoppingCart"), for: .normal)
-        button3.tintColor = .systemPink
-        button3.addTarget(self, action: #selector(icon3Tapped), for: .touchUpInside)
-        button3.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        button3.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+        setUpNavBarBtn(button: button3, imageName: "shoppingCart", selector: #selector(icon3Tapped))
+    
          stackView.addArrangedSubview(button1)
          stackView.addArrangedSubview(button2)
          stackView.addArrangedSubview(button3)
@@ -138,7 +132,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = cell else { return UICollectionViewCell() }
             
             // Cell data
-            cell.adsLabel.text = "50%"
+           // cell.adsLabel.text = "50%"
             cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
              
             CollectionViewDesign.collectionViewCell(cell: cell)
@@ -176,5 +170,15 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: 150, height: 160)
         }
     }
+    func setUpNavBarBtn(button: UIButton, imageName: String, selector: Selector) {
+      
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.tintColor = .systemOrange
+        button.addTarget(self, action: selector, for: .touchUpInside)
+        button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+    }
+
 }
 

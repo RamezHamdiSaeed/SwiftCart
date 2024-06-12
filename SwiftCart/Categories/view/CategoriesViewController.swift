@@ -140,6 +140,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
+        singleCategoryProducts.register(productNibFile, forCellWithReuseIdentifier: "cell")
+        
         displayFloatingButton()
         CollectionViewDesign.collectionView(colView: singleCategoryProducts)
         viewModel = CategoriesViewModelImp()
@@ -178,7 +181,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProductsCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SingleProductCollectionViewCell else {
             return UICollectionViewCell()
         }
         

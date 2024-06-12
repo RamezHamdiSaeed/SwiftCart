@@ -19,6 +19,9 @@ class BrandDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
+        brandProductsCollectionView.register(productNibFile, forCellWithReuseIdentifier: "cell")
+        
         CollectionViewDesign.collectionView(colView: brandProductsCollectionView)
        brandProductsCollectionView.dataSource = self
        brandProductsCollectionView.delegate = self
@@ -57,7 +60,7 @@ extension BrandDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? ProductsCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SingleProductCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -70,7 +73,6 @@ extension BrandDetailViewController: UICollectionViewDataSource {
             cell.productImage.image = UIImage(named: "catimg")
         }
         cell.productPrice.text = " \(product.variants[0].price ?? "0.0") EGP "
-                
         CollectionViewDesign.collectionViewCell(cell: cell)
         cell.product = product
 
