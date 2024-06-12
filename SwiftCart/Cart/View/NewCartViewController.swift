@@ -1,19 +1,13 @@
 //
-//  CartViewController.swift
+//  NewCartViewController.swift
 //  SwiftCart
 //
-//  Created by rwan elmtary on 04/06/2024.
+//  Created by rwan elmtary on 12/06/2024.
 //
 
-
-
-
-
 import UIKit
-import SDWebImage
 
-class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate {
-
+class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate {
     var cartViewModel = CartViewModel()
     var draftOrders: [DraftOrder] = []
     var lineItems: [LineItems] = []
@@ -26,7 +20,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // goToPayment.layer.cornerRadius = 10
+        goToPayment.layer.cornerRadius = 10
         addNibFile()
 
         cartViewModel.bindResultToViewController = { [weak self] in

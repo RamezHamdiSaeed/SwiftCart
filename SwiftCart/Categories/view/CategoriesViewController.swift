@@ -135,6 +135,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var viewModel: CategoriesViewModel!
     let actionButton = JJFloatingActionButton()
     
+    
     @IBOutlet weak var categorySigmentedButton: UISegmentedControl!
     @IBOutlet weak var singleCategoryProducts: UICollectionView!
     

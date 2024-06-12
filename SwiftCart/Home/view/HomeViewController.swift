@@ -102,7 +102,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func icon3Tapped() {
-        let cart = CartViewController()
+        let cart = NewCartViewController()
         self.navigationController?.pushViewController(cart, animated: true)
         print("Icon 3 tapped")
     }

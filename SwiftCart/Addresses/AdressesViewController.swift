@@ -53,8 +53,8 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.countryText.text = address.country
             cell.cityText.text = address.city
             cell.addressText.text = address.address1
-            cell.phoneText.text = address.phone
-            cell.zipCodeText.text = address.zip
+//            cell.phoneText.text = address.phone
+//            cell.zipCodeText.text = address.zip
             
         }
         return cell
