@@ -13,6 +13,10 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var addressTable: UITableView!
     var viewModel: LocationViewModel!
     let customerId = User.id
+    var draftOrders: [DraftOrder] = []  
+
+    weak var delegate: AddressDelegate?
+
     
     var lists:[Address] = []
 
@@ -77,4 +81,12 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200// Adjust the height as needed
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            if let address = viewModel.locations?[indexPath.row] {
+                let paymentViewController =  PaymentViewController()
+                paymentViewController.selectedAddress = address
+                paymentViewController.draftOrders = draftOrders
+                self.navigationController?.pushViewController(paymentViewController, animated: true)
+            }
+        }
 }

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate {
+class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate,AddressDelegate {
+    
+    
     var cartViewModel = CartViewModel()
     var draftOrders: [DraftOrder] = []
     var lineItems: [LineItems] = []
@@ -16,7 +18,6 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var goToPayment: UIButton!
-    //let addess = Adr
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,12 +69,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row] {
-//
-//            if let imageUrlString = league.league_logo, let imageUrl = URL(string: imageUrlString) {
-//                  cell.leagueImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "Image"))
-//              } else {
-//                  cell.leagueImage.image = UIImage(named: "Image")
-//              }
+
             if let imageUrlString = lineItem.productImage, let imgUrl = URL(string: imageUrlString){
                 print("\(imageUrlString)")
                 
@@ -123,5 +119,22 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
         }
+    }
+    
+    
+    @IBAction func checkOut(_ sender: Any) {
+        let adresses = AdressesViewController()
+        adresses.delegate = self
+        adresses.draftOrders = draftOrders
+        //adresses.customerId = customerId
+        self.navigationController?.pushViewController(adresses, animated: true)
+    }
+   
+    func selectAddress(_ address: Address) {
+        let paymentViewController =  PaymentViewController()
+        paymentViewController.selectedAddress = address
+        paymentViewController.draftOrders = draftOrders
+        self.navigationController?.pushViewController(paymentViewController, animated: true)
+
     }
 }
