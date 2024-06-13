@@ -23,7 +23,15 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with product: ProductTemp) {
         productCell = product
         nameLabel.text = product.name
-        priceLabel.text = "$\(product.price)"
+        //priceLabel.text = "$  \(product.price)"
+        
+        getPrice(price: String(product.price)) { convertedPrice in
+            DispatchQueue.main.async { [self] in
+                let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+                priceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+            }
+        }
+        
         favoriteButton.isSelected = product.isFavorite
         favoriteButton.imageView?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
         productImage.sd_setImage(with: URL(string: product.image), placeholderImage: UIImage(named: "placeholder"))

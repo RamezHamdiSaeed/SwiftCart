@@ -72,9 +72,11 @@ func extractName(from email: String) -> String? {
 }
 
  func styleTableViewCell( cell: UITableViewCell) {
+     
     cell.contentView.layer.borderWidth = 1.0
     cell.contentView.layer.borderColor = UIColor.systemOrange.cgColor
     cell.contentView.layer.cornerRadius = 25
     cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     cell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+   
 }

@@ -9,9 +9,24 @@ import UIKit
 
 class SingleProductCollectionViewCell: UICollectionViewCell {
 
-    var product : Product!
+    @IBOutlet weak var favBtnOUtlet: UIButton!
+    var product : ProductTemp!
+    
+    var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    
     @IBAction func productAddToFavBtn(_ sender: Any) {
-     
+        if favBtnOUtlet.isSelected{
+            viewModel.deleteProductFromFav(product: product)
+            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
+            favBtnOUtlet.imageView?.image = UIImage(systemName: "heart")
+            favBtnOUtlet.isSelected = false
+        }
+        else{
+            viewModel.insertProductToFavDB(product: product)
+            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted intro the favorite successfully")
+            favBtnOUtlet.imageView?.image = UIImage(systemName: "heart.fill")
+            favBtnOUtlet.isSelected = true
+        }
     }
   
     

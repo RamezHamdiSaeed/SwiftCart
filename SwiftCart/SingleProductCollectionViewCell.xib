@@ -46,7 +46,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9b-4U-8MH">
-                        <rect key="frame" x="6" y="146" width="137" height="29"/>
+                        <rect key="frame" x="6" y="146.66666666666666" width="137" height="28.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -73,6 +73,7 @@
             </constraints>
             <size key="customSize" width="394" height="319"/>
             <connections>
+                <outlet property="favBtnOUtlet" destination="vSp-Ym-kHY" id="1oL-QM-ie9"/>
                 <outlet property="productImage" destination="zNi-c3-1Cj" id="j0p-5B-pkS"/>
                 <outlet property="productName" destination="P9b-4U-8MH" id="Ewv-Dh-uCA"/>
                 <outlet property="productPrice" destination="tOA-5n-gkq" id="D8b-cQ-wZU"/>

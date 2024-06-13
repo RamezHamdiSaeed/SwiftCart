@@ -77,6 +77,7 @@ struct Product: Codable {
     let options: [Option]
     let images: [ImageProducts]
     let image: ImageProducts
+    
 }
 
 // Root model

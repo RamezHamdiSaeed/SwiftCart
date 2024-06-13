@@ -23,6 +23,7 @@ class DetailsViewModel{
                 self.detailsnetworkService = detailsnetworkService
 
     }
+    
     func getProductDetails(productID:String){
         detailsnetworkService.fetchProductDetails(id: productID,productsDetailsResult: {productDetails in
             

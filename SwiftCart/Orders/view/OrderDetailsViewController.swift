@@ -59,6 +59,15 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
 //            cell.orderProductsImage.image = UIImage(named: "catimg")
 //        }
         
+//        detailsViewModel.getProductDetails(productID: String(describing: product.id) )
+//
+//        if let imageUrl = URL(string: (detailsViewModel.productDetails?.product?.image?.src) ?? "catimg") {
+//            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
+//        } else {
+//            cell.orderProductsImage.image = UIImage(named: "catimg")
+//        }
+//
+        
         let placeholderImage = UIImage(named: "catimg")
 
         if let imageUrlString = product.properties?.first , let imageUrl = URL(string: imageUrlString) {

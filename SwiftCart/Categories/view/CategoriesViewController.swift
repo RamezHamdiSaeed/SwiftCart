@@ -197,8 +197,10 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         cell.productPrice.text = " \(product.variants[0].price ?? "0.0") EGP "
         
         CollectionViewDesign.collectionViewCell(cell: cell)
-        cell.product = product
         
+        var productTemp = ProductTemp(id: product.id, name: product.title , price: Double(product.variants[0].price)!, isFavorite: false, image: product.image.src)
+        
+        cell.product = productTemp
         return cell
     }
     
