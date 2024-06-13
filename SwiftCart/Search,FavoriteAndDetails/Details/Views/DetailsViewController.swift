@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var productTitle: UITextView!
     
-    @IBOutlet weak var productRatings: UILabel!
+    @IBOutlet weak var productImages: UICollectionView!
     
     @IBOutlet weak var productPrice: UILabel!
     
@@ -24,18 +24,24 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var productDetails: UITextView!
     @IBOutlet weak var addToCartBtn: UIButton!
+    
     var productID : String = "8624930816251"
     var detailsViewModel : DetailsViewModel!
     var customerID = User.id
     var productimgUrl = ""
     let cartViewModel = CartViewModel()
+    
+    var productImagesSrcs : [String] = []
+    var productCount : Int?
 
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello details")
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        productImages.collectionViewLayout = layout
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +55,15 @@ class DetailsViewController: UIViewController {
                 let currentProduct = detailsViewModel.productDetails?.product
                 self.productImage.sd_setImage(with: URL(string: (currentProduct?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
                 self.productimgUrl =  currentProduct?.image?.src ?? "catImage"
+                let productImages = currentProduct?.images
+                
+                if let productImages = productImages , productImages.count > 0{
+                    for  i in 0..<(productImages.count){
+                        self.productImagesSrcs.append(productImages[i].src!)
+                    }
+                    self.productImages.reloadData()
+                }
+
 
                 self.productTitle.text = currentProduct?.title
                 self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
@@ -95,27 +110,44 @@ class DetailsViewController: UIViewController {
     }
     @IBAction func addToCartBtn(_ sender: Any) {
         guard let selectedVariant = detailsViewModel.selectedProductVarient else {
-                print("No variant selected")
-                return
-            }
-            
-            let variantID = selectedVariant.id
-            
-            
-            print("The selected product variant added to cart: \(variantID)")
-            
-        guard let selectedVariant = detailsViewModel.selectedProductVarient else {
                     print("No variant selected")
                     return
                 }
                 
-        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
-                cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)        
+        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: selectedVariant.inventoryQuantity!, imageUrl: productimgUrl)
+                cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
 
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
     }
     func updateView(title:String,price:String){
         self.productTitle.text = title + " $"
         self.productPrice.text = price + " $"
+    }
+    
+    
+    @IBAction func navToReviews(_ sender: Any) {
+        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+        let detailsViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "ReviewsTableViewController")) as! ReviewsTableViewController
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
+}
+
+extension DetailsViewController : UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return productImagesSrcs.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailsCollectionViewCell", for: indexPath) as? DetailsCollectionViewCell
+        cell!.productSingleImage.sd_setImage(with: URL(string: self.productImagesSrcs[indexPath.item]), placeholderImage: UIImage(named: "placeholder"))
+        return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 70, height: 80) // Size of each cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.productImage.sd_setImage(with: URL(string: self.productImagesSrcs[indexPath.item]), placeholderImage: UIImage(named: "placeholder"))
     }
 }

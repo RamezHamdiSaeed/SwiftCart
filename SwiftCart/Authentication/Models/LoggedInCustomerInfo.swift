@@ -1,13 +1,4 @@
-//
-//  LoggedInCustomerInfo.swift
-//  SwiftCart
-//
-//  Created by Ramez Hamdi Saeed on 07/06/2024.
-//
-
 import Foundation
-
-
 
 // MARK: - EmailMarketingConsent
 struct EmailMarketingConsent: Codable {
@@ -19,6 +10,47 @@ struct EmailMarketingConsent: Codable {
         case state
         case optInLevel = "opt_in_level"
         case consentUpdatedAt = "consent_updated_at"
+    }
+}
+
+// MARK: - Address
+struct LoggedInCustomerAddress: Codable {
+    let id: Int?
+    let customerID: Int?
+    let firstName: String?
+    let lastName: String?
+    let company: String?
+    let address1: String?
+    let address2: String?
+    let city: String?
+    let province: String?
+    let country: String?
+    let zip: String?
+    let phone: String?
+    let name: String?
+    let provinceCode: String?
+    let countryCode: String?
+    let countryName: String?
+    let isDefault: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case customerID = "customer_id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case company
+        case address1
+        case address2
+        case city
+        case province
+        case country
+        case zip
+        case phone
+        case name
+        case provinceCode = "province_code"
+        case countryCode = "country_code"
+        case countryName = "country_name"
+        case isDefault = "default"
     }
 }
 
@@ -42,11 +74,12 @@ struct LoggedInCustomerInfo: Codable {
     let lastOrderName: String?
     let currency: String?
     let phone: String?
-    let addresses: [String]?
+    let addresses: [LoggedInCustomerAddress]?
     let taxExemptions: [String]?
     let emailMarketingConsent: EmailMarketingConsent?
     let smsMarketingConsent: String?
     let adminGraphqlAPIID: String?
+    let defaultAddress: LoggedInCustomerAddress?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -72,6 +105,7 @@ struct LoggedInCustomerInfo: Codable {
         case emailMarketingConsent = "email_marketing_consent"
         case smsMarketingConsent = "sms_marketing_consent"
         case adminGraphqlAPIID = "admin_graphql_api_id"
+        case defaultAddress = "default_address"
     }
 }
 
@@ -79,6 +113,7 @@ struct LoggedInCustomerInfo: Codable {
 struct LoggedInCustomers: Codable {
     let customers: [LoggedInCustomerInfo]?
 }
+
 struct LoggedInCustomer: Codable {
-    let customer: [LoggedInCustomerInfo]?
+    let customer: LoggedInCustomerInfo?
 }
