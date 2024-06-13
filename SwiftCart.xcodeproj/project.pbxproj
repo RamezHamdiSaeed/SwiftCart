@@ -54,6 +54,7 @@
 		1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EBC2BFF882300948409 /* SwiftCartTests.swift */; };
 		1ED98EC72BFF882300948409 /* SwiftCartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC62BFF882300948409 /* SwiftCartUITests.swift */; };
 		1ED98EC92BFF882300948409 /* SwiftCartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */; };
+		1EF89CCC2C1AD598006E6114 /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF89CCB2C1AD598006E6114 /* DetailsCollectionViewCell.swift */; };
 		4334D5E92C08020400A3D315 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4334D5E82C08020400A3D315 /* CategoriesViewController.swift */; };
 		4369C0F42BFFD14B0099BAFD /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4369C0F32BFFD14B0099BAFD /* HomeCollectionViewCell.swift */; };
 		4380A4ED2C02A3520035CF76 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380A4EC2C02A3520035CF76 /* ProductsModel.swift */; };
@@ -180,6 +181,7 @@
 		1ED98EC22BFF882300948409 /* SwiftCartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EC62BFF882300948409 /* SwiftCartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITests.swift; sourceTree = "<group>"; };
 		1ED98EC82BFF882300948409 /* SwiftCartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCartUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1EF89CCB2C1AD598006E6114 /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		32A48609895F658F44F11E9B /* Pods-SwiftCartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.release.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.release.xcconfig"; sourceTree = "<group>"; };
 		4334D5E82C08020400A3D315 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4369C0F32BFFD14B0099BAFD /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				1E2464B32C109EB700745CA8 /* DetailsViewController.swift */,
+				1EF89CCB2C1AD598006E6114 /* DetailsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1111,6 +1114,7 @@
 				43AC2B492C077F7B007A674E /* CategoriesModel.swift in Sources */,
 				DAE2A67B2C18C89C00F80C5E /* AdressesViewController.swift in Sources */,
 				DA79E2092C0E8E81006A9DAB /* Reload.swift in Sources */,
+				1EF89CCC2C1AD598006E6114 /* DetailsCollectionViewCell.swift in Sources */,
 				43F01F662C0C8426008CAD0D /* AddsCollectionViewCell.swift in Sources */,
 				43E5D7912C131DC100F2D8AB /* MeViewController.swift in Sources */,
 				43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */,
