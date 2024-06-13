@@ -26,14 +26,8 @@ class HomeViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Add background image
-         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-         backgroundImage.image = UIImage(named: "bacground") // Replace with your image name
-         backgroundImage.contentMode = .scaleAspectFill
-         self.view.insertSubview(backgroundImage, at: 0)
-        
-        // Setup collection view
+        setBackground(view: self.view)
+       // Setup collection view
         CollectionViewDesign.collectionView(colView: brandsCollectionView)
         CollectionViewDesign.collectionView(colView: AdsCollectionView)
         brandsCollectionView.dataSource = self
@@ -142,7 +136,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = cell else { return UICollectionViewCell() }
             
             // Cell data
-            cell.cellLabel.text = brandsArray[indexPath.item].title
+           // cell.cellLabel.text = brandsArray[indexPath.item].title
             cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
              
             CollectionViewDesign.collectionViewCell(cell: cell)

@@ -11,7 +11,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
     var product : Product!
     @IBAction func productAddToFavBtn(_ sender: Any) {
-        
+     
     }
   
     

@@ -27,6 +27,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        styleTableView(tableView: cartTable)
+        setBackground(view: self.view)
         goToPayment.layer.cornerRadius = 10
         addNibFile()
 
@@ -96,6 +98,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             cell.stepprButton.value = Double(lineItem.quantity ?? 0)
         }
+        
+        styleTableViewCell(cell: cell)
         return cell
     }
 

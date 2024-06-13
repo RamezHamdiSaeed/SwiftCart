@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wt-Sl-fYy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wt-Sl-fYy">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,21 +83,20 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="21" placeholderIntrinsicHeight="23" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1M3-d5-8Co">
-                                <rect key="frame" x="344" y="366" width="21" height="23"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <menu key="menu" id="iLw-C5-xbi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPd-5n-WCv">
+                                <rect key="frame" x="345" y="354" width="42" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.96862745100000003" green="0.49652711669999999" blue="0.19598104750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <menu key="menu" id="hAJ-qU-ebu">
                                     <children>
-                                        <command title="USD" id="85y-NJ-QjH"/>
-                                        <command title="EGP" id="Foc-rW-byG"/>
+                                        <command title="Item 1" id="vyX-FL-mdb"/>
+                                        <command title="Item 2" id="Hxr-UQ-gBv"/>
                                     </children>
                                 </menu>
-                                <state key="normal" image="arrow.down.to.line.circle" catalog="system">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" systemColor="systemOrangeColor"/>
+                                    <imageReference key="image" image="dock.arrow.down.rectangle" catalog="system" symbolScale="large"/>
                                 </state>
-                                <connections>
-                                    <action selector="handleCurrency:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mXj-zq-Oxp"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -121,15 +121,12 @@
                             <constraint firstItem="tPF-xw-M6a" firstAttribute="leading" secondItem="3uP-FV-n6d" secondAttribute="trailing" constant="-31" id="bXm-jm-BHh"/>
                             <constraint firstItem="wbR-tb-9eB" firstAttribute="leading" secondItem="ZnW-fM-DPo" secondAttribute="trailing" constant="-30" id="e3z-Cb-QIt"/>
                             <constraint firstItem="OGT-oj-1et" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="9" id="gTW-Qz-jSU"/>
-                            <constraint firstItem="1M3-d5-8Co" firstAttribute="top" secondItem="vA2-VW-Dh9" secondAttribute="bottom" constant="48" id="hlg-BH-z8D"/>
-                            <constraint firstItem="7fl-3e-Ash" firstAttribute="top" secondItem="1M3-d5-8Co" secondAttribute="bottom" constant="-35" id="lWH-aP-DhF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="szI-ho-W7s" secondAttribute="trailing" constant="128" id="mKL-6K-j06"/>
                             <constraint firstItem="vA2-VW-Dh9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="207" id="ojc-S8-fin"/>
                             <constraint firstItem="vA2-VW-Dh9" firstAttribute="top" secondItem="OGT-oj-1et" secondAttribute="bottom" constant="-31" id="qKq-Gz-Kzd"/>
                             <constraint firstItem="wbR-tb-9eB" firstAttribute="top" secondItem="7fl-3e-Ash" secondAttribute="bottom" constant="30" id="qjn-fi-7w4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7fl-3e-Ash" secondAttribute="trailing" constant="14" id="ryg-7E-Ip2"/>
                             <constraint firstItem="3uP-FV-n6d" firstAttribute="top" secondItem="tPF-xw-M6a" secondAttribute="bottom" constant="-37" id="uku-gF-Nno"/>
-                            <constraint firstItem="1M3-d5-8Co" firstAttribute="leading" secondItem="7fl-3e-Ash" secondAttribute="trailing" constant="-32" id="v6F-mx-BN8"/>
                             <constraint firstItem="52Q-9h-7cG" firstAttribute="top" secondItem="3uP-FV-n6d" secondAttribute="bottom" constant="127.33333333333337" id="vRA-dd-10Z"/>
                             <constraint firstItem="szI-ho-W7s" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="136" id="wzm-mD-em7"/>
                         </constraints>
@@ -139,9 +136,9 @@
                         <outlet property="address" destination="OGT-oj-1et" id="iJn-LN-uXM"/>
                         <outlet property="contact" destination="3uP-FV-n6d" id="mVi-69-rbL"/>
                         <outlet property="currency" destination="7fl-3e-Ash" id="HGb-Rl-rp5"/>
-                        <outlet property="currencySegmentedControl" destination="iLw-C5-xbi" id="lxY-lj-Olr"/>
                         <outlet property="logout" destination="szI-ho-W7s" id="Vfv-b8-9v6"/>
                         <outlet property="moode" destination="52Q-9h-7cG" id="yn6-n8-Vxi"/>
+                        <outlet property="pullDownMenu" destination="jPd-5n-WCv" id="RDF-q6-Hmi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -400,13 +397,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.down.to.line.circle" catalog="system" width="128" height="123"/>
         <image name="arrow.right.circle" catalog="system" width="128" height="123"/>
+        <image name="dock.arrow.down.rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

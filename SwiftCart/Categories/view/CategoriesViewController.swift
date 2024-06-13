@@ -140,6 +140,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground(view: self.view)
+
         var productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
         singleCategoryProducts.register(productNibFile, forCellWithReuseIdentifier: "cell")
         
@@ -216,7 +218,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func displayFloatingButton() {
-        actionButton.buttonColor = UIColor.systemPink
+        actionButton.buttonColor = UIColor.systemOrange
         actionButton.buttonImage = UIImage(named: "menu")
         
         actionButton.addItem(title: "Shoes", image: UIImage(named: "shoes")?.withRenderingMode(.alwaysTemplate)) { [weak self] item in
@@ -238,6 +240,15 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         filteredProductsArray = allProductsArray.filter { $0.productType == subCategory }
         categoryProductsArray = filteredProductsArray
         singleCategoryProducts.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+            let product = categoryProductsArray[indexPath.item]
+            let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+            let detailsViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "DetailsViewController")) as! DetailsViewController
+            detailsViewController.productID = String(product.id)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
 }
 

@@ -14,6 +14,8 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
     @IBOutlet weak var ordersTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground(view: self.view)
+        styleTableView(tableView: ordersTableView)
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
         ordersTableView.reloadData()
@@ -49,7 +51,7 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         cell.orderNumberLabel.text = "\(indexPath.item)"
         cell.orderPriceLabel.text = order.totalPrice
         cell.orderSippedLabel.text = order.shippingAddress?.address1
-         
+        styleTableViewCell(cell: cell)
 
 
         return cell

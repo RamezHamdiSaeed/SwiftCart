@@ -77,6 +77,7 @@
 		43AFF4432C18E1EA007C649C /* SingleProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AFF4412C18E1EA007C649C /* SingleProductCollectionViewCell.xib */; };
 		43BCF4982C147BD100883711 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCF4972C147BD100883711 /* OrderDetailsViewController.swift */; };
 		43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C64FE42C00C047002BBDBA /* HomeViewModel.swift */; };
+		43D870762C1A596000640439 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D870752C1A596000640439 /* CurrencyModel.swift */; };
 		43E5D7912C131DC100F2D8AB /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E5D7902C131DC100F2D8AB /* MeViewController.swift */; };
 		43EBCB042C00B11B00A2A49A /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBCB032C00B11B00A2A49A /* BrandModel.swift */; };
 		43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EBCB052C00B14F00A2A49A /* BrandServiceImp.swift */; };
@@ -204,6 +205,7 @@
 		43AFF4412C18E1EA007C649C /* SingleProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		43BCF4972C147BD100883711 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		43C64FE42C00C047002BBDBA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		43D870752C1A596000640439 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		43E5D7902C131DC100F2D8AB /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		43EBCB032C00B11B00A2A49A /* BrandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
 		43EBCB052C00B14F00A2A49A /* BrandServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandServiceImp.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 		43899CCC2C08B1F800793CBC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				43D870742C1A592D00640439 /* Currency */,
 				1E2464862C109BDC00745CA8 /* Validators */,
 				1E2464852C109BD700745CA8 /* Managers */,
 				43899CCD2C08B23000793CBC /* NetworkIndicator.swift */,
@@ -709,6 +712,14 @@
 				43AC2B462C077F48007A674E /* CategoriesViewModel.swift */,
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		43D870742C1A592D00640439 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				43D870752C1A596000640439 /* CurrencyModel.swift */,
+			);
+			path = Currency;
 			sourceTree = "<group>";
 		};
 		43E5D78E2C131D6900F2D8AB /* MeScreen */ = {
@@ -1149,6 +1160,7 @@
 				4399B1AB2C139FFC004E6F67 /* OrdersTableViewCell.swift in Sources */,
 				1E2464AF2C109E7700745CA8 /* DetailsNetworkService.swift in Sources */,
 				1E8E54382C176B1500D94B03 /* ProductDB+CoreDataClass.swift in Sources */,
+				43D870762C1A596000640439 /* CurrencyModel.swift in Sources */,
 				43899CCE2C08B23000793CBC /* NetworkIndicator.swift in Sources */,
 				43EBCB042C00B11B00A2A49A /* BrandModel.swift in Sources */,
 				4399B1AF2C13A633004E6F67 /* OrderModel.swift in Sources */,

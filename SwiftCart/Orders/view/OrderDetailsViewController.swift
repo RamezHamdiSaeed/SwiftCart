@@ -23,6 +23,8 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
     @IBOutlet weak var orderItemsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground(view: self.view)
+        styleTableView(tableView: orderItemsTableView)
         orderItemsTableView.delegate = self
         orderItemsTableView.dataSource = self
         orderItemsTableView.reloadData()
@@ -51,14 +53,24 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         cell.orderProductsName.text = product.title
         cell.orderProductsPrice.text = "Price : \(product.price!)"
         cell.orderProductsQuantity.text = "Qouantity : \(product.quantity!)"
-//        if let imageUrl = URL(string: product.sku!) {
+//        if let imageUrl = URL(string: product.properties!.first) {
 //            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
 //        } else {
 //            cell.orderProductsImage.image = UIImage(named: "catimg")
 //        }
+        
+        let placeholderImage = UIImage(named: "catimg")
 
-         
+        if let imageUrlString = product.properties?.first , let imageUrl = URL(string: imageUrlString) {
+            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: placeholderImage)
+        } else {
+            cell.orderProductsImage.image = placeholderImage
+        }
+ 
+        
+        
             print("",product.sku!)
+        styleTableViewCell(cell: cell)
 
         return cell
     }
