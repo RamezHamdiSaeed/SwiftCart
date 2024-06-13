@@ -1,25 +1,23 @@
 //
-//  CartViewController.swift
+//  NewCartViewController.swift
 //  SwiftCart
 //
-//  Created by rwan elmtary on 04/06/2024.
+//  Created by rwan elmtary on 12/06/2024.
 //
 
-
-
-
-
 import UIKit
-import SDWebImage
 
-class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate {
-
+class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate,AddressDelegate , PaymentDelegate{
+   
+    
+    
+    
     var cartViewModel = CartViewModel()
     var draftOrders: [DraftOrder] = []
     var lineItems: [LineItems] = []
     var customerId = User.id
     var img:String?
-    
+    var cartItemCountUpdated: ((Int) -> Void)?
 
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
@@ -43,6 +41,12 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         cartViewModel.fetchFromCart(customerID: customerId ?? 0)
     }
+    func didCompletePurchase() {
+           draftOrders = []
+           lineItems = []
+           cartTable.reloadData()
+           calculateTotalPrice()
+       }
 
     func calculateTotalPrice() {
         let total = lineItems.reduce(0.0) { total, item in
@@ -77,12 +81,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row] {
-//
-//            if let imageUrlString = league.league_logo, let imageUrl = URL(string: imageUrlString) {
-//                  cell.leagueImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "Image"))
-//              } else {
-//                  cell.leagueImage.image = UIImage(named: "Image")
-//              }
+
             if let imageUrlString = lineItem.productImage, let imgUrl = URL(string: imageUrlString){
                 print("\(imageUrlString)")
                 
@@ -118,6 +117,10 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             present(alertController, animated: true, completion: nil)
         }
     }
+    func updateCartItemCount() {
+          let itemCount = lineItems.reduce(0) { $0 + ($1.quantity ?? 0) }
+          cartItemCountUpdated?(itemCount)
+      }
 
     func didChangeQuantity(cell: CartTableViewCell, quantity: Int) {
         guard let indexPath = cartTable.indexPath(for: cell) else { return }
@@ -134,5 +137,22 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+    }
+    
+    
+    @IBAction func checkOut(_ sender: Any) {
+        let adresses = AdressesViewController()
+        adresses.delegate = self
+        adresses.draftOrders = draftOrders
+        //adresses.customerId = customerId
+        self.navigationController?.pushViewController(adresses, animated: true)
+    }
+   
+    func selectAddress(_ address: Address) {
+        let paymentViewController =  PaymentViewController()
+        paymentViewController.selectedAddress = address
+        paymentViewController.draftOrders = draftOrders
+      //  self.navigationController?.pushViewController(paymentViewController, animated: true)
+
     }
 }

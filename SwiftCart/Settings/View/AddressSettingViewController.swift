@@ -20,9 +20,9 @@ class AddressSettingViewController: UIViewController {
     @IBOutlet weak var addresseText: UITextField!
     @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var countryText: UITextField!
-    @IBOutlet weak var phoneText: UITextField!
-    
-    @IBOutlet weak var zipText: UITextField!
+//    @IBOutlet weak var phoneText: UITextField!
+//
+//    @IBOutlet weak var zipText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,10 +30,11 @@ class AddressSettingViewController: UIViewController {
     @IBAction func addAddresse(_ sender: Any) {
         guard let address1 = addresseText.text, !address1.isEmpty,
                     let city = cityText.text, !city.isEmpty,
-                    let country = countryText.text, !country.isEmpty,
-                    let phone = phoneText.text, !phone.isEmpty,
-                    let zip = zipText.text, !zip.isEmpty else {
-                  print("All fields are required")
+                    let country = countryText.text, !country.isEmpty
+//                    let phone = phoneText.text, !phone.isEmpty,
+//                    let zip = zipText.text, !zip.isEmpty
+        else {
+            showAlert(title: "Error", message: "All fields are required.")
                   return
             
         }
@@ -44,10 +45,10 @@ class AddressSettingViewController: UIViewController {
     company: nil,
     firstName: nil,
     lastName: nil,
-    phone: phone,
+    phone: nil,
     province: nil,
     country: country,
-    zip: zip,
+    zip: nil,
     name: nil,
     provinceCode: nil,
     countryCode: nil,
@@ -63,4 +64,12 @@ viewModel?.addLocation(customerId: customerId, addressData: addressData)
 delegate?.reload()
 dismiss(animated: true, completion: nil)
 }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
       }

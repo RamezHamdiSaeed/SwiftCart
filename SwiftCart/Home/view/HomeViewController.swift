@@ -16,6 +16,13 @@ class HomeViewController: UIViewController {
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
     let imageNames = ["60", "50", "10", "15", "25"]
+    var cartItemCount = 0 {
+           didSet {
+               updateBadge()
+           }
+       }
+    let badgeLabel = UILabel()
+
     
 
     @IBOutlet weak var AdsCollectionView: UICollectionView!
@@ -72,15 +79,39 @@ class HomeViewController: UIViewController {
         let button3 = UIButton(type: .system)
         setUpNavBarBtn(button: button3, imageName: "shoppingCart", selector: #selector(icon3Tapped))
     
-         stackView.addArrangedSubview(button1)
-         stackView.addArrangedSubview(button2)
-         stackView.addArrangedSubview(button3)
-         
-         let barButtonItem = UIBarButtonItem(customView: stackView)
+        setupBadgeLabel(on: button3)
 
-        tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
-     }
-    
+               stackView.addArrangedSubview(button1)
+               stackView.addArrangedSubview(button2)
+               stackView.addArrangedSubview(button3)
+
+               let barButtonItem = UIBarButtonItem(customView: stackView)
+               tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
+           }
+
+    func setupBadgeLabel(on button: UIButton) {
+         badgeLabel.backgroundColor = .red
+         badgeLabel.textColor = .white
+         badgeLabel.font = .systemFont(ofSize: 12)
+         badgeLabel.textAlignment = .center
+         badgeLabel.layer.cornerRadius = 10
+         badgeLabel.clipsToBounds = true
+         badgeLabel.translatesAutoresizingMaskIntoConstraints = false
+         badgeLabel.isHidden = true
+         button.addSubview(badgeLabel)
+         
+               NSLayoutConstraint.activate([
+                   badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+                   badgeLabel.heightAnchor.constraint(equalToConstant: 20),
+                   badgeLabel.topAnchor.constraint(equalTo: button.topAnchor, constant: -5),
+                   badgeLabel.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 5)
+               ])
+           }
+
+    func updateBadge() {
+           badgeLabel.text = "\(cartItemCount)"
+           badgeLabel.isHidden = cartItemCount == 0
+       }
     @objc func icon1Tapped() {
         // Handle icon1 tap
                         let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
@@ -96,10 +127,14 @@ class HomeViewController: UIViewController {
     }
     
     @objc func icon3Tapped() {
-        let cart = CartViewController()
-        self.navigationController?.pushViewController(cart, animated: true)
-        print("Icon 3 tapped")
-    }
+        let cart = NewCartViewController()
+            cart.cartItemCountUpdated = { [weak self] count in
+                self?.cartItemCount = count
+            }
+            self.navigationController?.pushViewController(cart, animated: true)
+            print("Icon 3 tapped")
+        }
+
     
     @objc func buttonTapped() {
       print("Floating action button tapped!")
