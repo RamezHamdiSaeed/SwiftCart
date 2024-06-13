@@ -32,6 +32,7 @@ class DetailsViewController: UIViewController {
     let cartViewModel = CartViewModel()
     
     var productImagesSrcs : [String] = []
+    var productCount : Int?
 
     
     
@@ -109,21 +110,11 @@ class DetailsViewController: UIViewController {
     }
     @IBAction func addToCartBtn(_ sender: Any) {
         guard let selectedVariant = detailsViewModel.selectedProductVarient else {
-                print("No variant selected")
-                return
-            }
-            
-            let variantID = selectedVariant.id
-            
-            
-            print("The selected product variant added to cart: \(variantID)")
-            
-        guard let selectedVariant = detailsViewModel.selectedProductVarient else {
                     print("No variant selected")
                     return
                 }
                 
-        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
+        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: selectedVariant.inventoryQuantity, imageUrl: productimgUrl)
                 cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)        
 
         print("the selected product varient added to cart : \(detailsViewModel.selectedProductVarient!)")
