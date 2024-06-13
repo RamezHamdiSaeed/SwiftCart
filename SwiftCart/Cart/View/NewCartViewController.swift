@@ -7,7 +7,9 @@
 
 import UIKit
 
-class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate,AddressDelegate {
+class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate,AddressDelegate , PaymentDelegate{
+   
+    
     
     
     var cartViewModel = CartViewModel()
@@ -35,6 +37,12 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
 
         cartViewModel.fetchFromCart(customerID: customerId ?? 0)
     }
+    func didCompletePurchase() {
+           draftOrders = []
+           lineItems = []
+           cartTable.reloadData()
+           calculateTotalPrice()
+       }
 
     func calculateTotalPrice() {
         let total = lineItems.reduce(0.0) { total, item in

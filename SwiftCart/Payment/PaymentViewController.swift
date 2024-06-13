@@ -12,6 +12,8 @@ class PaymentViewController: UIViewController {
     var draftOrders: [DraftOrder]?
     var customerId = User.id
     var viewModel = CartViewModel()
+    weak var delegate: PaymentDelegate?
+
 
     @IBOutlet weak var totalLabel: UILabel!
    

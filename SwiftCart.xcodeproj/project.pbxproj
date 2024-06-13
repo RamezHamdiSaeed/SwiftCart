@@ -98,6 +98,7 @@
 		DAC6B0F12C1A19DA0099C630 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0EF2C1A19DA0099C630 /* PaymentViewController.swift */; };
 		DAC6B0F22C1A19DA0099C630 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */; };
 		DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */; };
+		DAC6B0F72C1B0A810099C630 /* PaymentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */; };
 		DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6702C18413000F80C5E /* CartResponse.swift */; };
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
 		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
@@ -230,6 +231,7 @@
 		DAC6B0EF2C1A19DA0099C630 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
 		DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDelegate.swift; sourceTree = "<group>"; };
+		DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDelegate.swift; sourceTree = "<group>"; };
 		DAE2A6702C18413000F80C5E /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
 		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -832,6 +834,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */,
+				DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */,
 				43899CD02C08B29000793CBC /* CollectionViewDesign.swift in Sources */,
 				1E4A61912C134C7D00F09A35 /* SignedUpCustomerInfo.swift in Sources */,
+				DAC6B0F72C1B0A810099C630 /* PaymentDelegate.swift in Sources */,
 				DA79E2142C0EF944006A9DAB /* CartTableViewCell.swift in Sources */,
 				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1E8E54372C176B1500D94B03 /* ProductDB+CoreDataProperties.swift in Sources */,
