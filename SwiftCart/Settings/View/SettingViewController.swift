@@ -133,19 +133,11 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logout.layer.cornerRadius = 10
-        setHeader()
+        setHeader(view: self, title: "Settings")
         loadSelectedCurrency()
         setupMenu()
     }
 
-    func setHeader() {
-        let settingsLabel = UILabel()
-        settingsLabel.text = "Settings"
-        settingsLabel.textColor = .systemPink
-        settingsLabel.font = .boldSystemFont(ofSize: 25)
-        settingsLabel.sizeToFit()
-        self.navigationItem.titleView = settingsLabel
-    }
 
     @IBAction func navigateToAdresses(_ sender: Any) {
         let addresses = AdressesViewController()
@@ -163,18 +155,9 @@ class SettingViewController: UIViewController {
         let selectedSegmentIndex = sender.selectedSegmentIndex
         let selectedCurrencyCode = selectedSegmentIndex == 0 ? "USD" : "EGP"
         print("Selected currency: \(selectedCurrencyCode)")
-        //   locationViewModel.changeCurrency(to: selectedCurrencyCode)
     }
 
-//    @IBAction func usdBtn(_ sender: Any) {
-//        CurrencyImp.saveCurrencyToUserDefaults(coin: Coins.usd.rawValue)
-//        loadSelectedCurrency()
-//    }
-//
-//    @IBAction func egpBtn(_ sender: Any) {
-//        CurrencyImp.saveCurrencyToUserDefaults(coin: Coins.egp.rawValue)
-//        loadSelectedCurrency()
-//    }
+
 
     func loadSelectedCurrency() {
         let selectedCurrency = CurrencyImp.getCurrencyFromUserDefaults()
@@ -183,11 +166,6 @@ class SettingViewController: UIViewController {
     }
     
     
-//    @IBAction func euroBtn(_ sender: UIButton) {
-//        CurrencyImp.saveCurrencyToUserDefaults(coin: Coins.eur.rawValue)
-//        loadSelectedCurrency()
-//    }
-//    
   
     func setupMenu() {
         let usd = UIAction(title: "USD", image: UIImage(systemName: "dollarsign")) { [self] _ in

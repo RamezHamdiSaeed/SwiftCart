@@ -14,16 +14,7 @@ class CollectionViewDesign{
         
         colView.layer.borderWidth = 1.0
         colView.layer.borderColor = UIColor.systemOrange.cgColor
-        //UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0).cgColor
         colView.layer.cornerRadius = 25
-        
-//        let backgroundImageView = UIImageView(image: UIImage(named: "bacground"))
-//         backgroundImageView.contentMode = .scaleAspectFill
-//         backgroundImageView.frame = colView.bounds
-//         backgroundImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//         colView.backgroundView = backgroundImageView
-
-        
 
     }
     static func collectionViewCell (cell: UICollectionViewCell){
@@ -79,4 +70,17 @@ func extractName(from email: String) -> String? {
     cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     cell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
    
+}
+func setHeader(view : UIViewController , title : String) {
+    let settingsLabel = UILabel()
+    settingsLabel.text = title
+    settingsLabel.textColor = .systemOrange
+    settingsLabel.font = .boldSystemFont(ofSize: 36)
+    if let customFont = UIFont(name: "Avenir-Heavy", size: 36) {
+        settingsLabel.font = customFont
+    } else {
+        settingsLabel.font = .boldSystemFont(ofSize: 36)
+    }
+    settingsLabel.sizeToFit()
+    view.navigationItem.titleView = settingsLabel
 }
