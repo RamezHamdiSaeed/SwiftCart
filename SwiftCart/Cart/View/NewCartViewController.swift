@@ -17,6 +17,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     var lineItems: [LineItems] = []
     var customerId = User.id
     var img:String?
+    var cartItemCountUpdated: ((Int) -> Void)?
+
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var goToPayment: UIButton!
@@ -111,6 +113,10 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             present(alertController, animated: true, completion: nil)
         }
     }
+    func updateCartItemCount() {
+          let itemCount = lineItems.reduce(0) { $0 + ($1.quantity ?? 0) }
+          cartItemCountUpdated?(itemCount)
+      }
 
     func didChangeQuantity(cell: CartTableViewCell, quantity: Int) {
         guard let indexPath = cartTable.indexPath(for: cell) else { return }

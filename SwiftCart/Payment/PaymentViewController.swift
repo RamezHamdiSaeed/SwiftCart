@@ -121,10 +121,8 @@ class PaymentViewController: UIViewController {
     
     extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
         func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-            // Process the payment
             let paymentToken = payment.token
-            // Send the payment token to your server for processing
-            // Simulate a successful payment response from your server
+          
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
                 self.completePurchase()
