@@ -184,5 +184,83 @@ class CartNetwork {
                }
            }.resume()
        }
-   }
-
+   
+    
+    func completeDraftOrder(draftOrderID: Int, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let accessToken = "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"
+        let url = URL(string: "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04/draft_orders/\(draftOrderID)/complete.json")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(accessToken, forHTTPHeaderField: "X-Shopify-Access-Token")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error: error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(error: NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                return
+            }
+            
+            if (200..<300).contains(httpResponse.statusCode) {
+                completion(.success(data: true))
+            } else {
+                if let data = data {
+                    do {
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                        let errorMessage = jsonResponse?["errors"] as? String ?? "Unknown error"
+                        let error = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        completion(.failure(error: error))
+                    } catch {
+                        completion(.failure(error: error))
+                    }
+                } else {
+                    completion(.failure(error: NSError(domain: "No data", code: httpResponse.statusCode, userInfo: nil)))
+                }
+            }
+        }.resume()
+    }
+    
+    func deleteDraftOrder(draftOrderID: Int, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let accessToken = "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"
+        let url = URL(string: "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04/draft_orders/\(draftOrderID).json")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(accessToken, forHTTPHeaderField: "X-Shopify-Access-Token")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error: error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(error: NSError(domain: "Invalid response", code: 0, userInfo: nil)))
+                return
+            }
+            
+            if (200..<300).contains(httpResponse.statusCode) {
+                completion(.success(data: true))
+            } else {
+                if let data = data {
+                    do {
+                        let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                        let errorMessage = jsonResponse?["errors"] as? String ?? "Unknown error"
+                        let error = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        completion(.failure(error: error))
+                    } catch {
+                        completion(.failure(error: error))
+                    }
+                } else {
+                    completion(.failure(error: NSError(domain: "No data", code: httpResponse.statusCode, userInfo: nil)))
+                }
+            }
+        }.resume()
+    }
+}

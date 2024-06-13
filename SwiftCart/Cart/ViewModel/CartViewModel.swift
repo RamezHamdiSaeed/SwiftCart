@@ -72,10 +72,40 @@ class CartViewModel {
             }
         }
     }
-    
-    //static method for testing
-//      func addStaticProductToCart(customerId: Int) {
-//          let staticLineItem = LineItemRequest(variantID: 46036215628027, quantity: 1)
-//          addToCart(customerId: customerId, lineItem: staticLineItem)
-//      }
-}
+    func completeDraftOrders(draftOrderIDs: [Int], completion: @escaping (Bool) -> Void) {
+          let dispatchGroup = DispatchGroup()
+          var completionSuccess = true
+          
+          for draftOrderID in draftOrderIDs {
+              dispatchGroup.enter()
+              CartNetwork.shared.completeDraftOrder(draftOrderID: draftOrderID) { result in
+                  if case .failure(_) = result {
+                      completionSuccess = false
+                  }
+                  dispatchGroup.leave()
+              }
+          }
+          
+          dispatchGroup.notify(queue: .main) {
+              completion(completionSuccess)
+          }
+      }
+    func deleteDraftOrders(draftOrderIDs: [Int], completion: @escaping (Bool) -> Void) {
+          let dispatchGroup = DispatchGroup()
+          var completionSuccess = true
+          
+          for draftOrderID in draftOrderIDs {
+              dispatchGroup.enter()
+              CartNetwork.shared.deleteDraftOrder(draftOrderID: draftOrderID) { result in
+                  if case .failure(_) = result {
+                      completionSuccess = false
+                  }
+                  dispatchGroup.leave()
+              }
+          }
+          
+          dispatchGroup.notify(queue: .main) {
+              completion(completionSuccess)
+          }
+      }
+  }

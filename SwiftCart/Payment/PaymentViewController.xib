@@ -10,8 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController" customModule="SwiftCart" customModuleProvider="target">
             <connections>
-                <outlet property="applePayButton" destination="j7f-7F-tHe" id="AUk-X9-M2i"/>
-                <outlet property="cashButton" destination="AQc-E4-P8O" id="hai-gu-yht"/>
+                <outlet property="totalLabel" destination="ogJ-Dp-D9b" id="kDR-Ea-VBo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,14 +49,21 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-E4-P8O">
                     <rect key="frame" x="43" y="544" width="118" height="110"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.35604615080000002" blue="0.57804561720000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Cash On Delivery"/>
+                    <connections>
+                        <action selector="buyWithCash:" destination="-1" eventType="touchUpInside" id="gVy-cG-6ge"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7f-7F-tHe">
                     <rect key="frame" x="225" y="544" width="118" height="110"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.35604615080000002" blue="0.57804561720000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Apple Pay"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

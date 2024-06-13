@@ -134,7 +134,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
         let paymentViewController =  PaymentViewController()
         paymentViewController.selectedAddress = address
         paymentViewController.draftOrders = draftOrders
-        self.navigationController?.pushViewController(paymentViewController, animated: true)
+      //  self.navigationController?.pushViewController(paymentViewController, animated: true)
 
     }
 }

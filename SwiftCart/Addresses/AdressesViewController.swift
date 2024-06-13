@@ -83,6 +83,8 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             if let address = viewModel.locations?[indexPath.row] {
+                delegate?.selectAddress(address)
+
                 let paymentViewController =  PaymentViewController()
                 paymentViewController.selectedAddress = address
                 paymentViewController.draftOrders = draftOrders
