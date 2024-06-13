@@ -135,6 +135,9 @@ class DetailsViewController: UIViewController {
     
     
     @IBAction func navToReviews(_ sender: Any) {
+        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+        let detailsViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "ReviewsTableViewController")) as! ReviewsTableViewController
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
 }
