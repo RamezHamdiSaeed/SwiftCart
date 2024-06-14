@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController {
         super.viewWillAppear(true)
         authVC = AuthViewModelImpl(signUPNavigationHandler: {}, logInNavigationHandler: logInNavigation, continueAsAGuestHandler: {}, logInHandler: {}, signUpHandler: userSignUp)
         authVC?.setSuccessMessage(successMessage: {
-            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed In Successfully")
+            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed Up Successfully")
         })
         authVC?.setFailMessage(failMessage: {
             FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
@@ -32,6 +32,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader()
         password.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
     }
@@ -75,5 +76,13 @@ class SignUpViewController: UIViewController {
     func logInNavigation(){
         let logInVC:LogInViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController")) as! LogInViewController
         self.navigationController?.pushViewController(logInVC, animated: true)
+    }
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Sign Up"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
     }
 }

@@ -35,6 +35,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader()
         setupSearchController()
         setupCollectionView()
         setupBindings()
@@ -103,6 +104,14 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                })
                .disposed(by: disposeBag)
        }
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Search"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
+    }
 
 }
 

@@ -28,6 +28,7 @@ class LogInViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader()
         password.isSecureTextEntry = true
 
     }
@@ -79,5 +80,12 @@ class LogInViewController: UIViewController {
         let signUpVC = (self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController"))!
         self.navigationController?.pushViewController(signUpVC, animated: true)
     }
-    
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Log In"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
+    }
 }

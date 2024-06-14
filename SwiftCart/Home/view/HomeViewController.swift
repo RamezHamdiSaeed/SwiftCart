@@ -26,6 +26,9 @@ class HomeViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Home"
+        
         setBackground(view: self.view)
        // Setup collection view
         CollectionViewDesign.collectionView(colView: brandsCollectionView)
@@ -55,6 +58,11 @@ class HomeViewController: UIViewController {
         actionButton.addItem(title: "New Item", image: UIImage(named: "plusIcon"), action: { item in
             
         })
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.hidesBackButton = true
+
     }
     func setupNavigationBarIcons() {
          let stackView = UIStackView()

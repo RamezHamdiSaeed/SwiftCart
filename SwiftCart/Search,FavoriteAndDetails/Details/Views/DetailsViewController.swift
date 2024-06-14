@@ -39,6 +39,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         productImages.collectionViewLayout = layout
@@ -149,5 +150,13 @@ extension DetailsViewController : UICollectionViewDataSource,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.productImage.sd_setImage(with: URL(string: self.productImagesSrcs[indexPath.item]), placeholderImage: UIImage(named: "placeholder"))
+    }
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Details"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
     }
 }

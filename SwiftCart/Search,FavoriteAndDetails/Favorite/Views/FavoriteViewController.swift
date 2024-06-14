@@ -35,6 +35,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader()
         setupSearchController()
         setupCollectionView()
         setupBindings()
@@ -103,5 +104,13 @@ class FavoriteViewController: UIViewController, UICollectionViewDelegateFlowLayo
                })
                .disposed(by: disposeBag)
        }
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Wish List"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
+    }
 
 }
