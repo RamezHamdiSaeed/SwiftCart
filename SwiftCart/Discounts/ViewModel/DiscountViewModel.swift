@@ -1,39 +1,25 @@
 //
-//  HomeViewMdel.swift
+//  DiscountViewModel.swift
 //  SwiftCart
 //
-//  Created by marwa on 24/05/2024.
+//  Created by rwan elmtary on 15/06/2024.
 //
 
 import Foundation
-class HomeViewModel {
-    var brandsClosure : ([SmartCollection])->Void = {_ in }
-    var discountCodesClosure: (() -> Void) = {}
-    var couponsResult: [DiscountCodes]?{
-            didSet{
-                discountCodesClosure()
-                print("couponsResult did called \(couponsResult?.count)")
-            }
-        }
+class DiscountViewModel{
+    var couponsResult: [DiscountCodes] = [] {
+          didSet {
+              print("Coupons updated: \(couponsResult)")
+          }
+      }
 
-    
-    func getBrands (){
-        BrandServiceImp.fetchBrands { [weak self] res in
-            switch res {
-            case .success(let response) :
-                self?.brandsClosure(response.smartCollections)
-                print("HomeViewMdel success")
-                
-            case .failure(_):
-                print("HomeViewMdel error")
-        
-            }
-        }
-    }
-    func getDiscountCodes() {
+      var failureHandler: ((String) -> Void)?
+
+      func getCouponsFromModel() {
           DiscountService.getPriceRules { [weak self] response in
               switch response {
               case .success(let success):
+                  print("price rule Id \(success.price_rules[0].id)")
                   var couponsList: [DiscountCodes] = []
                   let dispatchGroup = DispatchGroup()
                   for priceRule in success.price_rules {
@@ -45,7 +31,7 @@ class HomeViewModel {
                                   couponsList.append(firstDiscountCode)
                               }
                           case .failure(let err):
-                              print("Error fetching discount codes: \(err)")
+                              print("Error home \(err)")
                           }
                           dispatchGroup.leave()
                       }
@@ -55,6 +41,7 @@ class HomeViewModel {
                   }
               case .failure(let failure):
                   print(failure)
+                  self?.failureHandler?(failure.localizedDescription)
               }
           }
       }

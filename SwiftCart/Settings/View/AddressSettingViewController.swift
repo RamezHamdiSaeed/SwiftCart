@@ -17,6 +17,7 @@ class AddressSettingViewController: UIViewController {
     var city: String?
     var delegate: ReloadProtocol?
 
+    @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var addresseText: UITextField!
     @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var countryText: UITextField!
@@ -25,6 +26,7 @@ class AddressSettingViewController: UIViewController {
 //    @IBOutlet weak var zipText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBtn.layer.cornerRadius = 10
     }
     
     @IBAction func addAddresse(_ sender: Any) {

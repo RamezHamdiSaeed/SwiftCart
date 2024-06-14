@@ -106,6 +106,9 @@
 		DAC6B0F22C1A19DA0099C630 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */; };
 		DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */; };
 		DAC6B0F72C1B0A810099C630 /* PaymentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */; };
+		DAD98F572C1CED700076F8CE /* DiscountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F562C1CED700076F8CE /* DiscountResponse.swift */; };
+		DAD98F5A2C1CEED20076F8CE /* DiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F592C1CEED20076F8CE /* DiscountService.swift */; };
+		DAD98F5D2C1CF0C60076F8CE /* DiscountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */; };
 		DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6702C18413000F80C5E /* CartResponse.swift */; };
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
 		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
@@ -247,6 +250,9 @@
 		DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDelegate.swift; sourceTree = "<group>"; };
 		DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDelegate.swift; sourceTree = "<group>"; };
 		DAC6B0F82C1B438B0099C630 /* SwiftCart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftCart.entitlements; sourceTree = "<group>"; };
+		DAD98F562C1CED700076F8CE /* DiscountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountResponse.swift; sourceTree = "<group>"; };
+		DAD98F592C1CEED20076F8CE /* DiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountService.swift; sourceTree = "<group>"; };
+		DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewModel.swift; sourceTree = "<group>"; };
 		DAE2A6702C18413000F80C5E /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
 		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -525,6 +531,7 @@
 		1ED98EA12BFF882100948409 /* SwiftCart */ = {
 			isa = PBXGroup;
 			children = (
+				DAD98F552C1CED370076F8CE /* Discounts */,
 				DAC6B0F82C1B438B0099C630 /* SwiftCart.entitlements */,
 				DAC6B0EE2C1A18FC0099C630 /* Payment */,
 				DAE2A6782C18C84C00F80C5E /* Addresses */,
@@ -902,6 +909,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		DAD98F552C1CED370076F8CE /* Discounts */ = {
+			isa = PBXGroup;
+			children = (
+				DAD98F5B2C1CEF800076F8CE /* ViewModel */,
+				DAD98F582C1CEE740076F8CE /* Model */,
+				DAD98F562C1CED700076F8CE /* DiscountResponse.swift */,
+			);
+			path = Discounts;
+			sourceTree = "<group>";
+		};
+		DAD98F582C1CEE740076F8CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAD98F592C1CEED20076F8CE /* DiscountService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAD98F5B2C1CEF800076F8CE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DAE2A66B2C17F87500F80C5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,6 +1263,7 @@
 				1EF89CD82C1B056B006E6114 /* ReviewsRepo.swift in Sources */,
 				4380A4F12C02A3960035CF76 /* ProductsViewModel.swift in Sources */,
 				4380A4F32C02A3BE0035CF76 /* BrandDetailsViewController.swift in Sources */,
+				DAD98F5D2C1CF0C60076F8CE /* DiscountViewModel.swift in Sources */,
 				1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */,
 				DAE2A6772C18443300F80C5E /* CartTableCellDelegate.swift in Sources */,
 				1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */,
@@ -1265,6 +1299,7 @@
 				1E24647E2C1099DD00745CA8 /* LogInViewController.swift in Sources */,
 				DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */,
 				43AFF4422C18E1EA007C649C /* SingleProductCollectionViewCell.swift in Sources */,
+				DAD98F5A2C1CEED20076F8CE /* DiscountService.swift in Sources */,
 				DA0B5F0A2C09E21400D02E9C /* Currency.swift in Sources */,
 				1E24649E2C109D9F00745CA8 /* SearchViewController.swift in Sources */,
 				43BCF4982C147BD100883711 /* OrderDetailsViewController.swift in Sources */,
@@ -1273,6 +1308,7 @@
 				1E2464A42C109DAB00745CA8 /* SearchNetworkService.swift in Sources */,
 				4385B28E2C14A2A60056B4D3 /* OrderDetailTableViewCell.swift in Sources */,
 				4399B1B32C13CA8C004E6F67 /* OrdersViewModel.swift in Sources */,
+				DAD98F572C1CED700076F8CE /* DiscountResponse.swift in Sources */,
 				1E2464B22C109EAC00745CA8 /* DetailsViewModel.swift in Sources */,
 				1E24648D2C109C0400745CA8 /* FeedbackManager.swift in Sources */,
 				1E24647F2C1099DD00745CA8 /* SignUpViewController.swift in Sources */,

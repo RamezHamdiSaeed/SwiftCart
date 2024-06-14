@@ -20,6 +20,8 @@ class PaymentViewController: UIViewController {
     
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var cash: UIButton!
+    @IBOutlet weak var apple: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,8 @@ class PaymentViewController: UIViewController {
         print("Customer ID: \(customerId)")
         
         calculateAndDisplayTotalPrice()
+        apple.layer.cornerRadius = 10
+        cash . layer.cornerRadius = 10
     }
     
     func calculateAndDisplayTotalPrice() {

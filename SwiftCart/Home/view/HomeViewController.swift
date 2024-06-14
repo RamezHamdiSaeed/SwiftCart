@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
     let imageNames = ["60", "50", "10", "15", "25"]
+    var couponsList : [DiscountCodes] = []
     var cartItemCount = 0 {
            didSet {
                updateBadge()
@@ -56,9 +57,16 @@ class HomeViewController: UIViewController {
             }
                 print("User id Home: \(User.id)")
         }
+        
         homeViewModel.getBrands()
+        homeViewModel.getDiscountCodes()
         
         setupNavigationBarIcons()
+        homeViewModel.discountCodesClosure = {[weak self] in
+                    guard let self = self else {return}
+                    self.couponsList = self.homeViewModel.couponsResult!
+                    self.renderView()
+                }
         
 
         
@@ -66,6 +74,12 @@ class HomeViewController: UIViewController {
             
         })
     }
+    func renderView(){
+            DispatchQueue.main.async {
+              //  self.brandsCollection.reloadData()
+                self.AdsCollectionView.reloadData()
+            }
+        }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationItem.hidesBackButton = true
@@ -159,7 +173,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == AdsCollectionView {
-            return imageNames.count
+            return couponsList.count
         } else {
             return brandsArray.count
         }
@@ -172,9 +186,23 @@ extension HomeViewController: UICollectionViewDataSource {
             
             // Cell data
            // cell.adsLabel.text = "50%"
-            cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
-             
-            CollectionViewDesign.collectionViewCell(cell: cell)
+            
+            if(!couponsList.isEmpty){
+                print("!couponsList!.isEmpty")
+                cell.adsLabel.text = couponsList[indexPath.row].code
+                cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
+                
+                if(indexPath.row < imageNames.count){
+                    //var index = 0
+                    cell.adsImage.image = UIImage(named: imageNames[indexPath.row])
+                    //   index += 1
+                }else{
+                    cell.adsImage.image = UIImage(named: imageNames[3])
+                }
+                
+                
+                CollectionViewDesign.collectionViewCell(cell: cell)
+            }
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell
