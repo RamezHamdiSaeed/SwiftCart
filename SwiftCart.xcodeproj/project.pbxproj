@@ -100,10 +100,12 @@
 		DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */; };
 		DA79E2062C0DF8C2006A9DAB /* AddressSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79E2052C0DF8C2006A9DAB /* AddressSettingViewController.swift */; };
 		DA79E2092C0E8E81006A9DAB /* Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79E2082C0E8E81006A9DAB /* Reload.swift */; };
-		DA79E2102C0EF8C2006A9DAB /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79E20E2C0EF8C2006A9DAB /* CartViewController.swift */; };
-		DA79E2112C0EF8C2006A9DAB /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA79E20F2C0EF8C2006A9DAB /* CartViewController.xib */; };
 		DA79E2142C0EF944006A9DAB /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79E2122C0EF944006A9DAB /* CartTableViewCell.swift */; };
 		DA79E2152C0EF944006A9DAB /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA79E2132C0EF944006A9DAB /* CartTableViewCell.xib */; };
+		DAC6B0F12C1A19DA0099C630 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0EF2C1A19DA0099C630 /* PaymentViewController.swift */; };
+		DAC6B0F22C1A19DA0099C630 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */; };
+		DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */; };
+		DAC6B0F72C1B0A810099C630 /* PaymentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */; };
 		DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6702C18413000F80C5E /* CartResponse.swift */; };
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
 		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
@@ -112,6 +114,8 @@
 		DAE2A67C2C18C89C00F80C5E /* AdressesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A67A2C18C89C00F80C5E /* AdressesViewController.xib */; };
 		DAE2A67F2C18C8D600F80C5E /* AdressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A67D2C18C8D600F80C5E /* AdressTableViewCell.swift */; };
 		DAE2A6802C18C8D600F80C5E /* AdressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */; };
+		DAE2A6832C19B7C400F80C5E /* NewCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6812C19B7C400F80C5E /* NewCartViewController.swift */; };
+		DAE2A6842C19B7C400F80C5E /* NewCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */; };
 		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
 		DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */; };
@@ -236,18 +240,23 @@
 		DA221D622BFF831500BC1EEA /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
 		DA79E2052C0DF8C2006A9DAB /* AddressSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSettingViewController.swift; sourceTree = "<group>"; };
 		DA79E2082C0E8E81006A9DAB /* Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reload.swift; sourceTree = "<group>"; };
-		DA79E20E2C0EF8C2006A9DAB /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		DA79E20F2C0EF8C2006A9DAB /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		DA79E2122C0EF944006A9DAB /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		DA79E2132C0EF944006A9DAB /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		DAC6B0EF2C1A19DA0099C630 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressDelegate.swift; sourceTree = "<group>"; };
+		DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDelegate.swift; sourceTree = "<group>"; };
+		DAC6B0F82C1B438B0099C630 /* SwiftCart.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftCart.entitlements; sourceTree = "<group>"; };
 		DAE2A6702C18413000F80C5E /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
 		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		DAE2A6762C18443300F80C5E /* CartTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableCellDelegate.swift; sourceTree = "<group>"; };
-		DAE2A6792C18C89C00F80C5E /* AdressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesViewController.swift; sourceTree = "<group>"; };
+		DAE2A6792C18C89C00F80C5E /* AdressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdressesViewController.swift; path = SwiftCart/Addresses/AdressesViewController.swift; sourceTree = SOURCE_ROOT; };
 		DAE2A67A2C18C89C00F80C5E /* AdressesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressesViewController.xib; sourceTree = "<group>"; };
 		DAE2A67D2C18C8D600F80C5E /* AdressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressTableViewCell.swift; sourceTree = "<group>"; };
 		DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressTableViewCell.xib; sourceTree = "<group>"; };
+		DAE2A6812C19B7C400F80C5E /* NewCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCartViewController.swift; sourceTree = "<group>"; };
+		DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCartViewController.xib; sourceTree = "<group>"; };
 		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Adresses.swift; path = SwiftCart/Settings/ViewModels/Adresses.swift; sourceTree = SOURCE_ROOT; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesTableViewController.swift; sourceTree = "<group>"; };
@@ -516,6 +525,8 @@
 		1ED98EA12BFF882100948409 /* SwiftCart */ = {
 			isa = PBXGroup;
 			children = (
+				DAC6B0F82C1B438B0099C630 /* SwiftCart.entitlements */,
+				DAC6B0EE2C1A18FC0099C630 /* Payment */,
 				DAE2A6782C18C84C00F80C5E /* Addresses */,
 				1E8EB8AA2C175B11009CF99F /* ProductsDB */,
 				4399B1A42C139A46004E6F67 /* Orders */,
@@ -864,12 +875,31 @@
 		DA79E20D2C0EF899006A9DAB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DA79E20E2C0EF8C2006A9DAB /* CartViewController.swift */,
-				DA79E20F2C0EF8C2006A9DAB /* CartViewController.xib */,
 				DA79E2122C0EF944006A9DAB /* CartTableViewCell.swift */,
 				DA79E2132C0EF944006A9DAB /* CartTableViewCell.xib */,
+				DAE2A6812C19B7C400F80C5E /* NewCartViewController.swift */,
+				DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DAC6B0EE2C1A18FC0099C630 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6B0F32C1A2C6C0099C630 /* Protocols */,
+				DAC6B0EF2C1A19DA0099C630 /* PaymentViewController.swift */,
+				DAC6B0F02C1A19DA0099C630 /* PaymentViewController.xib */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		DAC6B0F32C1A2C6C0099C630 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6B0F42C1A2CB70099C630 /* AddressDelegate.swift */,
+				DAC6B0F62C1B0A810099C630 /* PaymentDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DAE2A66B2C17F87500F80C5E /* Model */ = {
@@ -1023,16 +1053,17 @@
 				DA79E2152C0EF944006A9DAB /* CartTableViewCell.xib in Resources */,
 				DAE2A6802C18C8D600F80C5E /* AdressTableViewCell.xib in Resources */,
 				43AFF4432C18E1EA007C649C /* SingleProductCollectionViewCell.xib in Resources */,
-				DA79E2112C0EF8C2006A9DAB /* CartViewController.xib in Resources */,
 				DA221D632BFF831500BC1EEA /* SettingsStoryboard.storyboard in Resources */,
 				DAE2A67C2C18C89C00F80C5E /* AdressesViewController.xib in Resources */,
 				1E24647A2C1099BE00745CA8 /* Authentication.storyboard in Resources */,
 				1ED98EB22BFF882300948409 /* LaunchScreen.storyboard in Resources */,
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
 				1ED98EAA2BFF882100948409 /* Main.storyboard in Resources */,
+				DAC6B0F22C1A19DA0099C630 /* PaymentViewController.xib in Resources */,
 				1E4A618D2C13484700F09A35 /* GoogleService-Info.plist in Resources */,
 				1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */,
 				1E2464B82C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard in Resources */,
+				DAE2A6842C19B7C400F80C5E /* NewCartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,6 +1198,7 @@
 				1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */,
 				1E24649F2C109D9F00745CA8 /* CollectionViewCell.swift in Sources */,
 				DA79E2062C0DF8C2006A9DAB /* AddressSettingViewController.swift in Sources */,
+				DAC6B0F12C1A19DA0099C630 /* PaymentViewController.swift in Sources */,
 				1E2464842C109B9D00745CA8 /* AuthViewModelImpl.swift in Sources */,
 				1E2464802C1099DD00745CA8 /* MainAuthViewController.swift in Sources */,
 				43AC2B492C077F7B007A674E /* CategoriesModel.swift in Sources */,
@@ -1178,8 +1210,10 @@
 				43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */,
 				4380A4ED2C02A3520035CF76 /* ProductsModel.swift in Sources */,
 				1EF89CD62C1AE0CE006E6114 /* Review.swift in Sources */,
+				DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */,
 				43899CD02C08B29000793CBC /* CollectionViewDesign.swift in Sources */,
 				1E4A61912C134C7D00F09A35 /* SignedUpCustomerInfo.swift in Sources */,
+				DAC6B0F72C1B0A810099C630 /* PaymentDelegate.swift in Sources */,
 				DA79E2142C0EF944006A9DAB /* CartTableViewCell.swift in Sources */,
 				1ED98EA72BFF882100948409 /* ViewController.swift in Sources */,
 				1E8E54372C176B1500D94B03 /* ProductDB+CoreDataProperties.swift in Sources */,
@@ -1224,6 +1258,7 @@
 				DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */,
 				1E2464A92C109DEB00745CA8 /* FavoriteViewController.swift in Sources */,
 				DA0B5F082C09244C00D02E9C /* AboutUsViewController.swift in Sources */,
+				DAE2A6832C19B7C400F80C5E /* NewCartViewController.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 				DA0B5F062C089DE800D02E9C /* CurrencyNetwork.swift in Sources */,
 				DA0B5F042C08744700D02E9C /* AddressesNetwork.swift in Sources */,
@@ -1243,7 +1278,6 @@
 				1E24647F2C1099DD00745CA8 /* SignUpViewController.swift in Sources */,
 				4399B1B12C13A655004E6F67 /* OrderServiceImp.swift in Sources */,
 				DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */,
-				DA79E2102C0EF8C2006A9DAB /* CartViewController.swift in Sources */,
 				1E2464832C109B9D00745CA8 /* AuthViewModel.swift in Sources */,
 				DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */,
 				1EC52DF72C17A1F0005A79F2 /* LocalDataSourceImpl.swift in Sources */,
@@ -1426,6 +1460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftCart/SwiftCart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1455,6 +1490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftCart/SwiftCart.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
