@@ -90,23 +90,23 @@ class HomeViewController: UIViewController {
            }
 
     func setupBadgeLabel(on button: UIButton) {
-         badgeLabel.backgroundColor = .red
-         badgeLabel.textColor = .white
-         badgeLabel.font = .systemFont(ofSize: 12)
-         badgeLabel.textAlignment = .center
-         badgeLabel.layer.cornerRadius = 10
-         badgeLabel.clipsToBounds = true
-         badgeLabel.translatesAutoresizingMaskIntoConstraints = false
-         badgeLabel.isHidden = true
-         button.addSubview(badgeLabel)
-         
-               NSLayoutConstraint.activate([
-                   badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
-                   badgeLabel.heightAnchor.constraint(equalToConstant: 20),
-                   badgeLabel.topAnchor.constraint(equalTo: button.topAnchor, constant: -5),
-                   badgeLabel.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 5)
-               ])
-           }
+        badgeLabel.backgroundColor = .red
+        badgeLabel.textColor = .white
+        badgeLabel.font = .systemFont(ofSize: 12)
+        badgeLabel.textAlignment = .center
+        badgeLabel.layer.cornerRadius = 10
+        badgeLabel.clipsToBounds = true
+        badgeLabel.translatesAutoresizingMaskIntoConstraints = false
+        badgeLabel.isHidden = true
+        button.addSubview(badgeLabel)
+        
+        NSLayoutConstraint.activate([
+            badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            badgeLabel.heightAnchor.constraint(equalToConstant: 20),
+            badgeLabel.topAnchor.constraint(equalTo: button.topAnchor, constant: -5),
+            badgeLabel.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 5)
+        ])
+    }
 
     func updateBadge() {
            badgeLabel.text = "\(cartItemCount)"
@@ -126,14 +126,16 @@ class HomeViewController: UIViewController {
                         self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
-    @objc func icon3Tapped() {
-        let cart = NewCartViewController()
-            cart.cartItemCountUpdated = { [weak self] count in
-                self?.cartItemCount = count
-            }
-            self.navigationController?.pushViewController(cart, animated: true)
-            print("Icon 3 tapped")
-        }
+    
+     @objc func icon3Tapped() {
+         let cart = NewCartViewController()
+         cart.cartItemCountUpdated = { [weak self] count in
+             self?.cartItemCount = count
+         }
+         self.navigationController?.pushViewController(cart, animated: true)
+         print("Icon 3 tapped")
+     }
+     
 
     
     @objc func buttonTapped() {

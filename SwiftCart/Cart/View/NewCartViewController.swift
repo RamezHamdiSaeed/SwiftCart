@@ -54,6 +54,9 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             return total + (itemPrice * Double(item.quantity ?? 0))
         }
         totalPrice.text = String(format: "$%.2f", total)
+        updateCartItemCount()
+        
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -131,6 +134,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
                 if success {
                     DispatchQueue.main.async {
                         self?.cartViewModel.fetchFromCart(customerID: self?.customerId ?? 0)
+                        self?.updateCartItemCount()
+
                     }
                 } else {
                     print("Failed to update quantity")

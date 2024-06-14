@@ -15,6 +15,7 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
     let customerId = User.id
     var draftOrders: [DraftOrder] = []  
 
+    @IBOutlet weak var add: UIButton!
     weak var delegate: AddressDelegate?
 
     
@@ -24,7 +25,9 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         addNibFile()
         setupViewModel()
-        loadLocations()
+      
+        add.layer.cornerRadius = 10
+loadLocations()
     }
     
     func addNibFile() {
