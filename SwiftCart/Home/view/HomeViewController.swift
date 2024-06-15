@@ -47,6 +47,9 @@ class HomeViewController: UIViewController {
         AdsCollectionView.delegate = self
         brandsCollectionView.reloadData()
         AdsCollectionView.reloadData()
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.backBarButtonItem?.isHidden = true
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         // Get data of brands
         homeViewModel.brandsClosure = { [weak self] res in
@@ -103,12 +106,16 @@ class HomeViewController: UIViewController {
     
         setupBadgeLabel(on: button3)
 
-               stackView.addArrangedSubview(button1)
-               stackView.addArrangedSubview(button2)
-               stackView.addArrangedSubview(button3)
+        stackView.addArrangedSubview(button1)
+        stackView.addArrangedSubview(button2)
+        stackView.addArrangedSubview(button3)
 
-               let barButtonItem = UIBarButtonItem(customView: stackView)
-               tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
+        let barButtonItem = UIBarButtonItem(customView: stackView)
+        tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
+        
+        tabBarController?.navigationItem.hidesBackButton = true
+        tabBarController?.navigationItem.backBarButtonItem?.isHidden = true
+        tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
            }
 
     func setupBadgeLabel(on button: UIButton) {
@@ -222,9 +229,14 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("navigationController")
         
-        let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
-        brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
-        navigationController?.pushViewController(brandDetails!, animated: true)
+        if collectionView == brandsCollectionView {
+            let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
+            brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
+            brandDetails?.collectionTitle = brandsArray[indexPath.item].title
+            navigationController?.pushViewController(brandDetails!, animated: true)
+        }else{
+            
+        }
     }
 }
 

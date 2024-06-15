@@ -140,13 +140,23 @@ class BrandDetailViewController: UIViewController {
     @IBOutlet weak var brandProductsCollectionView: UICollectionView!
     
     var collectionIdStr: Int = 0
+    var collectionTitle = ""
     var productViewModel = ProductsViewModel()
     var productsArray: [Product] = []
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        productViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        productViewModel.getRate()
+        setHeader(view: self, title: collectionTitle)
         let productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
         brandProductsCollectionView.register(productNibFile, forCellWithReuseIdentifier: "cell")
         
@@ -196,13 +206,9 @@ extension BrandDetailViewController: UICollectionViewDataSource {
             cell.productImage.image = UIImage(named: "catimg")
         }
 
-        getPrice(price: product.variants[0].price) { [weak cell] convertedPrice in
-            DispatchQueue.main.async {
-                let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
-                cell?.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-            }
-        }
-        
+        var convertedPrice = convertPrice(price: product.variants[0].price, rate: self.rate)
+
+        cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
         CollectionViewDesign.collectionViewCell(cell: cell)
     
         var productTemp = ProductTemp(id: product.id, name: product.title , price: Double(product.variants[0].price)!, isFavorite: false, image: product.image.src)

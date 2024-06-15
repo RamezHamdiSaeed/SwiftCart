@@ -119,7 +119,7 @@ import UIKit
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var moode: UISegmentedControl!
-    @IBOutlet weak var contact: UILabel!
+
     @IBOutlet weak var about: UILabel!
     @IBOutlet weak var currency: UILabel!
     @IBOutlet weak var address: UILabel!

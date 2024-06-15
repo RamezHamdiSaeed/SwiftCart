@@ -139,6 +139,7 @@
 //        completion(convertedPrice)
 //    }
 //}
+
 import Foundation
 
 struct CurrencyModel: Codable {
@@ -233,11 +234,11 @@ enum Coins: String {
     case eur = "EUR"
 }
 
-func getPrice(price: String, completion: @escaping (Double) -> Void) {
-    guard let priceD = Double(price) else {
-        completion(0.0)
-        return
-    }
+func getPrice( completion: @escaping (Double) -> Void) {
+   // guard let priceD = Double(price) else {
+//        completion(0.0)
+//        return
+//    }
 
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults()
     let coin: Coins
@@ -250,15 +251,17 @@ func getPrice(price: String, completion: @escaping (Double) -> Void) {
     case "EUR":
         coin = .eur
     default:
-        completion(priceD)
+        completion(1.0)
         return
     }
 
-    CurrencyServiceImp.fetchConversionRate(coinStr: coin.rawValue) { rateRes in
-        guard let rate = rateRes else {
-            completion(priceD)
-            return
-        }
+CurrencyServiceImp.fetchConversionRate(coinStr: coin.rawValue) {
+    rateRes in
+       guard let rate = rateRes else {
+           completion(0.0)
+    return
+
+}
 
 //        // Ensure rate is valid and not equal to 0
 //        guard rate != 0.0 else {
@@ -266,7 +269,17 @@ func getPrice(price: String, completion: @escaping (Double) -> Void) {
 //            return
 //        }
 
-        let convertedPrice = priceD * rate
-        completion(convertedPrice)
+     //   let convertedPrice = priceD * rate
+        completion(rateRes!)
     }
+   completion(0.0)
+}
+
+func convertPrice(price: String , rate : Double) -> Double{
+    
+     guard let priceD = Double(price) else {
+         return 1.0
+     }
+    let convertedPrice = priceD * rate
+    return convertedPrice
 }

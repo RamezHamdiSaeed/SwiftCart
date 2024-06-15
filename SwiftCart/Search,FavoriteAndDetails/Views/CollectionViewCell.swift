@@ -25,12 +25,12 @@ class CollectionViewCell: UICollectionViewCell {
         nameLabel.text = product.name
         //priceLabel.text = "$  \(product.price)"
         
-        getPrice(price: String(product.price)) { convertedPrice in
-            DispatchQueue.main.async { [self] in
-                let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
-                priceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-            }
-        }
+//        getPrice(price: String(product.price)) { convertedPrice in
+//            DispatchQueue.main.async { [self] in
+//                let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+//                priceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+//            }
+//        }
         
         favoriteButton.isSelected = product.isFavorite
         favoriteButton.imageView?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")

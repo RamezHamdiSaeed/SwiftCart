@@ -7,8 +7,15 @@
 
 import Foundation
 class ProductsViewModel {
+    
     var productsClosure : ([Product])->Void = {_ in }
-   
+    var rateClosure : (Double)->Void = {_ in }
+    
+    func getRate(){
+        getPrice() { [weak self] rate in
+            self?.rateClosure(rate)
+        }
+    }
     func getProducts( collectionId : Int ){
         ProductsServicesImp.fetchProducts( collectionId: collectionId ) {[weak self] res in
             switch res {

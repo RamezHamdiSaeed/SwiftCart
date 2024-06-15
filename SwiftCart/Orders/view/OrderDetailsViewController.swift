@@ -33,6 +33,8 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         orderPhoneLabel.text = order.phone
         totalPriceLabel.text = order.totalPrice
         shippingAddressLabel.text = order.shippingAddress?.address1
+        setHeader(view: self, title: "Order Details")
+
 
        
     }

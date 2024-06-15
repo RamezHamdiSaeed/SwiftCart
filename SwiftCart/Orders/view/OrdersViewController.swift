@@ -19,6 +19,8 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
         ordersTableView.reloadData()
+        setHeader(view: self, title: "Orders")
+
         
         ordersViewModel = OrdersViewModel()
         ordersViewModel.ordersClosure = {

@@ -134,21 +134,28 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var filteredProductsArray: [Product] = []
     var viewModel: CategoriesViewModel!
     let actionButton = JJFloatingActionButton()
-    
+    var rate : Double!
+    var userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     
     @IBOutlet weak var categorySigmentedButton: UISegmentedControl!
     @IBOutlet weak var singleCategoryProducts: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground(view: self.view)
-
+        viewModel = CategoriesViewModelImp()
+        viewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        viewModel.getRate()
+        setHeader(view: self, title: "Category")
         var productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
         singleCategoryProducts.register(productNibFile, forCellWithReuseIdentifier: "cell")
         
         displayFloatingButton()
         CollectionViewDesign.collectionView(colView: singleCategoryProducts)
-        viewModel = CategoriesViewModelImp()
         singleCategoryProducts.dataSource = self
         singleCategoryProducts.delegate = self
         fetchProducts()
@@ -157,6 +164,15 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchProducts()
+        viewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        viewModel.getRate()
+        userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+
     }
     
     func fetchProducts() {
@@ -195,8 +211,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         } else {
             cell.productImage.image = UIImage(named: "catimg")
         }
-        cell.productPrice.text = " \(product.variants[0].price ?? "0.0") EGP "
-        
+        var convertedPrice = convertPrice(price: product.variants[0].price, rate: self.rate)
+
+        cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
         CollectionViewDesign.collectionViewCell(cell: cell)
         
         var productTemp = ProductTemp(id: product.id, name: product.title , price: Double(product.variants[0].price)!, isFavorite: false, image: product.image.src)

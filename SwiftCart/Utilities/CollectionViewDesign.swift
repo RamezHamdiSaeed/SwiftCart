@@ -71,16 +71,22 @@ func extractName(from email: String) -> String? {
     cell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
    
 }
-func setHeader(view : UIViewController , title : String) {
+func setHeader(view: UIViewController, title: String) {
     let settingsLabel = UILabel()
     settingsLabel.text = title
     settingsLabel.textColor = .systemOrange
-    settingsLabel.font = .boldSystemFont(ofSize: 36)
-    if let customFont = UIFont(name: "Avenir-Heavy", size: 36) {
+    
+    if let customFont = UIFont(name: "HoeflerText-Italic", size: 30) {
         settingsLabel.font = customFont
     } else {
-        settingsLabel.font = .boldSystemFont(ofSize: 36)
+        settingsLabel.font = .boldSystemFont(ofSize: 30)
     }
+    
+    settingsLabel.layer.shadowColor = UIColor.black.cgColor
+    settingsLabel.layer.shadowOffset = CGSize(width: 0, height: 2)
+    settingsLabel.layer.shadowOpacity = 0.3
+    settingsLabel.layer.shadowRadius = 2
+    
     settingsLabel.sizeToFit()
     view.navigationItem.titleView = settingsLabel
 }
