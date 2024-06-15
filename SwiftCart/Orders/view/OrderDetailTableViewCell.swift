@@ -8,6 +8,8 @@
 import UIKit
 
 class OrderDetailTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var cellFrame: UIView!
     @IBOutlet weak var orderProductsImage: UIImageView!
     
     @IBOutlet weak var orderProductsPrice: UILabel!
@@ -18,6 +20,8 @@ class OrderDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var orderProductsQuantity: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        applyStyleToFrame(to: cellFrame)
+
         // Initialization code
     }
 

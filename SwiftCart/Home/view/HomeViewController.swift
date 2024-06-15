@@ -217,7 +217,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
             // Cell data
            // cell.cellLabel.text = brandsArray[indexPath.item].title
-            cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
+            cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "processing"))
              
             CollectionViewDesign.collectionViewCell(cell: cell)
             return cell

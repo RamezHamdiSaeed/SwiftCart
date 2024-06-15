@@ -201,9 +201,9 @@ extension BrandDetailViewController: UICollectionViewDataSource {
         let product = productsArray[indexPath.item]
         cell.productName.text = product.title
         if let imageUrl = URL(string: product.image.src) {
-            cell.productImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
+            cell.productImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "processing"))
         } else {
-            cell.productImage.image = UIImage(named: "catimg")
+            cell.productImage.image = UIImage(named: "processing")
         }
 
         var convertedPrice = convertPrice(price: product.variants[0].price, rate: self.rate)

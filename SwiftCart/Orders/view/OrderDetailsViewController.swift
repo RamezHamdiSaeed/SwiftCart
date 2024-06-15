@@ -19,7 +19,7 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
     @IBOutlet weak var shippingAddressLabel: UILabel!
     @IBOutlet weak var orderdateLabel: UILabel!
     
-    @IBOutlet weak var orderPhoneLabel: UILabel!
+  
     @IBOutlet weak var orderItemsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,9 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         orderItemsTableView.reloadData()
         orderItems = order.lineItems!
         orderdateLabel.text = order.createdAt
-        orderPhoneLabel.text = order.phone
         totalPriceLabel.text = order.totalPrice
         shippingAddressLabel.text = order.shippingAddress?.address1
         setHeader(view: self, title: "Order Details")
-
 
        
     }
@@ -70,7 +68,7 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
 //        }
 //
         
-        let placeholderImage = UIImage(named: "catimg")
+        let placeholderImage = UIImage(named: "fixed")
 
         if let imageUrlString = product.properties?.first , let imageUrl = URL(string: imageUrlString) {
             cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: placeholderImage)
@@ -81,11 +79,10 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         
         
             print("",product.sku!)
-        styleTableViewCell(cell: cell)
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 }
+        return 180 }
 }

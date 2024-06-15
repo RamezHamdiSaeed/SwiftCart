@@ -8,6 +8,8 @@
 import UIKit
 
 class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
+    
+    
     var orders : [Order] = []
     var ordersViewModel : OrdersViewModel!
     var rate : Double!
@@ -60,14 +62,12 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         let order = orders[indexPath.item]
         
         cell.orderDateLabel.text = order.createdAt
-        cell.orderPhoneLabel.text = order.phone
+       
         cell.orderNumberLabel.text = "\(indexPath.item)"
         var convertedPrice = convertPrice(price: String(order.totalPrice ?? "0.0" ), rate: self.rate)
         cell.orderPriceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
 
         cell.orderSippedLabel.text = order.shippingAddress?.address1
-        styleTableViewCell(cell: cell)
-
 
         return cell
     }
@@ -80,6 +80,7 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         orderDetails?.order = orders[indexPath.item]
         navigationController?.pushViewController(orderDetails!, animated: true)
     }
+    
 }
 
 

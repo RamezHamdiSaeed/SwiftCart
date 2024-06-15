@@ -12,9 +12,9 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var frameOne: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyStyle(to: frameOne)
-        applyStyle(to: frameTwo)
-        applyStyle(to: frameThree)
+        applyStyleToFrame(to: frameOne)
+        applyStyleToFrame(to: frameTwo)
+        applyStyleToFrame(to: frameThree)
 
         setHeader(view: self , title: "About Us")
         
@@ -43,12 +43,13 @@ class AboutUsViewController: UIViewController {
     }
     
    
-    
-    func applyStyle(to view: UIView) {
-        var color : UIColor = .systemOrange
-        view.layer.borderWidth = 2.0
-        view.layer.borderColor = color.cgColor
-        view.layer.cornerRadius = 10.0
-        view.layer.masksToBounds = true
-    }
+  
+}
+
+func applyStyleToFrame(to view: UIView) {
+    var color : UIColor = .systemOrange
+    view.layer.borderWidth = 2.0
+    view.layer.borderColor = color.cgColor
+    view.layer.cornerRadius = 10.0
+    view.layer.masksToBounds = true
 }
