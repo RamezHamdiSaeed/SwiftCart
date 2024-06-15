@@ -10,6 +10,8 @@ import UIKit
 import SDWebImage
 import JJFloatingActionButton
 
+
+
 class HomeViewController: UIViewController {
     
     var homeViewModel = HomeViewModel()
@@ -22,12 +24,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     
     @IBOutlet var brandWordLabel: UIView!
-    
+    var adsScrollTimer: Timer?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBackground(view: self.view)
-       // Setup collection view
+        NetworkIndicator.startAnimating(view: self.view)
         CollectionViewDesign.collectionView(colView: brandsCollectionView)
         CollectionViewDesign.collectionView(colView: AdsCollectionView)
         brandsCollectionView.dataSource = self
@@ -37,9 +38,13 @@ class HomeViewController: UIViewController {
         brandsCollectionView.reloadData()
         AdsCollectionView.reloadData()
         
-        // Get data of brands
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.backBarButtonItem?.isHidden = true
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         homeViewModel.brandsClosure = { [weak self] res in
             DispatchQueue.main.async { [weak self] in
+                NetworkIndicator.stopAnimation()
                 self?.brandsArray = res
                 print("", self?.brandsArray[0].title)
                 self?.brandsCollectionView.reloadData()
@@ -55,7 +60,29 @@ class HomeViewController: UIViewController {
         actionButton.addItem(title: "New Item", image: UIImage(named: "plusIcon"), action: { item in
             
         })
+        startAdsAutoScrolling()
     }
+    
+    deinit {
+        adsScrollTimer?.invalidate()
+    }
+
+    func startAdsAutoScrolling() {
+        adsScrollTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(scrollAdsCollectionView), userInfo: nil, repeats: true)
+    }
+
+    @objc func scrollAdsCollectionView() {
+        let visibleItems = AdsCollectionView.indexPathsForVisibleItems.sorted()
+        guard let currentItem = visibleItems.first else { return }
+
+        var nextItem = IndexPath(item: currentItem.item + 1, section: currentItem.section)
+        if nextItem.item >= imageNames.count {
+            nextItem = IndexPath(item: 0, section: currentItem.section)
+        }
+
+        AdsCollectionView.scrollToItem(at: nextItem, at: .centeredHorizontally, animated: true)
+    }
+    
     func setupNavigationBarIcons() {
          let stackView = UIStackView()
          stackView.axis = .horizontal
@@ -79,17 +106,19 @@ class HomeViewController: UIViewController {
          let barButtonItem = UIBarButtonItem(customView: stackView)
 
         tabBarController?.navigationItem.rightBarButtonItem = barButtonItem
+        
+        tabBarController?.navigationItem.hidesBackButton = true
+        tabBarController?.navigationItem.backBarButtonItem?.isHidden = true
+        tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
      }
     
     @objc func icon1Tapped() {
-        // Handle icon1 tap
                         let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
                         let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "SearchViewController"))
                         self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
     @objc func icon2Tapped() {
-        // Handle icon2 tap
                         let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
                         let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
                         self.navigationController?.pushViewController(SearchViewController, animated: true)
@@ -125,8 +154,7 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? AddsCollectionViewCell
             guard let cell = cell else { return UICollectionViewCell() }
             
-            // Cell data
-           // cell.adsLabel.text = "50%"
+ 
             cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
              
             CollectionViewDesign.collectionViewCell(cell: cell)
@@ -135,24 +163,31 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell
             guard let cell = cell else { return UICollectionViewCell() }
             
-            // Cell data
-           // cell.cellLabel.text = brandsArray[indexPath.item].title
-            cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "catimg"))
+            cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "processing"))
              
             CollectionViewDesign.collectionViewCell(cell: cell)
             return cell
         }
     }
+
 }
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("navigationController")
         
-        let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
-        brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
-        navigationController?.pushViewController(brandDetails!, animated: true)
+        if collectionView == brandsCollectionView {
+            
+            
+            let brandDetails = storyboard?.instantiateViewController(withIdentifier: "BrandDetailViewController") as? BrandDetailViewController
+            brandDetails?.collectionIdStr = brandsArray[indexPath.item].id
+            brandDetails?.collectionTitle = brandsArray[indexPath.item].title
+            navigationController?.pushViewController(brandDetails!, animated: true)
+        }else{
+            
+        }
     }
+ 
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

@@ -10,10 +10,14 @@ import UIKit
 class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
     var orders : [Order] = []
     var ordersViewModel : OrdersViewModel!
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+
     
     @IBOutlet weak var ordersTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setBackground(view: self.view)
         styleTableView(tableView: ordersTableView)
         ordersTableView.delegate = self
@@ -27,13 +31,24 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 
                 self?.orders = res
                 self?.ordersTableView.reloadData()
+                self?.updateEmptyImageView()
 
             }        }
         ordersViewModel.getOrders()
-
+        ordersViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        ordersViewModel.getRate()
+        setHeader(view: self, title: "Orders")
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        ordersViewModel.getOrders()
+    }
+    @IBOutlet weak var emptyImageView: UIImageView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
     }
@@ -47,11 +62,12 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         let order = orders[indexPath.item]
         
         cell.orderDateLabel.text = order.createdAt
-        cell.orderPhoneLabel.text = order.phone
         cell.orderNumberLabel.text = "\(indexPath.item)"
-        cell.orderPriceLabel.text = order.totalPrice
+        //cell.orderPriceLabel.text = order.totalPrice
         cell.orderSippedLabel.text = order.shippingAddress?.address1
-        styleTableViewCell(cell: cell)
+        
+        var convertedPrice = convertPrice(price: String(order.totalPrice ?? "0.0" ), rate: self.rate)
+        cell.orderPriceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
 
 
         return cell
@@ -65,6 +81,17 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         orderDetails?.order = orders[indexPath.item]
         navigationController?.pushViewController(orderDetails!, animated: true)
     }
+    
+    func updateEmptyImageView() {
+        if orders.isEmpty {
+            emptyImageView.isHidden = false
+            ordersTableView.isHidden = true
+        } else {
+            emptyImageView.isHidden = true
+            ordersTableView.isHidden = false
+            ordersTableView.reloadData()
+        }
+     }
 }
 
 

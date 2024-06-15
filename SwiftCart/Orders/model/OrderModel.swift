@@ -555,9 +555,9 @@ struct Order: Codable {
     let cancelReason: String?
     let cancelledAt: String?
     let cartToken: String?
-    let checkoutId: String?
-    let checkoutToken: String?
-    let clientDetails: String?
+  //  let checkoutId: String?
+   // let checkoutToken: String?
+  //  let clientDetails: String?
     let closedAt: String?
     let company: String?
     let confirmationNumber: String?
@@ -702,7 +702,7 @@ struct LineItem: Codable {
     let price: String?
     let priceSet: PriceSet?
     let productExists: Bool?
-    let productId: Int?  // Ensure this is an Int if the JSON contains numbers
+    let productId: Int?
     let properties: [String]?
     let quantity: Int?
     let requiresShipping: Bool?
@@ -711,7 +711,7 @@ struct LineItem: Codable {
     let title: String?
     let totalDiscount: String?
     let totalDiscountSet: PriceSet?
-    let variantId: Int?  // Changed from String? to Int?
+    let variantId: Int?
     let variantInventoryManagement: String?
     let variantTitle: String?
     let vendor: String?

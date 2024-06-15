@@ -8,6 +8,16 @@
 import Foundation
 
 class CartViewModel {
+    
+    var rateClosure : (Double)->Void = {_ in }
+    
+    func getRate(){
+        getPrice() { [weak self] rate in
+            self?.rateClosure(rate)
+        
+        }
+    }
+    
     var result: [DraftOrder]? {
         didSet {
             print("Result set with \(result?.count ?? 0) items")

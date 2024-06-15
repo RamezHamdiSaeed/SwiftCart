@@ -9,8 +9,8 @@ import UIKit
 
 class OrdersTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var orderPhoneLabel: UILabel!
+  
+    @IBOutlet weak var orderCellFrame: UIView!
     @IBOutlet weak var orderSippedLabel: UILabel!
     @IBOutlet weak var orderPriceLabel: UILabel!
     @IBOutlet weak var orderDateLabel: UILabel!
@@ -18,7 +18,7 @@ class OrdersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        applyStyleToFrame(to: orderCellFrame)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

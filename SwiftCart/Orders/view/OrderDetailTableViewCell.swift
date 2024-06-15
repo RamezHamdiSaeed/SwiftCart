@@ -8,8 +8,10 @@
 import UIKit
 
 class OrderDetailTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var orderProductsImage: UIImageView!
     
+    @IBOutlet weak var lineItemsFrame: UIView!
     @IBOutlet weak var orderProductsPrice: UILabel!
     
     @IBOutlet weak var orderProductsName: UILabel!
@@ -18,7 +20,7 @@ class OrderDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var orderProductsQuantity: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        applyStyleToFrame(to: lineItemsFrame)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

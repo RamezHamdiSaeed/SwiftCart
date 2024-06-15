@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
  
-class NetworkIntecator{
+class NetworkIndicator{
     static var networkIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     static func startAnimating(view:UIView){
 

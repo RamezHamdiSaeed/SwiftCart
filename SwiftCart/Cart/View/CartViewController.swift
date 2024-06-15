@@ -20,6 +20,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var customerId = User.id
     var img:String?
     
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+    
 
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
@@ -27,6 +30,13 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cartViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        cartViewModel.getRate()
         styleTableView(tableView: cartTable)
         setBackground(view: self.view)
         goToPayment.layer.cornerRadius = 10
@@ -49,7 +59,12 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let itemPrice = Double(item.price ?? "") ?? 0.0
             return total + (itemPrice * Double(item.quantity ?? 0))
         }
-        totalPrice.text = String(format: "$%.2f", total)
+    //    totalPrice.text = String(format: "$%.2f", total)
+        
+        var convertedPrice = convertPrice(price: String(total), rate: self.rate)
+
+        totalPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
