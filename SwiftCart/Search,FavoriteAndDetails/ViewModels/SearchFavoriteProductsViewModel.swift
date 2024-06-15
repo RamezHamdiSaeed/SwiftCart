@@ -10,6 +10,16 @@ import RxSwift
 import RxCocoa
 
 class SearchFavoriteProductsViewModel {
+    
+    var productsClosure : ([Product])->Void = {_ in }
+    var rateClosure : (Double)->Void = {_ in }
+    
+    func getRate(){
+        getPrice() { [weak self] rate in
+            self?.rateClosure(rate)
+        }
+    }
+    
     private let networkService: SearchNetworkService
     private let disposeBag = DisposeBag()
     

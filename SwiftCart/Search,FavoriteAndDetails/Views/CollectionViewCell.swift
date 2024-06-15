@@ -15,7 +15,9 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     var productCell : ProductTemp? = nil
     var viewModel : SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
-    
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
@@ -23,15 +25,18 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with product: ProductTemp) {
         productCell = product
         nameLabel.text = product.name
-        //priceLabel.text = "$  \(product.price)"
         
-//        getPrice(price: String(product.price)) { convertedPrice in
-//            DispatchQueue.main.async { [self] in
-//                let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
-//                priceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-//            }
-//        }
-        
+        viewModel.rateClosure = {
+            [self] rate in
+                DispatchQueue.main.async {
+                    self.rate = rate
+                    
+                    var convertedPrice = convertPrice(price: String(product.price), rate: self.rate)
+                    self.priceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+                }
+        }
+        viewModel.getRate()
+
         favoriteButton.isSelected = product.isFavorite
         favoriteButton.imageView?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
         productImage.sd_setImage(with: URL(string: product.image), placeholderImage: UIImage(named: "placeholder"))

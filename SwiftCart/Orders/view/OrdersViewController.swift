@@ -10,6 +10,9 @@ import UIKit
 class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
     var orders : [Order] = []
     var ordersViewModel : OrdersViewModel!
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+
     
     @IBOutlet weak var ordersTableView: UITableView!
     override func viewDidLoad() {
@@ -32,6 +35,14 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
 
             }        }
         ordersViewModel.getOrders()
+        ordersViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        ordersViewModel.getRate()
+
 
     }
     
@@ -51,7 +62,9 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         cell.orderDateLabel.text = order.createdAt
         cell.orderPhoneLabel.text = order.phone
         cell.orderNumberLabel.text = "\(indexPath.item)"
-        cell.orderPriceLabel.text = order.totalPrice
+        var convertedPrice = convertPrice(price: String(order.totalPrice ?? "0.0" ), rate: self.rate)
+        cell.orderPriceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+
         cell.orderSippedLabel.text = order.shippingAddress?.address1
         styleTableViewCell(cell: cell)
 

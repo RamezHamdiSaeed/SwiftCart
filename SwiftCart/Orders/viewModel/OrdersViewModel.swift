@@ -8,6 +8,14 @@
 import Foundation
 class OrdersViewModel {
     var ordersClosure : ([Order])->Void = {_ in }
+    var productsClosure : ([Product])->Void = {_ in }
+    var rateClosure : (Double)->Void = {_ in }
+    
+    func getRate(){
+        getPrice() { [weak self] rate in
+            self?.rateClosure(rate)
+        }
+    }
     //rwanId = 7520873382139
     var customerId :  String = "7495574716667"
     //"7495574651131"
