@@ -76,5 +76,38 @@ static func getPriceRules(completionHandler: @escaping (Result<DiscountModel, Er
        
        task.resume()
    }
+   static func checkForCoupons(discountCode: String, completionHandler: @escaping (Result<DiscountCodes, Error>) -> Void) {
+        let accessToken = "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"
+
+        let urlString = "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04/discount_codes/lookup.json?code=\(discountCode)"
+        guard let url = URL(string: urlString) else { return }
+        var request = URLRequest(url: url)
+        request.addValue(accessToken, forHTTPHeaderField: "X-Shopify-Access-Token")
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completionHandler(.failure(error: error))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(.failure(error: error!))
+                return
+            }
+            
+            do {
+                let validationResponse = try JSONDecoder().decode(ValidationResponse.self, from: data)
+                guard let discount = validationResponse.discountCode else {
+                    completionHandler(.failure(error: error!))
+                    return
+                }
+                completionHandler(.success(data: discount))
+            } catch {
+                completionHandler(.failure(error: error))
+            }
+        }
+        task.resume()
+    }
+
 
 }

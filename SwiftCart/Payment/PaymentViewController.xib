@@ -10,8 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController" customModule="SwiftCart" customModuleProvider="target">
             <connections>
-                <outlet property="apple" destination="j7f-7F-tHe" id="aRR-so-Swx"/>
-                <outlet property="cash" destination="AQc-E4-P8O" id="VdN-nr-vRD"/>
+                <outlet property="couponText" destination="e3N-br-zcD" id="JHF-p4-nbu"/>
                 <outlet property="totalLabel" destination="ogJ-Dp-D9b" id="kDR-Ea-VBo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,7 +55,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="gray" title="Cash On Delivery"/>
                     <connections>
-                        <action selector="buyWithCash:" destination="-1" eventType="touchUpInside" id="gVy-cG-6ge"/>
+                        <action selector="buyWithCash:" destination="-1" eventType="touchUpInside" id="yLb-42-HIT"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7f-7F-tHe">
@@ -67,7 +66,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="gray" title="Apple Pay"/>
                     <connections>
-                        <action selector="buyWithApple:" destination="-1" eventType="touchUpInside" id="UeP-dq-BHq"/>
+                        <action selector="buyWithApple:" destination="-1" eventType="touchUpInside" id="NvG-j2-ZW8"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YE-bF-G5y">
@@ -77,6 +76,17 @@
                     <color key="textColor" systemColor="systemOrangeColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIJ-ax-lPu">
+                    <rect key="frame" x="303" y="300" width="85" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.57638462660000001" blue="0.2880411088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Validate"/>
+                    <connections>
+                        <action selector="validate:" destination="-1" eventType="touchUpInside" id="6Qt-3U-saH"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

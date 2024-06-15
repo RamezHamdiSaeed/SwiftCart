@@ -49,6 +49,8 @@ struct DiscountCodesResponse:Codable{
 struct DiscountCodes:Codable{
     let code,created_at,updated_at: String?
     let usage_count,id,price_rule_id:Int?
+    let amount: Int? // Optional Int for fixed amount discount
+
 }
 
 // MARK: - DiscountCodes
