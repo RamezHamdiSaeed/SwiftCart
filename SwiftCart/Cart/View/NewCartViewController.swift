@@ -77,33 +77,21 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return draftOrders[section].lineItems?.count ?? 0
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
         cell.delegate = self
 
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row] {
-
-            if let imageUrlString = lineItem.productImage, let imgUrl = URL(string: imageUrlString){
-                print("\(imageUrlString)")
-                
-                    cell.itemImg.sd_setImage(with: imgUrl, placeholderImage: UIImage(named: "catimg"))
-                } else {
-                    cell.itemImg.image = UIImage(named: "catimg")
-                }
-            
-          //  cell.itemImg.image = UIImage(named: "catimg")
-            cell.itemName.text = lineItem.title
-            cell.itemPrice.text = "\(lineItem.price ?? "") $"
-            cell.quantity.text = "\(lineItem.quantity ?? 0)"
-            
-            cell.stepprButton.value = Double(lineItem.quantity ?? 0)
+            cell.configure(with: lineItem)
         }
-        
+
         styleTableViewCell(cell: cell)
         return cell
     }
+
+    
+
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
@@ -120,30 +108,29 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             present(alertController, animated: true, completion: nil)
         }
     }
-    func updateCartItemCount() {
-          let itemCount = lineItems.reduce(0) { $0 + ($1.quantity ?? 0) }
-          cartItemCountUpdated?(itemCount)
-      }
-
     func didChangeQuantity(cell: CartTableViewCell, quantity: Int) {
-        guard let indexPath = cartTable.indexPath(for: cell) else { return }
-        let draftOrder = draftOrders[indexPath.section]
-        if let lineItem = draftOrder.lineItems?[indexPath.row], let draftOrderID = draftOrder.id {
-            let lineItemRequest = LineItemRequest(variantID: lineItem.variantID ?? 0, quantity: quantity,imageUrl: lineItem.productImage ?? "")
-            cartViewModel.updateOrder(customerID: customerId ?? 0, draftOrderID: draftOrderID, lineItem: lineItemRequest) { [weak self] success in
-                if success {
-                    DispatchQueue.main.async {
-                        self?.cartViewModel.fetchFromCart(customerID: self?.customerId ?? 0)
-                        self?.updateCartItemCount()
+           guard let indexPath = cartTable.indexPath(for: cell) else { return }
+           let draftOrder = draftOrders[indexPath.section]
+           if let lineItem = draftOrder.lineItems?[indexPath.row], let draftOrderID = draftOrder.id {
+               let lineItemRequest = LineItemRequest(variantID: lineItem.variantID ?? 0, quantity: quantity, imageUrl: lineItem.productImage ?? "")
+               cartViewModel.updateOrder(customerID: customerId ?? 0, draftOrderID: draftOrderID, lineItem: lineItemRequest) { [weak self] success in
+                   if success {
+                       DispatchQueue.main.async {
+                           self?.cartViewModel.fetchFromCart(customerID: self?.customerId ?? 0)
+                           self?.updateCartItemCount()
+                       }
+                   } else {
+                       print("Failed to update quantity")
+                   }
+               }
+           }
+       }
 
-                    }
-                } else {
-                    print("Failed to update quantity")
-                }
-            }
-        }
-    }
-    
+       func updateCartItemCount() {
+           let itemCount = lineItems.reduce(0) { $0 + ($1.quantity ?? 0) }
+           cartItemCountUpdated?(itemCount)
+       }
+
     
     @IBAction func checkOut(_ sender: Any) {
         let adresses = AdressesViewController()
@@ -161,3 +148,13 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
 }
+//extension NewCartViewController: CartTableCellDelegate {
+//    func didChangeQuantity(cell: CartTableViewCell, quantity: Int) {
+//        guard let indexPath = tableView.indexPath(for: cell) else { return }
+//        let draftOrder = draftOrders[indexPath.section]
+//
+//        if let lineItem = draftOrder.lineItems?[indexPath.row] {
+//            itemManager.setQuantity(at: indexPath.row, to: quantity)
+//        }
+//    }
+//}

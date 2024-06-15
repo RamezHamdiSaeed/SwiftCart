@@ -18,6 +18,8 @@ class PaymentViewController: UIViewController {
     var availableCoupons: [DiscountCodes] = []
 
     @IBOutlet weak var couponText: UITextField!
+    private var discountedTotalAmount: Decimal?
+
     @IBOutlet weak var totalLabel: UILabel!
 
     override func viewDidLoad() {
@@ -155,7 +157,7 @@ class PaymentViewController: UIViewController {
             paymentRequest.countryCode = "US"
             paymentRequest.currencyCode = "USD"
 
-            guard let totalAmount = calculateTotalAmount() else { return }
+            guard let totalAmount = discountedTotalAmount ?? calculateTotalAmount() else { return }
             let summaryItem = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(decimal: totalAmount))
             paymentRequest.paymentSummaryItems = [summaryItem]
 

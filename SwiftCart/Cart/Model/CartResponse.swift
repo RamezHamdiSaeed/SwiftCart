@@ -93,7 +93,7 @@ struct LineItems: Decodable {
     let variantTitle: String?
     let productImage: String?
     let vendor: String?
-    let quantity: Int?
+    var quantity: Int?
     let requiresShipping, taxable, giftCard: Bool?
     let fulfillmentService: String?
     let grams: Int?
@@ -102,6 +102,8 @@ struct LineItems: Decodable {
     let custom: Bool?
     //let src: String?
     let price, adminGraphqlAPIID: String?
+    var inventoryQuantity: Int?
+
     let properties: [Property]?
 
     enum CodingKeys: String, CodingKey {
@@ -119,6 +121,8 @@ struct LineItems: Decodable {
         case grams
         case appliedDiscount = "applied_discount"
         case name, custom, price
+        case inventoryQuantity
+
         case adminGraphqlAPIID = "admin_graphql_api_id"
         case properties
     }
