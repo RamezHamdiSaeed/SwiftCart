@@ -16,12 +16,12 @@ class PaymentViewController: UIViewController {
     weak var delegate: PaymentDelegate?
     var viewModelDis = DiscountViewModel()
     var availableCoupons: [DiscountCodes] = []
-
+    
     @IBOutlet weak var couponText: UITextField!
     private var discountedTotalAmount: Decimal?
-
+    
     @IBOutlet weak var totalLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let address = selectedAddress {
@@ -29,16 +29,16 @@ class PaymentViewController: UIViewController {
         }
         print("Draft Orders: \(draftOrders)")
         print("Customer ID: \(customerId)")
-
+        
         calculateAndDisplayTotalPrice()
         fetchAvailableCoupons()
     }
-
+    
     func calculateAndDisplayTotalPrice() {
         guard let totalAmount = calculateTotalAmount() else { return }
         updateTotalLabel(with: totalAmount)
     }
-
+    
     @IBAction func buyWithCash(_ sender: Any) {
         let alert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to complete this purchase with Cash on Delivery?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
@@ -49,12 +49,12 @@ class PaymentViewController: UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
-
+    
     @IBAction func validate(_ sender: Any) {
         guard let couponCode = couponText.text, !couponCode.isEmpty else {
             return
         }
-
+        
         if let coupon = availableCoupons.first(where: { $0.code == couponCode }),
            let priceRule = viewModelDis.getPriceRule(for: coupon) {
             applyDiscount(priceRule)
@@ -62,11 +62,11 @@ class PaymentViewController: UIViewController {
             showInvalidCouponAlert(message: "The entered coupon code is invalid.")
         }
     }
-
+    
     @IBAction func buyWithApple(_ sender: Any) {
         startApplePay()
     }
-
+    
     func completePurchase() {
         guard let draftOrders = draftOrders else { return }
         viewModel.completeDraftOrders(draftOrderIDs: draftOrders.map { $0.id ?? 0 }) { [weak self] success in
@@ -93,7 +93,7 @@ class PaymentViewController: UIViewController {
             }
         }
     }
-
+    
     private func calculateTotalAmount() -> Decimal? {
         guard let draftOrders = draftOrders else { return nil }
         let totalAmount = draftOrders.reduce(Decimal(0.0)) { result, draftOrder in
@@ -104,11 +104,11 @@ class PaymentViewController: UIViewController {
         }
         return totalAmount
     }
-
+    
     private func updateTotalLabel(with amount: Decimal) {
         totalLabel.text = String(format: "$%.2f", NSDecimalNumber(decimal: amount).doubleValue)
     }
-
+    
     private func applyDiscount(_ priceRule: PriceRule) {
         guard let totalAmount = calculateTotalAmount() else { return }
         guard let value = priceRule.value, let valueDecimal = Decimal(string: value) else {
@@ -125,15 +125,15 @@ class PaymentViewController: UIViewController {
         } else {
             return
         }
-
+        
         // Ensure the discounted total is not negative
         if discountedTotal < 0 {
             discountedTotal = 0
         }
-
+        
         updateTotalLabel(with: discountedTotal)
     }
-
+    
     // MARK: - Fetch Available Coupons
     private func fetchAvailableCoupons() {
         viewModelDis.getCouponsFromModel { [weak self] coupons in
@@ -141,13 +141,13 @@ class PaymentViewController: UIViewController {
             self.availableCoupons = coupons
         }
     }
-
+    
     private func showInvalidCouponAlert(message: String) {
         let alert = UIAlertController(title: "Invalid Coupon", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-
+    
     func startApplePay() {
         if PKPaymentAuthorizationViewController.canMakePayments(usingNetworks: [.visa, .masterCard, .amex]) {
             let paymentRequest = PKPaymentRequest()
@@ -157,13 +157,19 @@ class PaymentViewController: UIViewController {
             paymentRequest.countryCode = "US"
             paymentRequest.currencyCode = "USD"
 
-            guard let totalAmount = discountedTotalAmount ?? calculateTotalAmount() else { return }
-            let summaryItem = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(decimal: totalAmount))
-            paymentRequest.paymentSummaryItems = [summaryItem]
+            if let totalAmount = discountedTotalAmount ?? calculateTotalAmount() {
+                let summaryItem = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(decimal: totalAmount))
+                paymentRequest.paymentSummaryItems = [summaryItem]
 
-            if let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
-                paymentVC.delegate = self
-                present(paymentVC, animated: true, completion: nil)
+                if let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
+                    paymentVC.delegate = self
+                    present(paymentVC, animated: true, completion: nil)
+                }
+            } else {
+                // Handle case where totalAmount is nil (shouldn't normally happen if calculateTotalAmount() is properly implemented)
+                let alert = UIAlertController(title: "Error", message: "Failed to calculate total amount for payment.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
             }
         } else {
             let alert = UIAlertController(title: "Error", message: "Apple Pay is not available on this device or no card is set up.", preferredStyle: .alert)
@@ -171,7 +177,9 @@ class PaymentViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
+
 }
+
 
 extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {

@@ -52,11 +52,10 @@ class CartTableViewCell: UITableViewCell {
             stepprButton.maximumValue = 3
         }
         
-        // Setting the product image
-        if let imageUrlString = lineItem.productImage, let imgUrl = URL(string: imageUrlString) {
-            itemImg.sd_setImage(with: imgUrl, placeholderImage: UIImage(named: "catimg"))
+        if let imageUrlString = lineItem.productImage, let imageUrl = URL(string: imageUrlString) {
+            itemImg.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholder"))
         } else {
-            itemImg.image = UIImage(named: "catimg")
+            itemImg.image = UIImage(named: "TrendyIcon")
         }
     }
 }
