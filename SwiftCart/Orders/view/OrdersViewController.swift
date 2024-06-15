@@ -10,6 +10,7 @@ import UIKit
 class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
     
     
+    @IBOutlet weak var noOrdersImage: UIImageView!
     var orders : [Order] = []
     var ordersViewModel : OrdersViewModel!
     var rate : Double!
@@ -24,7 +25,6 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
         ordersTableView.reloadData()
-        setHeader(view: self, title: "Orders")
 
         
         ordersViewModel = OrdersViewModel()
@@ -34,6 +34,7 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 
                 self?.orders = res
                 self?.ordersTableView.reloadData()
+                self?.updateEmptyImageView()
 
             }        }
         ordersViewModel.getOrders()
@@ -44,10 +45,12 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
                 }
         }
         ordersViewModel.getRate()
-
-
+        setHeader(view: self, title: "Orders")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        ordersViewModel.getOrders()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
@@ -80,7 +83,16 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         orderDetails?.order = orders[indexPath.item]
         navigationController?.pushViewController(orderDetails!, animated: true)
     }
-    
+    func updateEmptyImageView() {
+        if orders.isEmpty {
+            noOrdersImage.isHidden = false
+            ordersTableView.isHidden = true
+        } else {
+            noOrdersImage.isHidden = true
+            ordersTableView.isHidden = false
+            ordersTableView.reloadData()
+        }
+     }
 }
 
 

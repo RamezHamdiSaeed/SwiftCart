@@ -325,24 +325,33 @@
         <scene sceneID="hGS-13-LNm">
             <objects>
                 <viewController storyboardIdentifier="OrdersViewController" id="1gK-R6-jUa" customClass="OrdersViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xd2-jE-z9c">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="xd2-jE-z9c">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k7P-QK-S1s">
-                                <rect key="frame" x="16" y="111" width="361" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="4nZ-rz-JgF">
+                                <rect key="frame" x="0.0" y="0.0" width="402" height="830"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="830" id="SpV-tD-KLC"/>
+                                    <constraint firstAttribute="width" constant="402" id="jkb-Kc-g49"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k7P-QK-S1s">
+                                <rect key="frame" x="16" y="111" width="370" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="arN-iW-b1a"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="Jzu-fy-ge5" customClass="OrdersTableViewCell" customModule="SwiftCart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="361" height="200"/>
+                                        <rect key="frame" x="0.0" y="50" width="370" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jzu-fy-ge5" id="mjV-Cz-4me">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cno-zE-jCo">
-                                                    <rect key="frame" x="10" y="10" width="341" height="180"/>
+                                                    <rect key="frame" x="10" y="10" width="350" height="180"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No     : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZc-Mr-1FB">
                                                             <rect key="frame" x="8" y="8" width="148" height="35"/>
@@ -446,8 +455,19 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bOJ-Wh-rlg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4nZ-rz-JgF" secondAttribute="bottom" id="Jh9-Jz-8ox"/>
+                            <constraint firstItem="k7P-QK-S1s" firstAttribute="top" secondItem="bOJ-Wh-rlg" secondAttribute="top" constant="52" id="OEG-Jq-xVd"/>
+                            <constraint firstItem="bOJ-Wh-rlg" firstAttribute="bottom" secondItem="k7P-QK-S1s" secondAttribute="bottom" constant="40" id="SjN-P0-dq5"/>
+                            <constraint firstItem="4nZ-rz-JgF" firstAttribute="leading" secondItem="xd2-jE-z9c" secondAttribute="leading" id="dQV-KQ-Xct"/>
+                            <constraint firstItem="k7P-QK-S1s" firstAttribute="leading" secondItem="bOJ-Wh-rlg" secondAttribute="leading" constant="16" id="eCb-fe-5Fs"/>
+                            <constraint firstItem="bOJ-Wh-rlg" firstAttribute="trailing" secondItem="k7P-QK-S1s" secondAttribute="trailing" constant="16" id="ggf-lK-q2l"/>
+                            <constraint firstAttribute="trailing" secondItem="4nZ-rz-JgF" secondAttribute="trailing" id="hfS-u6-7a5"/>
+                            <constraint firstItem="4nZ-rz-JgF" firstAttribute="top" secondItem="xd2-jE-z9c" secondAttribute="top" id="pNX-Cl-dlw"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="noOrdersImage" destination="4nZ-rz-JgF" id="hOH-Kk-fYJ"/>
                         <outlet property="ordersTableView" destination="k7P-QK-S1s" id="cV4-eL-8uK"/>
                     </connections>
                 </viewController>
@@ -459,7 +479,7 @@
         <scene sceneID="egU-mO-m45">
             <objects>
                 <viewController storyboardIdentifier="OrderDetailsViewController" id="QZN-eV-XL4" customClass="OrderDetailsViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="qR2-l1-oiY">
+                    <view key="view" contentMode="scaleToFill" id="qR2-l1-oiY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -497,7 +517,7 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BJF-B8-5am">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BJF-B8-5am">
                                 <rect key="frame" x="21" y="311" width="351" height="471"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -525,10 +545,10 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-s3-QsT">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6T-s3-QsT">
                                                             <rect key="frame" x="136" y="8" width="167" height="57"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="57" id="1VL-DZ-pBv"/>
+                                                                <constraint firstAttribute="height" constant="44" id="1VL-DZ-pBv"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -552,7 +572,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="3Q5-SX-1dV" firstAttribute="top" secondItem="w6T-s3-QsT" secondAttribute="bottom" constant="-5" id="4HL-Cm-SdQ"/>
+                                                        <constraint firstItem="3Q5-SX-1dV" firstAttribute="top" secondItem="w6T-s3-QsT" secondAttribute="bottom" constant="8" id="4HL-Cm-SdQ"/>
                                                         <constraint firstItem="w6T-s3-QsT" firstAttribute="top" secondItem="9n3-Z4-RlA" secondAttribute="top" id="52a-ci-k3m"/>
                                                         <constraint firstItem="w6T-s3-QsT" firstAttribute="leading" secondItem="4fd-BF-SnQ" secondAttribute="leading" id="9Zq-Up-nvl"/>
                                                         <constraint firstItem="4fd-BF-SnQ" firstAttribute="trailing" secondItem="3Q5-SX-1dV" secondAttribute="trailing" id="G9h-zz-AUp"/>
@@ -592,13 +612,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I2m-9K-nt0">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="840"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="840" id="MEN-Ka-9CZ"/>
-                                    <constraint firstAttribute="width" constant="393" id="PTe-pD-A7T"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XW2-VR-bsj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -610,10 +623,7 @@
                             <constraint firstItem="BJF-B8-5am" firstAttribute="top" secondItem="Bwd-py-IIU" secondAttribute="bottom" constant="18" id="AIe-0s-1Hs"/>
                             <constraint firstItem="50B-HL-awi" firstAttribute="top" secondItem="XW2-VR-bsj" secondAttribute="top" constant="52" id="APu-hE-bgS"/>
                             <constraint firstItem="Bwd-py-IIU" firstAttribute="leading" secondItem="t13-fF-TtJ" secondAttribute="trailing" constant="29" id="CGJ-ML-edu"/>
-                            <constraint firstItem="I2m-9K-nt0" firstAttribute="trailing" secondItem="XW2-VR-bsj" secondAttribute="trailing" id="Eex-qN-6Ab"/>
-                            <constraint firstItem="I2m-9K-nt0" firstAttribute="top" secondItem="qR2-l1-oiY" secondAttribute="top" id="Eqg-TY-0os"/>
                             <constraint firstItem="P1T-vc-ea4" firstAttribute="top" secondItem="XW2-VR-bsj" secondAttribute="top" constant="57" id="HeF-TL-PMK"/>
-                            <constraint firstItem="I2m-9K-nt0" firstAttribute="leading" secondItem="XW2-VR-bsj" secondAttribute="leading" id="Mxv-ub-ofC"/>
                             <constraint firstItem="P1T-vc-ea4" firstAttribute="leading" secondItem="XW2-VR-bsj" secondAttribute="leading" constant="13" id="SXJ-fA-3wv"/>
                             <constraint firstItem="50B-HL-awi" firstAttribute="leading" secondItem="Bwd-py-IIU" secondAttribute="leading" constant="-15" id="UfZ-pZ-5EH"/>
                             <constraint firstItem="Bwd-py-IIU" firstAttribute="top" secondItem="xiV-hG-QlI" secondAttribute="bottom" constant="27" id="Zp9-XC-4og"/>
@@ -624,7 +634,6 @@
                             <constraint firstItem="XW2-VR-bsj" firstAttribute="bottom" secondItem="BJF-B8-5am" secondAttribute="bottom" constant="36" id="mMz-LX-d6S"/>
                             <constraint firstItem="h3M-MG-GSw" firstAttribute="leading" secondItem="t13-fF-TtJ" secondAttribute="leading" id="mgb-Rj-h4x"/>
                             <constraint firstItem="Bwd-py-IIU" firstAttribute="top" secondItem="qR2-l1-oiY" secondAttribute="top" constant="261" id="nni-sU-IGg"/>
-                            <constraint firstAttribute="bottom" secondItem="I2m-9K-nt0" secondAttribute="bottom" id="pmW-EE-31K"/>
                             <constraint firstItem="50B-HL-awi" firstAttribute="leading" secondItem="xiV-hG-QlI" secondAttribute="leading" id="sra-cy-CdZ"/>
                         </constraints>
                     </view>
@@ -731,6 +740,7 @@
     </scenes>
     <resources>
         <image name="books.vertical.fill" catalog="system" width="128" height="110"/>
+        <image name="empty" width="2000" height="2000"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="homekit" catalog="system" width="128" height="104"/>

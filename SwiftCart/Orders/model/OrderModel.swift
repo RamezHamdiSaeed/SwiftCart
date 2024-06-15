@@ -584,7 +584,7 @@ struct Order: Codable {
     let fulfillmentStatus: String?
     let landingSite: String?
     let landingSiteRef: String?
-    let locationId: String?
+    //let locationId: String?
     let merchantOfRecordAppId: String?
     let name: String?
     let note: String?

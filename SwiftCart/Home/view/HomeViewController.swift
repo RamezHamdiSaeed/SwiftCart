@@ -47,9 +47,9 @@ class HomeViewController: UIViewController {
         AdsCollectionView.delegate = self
         brandsCollectionView.reloadData()
         AdsCollectionView.reloadData()
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.backBarButtonItem?.isHidden = true
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        self.navigationItem.hidesBackButton = true
+//        self.navigationItem.backBarButtonItem?.isHidden = true
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         // Get data of brands
         homeViewModel.brandsClosure = { [weak self] res in
