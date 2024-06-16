@@ -110,6 +110,9 @@
 		DAD98F5A2C1CEED20076F8CE /* DiscountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F592C1CEED20076F8CE /* DiscountService.swift */; };
 		DAD98F5D2C1CF0C60076F8CE /* DiscountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */; };
 		DAD98F5F2C1E2E7D0076F8CE /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F5E2C1E2E7D0076F8CE /* ItemManager.swift */; };
+		DAD98F622C1EB3860076F8CE /* CartNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F612C1EB3860076F8CE /* CartNetworkTest.swift */; };
+		DAD98F642C1EB41C0076F8CE /* MockCartnetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F632C1EB41C0076F8CE /* MockCartnetwork.swift */; };
+		DAD98F662C1EB46F0076F8CE /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD98F652C1EB46F0076F8CE /* CartViewModelTests.swift */; };
 		DAE2A6712C18413000F80C5E /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6702C18413000F80C5E /* CartResponse.swift */; };
 		DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6722C18415600F80C5E /* CartNetwork.swift */; };
 		DAE2A6752C18441100F80C5E /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6742C18441100F80C5E /* CartViewModel.swift */; };
@@ -255,6 +258,9 @@
 		DAD98F592C1CEED20076F8CE /* DiscountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountService.swift; sourceTree = "<group>"; };
 		DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewModel.swift; sourceTree = "<group>"; };
 		DAD98F5E2C1E2E7D0076F8CE /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		DAD98F612C1EB3860076F8CE /* CartNetworkTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetworkTest.swift; sourceTree = "<group>"; };
+		DAD98F632C1EB41C0076F8CE /* MockCartnetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartnetwork.swift; sourceTree = "<group>"; };
+		DAD98F652C1EB46F0076F8CE /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
 		DAE2A6702C18413000F80C5E /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		DAE2A6722C18415600F80C5E /* CartNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartNetwork.swift; sourceTree = "<group>"; };
 		DAE2A6742C18441100F80C5E /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -566,6 +572,7 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAD98F602C1EB3630076F8CE /* CartTest */,
 				1ED98EBC2BFF882300948409 /* SwiftCartTests.swift */,
 			);
 			path = SwiftCartTests;
@@ -936,6 +943,16 @@
 				DAD98F5C2C1CF0C60076F8CE /* DiscountViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DAD98F602C1EB3630076F8CE /* CartTest */ = {
+			isa = PBXGroup;
+			children = (
+				DAD98F612C1EB3860076F8CE /* CartNetworkTest.swift */,
+				DAD98F632C1EB41C0076F8CE /* MockCartnetwork.swift */,
+				DAD98F652C1EB46F0076F8CE /* CartViewModelTests.swift */,
+			);
+			path = CartTest;
 			sourceTree = "<group>";
 		};
 		DAE2A66B2C17F87500F80C5E /* Model */ = {
@@ -1332,7 +1349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAD98F662C1EB46F0076F8CE /* CartViewModelTests.swift in Sources */,
+				DAD98F622C1EB3860076F8CE /* CartNetworkTest.swift in Sources */,
 				1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */,
+				DAD98F642C1EB41C0076F8CE /* MockCartnetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
