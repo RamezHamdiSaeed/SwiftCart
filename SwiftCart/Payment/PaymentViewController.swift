@@ -4,7 +4,6 @@
 //
 //  Created by rwan elmtary on 12/06/2024.
 //
-
 import UIKit
 import PassKit
 
@@ -37,6 +36,7 @@ class PaymentViewController: UIViewController {
     func calculateAndDisplayTotalPrice() {
         guard let totalAmount = calculateTotalAmount() else { return }
         updateTotalLabel(with: totalAmount)
+        discountedTotalAmount = totalAmount // Set the initial discounted total amount to the total amount
     }
     
     @IBAction func buyWithCash(_ sender: Any) {
@@ -119,7 +119,7 @@ class PaymentViewController: UIViewController {
         var discountedTotal: Decimal
         if priceRule.value_type == "fixed_amount" {
             discountedTotal = totalAmount + valueDecimal
-        } else if priceRule.value_type == "percentage" {
+        } else if (priceRule.value_type == "percentage") {
             let discountValue = totalAmount * (valueDecimal / 100)
             discountedTotal = totalAmount - discountValue
         } else {
@@ -131,6 +131,7 @@ class PaymentViewController: UIViewController {
             discountedTotal = 0
         }
         
+        discountedTotalAmount = discountedTotal
         updateTotalLabel(with: discountedTotal)
     }
     
@@ -157,7 +158,7 @@ class PaymentViewController: UIViewController {
             paymentRequest.countryCode = "US"
             paymentRequest.currencyCode = "USD"
 
-            if let totalAmount = discountedTotalAmount ?? calculateTotalAmount() {
+            if let totalAmount = discountedTotalAmount {
                 let summaryItem = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(decimal: totalAmount))
                 paymentRequest.paymentSummaryItems = [summaryItem]
 
