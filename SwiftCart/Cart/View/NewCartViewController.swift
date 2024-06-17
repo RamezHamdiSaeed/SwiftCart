@@ -9,9 +9,10 @@ import UIKit
 
 class NewCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableCellDelegate,AddressDelegate , PaymentDelegate{
    
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     
-    
-    
+
     var cartViewModel = CartViewModel()
     var draftOrders: [DraftOrder] = []
     var lineItems: [LineItems] = []
@@ -25,11 +26,20 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cartViewModel.rateClosure = {
+            [weak self] rate in
+            DispatchQueue.main.async { [self] in
+                self?.rate = rate
+                self?.calculateTotalPrice()
+            }
+        }
+        cartViewModel.getRate()
+        
         styleTableView(tableView: cartTable)
         setBackground(view: self.view)
         goToPayment.layer.cornerRadius = 10
         addNibFile()
-
+        
         cartViewModel.bindResultToViewController = { [weak self] in
             DispatchQueue.main.async {
                 self?.draftOrders = self?.cartViewModel.result ?? []
@@ -38,8 +48,11 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
                 self?.calculateTotalPrice()
             }
         }
-
+        
         cartViewModel.fetchFromCart(customerID: customerId ?? 0)
+    
+
+        
     }
     func didCompletePurchase() {
            draftOrders = []
@@ -47,13 +60,22 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
            cartTable.reloadData()
            calculateTotalPrice()
        }
+    
+
 
     func calculateTotalPrice() {
         let total = lineItems.reduce(0.0) { total, item in
             let itemPrice = Double(item.price ?? "") ?? 0.0
             return total + (itemPrice * Double(item.quantity ?? 0))
         }
-        totalPrice.text = String(format: "$%.2f", total)
+    //    totalPrice.text = String(format: "$%.2f", total)
+        
+        var convertedPrice = convertPrice(price: String(total), rate: self.rate)
+
+        totalPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+     
+
+        
         updateCartItemCount()
         
 
@@ -62,6 +84,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cartViewModel.fetchFromCart(customerID: customerId ?? 0)
+
     }
 
     func addNibFile() {

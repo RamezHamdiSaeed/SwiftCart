@@ -55,12 +55,13 @@ class ViewController: UIViewController {
             
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
-            label.textColor = UIColor(named: "HintTextAndIcon")
+            label.textColor = UIColor.systemOrange
+            //UIColor(named: "HintTextAndIcon")
             label.text = titles[x]
             page.addSubview(label)
             
-            button.setTitleColor(UIColor(named: "ScreenAndUIText"), for: .normal)
-            button.backgroundColor = UIColor(named: "UIButtonsAndText")
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.backgroundColor = UIColor.systemOrange
             button.setTitle("Continue", for: .normal)
             if x == 1 {
                 button.setTitle("Get Started", for: .normal)

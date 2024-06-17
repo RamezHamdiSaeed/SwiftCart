@@ -77,8 +77,10 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SoT-Xm-aGy">
                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="201"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="201" id="5Wy-TI-FkU"/>
                                                         <constraint firstAttribute="width" constant="356" id="P7K-QI-xly"/>
                                                         <constraint firstAttribute="height" constant="201" id="cqS-ro-XkJ"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="356" id="hgh-em-BQ0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-gv-6tX">
@@ -91,12 +93,15 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Ni1-gv-6tX" secondAttribute="trailing" id="3ye-Zc-xnU"/>
                                                 <constraint firstItem="SoT-Xm-aGy" firstAttribute="leading" secondItem="uX2-hJ-FtX" secondAttribute="leading" id="6mQ-34-yNz"/>
+                                                <constraint firstAttribute="bottom" secondItem="SoT-Xm-aGy" secondAttribute="bottom" id="D70-9M-Pb6"/>
                                                 <constraint firstAttribute="bottom" secondItem="SoT-Xm-aGy" secondAttribute="bottom" id="EZm-O0-amA"/>
                                                 <constraint firstItem="Ni1-gv-6tX" firstAttribute="top" secondItem="uX2-hJ-FtX" secondAttribute="top" constant="163" id="LLP-o6-Zq1"/>
+                                                <constraint firstItem="SoT-Xm-aGy" firstAttribute="leading" secondItem="uX2-hJ-FtX" secondAttribute="leading" id="OqE-Dq-7tt"/>
                                                 <constraint firstAttribute="trailing" secondItem="SoT-Xm-aGy" secondAttribute="trailing" id="VAs-Zf-E0x"/>
                                                 <constraint firstItem="SoT-Xm-aGy" firstAttribute="top" secondItem="uX2-hJ-FtX" secondAttribute="top" id="apY-t4-2Y6"/>
                                                 <constraint firstItem="Ni1-gv-6tX" firstAttribute="leading" secondItem="uX2-hJ-FtX" secondAttribute="leading" id="c5q-O5-SAF"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ni1-gv-6tX" secondAttribute="bottom" id="eIC-ZH-PgW"/>
+                                                <constraint firstAttribute="trailing" secondItem="SoT-Xm-aGy" secondAttribute="trailing" id="zMx-2N-3a5"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -351,7 +356,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cno-zE-jCo">
-                                                    <rect key="frame" x="10" y="10" width="350" height="180"/>
+                                                    <rect key="frame" x="10" y="10" width="0.0" height="180"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No     : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZc-Mr-1FB">
                                                             <rect key="frame" x="8" y="8" width="148" height="35"/>

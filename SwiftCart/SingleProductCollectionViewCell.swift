@@ -11,24 +11,37 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var favBtnOUtlet: UIButton!
     var product : ProductTemp!
-    
+  
     var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    var whenRemoved : (()->())? = nil
     
     @IBAction func productAddToFavBtn(_ sender: Any) {
-        if favBtnOUtlet.isSelected{
-            viewModel.deleteProductFromFav(product: product)
+        guard let currentProductCell = product else {return}
+        if currentProductCell.isFavorite {
+            viewModel.deleteProductFromFav(product: product!)
             FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
-            favBtnOUtlet.imageView?.image = UIImage(systemName: "heart")
-            favBtnOUtlet.isSelected = false
+            if let whenRemoved = whenRemoved {
+                whenRemoved()
+            }
+            else {
+                favBtnOUtlet.setImage(UIImage(systemName: "heart"), for: .normal)
+                product?.isFavorite = false
+            }
+
         }
         else{
-            viewModel.insertProductToFavDB(product: product)
-            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted intro the favorite successfully")
-            favBtnOUtlet.imageView?.image = UIImage(systemName: "heart.fill")
-            favBtnOUtlet.isSelected = true
+            viewModel.insertProductToFavDB(product: product!)
+            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted into the favorite successfully")
+            favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            product?.isFavorite = true
         }
+        
+        
     }
-  
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+    }
     
     @IBOutlet weak var productImage: UIImageView!
     
@@ -37,8 +50,12 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+ 
     }
-
+    func toggleFavBtn(){
+        let imageName = product.isFavorite ? "heart.fill" : "heart"
+        favBtnOUtlet.setImage(UIImage(systemName: imageName), for: .normal)
+        
+    }
   
 }

@@ -29,6 +29,8 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setHeader()
+       // setHeader(view: self, title: "Log In")
+
         password.isSecureTextEntry = true
 
     }

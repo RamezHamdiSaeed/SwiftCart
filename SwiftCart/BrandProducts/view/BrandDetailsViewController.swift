@@ -135,6 +135,8 @@ import UIKit
 import SDWebImage
 
 class BrandDetailViewController: UIViewController {
+    //
+    private var favViewModel: SearchFavoriteProductsViewModel!
 
     var price = 0.0
     @IBOutlet weak var brandProductsCollectionView: UICollectionView!
@@ -184,6 +186,13 @@ class BrandDetailViewController: UIViewController {
         }
         
         productViewModel.getProducts(collectionId: collectionIdStr)
+        
+        //
+       favViewModel = {
+            let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+            searchFavoriteProductsVC.getFavoriteProductsDB()
+            return searchFavoriteProductsVC
+        }()
     }
 }
 
@@ -212,8 +221,15 @@ extension BrandDetailViewController: UICollectionViewDataSource {
         CollectionViewDesign.collectionViewCell(cell: cell)
     
         var productTemp = ProductTemp(id: product.id, name: product.title , price: Double(product.variants[0].price)!, isFavorite: false, image: product.image.src)
+       //
+        productTemp.isFavorite = favViewModel.isProductFavorite(product: productTemp)
         
         cell.product = productTemp
+//        cell.whenRemoved = {
+//            self.favViewModel.getFavoriteProductsDB()
+//        }
+        cell.toggleFavBtn()
+        
 
         return cell
     }
