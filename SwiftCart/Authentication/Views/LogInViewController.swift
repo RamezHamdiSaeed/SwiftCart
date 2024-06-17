@@ -51,6 +51,16 @@ class LogInViewController: UIViewController {
         if(isValidEmail && isValidPassword){
             
             FirebaseAuthImpl.user.logIn(email: email.text!, password: password.text!){
+                
+//                guard let userEmail = User.email else {return}
+                FavoriteSync.fetchProducts(for: User.email!, completion: {
+                    products in
+                    products.forEach{
+                        currentProduct in
+                      LocalDataSourceImpl.shared.insertProductToFav(product: currentProduct)
+                    }
+                })
+                
                 DispatchQueue.main.async{
                     let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
                            let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!

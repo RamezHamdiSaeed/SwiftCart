@@ -13,6 +13,7 @@ protocol AuthViewModel{
     func continueAsAGuest()
     func logIn()
     func signUp()
+    static func logOut()
     func setSuccessMessage(successMessage:@escaping(()->()))
     func setFailMessage(failMessage: @escaping (() -> ()))
 }

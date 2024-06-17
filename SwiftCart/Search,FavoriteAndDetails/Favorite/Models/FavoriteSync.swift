@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class FavoriteSync{
     
-    func uploadProducts(for userEmail: String, products: [ProductTemp]) {
+    static func uploadProducts(for userEmail: String, products: [ProductTemp]) {
         let db = Firestore.firestore()
         products.forEach{
             currentProduct in
@@ -32,9 +32,9 @@ class FavoriteSync{
        
     }
     
-    func fetchProducts(for userEmail: String, completion: @escaping ([ProductTemp]) -> Void) {
+    static func fetchProducts(for userEmail: String, completion: @escaping ([ProductTemp]) -> Void) {
         let db = Firestore.firestore()
-        db.collection("wishlists")
+        db.collection("favlists")
             .document(userEmail)
             .collection("products")
             .getDocuments { snapshot, error in

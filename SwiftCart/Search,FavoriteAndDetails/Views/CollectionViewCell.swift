@@ -17,6 +17,7 @@ class CollectionViewCell: UICollectionViewCell {
     var viewModel : SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
     var rate : Double!
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+    var whenRemoved : (()->())? = nil
 
 //    required init?(coder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
@@ -37,24 +38,33 @@ class CollectionViewCell: UICollectionViewCell {
         }
         viewModel.getRate()
 
-        favoriteButton.isSelected = product.isFavorite
-        favoriteButton.imageView?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
+//        favoriteButton.isSelected = product.isFavorite
+        let imageName = product.isFavorite ? "heart.fill" : "heart"
+        favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
         productImage.sd_setImage(with: URL(string: product.image), placeholderImage: UIImage(named: "placeholder"))
         
     }
     
     @IBAction func favoriteToggleBtn(_ sender: Any) {
-        if favoriteButton.isSelected{
+        guard let currentProductCell = productCell else {return}
+        if currentProductCell.isFavorite {
+            print(productCell?.isFavorite)
             viewModel.deleteProductFromFav(product: productCell!)
             FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
-            favoriteButton.imageView?.image = UIImage(systemName: "heart")
-            favoriteButton.isSelected = false
+            if let whenRemoved = whenRemoved {
+                whenRemoved()
+            }
+            else {
+                favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                productCell?.isFavorite = false
+            }
+
         }
         else{
             viewModel.insertProductToFavDB(product: productCell!)
-            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted intro the favorite successfully")
-            favoriteButton.imageView?.image = UIImage(systemName: "heart.fill")
-            favoriteButton.isSelected = true
+            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted into the favorite successfully")
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            productCell?.isFavorite = true
         }
     }
     

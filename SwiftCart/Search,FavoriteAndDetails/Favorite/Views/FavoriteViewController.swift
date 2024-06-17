@@ -92,6 +92,10 @@ class FavoriteViewController: UIViewController, UICollectionViewDelegateFlowLayo
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
                 cell.configure(with: myProduct)
+                cell.whenRemoved = {
+                    self.viewModel.getFavoriteProductsDB()
+                    //                    self.productsCollectionView.reloadData()
+                }
             }
             .disposed(by: disposeBag)
         

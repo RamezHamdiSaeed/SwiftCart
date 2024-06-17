@@ -8,8 +8,6 @@
 import Foundation
 
 class AuthViewModelImpl : AuthViewModel{
-    
-    
     let signUPNavigationHandler : ()->()
     let logInNavigationHandler : ()->()
     let continueAsAGuestHandler : ()->()
@@ -45,6 +43,19 @@ class AuthViewModelImpl : AuthViewModel{
     
     func logIn() {
         self.logInHandler()
+     
+    }
+    
+    static func logOut() {
+        FirebaseAuthImpl.user.signOut(whenSuccess:{
+            guard let favoriteProducts = LocalDataSourceImpl.shared.getProductsFromFav() else {return}
+            FavoriteSync.uploadProducts(for: User.email!, products: favoriteProducts )
+            favoriteProducts.forEach{
+                currentProduct in
+                LocalDataSourceImpl.shared.deleteProductFromFav(product: currentProduct)
+            }
+        })
+       
     }
     
     func signUp() {

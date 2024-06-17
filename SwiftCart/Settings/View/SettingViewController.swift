@@ -124,18 +124,29 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var currency: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var logout: UIButton!
-    
-    
+
+
     @IBOutlet weak var pullDownMenu: UIButton!
-    
+
     var locationViewModel = LocationViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         logout.layer.cornerRadius = 10
         setHeader(view: self, title: "Settings")
         loadSelectedCurrency()
         setupMenu()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // check if the user is signed in or as a guest to show or hide the logout button
+        if User.id == nil   {
+            logout.isEnabled = false
+            logout.isHidden = true
+        }
     }
 
 
@@ -164,9 +175,9 @@ class SettingViewController: UIViewController {
         currency.text = "Selected currency: \(selectedCurrency)"
         print("Loaded currency: \(selectedCurrency)")
     }
-    
-    
-  
+
+
+
     func setupMenu() {
         let usd = UIAction(title: "USD", image: UIImage(systemName: "dollarsign")) { [self] _ in
             print("usd")
@@ -174,21 +185,31 @@ class SettingViewController: UIViewController {
             loadSelectedCurrency()
 
         }
-        
+
         let egp = UIAction(title: "EGP", image: UIImage(systemName: "banknote")) { [self] _ in
             print("egp")
             CurrencyImp.saveCurrencyToUserDefaults(coin: Coins.egp.rawValue)
             loadSelectedCurrency()
         }
-        
+
         let eur = UIAction(title: "EUR", image: UIImage(systemName: "eurosign")) { [self] _ in
              print("eur")
             CurrencyImp.saveCurrencyToUserDefaults(coin: Coins.eur.rawValue)
             loadSelectedCurrency()
         }
-        
+
         let menu = UIMenu(title: "Menu", children: [usd, egp, eur])
         pullDownMenu.menu = menu
         pullDownMenu.showsMenuAsPrimaryAction = true
     }
+    
+    @IBAction func LogOut(_ sender: Any) {
+        AuthViewModelImpl.logOut()
+        let AuthenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
+        if let MainAuthViewController = (AuthenticationStoryBoard.instantiateViewController(withIdentifier: "MainAuthViewController")) as? MainAuthViewController {
+            self.navigationController?.pushViewController(MainAuthViewController, animated: true)
+            print("button tapped")
+        }
+    }
+    
 }
