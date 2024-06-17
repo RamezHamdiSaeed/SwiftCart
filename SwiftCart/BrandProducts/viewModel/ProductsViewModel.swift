@@ -17,7 +17,7 @@ class ProductsViewModel {
         }
     }
     func getProducts( collectionId : Int ){
-        ProductsServicesImp.fetchProducts( collectionId: collectionId ) {[weak self] res in
+        NetworkServicesImpl.fetchProducts( collectionId: collectionId ) {[weak self] res in
             switch res {
             case .success(let response) :
                 self?.productsClosure(response.products)

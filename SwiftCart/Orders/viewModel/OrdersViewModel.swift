@@ -24,7 +24,7 @@ class OrdersViewModel {
     //defaultId "7495574716667"
     
     func getOrders (){
-        OrdersServiceImp.fetchOrders(customerId: customerId) { [weak self] res in
+        NetworkServicesImpl.fetchOrders(customerId: customerId) { [weak self] res in
             switch res {
             case .success(let response) :
                 self?.ordersClosure(response.orders!)

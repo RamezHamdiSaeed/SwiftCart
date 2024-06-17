@@ -18,7 +18,7 @@ class HomeViewModel {
 
     
     func getBrands (){
-        BrandServiceImp.fetchBrands { [weak self] res in
+        NetworkServicesImpl.fetchBrands { [weak self] res in
             switch res {
             case .success(let response) :
                 self?.brandsClosure(response.smartCollections)
