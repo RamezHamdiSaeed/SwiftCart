@@ -12,4 +12,13 @@ struct ProductTemp: Codable {
     var price: Double
     var isFavorite: Bool
     var image : String
+    
+    func toDictionary() -> [String: Any] {
+            return [
+                "id": id,
+                "image": image,
+                "price": price,
+                "name": name
+            ]
+        }
 }

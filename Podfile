@@ -14,10 +14,6 @@ pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
 pod 'RxSwift'
 pod 'RxCocoa'
-pod 'FirebaseUI'
-pod 'FirebaseCore'
-pod 'FirebaseUI/Auth'
-
 
   target 'SwiftCartTests' do
     inherit! :search_paths
