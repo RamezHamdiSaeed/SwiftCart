@@ -8,8 +8,12 @@
 import Foundation
 
 class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
-    static func createCustomer(customer: SignedUpCustomer) {
-        AppCommon.networkingManager.networkingRequest(path: "/customers.json", queryItems: nil, method: .POST, requestBody: customer,completeBaseURL: "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04",networkResponse: { (result: Result<SignedUpCustomerResponse, NetworkError>) in
+     var networkingManager :NetworkingManager? = nil
+    init(networkingManager : NetworkingManager){
+        self.networkingManager = networkingManager
+    }
+     func createCustomer(customer: SignedUpCustomer) {
+         self.networkingManager!.networkingRequest(path: "/customers.json", queryItems: nil, method: .POST, requestBody: customer,completeBaseURL: "https://mad-ios-ism-2.myshopify.com/admin/api/2024-04",networkResponse: { (result: Result<SignedUpCustomerResponse, NetworkError>) in
             switch result {
             case .success(let loggedInCustomerInfoResponse):
                 print("this user is created at shopifyDB successfully \(loggedInCustomerInfoResponse.customer?.email)")
@@ -19,8 +23,8 @@ class ShopifyAuthNetworkServiceImpl : ShopifyAuthNetworkService {
         })
     }
     
-   static func getLoggedInCustomerByEmail(email: String,whenSuccess:@escaping()->()){
-        AppCommon.networkingManager.networkingRequest(path: "/customers/search.json", queryItems: [URLQueryItem(name: "query", value: email)], method: .GET, requestBody: nil, networkResponse: { (result: Result<LoggedInCustomers, NetworkError>) in
+    func getLoggedInCustomerByEmail(email: String,whenSuccess:@escaping()->()){
+        self.networkingManager!.networkingRequest(path: "/customers/search.json", queryItems: [URLQueryItem(name: "query", value: email)], method: .GET, requestBody: nil, completeBaseURL: nil, networkResponse: { (result: Result<LoggedInCustomers, NetworkError>) in
             switch result {
             case .success(let LoggedInCustomersInfoResponse):
                 User.email = LoggedInCustomersInfoResponse.customers![0].email

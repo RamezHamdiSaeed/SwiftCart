@@ -10,6 +10,7 @@ import Firebase
 class FirebaseAuthImpl : FirebaseAuth{
     
     static let user = FirebaseAuthImpl()
+    let shopifyAuthNetworkServiceImpl:ShopifyAuthNetworkServiceImpl = ShopifyAuthNetworkServiceImpl(networkingManager: NetworkingManagerImpl())
      var successMessage : (()->())?
     var failMessage : (()->())?
     private init(){
@@ -29,7 +30,7 @@ class FirebaseAuthImpl : FirebaseAuth{
             result, error in
             guard let error else {
                 self.successMessage!()
-                ShopifyAuthNetworkServiceImpl.createCustomer(customer: SignedUpCustomer(customer: SignedUpCustomerInfo(email: email,verifiedEmail: true,state: "enabled")))
+                self.shopifyAuthNetworkServiceImpl.createCustomer(customer: SignedUpCustomer(customer: SignedUpCustomerInfo(email: email,verifiedEmail: true,state: "enabled")))
                 return
                 
             }
@@ -43,7 +44,7 @@ class FirebaseAuthImpl : FirebaseAuth{
             result, error in
             guard let error else {
                 self.successMessage!()
-                ShopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email){
+                self.shopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email){
                 whenSuccess()
                 }
                 return}

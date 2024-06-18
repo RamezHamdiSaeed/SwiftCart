@@ -17,7 +17,7 @@ class DetailsNetworkService {
             path: "/products/\(id).json",
             queryItems: nil,
             method: .GET,
-            requestBody: nil,
+            requestBody: nil, completeBaseURL: nil,
             networkResponse: { (result: Result<ProductDetailsResponse, NetworkError>) in
                 switch result {
                 case .success(let productDetailsResponse):

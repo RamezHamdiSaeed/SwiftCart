@@ -9,7 +9,7 @@ import Foundation
 
 
 class AppCommon{
-    static var networkingManager = NetworkingManager()
+    static var networkingManager = NetworkingManagerImpl()
     static var feedbackManager = FeedbackManager()
     static var locationManager = LocationManager()
     static var userSessionManager = UserSessionManager()
