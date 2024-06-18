@@ -33,15 +33,22 @@ class DetailsViewController: UIViewController {
     
     var productImagesSrcs : [String] = []
     var productCount : Int?
-
     
-    
-    
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         productImages.collectionViewLayout = layout
+        cartViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        cartViewModel.getRate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +73,10 @@ class DetailsViewController: UIViewController {
 
 
                 self.productTitle.text = currentProduct?.title
-                self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
+                var convertedPrice = convertPrice(price: (currentProduct?.variants![0].price)!, rate: self.rate)
+
+                self.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+               // self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
                 self.productDetails.text = currentProduct?.bodyHtml
                 
                 // setup segment control of sizes

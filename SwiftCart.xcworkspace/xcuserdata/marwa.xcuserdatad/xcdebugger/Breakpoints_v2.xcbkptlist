@@ -126,9 +126,9 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "testGetBrandsFailure()"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,8 +142,8 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
             <Locations>
@@ -190,8 +190,8 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
          </BreakpointContent>
