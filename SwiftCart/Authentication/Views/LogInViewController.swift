@@ -63,6 +63,8 @@ class LogInViewController: UIViewController {
                     }
                 })
                 
+                AppCommon.userSessionManager.setIsNotSignedOutUser()
+                
                 DispatchQueue.main.async{
                     let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
                            let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!

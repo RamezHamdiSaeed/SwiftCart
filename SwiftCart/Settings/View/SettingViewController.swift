@@ -205,11 +205,15 @@ class SettingViewController: UIViewController {
     
     @IBAction func LogOut(_ sender: Any) {
         AuthViewModelImpl.logOut()
-        let AuthenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
-        if let MainAuthViewController = (AuthenticationStoryBoard.instantiateViewController(withIdentifier: "MainAuthViewController")) as? MainAuthViewController {
-            self.navigationController?.pushViewController(MainAuthViewController, animated: true)
-            print("button tapped")
-        }
+        AppCommon.userSessionManager.setIsSignedOutUser()
+        AppCommon.feedbackManager.showCancelableAlert(alertTitle: "Prompt", alertMessage: "Do you want to log out?", alertStyle: .alert, view: self, okCompletion: {
+            let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
+            if let MainAuthViewController = (authenticationStoryBoard.instantiateViewController(withIdentifier: "MainAuthViewController")) as? MainAuthViewController {
+                self.navigationController?.pushViewController(MainAuthViewController, animated: true)
+                print("button tapped")
+            }
+        })
+       
     }
     
 }

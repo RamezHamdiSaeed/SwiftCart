@@ -41,10 +41,18 @@ extension FeedbackManager{
         
           let okAction = UIAlertAction(title: "OK", style: .default) { _ in
               print("OK tapped")
-            
+              
+              let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
+              let logInVC:LogInViewController = (authenticationStoryBoard.instantiateViewController(withIdentifier: "LogInViewController")) as! LogInViewController
+                      view.navigationController?.pushViewController(logInVC, animated: true)
           }
         
           alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("cancel tapped")
+        }
+        alertController.addAction(cancelAction)
       //  present(alertController)
         view.present(alertController, animated: true, completion: nil)
       }
