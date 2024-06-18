@@ -69,7 +69,15 @@ import Foundation
 //    }
 //}
 
-class MockNetworkServices {
+class MockNetworkServices : NetworkServices{
+    func fetchProducts(collectionId: String, completionHandler completion: @escaping (SwiftCart.Result<SwiftCart.ProductsResponse, Error>) -> Void) {
+        print("k")
+    }
+    
+    func fetchProductsForSubCategory(productType: String, completionHandler completion: @escaping (SwiftCart.Result<SwiftCart.ProductsResponse, Error>) -> Void) {
+       
+    }
+    
     var shouldReturnError: Bool
     
     init(shouldReturnError: Bool) {
@@ -408,22 +416,22 @@ class MockNetworkServices {
 }
 
 extension MockNetworkServices {
-    func fetchBrands(completion: @escaping (Result<SmartCollectionsResponse, Error>) -> Void) {
+    func fetchBrands(completionHandler: @escaping (Result<SmartCollectionsResponse, Error>) -> Void) {
         if shouldReturnError {
-            completion(.failure(error: ResponseWithError.responseError))
+            completionHandler(.failure(error: ResponseWithError.responseError))
             return
         }
         
         do {
             let brandData = try JSONSerialization.data(withJSONObject: fakeBrandObj, options: [])
             let brands = try JSONDecoder().decode(SmartCollectionsResponse.self, from: brandData)
-            completion(.success(data: brands))
+            completionHandler(.success(data: brands))
         } catch {
-            completion(.failure(error: error))
+            completionHandler(.failure(error: error))
         }
     }
     
-    func fetchProducts (collectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
+    func fetchProducts (singleCollectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
         if shouldReturnError {
             completion(.failure(error: ResponseWithError.responseError))
             return

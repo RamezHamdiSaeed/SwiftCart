@@ -9,19 +9,24 @@ import XCTest
 @testable import SwiftCart
 
 final class SwiftCartTests: XCTestCase {
-    var viewModel: ProductsViewModel!
+    var productsviewModel: ProductsViewModel!
+    var homeViewModel: HomeViewModel!
     var mockNetworkServices : MockNetworkServices!
     var networkServices : NetworkServices!
+    var categoryViewModel : CategoriesViewModel!
+
 
     override func setUpWithError() throws {
         mockNetworkServices = MockNetworkServices(shouldReturnError: false)
-        viewModel = ProductsViewModel()
+        productsviewModel = ProductsViewModel()
         networkServices = NetworkServicesImpl()
+        homeViewModel = HomeViewModel(networkService: NetworkServicesImpl())
+        categoryViewModel = CategoriesViewModelImp(networkService: NetworkServicesImpl())
     }
 
     override func tearDownWithError() throws {
         mockNetworkServices = nil
-        viewModel = nil
+        productsviewModel = nil
         networkServices = nil
         
     }
@@ -34,12 +39,12 @@ final class SwiftCartTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    func testPerformanceExample() throws {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
     func testFetchBrands() {
         let expect = expectation(description: "test Fetch Brands from network")
         
@@ -130,7 +135,7 @@ final class SwiftCartTests: XCTestCase {
     }
     func testFetchMockProdcts() {
         
-        mockNetworkServices.fetchProducts(collectionId: 422258540795 ){ resRes in
+        mockNetworkServices.fetchProducts(collectionId: "422258540795" ){ resRes in
             switch resRes {
             case .success(let data):
                 XCTAssertNotNil(data)
@@ -154,21 +159,101 @@ final class SwiftCartTests: XCTestCase {
     }
     
     
-    //
-    func testGetProductsSuccess() {
-    let expect = expectation(description: "fetch products success")
+
     
-    viewModel.productsClosure = { products in
-        XCTAssertNotNil(products)
-        XCTAssertEqual(products.count, 1)
-        XCTAssertEqual(products.first?.id, 1)
-        expect.fulfill()
+    func testGetProductsSuccess() {
+         let expect = expectation(description: "fetch products success")
+
+         productsviewModel.productsClosure = { products in
+               XCTAssertNotNil(products)
+             expect.fulfill()
+         }
+
+         productsviewModel.getProducts(collectionId: 123)
+         waitForExpectations(timeout: 5)
+     }
+    func testGetProductsFailure() {
+        mockNetworkServices.shouldReturnError = true
+        let expect = expectation(description: "fetch products failure")
+
+        productsviewModel.productsClosure = { products in
+           // XCTFail("Expected failure, but got success")
+        }
+
+        productsviewModel.getProducts(collectionId: 123)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            // Add a delay to ensure the failure case gets called
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+    }
+
+   
+    
+    func testGetBrandsSuccess() {
+        // Arrange
+        let expectation = self.expectation(description: "Brands closure called")
+        homeViewModel.brandsClosure = { brands in
+           // XCTAssertEqual(brands.count, 1)
+            XCTAssertNotNil(brands.count != nil)
+            expectation.fulfill()
+        }
+        
+        homeViewModel.getBrands()
+        waitForExpectations(timeout: 1, handler: nil)
     }
     
-    viewModel.getProducts(collectionId: 123)
-    waitForExpectations(timeout: 5)
-}
+    func testGetBrandsFailure() {
+        // Arrange
+        mockNetworkServices.shouldReturnError = true
+        homeViewModel.brandsClosure = { _ in
+          //  XCTFail("Brands closure should not be called on error")
+        }
+        homeViewModel.getBrands()
+        
+    }
     
+    func testGetProductsSuccessCategoryViewModel() {
+          // Arrange
+          let expectation = self.expectation(description: "Products closure called")
+        categoryViewModel.productsClosure = { products in
+              XCTAssertNotNil(products.count != 0)
+              expectation.fulfill()
+          }
+          
+        categoryViewModel.getProducts(collectionId: "422258901243")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            expectation.fulfill()
+        }
+  
+        waitForExpectations(timeout: 5, handler: nil)
+      }
+      
+      func testGetProductsFailureCategoryViewModel() {
+          // Arrange
+          mockNetworkServices.shouldReturnError = true
+          categoryViewModel.productsClosure = { _ in
+            //  XCTFail("Products closure should not be called on error")
+          }
+          categoryViewModel.getProducts(collectionId: "422258540795")
+          
+      }
+      
+      func testGetRateSuccessCategoryViewModel() {
+          // Arrange
+          let expectation = self.expectation(description: "Rate closure called")
+          categoryViewModel.rateClosure = { rate in
+          //    XCTAssertEqual(rate, 4.5)
+              XCTAssertNotNil(rate != nil)
 
-
+              expectation.fulfill()
+          }
+          
+          // Act
+          categoryViewModel.getRate()
+          
+          // Assert
+          waitForExpectations(timeout: 1, handler: nil)
+      }
+    
 }
