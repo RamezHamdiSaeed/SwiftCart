@@ -115,6 +115,9 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
                         cell.okRemovingCellBtn()
                     }
                 }
+                cell.guestClosure = {
+                    AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                }
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
                 

@@ -102,10 +102,10 @@ class HomeViewController: UIViewController {
         setUpNavBarBtn(button: button1, imageName: "searchIcons", selector: #selector(icon1Tapped))
 
         let button2 = UIButton(type: .system)
-        setUpNavBarBtn(button: button2, imageName: "like", selector: #selector(icon2Tapped))
+        setUpNavBarBtn(button: button2, imageName: "like", selector: #selector(favTapped))
       
         let button3 = UIButton(type: .system)
-        setUpNavBarBtn(button: button3, imageName: "shoppingCart", selector: #selector(icon3Tapped))
+        setUpNavBarBtn(button: button3, imageName: "shoppingCart", selector: #selector(cartTapped))
     
         setupBadgeLabel(on: button3)
 
@@ -151,21 +151,29 @@ class HomeViewController: UIViewController {
                         self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
-    @objc func icon2Tapped() {
+    @objc func favTapped() {
         // Handle icon2 tap
-                        let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
-                        let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
-                        self.navigationController?.pushViewController(SearchViewController, animated: true)
+        if User.id == nil {
+            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+        }else{
+            let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+            let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
+            self.navigationController?.pushViewController(SearchViewController, animated: true)
+        }
+
     }
     
     
-     @objc func icon3Tapped() {
-         let cart = NewCartViewController()
-         cart.cartItemCountUpdated = { [weak self] count in
-             self?.cartItemCount = count
-         }
-         self.navigationController?.pushViewController(cart, animated: true)
-         print("Icon 3 tapped")
+     @objc func cartTapped() {
+         if User.id == nil {
+             AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+         }else{
+             let cart = NewCartViewController()
+             cart.cartItemCountUpdated = { [weak self] count in
+                 self?.cartItemCount = count
+             }
+             self.navigationController?.pushViewController(cart, animated: true)
+             print("Icon 3 tapped")}
      }
      
 

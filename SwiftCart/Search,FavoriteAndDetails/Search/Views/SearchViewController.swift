@@ -119,6 +119,9 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
                         cell.okRemovingCellBtn()
                     }
                 }
+                cell.guestClosure = {
+                    AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                }
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
                 cell.productName.text = product.name

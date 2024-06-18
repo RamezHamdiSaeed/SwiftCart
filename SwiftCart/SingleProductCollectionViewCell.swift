@@ -11,10 +11,11 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var favBtnOUtlet: UIButton!
     var product : ProductTemp!
-    
     var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    
     var whenRemoved : (()->())? = nil
     var whenRemoving : (()->())? = nil
+    var guestClosure : (()->())? = nil
     
     @IBAction func productAddToFavBtn(_ sender: Any) {
         guard let currentProductCell = product else {return}
@@ -24,10 +25,15 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
         }
         else{
-            viewModel.insertProductToFavDB(product: product!)
-            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted into the favorite successfully")
-            favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            product?.isFavorite = true
+            if User.id == nil{
+                guestClosure?()
+            }else{
+                viewModel.insertProductToFavDB(product: product!)
+                FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted into the favorite successfully")
+                favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                product?.isFavorite = true
+            }
+
         }
         
         

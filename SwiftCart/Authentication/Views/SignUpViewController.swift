@@ -32,7 +32,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader()
+        //setHeader()
+        SwiftCart.setHeader(view: self, title: "Sign Up")
+
         password.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
     }

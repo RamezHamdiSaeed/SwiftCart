@@ -223,6 +223,10 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
         
+        cell.guestClosure = {
+            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+        }
+        
         let product = categoryProductsArray[indexPath.item]
         cell.productName.text = product.title
         if let imageUrl = URL(string: product.image.src) {

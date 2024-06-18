@@ -85,6 +85,9 @@ extension BrandDetailViewController: UICollectionViewDataSource {
                 cell.okRemovingCellBtn()
             }
         }
+        cell.guestClosure = {
+            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+        }
         // Configure Cell
         let product = productsArray[indexPath.item]
         cell.productName.text = product.title

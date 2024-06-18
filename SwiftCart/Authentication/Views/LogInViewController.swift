@@ -28,8 +28,8 @@ class LogInViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader()
-       // setHeader(view: self, title: "Log In")
+       // setHeader()
+        SwiftCart.setHeader(view: self, title: "Log In")
 
         password.isSecureTextEntry = true
 
@@ -99,5 +99,7 @@ class LogInViewController: UIViewController {
         settingsLabel.font = .boldSystemFont(ofSize: 25)
         settingsLabel.sizeToFit()
         self.navigationItem.titleView = settingsLabel
+        
+        
     }
 }
