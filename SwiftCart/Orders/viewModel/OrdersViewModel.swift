@@ -24,16 +24,18 @@ class OrdersViewModel {
     //defaultId "7495574716667"
     
     func getOrders (){
-        NetworkServicesImpl.fetchOrders(customerId: customerId) { [weak self] res in
-            switch res {
-            case .success(let response) :
-                self?.ordersClosure(response.orders!)
-                print("fetchOrderss viewmodel success")
-                
-            case .failure(_):
-                print("fetchOrderss viewmodel error")
-        
+        if User.id == nil{}else{
+            NetworkServicesImpl.fetchOrders(customerId: customerId) { [weak self] res in
+                switch res {
+                case .success(let response) :
+                    self?.ordersClosure(response.orders!)
+                    print("fetchOrderss viewmodel success")
+                    
+                case .failure(_):
+                    print("fetchOrderss viewmodel error")
+                    
+                }
             }
-        }
-    }
+            
+        }}
 }

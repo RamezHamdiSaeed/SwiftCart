@@ -17,7 +17,7 @@ protocol NetworkServices {
 
 }
 class NetworkServicesImpl : NetworkServices {
-        static func fetchProducts (collectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
+    static func fetchProducts (collectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
            let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/products.json?collection_id=\(collectionId)"
     
             let url = URL(string: urlStr)

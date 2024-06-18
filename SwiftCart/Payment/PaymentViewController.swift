@@ -16,6 +16,10 @@ class PaymentViewController: UIViewController {
     weak var delegate: PaymentDelegate?
     var viewModelDis = DiscountViewModel()
     var availableCoupons: [DiscountCodes] = []
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+    
+
     
     @IBOutlet weak var couponText: UITextField!
     private var discountedTotalAmount: Decimal?
@@ -24,6 +28,15 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        viewModel.getRate()
+        
         if let address = selectedAddress {
             print("Selected Address: \(address)")
         }
@@ -39,6 +52,7 @@ class PaymentViewController: UIViewController {
         updateTotalLabel(with: totalAmount)
     }
     
+   
     @IBAction func buyWithCash(_ sender: Any) {
         let alert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to complete this purchase with Cash on Delivery?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
@@ -106,7 +120,19 @@ class PaymentViewController: UIViewController {
     }
     
     private func updateTotalLabel(with amount: Decimal) {
-        totalLabel.text = String(format: "$%.2f", NSDecimalNumber(decimal: amount).doubleValue)
+    //    totalLabel.text = String(format: "$%.2f", NSDecimalNumber(decimal: amount).doubleValue)
+
+        viewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                    var convertedPrice = convertPrice(price: String(describing: amount), rate: self?.rate ?? 0.0)
+
+                    self?.totalLabel.text = "\(String(format: "%.2f", convertedPrice)) \(self!.userCurrency)"
+                }
+        }
+        viewModel.getRate()
+        
     }
     
     private func applyDiscount(_ priceRule: PriceRule) {

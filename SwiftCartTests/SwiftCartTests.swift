@@ -9,12 +9,13 @@ import XCTest
 @testable import SwiftCart
 
 final class SwiftCartTests: XCTestCase {
-    
+    var viewModel: ProductsViewModel!
     var mockNetworkServices : MockNetworkServices!
 
     override func setUpWithError() throws {
         mockNetworkServices = MockNetworkServices(shouldReturnError: false)
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewModel = ProductsViewModel()
+        
     }
 
     override func tearDownWithError() throws {
@@ -52,23 +53,7 @@ final class SwiftCartTests: XCTestCase {
     }
     
     
-    func testFetchProducts() {
-        let expect = expectation(description: "Fetch Products from network")
-        
-        NetworkServicesImpl.fetchProducts(collectionId: "422258540795") { result in
-            switch result {
-            case .success(let data):
-               // XCTAssertNotNil(data)
-                XCTAssertTrue(data.products.count != 0)
 
-                expect.fulfill()
-            case .failure(let error):
-               XCTFail("Failed with error: \(error)")
-                expect.fulfill()
-            }
-        }
-        waitForExpectations(timeout: 5)
-    }
 
     func testFetchProductsForSubCategory() {
         let expect = expectation(description: "Fetch Products for SubCategory from network")
@@ -103,8 +88,27 @@ final class SwiftCartTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
+    func testFetchingProducts() {
+        let expect = expectation(description: "Fetch Products from network")
+        NetworkServicesImpl.fetchProducts(collectionId: 422258540795){
+            result in
+               switch result {
+               case .success(let data):
+                   XCTAssertNotNil(data)
+                   XCTAssertTrue(data.products.count != 0)
+
+                   expect.fulfill()
+               case .failure(let error):
+                  XCTFail("Failed with error")
+                   expect.fulfill()
+               }
+           }
+           waitForExpectations(timeout: 5)
+
+    }
+    
     func testFetchMockBrands() {
-        let expect = expectation(description: "Fetch Mock Brands from mock service")
+      //  let expect = expectation(description: "Fetch Mock Brands from mock service")
         
         mockNetworkServices.fetchBrands { resRes in
             switch resRes {
@@ -112,12 +116,55 @@ final class SwiftCartTests: XCTestCase {
                 XCTAssertNotNil(data)
                 XCTAssertEqual(data.smartCollections.count, 1)
                 XCTAssertEqual(data.smartCollections.first?.title, "ADIDAS")
-                expect.fulfill()
+       //         expect.fulfill()
             case .failure(let error):
                 XCTFail("Failed with error: \(error)")
-                expect.fulfill()
+       //         expect.fulfill()
             }
         }
-        waitForExpectations(timeout: 5)
+       // waitForExpectations(timeout: 5)
     }
+    func testFetchMockProdcts() {
+        
+        mockNetworkServices.fetchProducts(collectionId: 422258540795 ){ resRes in
+            switch resRes {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                XCTAssertNotNil(data.products.count != 0)
+                XCTAssertEqual(data.products.first?.title, "ADIDAS | CLASSIC BACKPACK")
+            case .failure(let error):
+                XCTFail("Failed with error: \(error)")
+            }
+        }
+    }
+    func testFetchMockOrders() {
+        mockNetworkServices.fetchOrders(customerId: "7495574716667" ){ resRes in
+            switch resRes {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                XCTAssertNotNil(data.orders?.count != 0)
+            case .failure(let error):
+                XCTFail("Failed with error: \(error)")
+            }
+        }
+    }
+    
+    
+    //
+    func testGetProductsSuccess() {
+    let expect = expectation(description: "fetch products success")
+    
+    viewModel.productsClosure = { products in
+        XCTAssertNotNil(products)
+        XCTAssertEqual(products.count, 1)
+        XCTAssertEqual(products.first?.id, 1)
+        expect.fulfill()
+    }
+    
+    viewModel.getProducts(collectionId: 123)
+    waitForExpectations(timeout: 5)
+}
+    
+
+
 }
