@@ -6,33 +6,38 @@
 //
 
 import XCTest
-@testable import YourProjectName
+@testable import SwiftCart
 
 class CartNetworkTests: XCTestCase {
     
     var cartNetwork: CartNetwork!
     var cart: Cart!
+    var testCustomerID: Int!
+    var testLineItem: LineItemRequest!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         cartNetwork = CartNetwork()
         cart = Cart(items: [CartItem(id: 1, name: "Item1", quantity: 1)])
+        testCustomerID = 12345
+        testLineItem = LineItemRequest(variantID: 123, quantity: 1)
     }
 
     override func tearDownWithError() throws {
         cartNetwork = nil
         cart = nil
+        testCustomerID = nil
+        testLineItem = nil
         try super.tearDownWithError()
     }
 
     func testAddToCartSuccess() {
         let expectation = self.expectation(description: "Add to cart succeeds")
         
-        cartNetwork.addToCart(cart: cart) { result in
+        cartNetwork.createOrder(customerID: testCustomerID, lineItem: testLineItem) { result in
             switch result {
-            case .success(let updatedCart):
-                XCTAssertNotNil(updatedCart)
-                XCTAssertEqual(updatedCart.items.count, self.cart.items.count)
+            case .success(let success):
+                XCTAssertTrue(success)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail("Error: \(error)")
@@ -43,11 +48,11 @@ class CartNetworkTests: XCTestCase {
     }
 
     func testAddToCartFailure() {
-        let expectation = self.expectation(description: "Add to cart fails due to encoding error")
+        let expectation = self.expectation(description: "Add to cart fails due to invalid line item")
 
-        cart = Cart(items: [CartItem(id: -1, name: "Item1", quantity: 1)])  // invalid id
+        let invalidLineItem = LineItemRequest(variantID: -1, quantity: 1)  
 
-        cartNetwork.addToCart(cart: cart) { result in
+        cartNetwork.createOrder(customerID: testCustomerID, lineItem: invalidLineItem) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")
@@ -63,11 +68,10 @@ class CartNetworkTests: XCTestCase {
     func testRemoveFromCartSuccess() {
         let expectation = self.expectation(description: "Remove from cart succeeds")
         
-        cartNetwork.removeFromCart(cart: cart) { result in
+        cartNetwork.deleteDraftOrder(draftOrderID: 12345) { result in
             switch result {
-            case .success(let updatedCart):
-                XCTAssertNotNil(updatedCart)
-                XCTAssertEqual(updatedCart.items.count, self.cart.items.count)
+            case .success(let success):
+                XCTAssertTrue(success)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail("Error: \(error)")
@@ -78,11 +82,9 @@ class CartNetworkTests: XCTestCase {
     }
 
     func testRemoveFromCartFailure() {
-        let expectation = self.expectation(description: "Remove from cart fails due to encoding error")
+        let expectation = self.expectation(description: "Remove from cart fails due to invalid order ID")
 
-        cart = Cart(items: [CartItem(id: -1, name: "Item1", quantity: 1)])  // invalid id
-
-        cartNetwork.removeFromCart(cart: cart) { result in
+        cartNetwork.deleteDraftOrder(draftOrderID: -1) { result in
             switch result {
             case .success:
                 XCTFail("Expected failure but got success")

@@ -27,7 +27,7 @@ class CartViewModelTests: XCTestCase {
     
     func testAddToCartSuccess() {
         let customerID = 12345
-        let lineItem = LineItemRequest(variantID: 1, quantity: 2, imageUrl: "http://example.com/image.png")
+        let lineItem = LineItemRequest(variantID: 1, quantity: 2, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7")
         
         mockNetwork.createOrderResult = .success(true)
         
@@ -50,7 +50,7 @@ class CartViewModelTests: XCTestCase {
         
         let expectation = self.expectation(description: "FetchDraftOrders")
         
-        viewModel.fetchDraftOrders()
+        viewModel.fetchFromCart()
         
         DispatchQueue.main.async {
             XCTAssertTrue(self.mockNetwork.fetchDraftOrdersCalled)
@@ -62,7 +62,7 @@ class CartViewModelTests: XCTestCase {
     
     func testUpdateOrderSuccess() {
         let orderID = 12345
-        let updatedItem = LineItemRequest(variantID: 1, quantity: 2, imageUrl: "http://example.com/image.png")
+        let updatedItem = LineItemRequest(variantID: 1, quantity: 2, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7")
         
         mockNetwork.updateOrderResult = .success(true)
         
@@ -86,7 +86,7 @@ class CartViewModelTests: XCTestCase {
         
         let expectation = self.expectation(description: "DeleteOrder")
         
-        viewModel.deleteOrder(orderID: orderID)
+        viewModel.deleteDraftOrders(orderID: orderID)
         
         DispatchQueue.main.async {
             XCTAssertEqual(self.mockNetwork.deleteOrderCalledWith, orderID)
@@ -103,7 +103,7 @@ class CartViewModelTests: XCTestCase {
         
         let expectation = self.expectation(description: "CompleteDraftOrder")
         
-        viewModel.completeDraftOrder(orderID: orderID)
+        viewModel.completeDraftOrders(orderID: orderID)
         
         DispatchQueue.main.async {
             XCTAssertEqual(self.mockNetwork.completeDraftOrderCalledWith, orderID)
