@@ -28,16 +28,17 @@ class SearchFavoriteProductsViewModel {
     
     var filteredProducts = BehaviorRelay<[ProductTemp]>(value: [])
     var allProducts = BehaviorRelay<[ProductTemp]>(value: [])
+    var isProductsFetchedSuccessfully = BehaviorRelay<Bool>(value: false)
     var allProductsDB = BehaviorRelay<[ProductTemp]>(value: [])
     
     init(networkService: SearchNetworkService) {
         self.networkService = networkService
-//        fetchProducts()
         
     }
      func fetchProducts() {
         networkService.fetchProducts { [weak self] products in
             guard let self = self else { return }
+            self.isProductsFetchedSuccessfully.accept(true)
             print("Products fetched: \(products)")
             self.allProducts.accept(products)
             self.applyFilters()
@@ -69,6 +70,8 @@ class SearchFavoriteProductsViewModel {
     }
     func getFavoriteProductsDB(){
         self.allProductsDB.accept(LocalDataSourceImpl.shared.getProductsFromFav() ?? [ProductTemp]())
+        self.isProductsFetchedSuccessfully.accept(true)
+
     }
     func insertProductToFavDB(product: ProductTemp){
         LocalDataSourceImpl.shared.insertProductToFav(product: product)

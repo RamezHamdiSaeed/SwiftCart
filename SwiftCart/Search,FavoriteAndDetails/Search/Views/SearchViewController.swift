@@ -9,8 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var feedbackImage: UIImageView!
     var searchController: UISearchController!
 
     @IBOutlet weak var priceLabel: UILabel!
@@ -28,6 +30,10 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
         return searchFavoriteProductsVC
     }()
        private let disposeBag = DisposeBag()
+    
+    var productViewModel = ProductsViewModel()
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
        
        required init?(coder: NSCoder) {
            super.init(coder: coder)
@@ -35,7 +41,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader()
+        productViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        productViewModel.getRate()
+        setHeader(view: self, title: "search")
+
         setupSearchController()
         setupCollectionView()
         setupBindings()
@@ -59,17 +73,24 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     }
     
     func setupCollectionView() {
+        
+        let productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
+        productsCollectionView.register(productNibFile, forCellWithReuseIdentifier: "cell")
+        
+        CollectionViewDesign.collectionView(colView: productsCollectionView)
+
             
             if let layout = productsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                layout.minimumInteritemSpacing = 10
-                layout.minimumLineSpacing = 10
+//                layout.minimumInteritemSpacing = 10
+//                layout.minimumLineSpacing = 10
                 
-                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 2)
-                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+//                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
+                layout.itemSize = CGSize(width: 150, height: 254)
+//                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
                 layout.invalidateLayout()
 
             }
+//        CGSize(width: 150, height: 254)
         }
     private func setupBindings() {
         searchController.searchBar.rx.text.orEmpty
@@ -82,17 +103,49 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                .disposed(by: disposeBag)
         
         priceSlider.rx.value
-            .map { String(format: "%.2f", $0) }
+            .map {
+                
+                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 0 )) + " " + self.userCurrency
+                
+            }
             .bind(to: priceLabel.rx.text)
             .disposed(by: disposeBag)
            
                
         viewModel.filteredProducts
-            .bind(to: productsCollectionView.rx.items(cellIdentifier: "CollectionViewCell", cellType: CollectionViewCell.self)) { row, product, cell in
+            .bind(to: productsCollectionView.rx.items(cellIdentifier: "cell", cellType: SingleProductCollectionViewCell.self)) { row, product, cell in
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
-                cell.configure(with: myProduct)
+                cell.productName.text = product.name
+                if let imageUrl = URL(string: product.image) {
+                    cell.productImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "processing"))
+                } else {
+                    cell.productImage.image = UIImage(named: "processing")
+                }
+
+                var convertedPrice = convertPrice(price: String(describing: product.price), rate: self.rate)
+
+                cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(self.userCurrency)"
+                CollectionViewDesign.collectionViewCell(cell: cell)
+                
+                cell.product = myProduct
+                cell.toggleFavBtn()
+
+
+            
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.filteredProducts
+            .observe(on: MainScheduler.instance)
+            .map { !$0.isEmpty && self.viewModel.isProductsFetchedSuccessfully.value}
+            .bind(to: feedbackImage.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isProductsFetchedSuccessfully
+            .observe(on: MainScheduler.instance)
+            .map { !$0 }
+            .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
            productsCollectionView.rx.modelSelected(ProductTemp.self)
@@ -104,14 +157,6 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                })
                .disposed(by: disposeBag)
        }
-    func setHeader() {
-        let settingsLabel = UILabel()
-        settingsLabel.text = "Search"
-        settingsLabel.textColor = .systemPink
-        settingsLabel.font = .boldSystemFont(ofSize: 25)
-        settingsLabel.sizeToFit()
-        self.navigationItem.titleView = settingsLabel
-    }
 
 }
 

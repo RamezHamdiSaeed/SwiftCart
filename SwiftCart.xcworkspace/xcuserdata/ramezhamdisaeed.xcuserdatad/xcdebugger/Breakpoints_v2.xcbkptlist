@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A87C0922-9F76-4DB8-B0E6-A7D9ADC3013C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/Search,FavoriteAndDetails/Favorite/Views/FavoriteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "setupBindings()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "08DB6B76-88CF-4361-A760-2A70D4A224E7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -146,38 +130,6 @@
             endingLineNumber = "56"
             landmarkName = "userLogIn()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "08DB6B76-88CF-4361-A760-2A70D4A224E7 - d0bab8ead843583b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "162">
-               </Location>
-               <Location
-                  uuid = "08DB6B76-88CF-4361-A760-2A70D4A224E7 - 9ed5db12739c2619"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;SwiftCart.ProductTemp&gt;) -&gt; () in closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "29">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -196,7 +148,22 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "785D6AD6-5C75-4869-B7BE-F8ABC1520AE3 - 9ed5db12739c2619"
+                  uuid = "785D6AD6-5C75-4869-B7BE-F8ABC1520AE3 - d0bab8ead84359f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "162">
+               </Location>
+               <Location
+                  uuid = "785D6AD6-5C75-4869-B7BE-F8ABC1520AE3 - 9ed5db12739c265f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -206,24 +173,9 @@
                   urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "29">
-               </Location>
-               <Location
-                  uuid = "785D6AD6-5C75-4869-B7BE-F8ABC1520AE3 - b45f6caaa31f0fb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftCart.ProductTemp) -&gt; () in closure #1 (Swift.Array&lt;SwiftCart.ProductTemp&gt;) -&gt; () in closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "49">
+                  offsetFromSymbolStart = "29">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -244,7 +196,22 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A2E2231D-7ACC-4AA2-B60F-068617DF8827 - 9ed5db12739c2619"
+                  uuid = "A2E2231D-7ACC-4AA2-B60F-068617DF8827 - d0bab8ead84359f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "162">
+               </Location>
+               <Location
+                  uuid = "A2E2231D-7ACC-4AA2-B60F-068617DF8827 - 9ed5db12739c265f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -254,24 +221,9 @@
                   urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "29">
-               </Location>
-               <Location
-                  uuid = "A2E2231D-7ACC-4AA2-B60F-068617DF8827 - b45f6caaa31f0fb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftCart.ProductTemp) -&gt; () in closure #1 (Swift.Array&lt;SwiftCart.ProductTemp&gt;) -&gt; () in closure #1 () -&gt; () in SwiftCart.LogInViewController.userLogIn() -&gt; ()"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ramezhamdisaeed/Desktop/latestVersion/SwiftCart/SwiftCart/Authentication/Views/LogInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "60"
                   endingLineNumber = "60"
-                  offsetFromSymbolStart = "49">
+                  offsetFromSymbolStart = "29">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -369,6 +321,54 @@
             startingLineNumber = "50"
             endingLineNumber = "50"
             landmarkName = "fetchProducts(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C12DAD9E-1C6A-4E60-8232-4AC594AEE21D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Search/Views/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "setupBindings()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3905E03-9CD9-4DE7-A56C-556FC24618A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Favorite/Views/FavoriteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "setupBindings()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C320FED-6301-49C6-B56C-7D8EF9A4C81B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Favorite/Views/FavoriteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "setupBindings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
