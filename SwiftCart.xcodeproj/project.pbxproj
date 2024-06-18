@@ -44,6 +44,8 @@
 		1E8E54382C176B1500D94B03 /* ProductDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E54362C176B1500D94B03 /* ProductDB+CoreDataClass.swift */; };
 		1E9633492C202AC500E5509B /* FavoriteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9633482C202AC500E5509B /* FavoriteSync.swift */; };
 		1EA3CE9E2C21BABD000C4911 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */; };
+		1EA3CEA12C21CA49000C4911 /* FirebaseAuthImplSignInTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CEA02C21CA49000C4911 /* FirebaseAuthImplSignInTest.swift */; };
+		1EA3CEA42C21CAC4000C4911 /* MockFirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CEA32C21CAC4000C4911 /* MockFirebaseAuthImpl.swift */; };
 		1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */; };
 		1EC52DF72C17A1F0005A79F2 /* LocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
@@ -188,6 +190,8 @@
 		1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		1E9633482C202AC500E5509B /* FavoriteSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSync.swift; sourceTree = "<group>"; };
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
+		1EA3CEA02C21CA49000C4911 /* FirebaseAuthImplSignInTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImplSignInTest.swift; sourceTree = "<group>"; };
+		1EA3CEA32C21CAC4000C4911 /* MockFirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthImpl.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -526,6 +530,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1EA3CE9F2C21C931000C4911 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1EA3CEA22C21CAA3000C4911 /* Models */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1EA3CEA22C21CAA3000C4911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1EA3CEA02C21CA49000C4911 /* FirebaseAuthImplSignInTest.swift */,
+				1EA3CEA32C21CAC4000C4911 /* MockFirebaseAuthImpl.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1ED98E962BFF882100948409 = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +605,7 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				1EA3CE9F2C21C931000C4911 /* Authentication */,
 				43444BDF2C1F15EC00E93BC4 /* Mocks */,
 				1ED98EBC2BFF882300948409 /* SwiftCartTests.swift */,
 			);
@@ -1372,6 +1394,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43444BE12C1F160A00E93BC4 /* MockNetworkServices.swift in Sources */,
+				1EA3CEA12C21CA49000C4911 /* FirebaseAuthImplSignInTest.swift in Sources */,
+				1EA3CEA42C21CAC4000C4911 /* MockFirebaseAuthImpl.swift in Sources */,
 				1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
