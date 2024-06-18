@@ -17,7 +17,7 @@ class SearchNetworkService {
             path: "/products.json",
             queryItems: nil,
             method: .GET,
-            requestBody: nil,
+            requestBody: nil, completeBaseURL: nil,
             networkResponse: { (result: Result<SearchedProductsResponse, NetworkError>) in
                 switch result {
                 case .success(let searchedProductsResponse):

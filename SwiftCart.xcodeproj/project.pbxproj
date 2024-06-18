@@ -19,7 +19,7 @@
 		1E2464882C109BF000745CA8 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464872C109BEF00745CA8 /* InputValidator.swift */; };
 		1E24648D2C109C0400745CA8 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464892C109C0300745CA8 /* FeedbackManager.swift */; };
 		1E24648E2C109C0400745CA8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24648A2C109C0300745CA8 /* LocationManager.swift */; };
-		1E24648F2C109C0400745CA8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24648B2C109C0300745CA8 /* NetworkingManager.swift */; };
+		1E24648F2C109C0400745CA8 /* NetworkingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24648B2C109C0300745CA8 /* NetworkingManagerImpl.swift */; };
 		1E2464902C109C0400745CA8 /* OnBoardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24648C2C109C0400745CA8 /* OnBoardingManager.swift */; };
 		1E24649E2C109D9F00745CA8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24649B2C109D9E00745CA8 /* SearchViewController.swift */; };
 		1E24649F2C109D9F00745CA8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24649C2C109D9E00745CA8 /* CollectionViewCell.swift */; };
@@ -40,6 +40,11 @@
 		1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */; };
 		1E4A61952C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */; };
 		1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */; };
+		1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */; };
+		1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */; };
+		1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535102C22185B00D088D8 /* NetworkingManager.swift */; };
+		1E8535132C22190800D088D8 /* MockNetworkingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */; };
+		1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535142C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift */; };
 		1E8E54372C176B1500D94B03 /* ProductDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E54352C176B1500D94B03 /* ProductDB+CoreDataProperties.swift */; };
 		1E8E54382C176B1500D94B03 /* ProductDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E54362C176B1500D94B03 /* ProductDB+CoreDataClass.swift */; };
 		1E9633492C202AC500E5509B /* FavoriteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9633482C202AC500E5509B /* FavoriteSync.swift */; };
@@ -161,7 +166,7 @@
 		1E2464872C109BEF00745CA8 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		1E2464892C109C0300745CA8 /* FeedbackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		1E24648A2C109C0300745CA8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		1E24648B2C109C0300745CA8 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		1E24648B2C109C0300745CA8 /* NetworkingManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingManagerImpl.swift; sourceTree = "<group>"; };
 		1E24648C2C109C0400745CA8 /* OnBoardingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingManager.swift; sourceTree = "<group>"; };
 		1E24649B2C109D9E00745CA8 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1E24649C2C109D9E00745CA8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -182,6 +187,11 @@
 		1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCustomerInfo.swift; sourceTree = "<group>"; };
 		1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkServiceImpl.swift; sourceTree = "<group>"; };
 		1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeAndCategories.storyboard; sourceTree = "<group>"; };
+		1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthImpl.swift; sourceTree = "<group>"; };
+		1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImplTest.swift; sourceTree = "<group>"; };
+		1E8535102C22185B00D088D8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingManagerImpl.swift; sourceTree = "<group>"; };
+		1E8535142C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkServiceImplTest.swift; sourceTree = "<group>"; };
 		1E8E54352C176B1500D94B03 /* ProductDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1E8E54362C176B1500D94B03 /* ProductDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
@@ -374,9 +384,10 @@
 			children = (
 				1E2464892C109C0300745CA8 /* FeedbackManager.swift */,
 				1E24648A2C109C0300745CA8 /* LocationManager.swift */,
-				1E24648B2C109C0300745CA8 /* NetworkingManager.swift */,
+				1E24648B2C109C0300745CA8 /* NetworkingManagerImpl.swift */,
 				1E24648C2C109C0400745CA8 /* OnBoardingManager.swift */,
 				1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */,
+				1E8535102C22185B00D088D8 /* NetworkingManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -499,6 +510,33 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		1E8535092C2206F900D088D8 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1E85350A2C22070000D088D8 /* Models */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		1E85350A2C22070000D088D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E85350B2C22078C00D088D8 /* Mockes */,
+				1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */,
+				1E8535142C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E85350B2C22078C00D088D8 /* Mockes */ = {
+			isa = PBXGroup;
+			children = (
+				1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */,
+				1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */,
+			);
+			path = Mockes;
+			sourceTree = "<group>";
+		};
 		1E8886892C186AA70065A549 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +622,7 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E8535092C2206F900D088D8 /* Authentication */,
 				43444BDF2C1F15EC00E93BC4 /* Mocks */,
 				1ED98EBC2BFF882300948409 /* SwiftCartTests.swift */,
 			);
@@ -1314,8 +1353,9 @@
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
 				43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */,
 				DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */,
+				1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */,
 				1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */,
-				1E24648F2C109C0400745CA8 /* NetworkingManager.swift in Sources */,
+				1E24648F2C109C0400745CA8 /* NetworkingManagerImpl.swift in Sources */,
 				1E4A618F2C134B4700F09A35 /* ShopifyAuthNetworkService.swift in Sources */,
 				43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */,
 				1EF89CD42C1AE0B1006E6114 /* ReviewsTableViewController.swift in Sources */,
@@ -1371,8 +1411,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */,
+				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
 				43444BE12C1F160A00E93BC4 /* MockNetworkServices.swift in Sources */,
+				1E8535132C22190800D088D8 /* MockNetworkingManagerImpl.swift in Sources */,
 				1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */,
+				1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
