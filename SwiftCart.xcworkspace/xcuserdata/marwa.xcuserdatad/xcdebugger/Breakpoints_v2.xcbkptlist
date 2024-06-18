@@ -7,139 +7,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1C8D76FB-9E9C-4111-9FCC-F5088198A258"
+            uuid = "95452E16-6414-41B8-9C63-3EA82CA54DEC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftCart/Orders/model/OrderModel.swift"
+            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9EF07FEE-0453-469A-852E-874A24928CC7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/Orders/view/OrderDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807"
-            shouldBeEnabled = "No"
+            uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftCart/Cart/View/CartViewController.swift"
+            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "CartViewController"
-            landmarkType = "3">
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - 5f08c8963e60fc2e"
+                  uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6 - be745641aa09e13d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.img.getter : Swift.Optional&lt;Swift.String&gt;"
+                  symbolName = "closure #1 () -&gt; () in SwiftCart.BrandDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
                   moduleName = "SwiftCart"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
+                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "103">
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "56">
                </Location>
                <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - 251f9c5ee7d291a"
+                  uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6 - 3f513ebd2157c2b0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.img.setter : Swift.Optional&lt;Swift.String&gt;"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in SwiftCart.BrandDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
                   moduleName = "SwiftCart"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
+                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "139">
-               </Location>
-               <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - ce219d038e1119ed"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.img.modify : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - c6e1d14c67584570"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.img.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "15">
-               </Location>
-               <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - 89eda3f70d933966"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; SwiftCart.CartViewController"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "461">
-               </Location>
-               <Location
-                  uuid = "2F85C359-6D18-47E4-A711-CC2C1D30F807 - 6bfe7ac7e48a7b6d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftCart.CartViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SwiftCart.CartViewController&gt;"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Cart/View/CartViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "403">
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -147,71 +71,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "91B09285-2B2C-45E5-8F04-89E46D2FCF4F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0AA029A4-58AB-401A-868B-0F9D73AA4E1D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CB91FF33-AD33-45EA-9326-EF82D155AEA3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC4815BB-0DDC-42D5-A1E4-9FC79C5ED1B7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/SingleProductCollectionViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "awakeFromNib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "440034EA-3ED6-48DD-A8B7-2C9BB95ECD08"
+            uuid = "FF653A21-2FED-4D17-AFFC-A41652854212"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -220,7 +80,39 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
             endingLineNumber = "56"
-            landmarkName = "toggleFavBtn()"
+            landmarkName = "okRemovingCellBtn()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23048B80-CE7B-4CDD-B0F5-9454DCB05991"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/SingleProductCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "okRemovingCellBtn()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D14DE387-10E2-4282-A74A-B3AD4E76C5E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/SingleProductCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "productAddToFavBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

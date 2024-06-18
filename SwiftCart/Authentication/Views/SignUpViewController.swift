@@ -33,7 +33,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setHeader()
-
         password.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
     }

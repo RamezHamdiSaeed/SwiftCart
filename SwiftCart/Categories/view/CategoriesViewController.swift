@@ -129,6 +129,9 @@ import UIKit
 import JJFloatingActionButton
 
 class CategoriesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    private var favViewModel: SearchFavoriteProductsViewModel!
+
+    
     var categoryProductsArray: [Product] = []
     var allProductsArray: [Product] = []
     var filteredProductsArray: [Product] = []
@@ -137,6 +140,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     var rate : Double!
     var userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     
+    @IBOutlet weak var bascketImage: UIImageView!
     @IBOutlet weak var categorySigmentedButton: UISegmentedControl!
     @IBOutlet weak var singleCategoryProducts: UICollectionView!
     
@@ -159,6 +163,13 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         singleCategoryProducts.dataSource = self
         singleCategoryProducts.delegate = self
         fetchProducts()
+        
+        //
+       favViewModel = {
+            let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+            searchFavoriteProductsVC.getFavoriteProductsDB()
+            return searchFavoriteProductsVC
+        }()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,6 +183,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         }
         viewModel.getRate()
         userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+        
+     
 
     }
     
@@ -181,6 +194,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
                 self?.allProductsArray = res
                 self?.categoryProductsArray = res
                 self?.filterProducts()
+                self?.bascketImage.isHidden = true
             }
         }
         viewModel.getProducts(collectionId: getCategoryName())
@@ -203,6 +217,11 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SingleProductCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.whenRemoving = {
+            AppCommon.feedbackManager.showCancelableAlert(alertTitle: "Prompt", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                cell.okRemovingCellBtn()
+            }
+        }
         
         let product = categoryProductsArray[indexPath.item]
         cell.productName.text = product.title
@@ -217,8 +236,13 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
         CollectionViewDesign.collectionViewCell(cell: cell)
         
         var productTemp = ProductTemp(id: product.id, name: product.title , price: Double(product.variants[0].price)!, isFavorite: false, image: product.image.src)
-        
-        cell.product = productTemp
+
+         productTemp.isFavorite = favViewModel.isProductFavorite(product: productTemp)
+         
+         cell.product = productTemp
+ 
+         cell.toggleFavBtn()
+         
         return cell
     }
     

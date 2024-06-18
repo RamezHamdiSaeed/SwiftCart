@@ -25,7 +25,8 @@ class HomeViewController: UIViewController {
     let badgeLabel = UILabel()
 
     
-
+    @IBOutlet weak var indicatoroutlet: UIActivityIndicatorView!
+    
     @IBOutlet weak var AdsCollectionView: UICollectionView!
     @IBOutlet weak var brandsCollectionView: UICollectionView!
     
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Home"
+        indicatoroutlet.startAnimating()
         
         setBackground(view: self.view)
        // Setup collection view
@@ -57,6 +59,7 @@ class HomeViewController: UIViewController {
                 self?.brandsArray = res
                 print("", self?.brandsArray[0].title)
                 self?.brandsCollectionView.reloadData()
+                self?.indicatoroutlet.stopAnimating()
             }
                 print("User id Home: \(User.id)")
         }

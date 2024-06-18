@@ -11,22 +11,16 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var favBtnOUtlet: UIButton!
     var product : ProductTemp!
-  
+    
     var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
     var whenRemoved : (()->())? = nil
+    var whenRemoving : (()->())? = nil
     
     @IBAction func productAddToFavBtn(_ sender: Any) {
         guard let currentProductCell = product else {return}
         if currentProductCell.isFavorite {
-            viewModel.deleteProductFromFav(product: product!)
-            FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
-            if let whenRemoved = whenRemoved {
-                whenRemoved()
-            }
-            else {
-                favBtnOUtlet.setImage(UIImage(systemName: "heart"), for: .normal)
-                product?.isFavorite = false
-            }
+            whenRemoving?()
+       
 
         }
         else{
@@ -57,5 +51,28 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
         favBtnOUtlet.setImage(UIImage(systemName: imageName), for: .normal)
         
     }
+    func okRemovingCellBtn (){
+        viewModel.deleteProductFromFav(product: product!)
+        FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
+        if let whenRemoved = whenRemoved {
+            whenRemoved()
+        }
+        else {
+            favBtnOUtlet.setImage(UIImage(systemName: "heart"), for: .normal)
+            product?.isFavorite = false
+        }
+        
+    }
   
 }
+/*
+ viewModel.deleteProductFromFav(product: product!)
+ FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
+ if let whenRemoved = whenRemoved {
+     whenRemoved()
+ }
+ else {
+     favBtnOUtlet.setImage(UIImage(systemName: "heart"), for: .normal)
+     product?.isFavorite = false
+ }
+ */

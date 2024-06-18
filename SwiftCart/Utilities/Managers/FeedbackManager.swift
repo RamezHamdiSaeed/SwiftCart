@@ -32,13 +32,31 @@ class FeedbackManager{
 
 
 extension FeedbackManager{
-    func showAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,present:(UIAlertController)->()) {
+    func showAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,view : UIViewController) {
           let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: alertStyle)
           let okAction = UIAlertAction(title: "OK", style: .default) { _ in
               print("OK tapped")
           }
           alertController.addAction(okAction)
-        present(alertController)
-//          present(alertController, animated: true, completion: nil)
+      //  present(alertController)
+        view.present(alertController, animated: true, completion: nil)
+      }
+    
+    func showCancelableAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,view : UIViewController , okCompletion : @escaping () -> Void ) {
+          let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: alertStyle)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("cancel tapped")
+        }
+        alertController.addAction(cancelAction)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+              print("OK tapped")
+            okCompletion()
+          }
+          alertController.addAction(okAction)
+
+      //  present(alertController)
+        view.present(alertController, animated: true, completion: nil)
       }
 }

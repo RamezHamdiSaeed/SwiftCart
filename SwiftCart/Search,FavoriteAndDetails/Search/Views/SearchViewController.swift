@@ -114,6 +114,11 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
                
         viewModel.filteredProducts
             .bind(to: productsCollectionView.rx.items(cellIdentifier: "cell", cellType: SingleProductCollectionViewCell.self)) { row, product, cell in
+                cell.whenRemoving = {
+                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "Prompt", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                        cell.okRemovingCellBtn()
+                    }
+                }
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
                 cell.productName.text = product.name
