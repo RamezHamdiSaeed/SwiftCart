@@ -9,16 +9,18 @@
 
 import Foundation
 protocol NetworkServices {
-    static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void)
-    static func fetchProducts (collectionId : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void)
-    static func fetchProductsForSubCategory (productType : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void)
-    static func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void)
-    
+     func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void)
+     func fetchProducts (collectionId : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void)
+     func fetchProductsForSubCategory (productType : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void)
+     func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void)
+    func fetchProducts (singleCollectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void)
 
 }
 class NetworkServicesImpl : NetworkServices {
-    static func fetchProducts (collectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
-           let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/products.json?collection_id=\(collectionId)"
+    
+    
+     func fetchProducts (singleCollectionId : Int ,completionHandler completion: @escaping (Result<ProductResponse,Error>) -> Void){
+           let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/products.json?collection_id=\(singleCollectionId)"
     
             let url = URL(string: urlStr)
             let request = URLRequest(url: url!)
@@ -51,7 +53,7 @@ class NetworkServicesImpl : NetworkServices {
             }
             task.resume()
         }
-    static func fetchProducts (collectionId : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void){
+     func fetchProducts (collectionId : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void){
        let urlStr = "https://mad-ios-ism-2.myshopify.com//admin/api/2024-04/products.json?collection_id=\(collectionId)"
         
         let url = URL(string: urlStr)
@@ -82,7 +84,7 @@ class NetworkServicesImpl : NetworkServices {
         }
         task.resume()
     }
-    static func fetchProductsForSubCategory (productType : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void){
+     func fetchProductsForSubCategory (productType : String ,completionHandler completion: @escaping (Result<ProductsResponse,Error>) -> Void){
        let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/products.json?collection_id=422258901243&product_type=\(productType)"
         
         let url = URL(string: urlStr)
@@ -113,7 +115,7 @@ class NetworkServicesImpl : NetworkServices {
         }
         task.resume()
     }
-    static func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void){
+     func fetchOrders (customerId :  String, completionHandler completion: @escaping (Result<OrdersResponse,Error>) -> Void){
        let urlStr = "https://mad-ios-ism-2.myshopify.com//admin/api/2024-04/customers/\(customerId)/orders.json"
         
         let url = URL(string: urlStr)
@@ -148,7 +150,7 @@ class NetworkServicesImpl : NetworkServices {
         }
         task.resume()
     }
-    static func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void){
+     func fetchBrands (completionHandler completion: @escaping (Result<SmartCollectionsResponse,Error>) -> Void){
        let urlStr = "https://6f14721eafce0d8aee32fc7b400c138c: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@mad-ios-ism-2.myshopify.com//admin/api/2024-04/smart_collections.json"
         
         let url = URL(string: urlStr)

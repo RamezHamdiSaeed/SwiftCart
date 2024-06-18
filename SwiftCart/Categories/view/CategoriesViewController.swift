@@ -146,7 +146,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CategoriesViewModelImp()
+        viewModel = CategoriesViewModelImp(networkService: NetworkServicesImpl())
         viewModel.rateClosure = {
             [weak self] rate in
                 DispatchQueue.main.async {

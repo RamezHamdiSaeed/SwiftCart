@@ -8,6 +8,9 @@
 import Foundation
 
 protocol CategoriesViewModel {
+    
+ 
+    
     var productsClosure: ([Product]) -> Void { get set }
     func getProducts(collectionId: String)
     var rateClosure : (Double)->Void { get set }
@@ -15,6 +18,11 @@ protocol CategoriesViewModel {
 }
 
 class CategoriesViewModelImp : CategoriesViewModel {
+    private var networkService: NetworkServices
+    init(networkService: NetworkServices = NetworkServicesImpl()) {
+          self.networkService = networkService
+      }
+    
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
     
@@ -24,7 +32,7 @@ class CategoriesViewModelImp : CategoriesViewModel {
         }
     }
     func getProducts( collectionId : String ){
-        NetworkServicesImpl.fetchProducts( collectionId: collectionId ) {[weak self] res in
+        networkService.fetchProducts( collectionId: collectionId ) {[weak self] res in
             switch res {
             case .success(let response) :
                 self?.productsClosure(response.products)

@@ -11,15 +11,19 @@ import XCTest
 final class SwiftCartTests: XCTestCase {
     var viewModel: ProductsViewModel!
     var mockNetworkServices : MockNetworkServices!
+    var networkServices : NetworkServices!
 
     override func setUpWithError() throws {
         mockNetworkServices = MockNetworkServices(shouldReturnError: false)
         viewModel = ProductsViewModel()
-        
+        networkServices = NetworkServicesImpl()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        mockNetworkServices = nil
+        viewModel = nil
+        networkServices = nil
+        
     }
 
     func testExample() throws {
@@ -39,7 +43,7 @@ final class SwiftCartTests: XCTestCase {
     func testFetchBrands() {
         let expect = expectation(description: "test Fetch Brands from network")
         
-        NetworkServicesImpl.fetchBrands { resRes in
+        networkServices.fetchBrands { resRes in
             switch resRes {
             case .success(data: let data):
                 XCTAssertNotNil(data)
@@ -58,7 +62,7 @@ final class SwiftCartTests: XCTestCase {
     func testFetchProductsForSubCategory() {
         let expect = expectation(description: "Fetch Products for SubCategory from network")
         
-        NetworkServicesImpl.fetchProductsForSubCategory(productType: "Shoes") { result in
+        networkServices.fetchProductsForSubCategory(productType: "Shoes") { result in
             switch result {
             case .success(let data):
                 XCTAssertNotNil(data)
@@ -74,7 +78,7 @@ final class SwiftCartTests: XCTestCase {
     func testFetchOrders() {
         let expect = expectation(description: "Fetch Orders from network")
         
-        NetworkServicesImpl.fetchOrders(customerId: "7495574716667") { result in
+        networkServices.fetchOrders(customerId: "7495574716667") { result in
             switch result {
             case .success(let data):
                 XCTAssertNotNil(data)
@@ -90,7 +94,7 @@ final class SwiftCartTests: XCTestCase {
     
     func testFetchingProducts() {
         let expect = expectation(description: "Fetch Products from network")
-        NetworkServicesImpl.fetchProducts(collectionId: 422258540795){
+        networkServices.fetchProducts(collectionId: "422258540795"){
             result in
                switch result {
                case .success(let data):

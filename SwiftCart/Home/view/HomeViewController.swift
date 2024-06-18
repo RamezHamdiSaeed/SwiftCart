@@ -12,7 +12,7 @@ import JJFloatingActionButton
 
 class HomeViewController: UIViewController {
     
-    var homeViewModel = HomeViewModel()
+    var homeViewModel = HomeViewModel(networkService: NetworkServicesImpl())
     var brandsArray: [SmartCollection] = []
     let actionButton = JJFloatingActionButton()
     let imageNames = ["60", "50", "10", "15", "25"]

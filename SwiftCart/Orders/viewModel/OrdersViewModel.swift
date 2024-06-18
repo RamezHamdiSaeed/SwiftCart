@@ -11,6 +11,10 @@ class OrdersViewModel {
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
     
+    private var networkService: NetworkServices
+    init(networkService: NetworkServices = NetworkServicesImpl()) {
+          self.networkService = networkService
+      }
     func getRate(){
         getPrice() { [weak self] rate in
             self?.rateClosure(rate)
@@ -25,7 +29,7 @@ class OrdersViewModel {
     
     func getOrders (){
         if User.id == nil{}else{
-            NetworkServicesImpl.fetchOrders(customerId: customerId) { [weak self] res in
+            networkService.fetchOrders(customerId: customerId) { [weak self] res in
                 switch res {
                 case .success(let response) :
                     self?.ordersClosure(response.orders!)

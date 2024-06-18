@@ -27,7 +27,7 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         ordersTableView.reloadData()
 
         
-        ordersViewModel = OrdersViewModel()
+        ordersViewModel = OrdersViewModel(networkService: NetworkServicesImpl())
         ordersViewModel.ordersClosure = {
          [weak self]   res in
             DispatchQueue.main.async {

@@ -8,6 +8,10 @@
 import Foundation
 class ProductsViewModel {
     
+    private var networkService: NetworkServices
+    init(networkService: NetworkServices = NetworkServicesImpl()) {
+          self.networkService = networkService
+      }
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
     
@@ -17,7 +21,7 @@ class ProductsViewModel {
         }
     }
     func getProducts( collectionId : Int ){
-        NetworkServicesImpl.fetchProducts( collectionId: collectionId ) {[weak self] res in
+        networkService.fetchProducts( singleCollectionId: collectionId ) {[weak self] res in
             switch res {
             case .success(let response) :
                 self?.productsClosure(response.products)

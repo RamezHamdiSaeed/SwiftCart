@@ -17,7 +17,7 @@ class BrandDetailViewController: UIViewController {
     
     var collectionIdStr: Int = 0
     var collectionTitle = ""
-    var productViewModel = ProductsViewModel()
+    var productViewModel = ProductsViewModel(networkService: NetworkServicesImpl())
     var productsArray: [Product] = []
     var rate : Double!
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()

@@ -7,6 +7,10 @@
 
 import Foundation
 class HomeViewModel {
+    private var networkService: NetworkServices
+    init(networkService: NetworkServices = NetworkServicesImpl()) {
+          self.networkService = networkService
+      }
     var brandsClosure : ([SmartCollection])->Void = {_ in }
     var discountCodesClosure: (() -> Void) = {}
     var couponsResult: [DiscountCodes]?{
@@ -18,7 +22,7 @@ class HomeViewModel {
 
     
     func getBrands (){
-        NetworkServicesImpl.fetchBrands { [weak self] res in
+        networkService.fetchBrands { [weak self] res in
             switch res {
             case .success(let response) :
                 self?.brandsClosure(response.smartCollections)
