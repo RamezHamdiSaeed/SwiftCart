@@ -51,6 +51,9 @@
                                     <segment title="Dark Mood"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="lightDarkMode:" destination="Y6W-OH-hqX" eventType="valueChanged" id="A1N-Ck-xt9"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-ho-W7s">
                                 <rect key="frame" x="136" y="761.33333333333337" width="126" height="34"/>
