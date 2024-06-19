@@ -8,66 +8,6 @@
 
 import Foundation
 @testable import SwiftCart
-//
-//class MockNetworkServices {
-//    var shouldReturnError: Bool
-//
-//    init(shouldReturnError: Bool) {
-//        self.shouldReturnError = shouldReturnError
-//    }
-//
-//    let fakeBrandObj: [String: Any] = [
-//        "smartCollections": [
-//            [
-//                "id": 422258540795,
-//                "handle": "adidas",
-//                "title": "ADIDAS",
-//                "updatedAt": "2024-06-15T15:20:43-04:00",
-//                "bodyHtml": "Adidas collection",
-//                "publishedAt": "2024-05-26T02:48:46-04:00",
-//                "sortOrder": "best-selling",
-//                "templateSuffix": nil,
-//                "disjunctive": false,
-//                "rules": [
-//                    [
-//                        "column": "title",
-//                        "relation": "contains",
-//                        "condition": "ADIDAS"
-//                    ]
-//                ],
-//                "publishedScope": "web",
-//                "adminGraphqlApiId": "gid://shopify/Collection/422258540795",
-//                "image": [
-//                    "createdAt": "2024-05-26T02:48:46-04:00",
-//                    "alt": "",
-//                    "width": 1000,
-//                    "height": 676,
-//                    "src": "https://cdn.shopify.com/s/files/1/0702/9630/5915/collections/97a3b1227876bf099d279fd38290e567.jpg?v=1716706126"
-//                ]
-//            ]
-//        ]
-//    ]
-//    enum ResponseWithError: Error {
-//        case responseError
-//    }
-//}
-//
-//extension MockNetworkServices {
-//    func fetchBrands(completion: @escaping (Result<SmartCollectionsResponse, Error>) -> Void) {
-//        if shouldReturnError {
-//            completion(.failure(error: ResponseWithError.responseError))
-//            return
-//        }
-//
-//        do {
-//            let brandData = try JSONSerialization.data(withJSONObject: fakeBrandObj, options: [])
-//            let brands = try JSONDecoder().decode(SmartCollectionsResponse.self, from: brandData)
-//            completion(.success(data: brands))
-//        } catch {
-//            completion(.failure(error: error))
-//        }
-//    }
-//}
 
 class MockNetworkServices : NetworkServices{
     func fetchProducts(collectionId: String, completionHandler completion: @escaping (SwiftCart.Result<SwiftCart.ProductsResponse, Error>) -> Void) {

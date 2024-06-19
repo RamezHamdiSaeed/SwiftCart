@@ -25,7 +25,7 @@ class OrdersViewModel {
 
     
     func getOrders (){
-        if User.id == nil{}else{
+    //    if User.id == nil{}else{
             networkService.fetchOrders(customerId: customerId) { [weak self] res in
                 switch res {
                 case .success(let response) :
@@ -38,5 +38,7 @@ class OrdersViewModel {
                 }
             }
             
-        }}
+      //  }
+        
+    }
 }

@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
             endingLineNumber = "84"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6 - be745641aa09e13d"
@@ -126,8 +126,8 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
             <Locations>
@@ -190,8 +190,8 @@
             filePath = "SwiftCartTests/SwiftCartTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "testGetProductsSuccessCategoryViewModel()"
             landmarkType = "7">
          </BreakpointContent>
