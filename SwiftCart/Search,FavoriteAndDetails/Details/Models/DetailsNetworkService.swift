@@ -10,7 +10,6 @@ import RxSwift
 
 class DetailsNetworkService {
     
-//    var productDetailsResponse : ProductDetailsResponse?
     
     var networkingManager :NetworkingManager? = nil
     init(networkingManager : NetworkingManager){

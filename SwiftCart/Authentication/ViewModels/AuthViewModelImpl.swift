@@ -18,6 +18,11 @@ class AuthViewModelImpl : AuthViewModel{
     
     func signUp(email:String,password:String,whenSuccess:(()->())?) {
         
+        FirebaseAuthImpl.user.signUp(email: email, password: password){
+            whenSuccess?()
+        }
+
+        
     }
     
     func logIn(email:String,password:String,whenSuccess:(()->())?) {

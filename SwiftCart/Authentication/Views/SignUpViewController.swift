@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
     
 
     @IBAction func userSignUpBtn(_ sender: Any) {
-//        authVC!.signUp()
+        self.userSignUp()
 
        
         
@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController {
         self.logInNavigation()
 
     }
-    
+
     
     func userSignUp(){
         let isValidEmail = InputValidator.isValidEmail(email: email.text ?? "")
@@ -55,17 +55,26 @@ class SignUpViewController: UIViewController {
         
         if(isValidEmail && isValidPassword){
             
-            FirebaseAuthImpl.user.signUp(email: email.text!, password: password.text!)
-
+            authVC?.signUp(email: email.text!, password: password.text!, whenSuccess: {
+                DispatchQueue.main.async{
+                    self.logInNavigation()
+                }
+            })
+            
         }
         else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
+
         }
         else{
             
             password.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
 
         }
         

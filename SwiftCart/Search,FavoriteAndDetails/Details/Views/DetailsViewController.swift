@@ -76,7 +76,6 @@ class DetailsViewController: UIViewController {
                 var convertedPrice = convertPrice(price: (currentProduct?.variants![0].price)!, rate: self.rate)
 
                 self.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-               // self.productPrice.text = (currentProduct?.variants![0].price)! + " $"
                 self.productDetails.text = currentProduct?.bodyHtml
                 
                 // setup segment control of sizes

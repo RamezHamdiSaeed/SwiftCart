@@ -64,12 +64,16 @@ class LogInViewController: UIViewController {
         else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
 
         }
         else{
             
             password.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
 
         }
     }

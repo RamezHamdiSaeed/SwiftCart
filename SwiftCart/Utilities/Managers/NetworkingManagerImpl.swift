@@ -66,6 +66,7 @@ class NetworkingManagerImpl : NetworkingManager{
                         } catch {
                             networkResponse(.failure(error: .inValidResponse))
                             print("Error parsing JSON: \(error.localizedDescription)")
+                            
                         }
                     }
                 }

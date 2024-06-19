@@ -62,7 +62,6 @@ class ViewController: UIViewController {
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
             label.textColor = UIColor.systemOrange
-            //UIColor(named: "HintTextAndIcon")
             label.text = titles[x]
             page.addSubview(label)
             

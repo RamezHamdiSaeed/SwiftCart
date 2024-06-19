@@ -25,12 +25,13 @@ class FirebaseAuthImpl : FirebaseAuth{
         self.failMessage = failMessage
     }
     
-    func signUp(email: String, password: String) {
+    func signUp(email: String, password: String,whenSuccess:@escaping()->()) {
         Auth.auth().createUser(withEmail: email, password: password){
             result, error in
             guard let error else {
                 self.successMessage!()
                 self.shopifyAuthNetworkServiceImpl.createCustomer(customer: SignedUpCustomer(customer: SignedUpCustomerInfo(email: email,verifiedEmail: true,state: "enabled")))
+                whenSuccess()
                 return
                 
             }

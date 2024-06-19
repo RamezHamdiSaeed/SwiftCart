@@ -19,9 +19,6 @@ class CollectionViewCell: UICollectionViewCell {
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     var whenRemoved : (()->())? = nil
 
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     func configure(with product: ProductTemp) {
         productCell = product
@@ -38,7 +35,6 @@ class CollectionViewCell: UICollectionViewCell {
         }
         viewModel.getRate()
 
-//        favoriteButton.isSelected = product.isFavorite
         let imageName = product.isFavorite ? "heart.fill" : "heart"
         favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
         productImage.sd_setImage(with: URL(string: product.image), placeholderImage: UIImage(named: "placeholder"))
