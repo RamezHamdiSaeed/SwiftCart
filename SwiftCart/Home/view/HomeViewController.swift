@@ -145,14 +145,12 @@ class HomeViewController: UIViewController {
            badgeLabel.isHidden = cartItemCount == 0
        }
     @objc func icon1Tapped() {
-        // Handle icon1 tap
                         let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
                         let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "SearchViewController"))
                         self.navigationController?.pushViewController(SearchViewController, animated: true)
     }
     
     @objc func favTapped() {
-        // Handle icon2 tap
         if User.id == nil {
             AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
         }else{
@@ -226,8 +224,6 @@ extension HomeViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? HomeCollectionViewCell
             guard let cell = cell else { return UICollectionViewCell() }
             
-            // Cell data
-           // cell.cellLabel.text = brandsArray[indexPath.item].title
             cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "processing"))
              
             CollectionViewDesign.collectionViewCell(cell: cell)

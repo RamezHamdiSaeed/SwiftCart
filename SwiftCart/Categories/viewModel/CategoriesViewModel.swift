@@ -41,15 +41,5 @@ class CategoriesViewModelImp : CategoriesViewModel {
         }
     }
    
-    /* func getProductsyForSubCategor( collectionId : String ){
-        CategoriesServicesImp.fetchProductsForSubCategory(productType: collectionId) {[weak self] res in
-            switch res {
-            case .success(let response) :
-                self?.productsClosure(response.products)
-                print("CategoriesViewModel success")
-            case .failure(let error):
-                print("CategoriesViewModel error :",error.localizedDescription)
-            }
-        }
-    }*/
+   
 }
