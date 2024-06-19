@@ -23,6 +23,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
     @IBOutlet weak var goToPayment: UIButton!
+    
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
                 self?.lineItems = self?.draftOrders.flatMap { $0.lineItems ?? [] } ?? []
                 self?.cartTable.reloadData()
                 self?.calculateTotalPrice()
+
             }
         }
         
@@ -61,7 +64,6 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
            calculateTotalPrice()
        }
     
-
 
     func calculateTotalPrice() {
         let total = lineItems.reduce(0.0) { total, item in

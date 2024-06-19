@@ -23,7 +23,7 @@ class CartTableViewCell: UITableViewCell {
         itemImg.clipsToBounds = true
         
         stepprButton.minimumValue = 1
-        stepprButton.value = 1 
+        stepprButton.value = 1
         stepprButton.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
         
         quantity.text = ""
@@ -35,16 +35,12 @@ class CartTableViewCell: UITableViewCell {
         delegate?.didChangeQuantity(cell: self, quantity: newQuantity)
     }
     
-    func configure(with lineItem: LineItems ,rate : Double,userCurrency : String) {
+    func configure(with lineItem: LineItems, rate: Double, userCurrency: String) {
         var convertedPrice = convertPrice(price: String(lineItem.price  ?? ""), rate: rate)
-
         itemPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-         
-        
         itemName.text = lineItem.title
         quantity.text = "\(lineItem.quantity ?? 0)"
         stepprButton.value = Double(lineItem.quantity ?? 0)
-        
         stepprButton.minimumValue = 1
         
         if let maxQuantity = lineItem.inventoryQuantity {

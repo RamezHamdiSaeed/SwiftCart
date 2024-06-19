@@ -98,6 +98,31 @@ class DetailsViewController: UIViewController {
         
         
     }
+    func showSnackbar(message: String) {
+        let snackbarHeight: CGFloat = 50.0
+        let snackbar = UILabel(frame: CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: snackbarHeight))
+        snackbar.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        snackbar.textColor = .white
+        snackbar.textAlignment = .center
+        snackbar.text = message
+        snackbar.font = UIFont.systemFont(ofSize: 16)
+        snackbar.alpha = 0.0
+        
+        view.addSubview(snackbar)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            snackbar.frame.origin.y -= snackbarHeight
+            snackbar.alpha = 1.0
+        }) { _ in
+            UIView.animate(withDuration: 0.3, delay: 2.0, options: .curveEaseInOut, animations: {
+                snackbar.frame.origin.y += snackbarHeight
+                snackbar.alpha = 0.0
+            }) { _ in
+                snackbar.removeFromSuperview()
+            }
+        }
+    }
+
 
     @IBAction func selectSizeSegControl(_ sender: Any) {
         let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
@@ -127,6 +152,7 @@ class DetailsViewController: UIViewController {
         
         let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
         cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
+        showSnackbar(message: "added successfully")
 
         print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
     }
