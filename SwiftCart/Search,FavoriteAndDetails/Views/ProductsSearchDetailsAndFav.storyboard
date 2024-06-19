@@ -43,13 +43,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="mIE-gE-A4g" customClass="SingleProductCollectionViewCell" customModule="SwiftCart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="254"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="be1-YG-Ogl">
-                                            <rect key="frame" x="0.0" y="0.0" width="167" height="254"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="167" height="254"/>
+                                        <size key="customSize" width="150" height="250"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -494,13 +494,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="CcR-WO-Pdf" customClass="SingleProductCollectionViewCell" customModule="SwiftCart" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="247"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="F8X-MS-QoZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="167" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="167" height="247"/>
+                                        <size key="customSize" width="150" height="250"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

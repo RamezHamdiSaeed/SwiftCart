@@ -73,9 +73,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
         var convertedPrice = convertPrice(price: String(total), rate: self.rate)
 
         totalPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-     
-
-        
+          
         updateCartItemCount()
         
 
@@ -84,6 +82,14 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cartViewModel.fetchFromCart(customerID: customerId ?? 0)
+        cartViewModel.rateClosure = {
+            [weak self] rate in
+            DispatchQueue.main.async { [self] in
+                self?.rate = rate
+                self?.calculateTotalPrice()
+            }
+        }
+        cartViewModel.getRate()
 
     }
 
@@ -106,7 +112,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
 
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row] {
-            cell.configure(with: lineItem)
+            cell.configure(with: lineItem ,rate: self.rate ,userCurrency: self.userCurrency)
         }
 
         styleTableViewCell(cell: cell)

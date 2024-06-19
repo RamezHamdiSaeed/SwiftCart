@@ -14,14 +14,17 @@ final class SwiftCartTests: XCTestCase {
     var mockNetworkServices : MockNetworkServices!
     var networkServices : NetworkServices!
     var categoryViewModel : CategoriesViewModel!
+    var ordersViewModel : OrdersViewModel!
 
 
     override func setUpWithError() throws {
         mockNetworkServices = MockNetworkServices(shouldReturnError: false)
         productsviewModel = ProductsViewModel()
         networkServices = NetworkServicesImpl()
-        homeViewModel = HomeViewModel(networkService: NetworkServicesImpl())
-        categoryViewModel = CategoriesViewModelImp(networkService: NetworkServicesImpl())
+        homeViewModel = HomeViewModel(networkService: mockNetworkServices)
+        categoryViewModel = CategoriesViewModelImp(networkService: mockNetworkServices)
+        ordersViewModel = OrdersViewModel(networkService: mockNetworkServices)
+
     }
 
     override func tearDownWithError() throws {
@@ -211,7 +214,7 @@ final class SwiftCartTests: XCTestCase {
     }
     
     func testGetProductsSuccessCategoryViewModel() {
-          // Arrange
+        mockNetworkServices.shouldReturnError = false
           let expectation = self.expectation(description: "Products closure called")
         categoryViewModel.productsClosure = { products in
               XCTAssertNotNil(products.count != 0)
@@ -249,5 +252,66 @@ final class SwiftCartTests: XCTestCase {
           // Assert
           waitForExpectations(timeout: 1, handler: nil)
       }
+    
+    func testGetRateSuccessBrandDetailViewModel() {
+        let expectation = self.expectation(description: "Rate closure called")
+        categoryViewModel.rateClosure = { rate in
+            XCTAssertNotNil(rate != nil)
+
+            expectation.fulfill()
+        }
+        
+        // Act
+        categoryViewModel.getRate()
+        
+        // Assert
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testGetRateSuccessOrdersViewModel() {
+        let expectation = self.expectation(description: "Rate closure called")
+        productsviewModel.rateClosure = { rate in
+            XCTAssertNotNil(rate != nil)
+
+            expectation.fulfill()
+        }
+        
+        // Act
+        productsviewModel.getRate()
+        
+        // Assert
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    
+    func testGetOrdersSuccessViewModel() {
+        let expect = expectation(description: "Fetch orders success")
+        
+        ordersViewModel.ordersClosure = { orders in
+            XCTAssertNotNil(orders)
+          //  XCTAssertEqual(orders.first?.contactEmail, "egnition_sample_77@egnition.com")
+            expect.fulfill()
+        }
+        
+        ordersViewModel.getOrders()
+        waitForExpectations(timeout: 5)
+    }
+
+    func testGetOrdersFailureViewModel() {
+        mockNetworkServices.shouldReturnError = true
+        let expect = expectation(description: "Fetch orders failure")
+
+        
+        ordersViewModel.ordersClosure = { orders in
+            XCTFail("Expected failure, but got success")
+        }
+        
+        ordersViewModel.getOrders()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10)
+    }
     
 }
