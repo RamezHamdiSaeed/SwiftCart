@@ -22,8 +22,8 @@ class CartTableViewCell: UITableViewCell {
         itemImg.layer.cornerRadius = itemImg.frame.size.width / 2
         itemImg.clipsToBounds = true
         
-        stepprButton.minimumValue = 1 // Start value from 1
-        stepprButton.value = 1 // Default initial value
+        stepprButton.minimumValue = 1
+        stepprButton.value = 1 
         stepprButton.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
         
         quantity.text = ""
@@ -42,18 +42,14 @@ class CartTableViewCell: UITableViewCell {
          
         
         itemName.text = lineItem.title
-       // itemPrice.text = "\(lineItem.price  ?? "") $"
         quantity.text = "\(lineItem.quantity ?? 0)"
         stepprButton.value = Double(lineItem.quantity ?? 0)
         
-        // Set minimum value of stepper to 1
         stepprButton.minimumValue = 1
         
-        // Set maximum value of stepper to inventory quantity if available
         if let maxQuantity = lineItem.inventoryQuantity {
             stepprButton.maximumValue = Double(maxQuantity)
         } else {
-            // Default maximum value if inventory quantity is not available
             stepprButton.maximumValue = 3
         }
         
