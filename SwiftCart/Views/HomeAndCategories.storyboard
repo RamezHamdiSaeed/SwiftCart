@@ -280,7 +280,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQ4-aX-9eO">
-                                <rect key="frame" x="320.66666666666669" y="417.66666666666669" width="51.333333333333314" height="34"/>
+                                <rect key="frame" x="321" y="417.66666666666669" width="51" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system" title="">
                                     <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
@@ -290,7 +290,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMb-zf-6Yw">
-                                <rect key="frame" x="321.66666666666674" y="509" width="50.333333333333314" height="52"/>
+                                <rect key="frame" x="321.66666666666669" y="509" width="50.333333333333314" height="52"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="">
                                     <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
@@ -715,18 +715,30 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="Utb-b3-7vM">
+                                <rect key="frame" x="16" y="116" width="361" height="387"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="387" id="27B-bE-26h"/>
+                                    <constraint firstAttribute="width" constant="361" id="WuB-wA-d3S"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6kn-p5-Gba"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Utb-b3-7vM" firstAttribute="top" secondItem="6kn-p5-Gba" secondAttribute="top" constant="57" id="8W7-Fe-4Sf"/>
                             <constraint firstItem="yPc-KC-8qp" firstAttribute="leading" secondItem="6kn-p5-Gba" secondAttribute="leading" id="EyT-rO-q8Z"/>
+                            <constraint firstItem="6kn-p5-Gba" firstAttribute="trailing" secondItem="Utb-b3-7vM" secondAttribute="trailing" constant="16" id="FmQ-rU-Ebr"/>
                             <constraint firstItem="yPc-KC-8qp" firstAttribute="top" secondItem="6kn-p5-Gba" secondAttribute="top" id="Hl5-vU-6Xd"/>
                             <constraint firstItem="6kn-p5-Gba" firstAttribute="trailing" secondItem="yPc-KC-8qp" secondAttribute="trailing" id="fSm-ak-NrU"/>
+                            <constraint firstItem="Utb-b3-7vM" firstAttribute="leading" secondItem="6kn-p5-Gba" secondAttribute="leading" constant="16" id="sxO-zf-9cT"/>
+                            <constraint firstItem="6kn-p5-Gba" firstAttribute="bottom" secondItem="Utb-b3-7vM" secondAttribute="bottom" constant="315" id="xxl-nv-F94"/>
                             <constraint firstItem="6kn-p5-Gba" firstAttribute="bottom" secondItem="yPc-KC-8qp" secondAttribute="bottom" id="yyX-r3-YyM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="brandProductsCollectionView" destination="yPc-KC-8qp" id="AT4-wk-kBU"/>
+                        <outlet property="emptyImage" destination="Utb-b3-7vM" id="45W-n7-rds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9WH-ew-rQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
