@@ -14,26 +14,32 @@ class PaymentViewController: UIViewController {
     var customerId = User.id
     var viewModel = CartViewModel()
     weak var delegate: PaymentDelegate?
+    
+    @IBOutlet weak var cashButton: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
+    @IBOutlet weak var validButton: UIButton!
     var viewModelDis = DiscountViewModel()
     var availableCoupons: [DiscountCodes] = []
-    var rate : Double!
+    var rate: Double!
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     
-
-    
     @IBOutlet weak var couponText: UITextField!
-    private var discountedTotalAmount: Decimal?
+    var discountedTotalAmount: Decimal?
     
     @IBOutlet weak var totalLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        validButton.layer.cornerRadius = 10
+        appleButton.layer.cornerRadius = 10
+        cashButton.layer.cornerRadius = 10
+
         
         viewModel.rateClosure = {
             [weak self] rate in
-                DispatchQueue.main.async {
-                    self?.rate = rate
-                }
+            DispatchQueue.main.async {
+                self?.rate = rate
+            }
         }
         viewModel.getRate()
         
@@ -52,7 +58,6 @@ class PaymentViewController: UIViewController {
         updateTotalLabel(with: totalAmount)
     }
     
-   
     @IBAction func buyWithCash(_ sender: Any) {
         let alert = UIAlertController(title: "Confirm Purchase", message: "Are you sure you want to complete this purchase with Cash on Delivery?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
@@ -120,19 +125,15 @@ class PaymentViewController: UIViewController {
     }
     
     private func updateTotalLabel(with amount: Decimal) {
-    //    totalLabel.text = String(format: "$%.2f", NSDecimalNumber(decimal: amount).doubleValue)
-
         viewModel.rateClosure = {
             [weak self] rate in
-                DispatchQueue.main.async {
-                    self?.rate = rate
-                    var convertedPrice = convertPrice(price: String(describing: amount), rate: self?.rate ?? 0.0)
-
-                    self?.totalLabel.text = "\(String(format: "%.2f", convertedPrice)) \(self!.userCurrency)"
-                }
+            DispatchQueue.main.async {
+                self?.rate = rate
+                let convertedPrice = convertPrice(price: String(describing: amount), rate: self?.rate ?? 0.0)
+                self?.totalLabel.text = "\(String(format: "%.2f", convertedPrice)) \(self!.userCurrency)"
+            }
         }
         viewModel.getRate()
-        
     }
     
     private func applyDiscount(_ priceRule: PriceRule) {
@@ -152,11 +153,11 @@ class PaymentViewController: UIViewController {
             return
         }
         
-        // Ensure the discounted total is not negative
         if discountedTotal < 0 {
             discountedTotal = 0
         }
         
+        discountedTotalAmount = discountedTotal
         updateTotalLabel(with: discountedTotal)
     }
     
@@ -182,17 +183,18 @@ class PaymentViewController: UIViewController {
             paymentRequest.merchantCapabilities = .capability3DS
             paymentRequest.countryCode = "US"
             paymentRequest.currencyCode = "USD"
-
-            if let totalAmount = discountedTotalAmount ?? calculateTotalAmount() {
+            
+            let totalAmount = discountedTotalAmount ?? calculateTotalAmount()
+            
+            if let totalAmount = totalAmount {
                 let summaryItem = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(decimal: totalAmount))
                 paymentRequest.paymentSummaryItems = [summaryItem]
-
+                
                 if let paymentVC = PKPaymentAuthorizationViewController(paymentRequest: paymentRequest) {
                     paymentVC.delegate = self
                     present(paymentVC, animated: true, completion: nil)
                 }
             } else {
-                // Handle case where totalAmount is nil (shouldn't normally happen if calculateTotalAmount() is properly implemented)
                 let alert = UIAlertController(title: "Error", message: "Failed to calculate total amount for payment.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 present(alert, animated: true, completion: nil)
@@ -203,9 +205,7 @@ class PaymentViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
     }
-
 }
-
 
 extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
@@ -216,7 +216,7 @@ extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
             self.completePurchase()
         }
     }
-
+    
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion: nil)
     }

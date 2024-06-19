@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/marwa/Desktop/Graduation Project/SwiftCart/Trendy.xcodeproj">
+      location = "group:Trendy.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

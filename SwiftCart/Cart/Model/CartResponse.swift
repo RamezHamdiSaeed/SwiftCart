@@ -100,7 +100,6 @@ struct LineItems: Decodable {
     let appliedDiscount: Bool?
     let name: String?
     let custom: Bool?
-    //let src: String?
     let price, adminGraphqlAPIID: String?
     var inventoryQuantity: Int?
 
@@ -134,24 +133,7 @@ struct Property: Codable {
     let value: String?
 }
 
-// MARK: - Address
-//struct Address: Decodable {
-//    let firstName: String?
-//    let address1: String?
-//    let phone: String?
-//    let city: String?
-//    let zip: String?
-//    let province: String?
-//    let country: String?
-//    let lastName: String?
-//    let address2: String?
-//    let company: String?
-//    let latitude: Double?
-//    let longitude: Double?
-//    let name: String?
-//    let countryCode: String?
-//    let provinceCode: String?
-//}
+
 
 // MARK: - Customer
 struct Customer: Decodable {

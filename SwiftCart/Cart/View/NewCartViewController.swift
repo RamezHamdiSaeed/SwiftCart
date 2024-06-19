@@ -68,7 +68,6 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             let itemPrice = Double(item.price ?? "") ?? 0.0
             return total + (itemPrice * Double(item.quantity ?? 0))
         }
-    //    totalPrice.text = String(format: "$%.2f", total)
         
         var convertedPrice = convertPrice(price: String(total), rate: self.rate)
 
@@ -173,17 +172,6 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
         let paymentViewController =  PaymentViewController()
         paymentViewController.selectedAddress = address
         paymentViewController.draftOrders = draftOrders
-      //  self.navigationController?.pushViewController(paymentViewController, animated: true)
 
     }
 }
-//extension NewCartViewController: CartTableCellDelegate {
-//    func didChangeQuantity(cell: CartTableViewCell, quantity: Int) {
-//        guard let indexPath = tableView.indexPath(for: cell) else { return }
-//        let draftOrder = draftOrders[indexPath.section]
-//
-//        if let lineItem = draftOrder.lineItems?[indexPath.row] {
-//            itemManager.setQuantity(at: indexPath.row, to: quantity)
-//        }
-//    }
-//}
