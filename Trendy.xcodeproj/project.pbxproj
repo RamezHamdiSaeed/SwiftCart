@@ -753,6 +753,7 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA988ED12C23A13600AE04AA /* CartTesting */,
 				1ECA88C62C23C56E004A1C16 /* Reviews */,
 				1E917A492C226C0900272EE1 /* ProductsDB */,
 				1E917A452C22604E00272EE1 /* Favorite */,
@@ -1103,6 +1104,13 @@
 				DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DA988ED12C23A13600AE04AA /* CartTesting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CartTesting;
 			sourceTree = "<group>";
 		};
 		DAC6B0EE2C1A18FC0099C630 /* Payment */ = {
