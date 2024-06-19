@@ -22,12 +22,14 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMonitoringConnection()
+
         authVC = AuthViewModelImpl()
         authVC?.setSuccessMessage(successMessage: {
             FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed Up Successfully")
         })
         authVC?.setFailMessage(failMessage: {
-            FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
+            FeedbackManager.errorSwiftMessage(title: "Prompt", body: "The Account Already Exists")
         })
         SwiftCart.setHeader(view: self, title: "Sign Up")
 
@@ -35,7 +37,10 @@ class SignUpViewController: UIViewController {
         confirmPassword.isSecureTextEntry = true
     }
     
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
+    }
     @IBAction func userSignUpBtn(_ sender: Any) {
         self.userSignUp()
 

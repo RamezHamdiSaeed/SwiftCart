@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     
    
     override func viewDidLoad() {
+        startMonitoringConnection()
+
         super.viewDidLoad()
         
         self.title = "Home"
@@ -89,6 +91,12 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationItem.hidesBackButton = true
+   
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
 
     }
     func setupNavigationBarIcons() {

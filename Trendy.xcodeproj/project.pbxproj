@@ -51,6 +51,7 @@
 		1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A432C225BBB00272EE1 /* DetailsNetworkServiceTest.swift */; };
 		1E917A482C22606D00272EE1 /* FavoriteSyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A472C22606D00272EE1 /* FavoriteSyncTest.swift */; };
 		1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */; };
+		1E949A332C231FB9008A2277 /* NetworkingConnectionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E949A322C231FB9008A2277 /* NetworkingConnectionValidator.swift */; };
 		1E9633492C202AC500E5509B /* FavoriteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9633482C202AC500E5509B /* FavoriteSync.swift */; };
 		1EA3CE9E2C21BABD000C4911 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */; };
 		1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */; };
@@ -204,6 +205,7 @@
 		1E917A432C225BBB00272EE1 /* DetailsNetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNetworkServiceTest.swift; sourceTree = "<group>"; };
 		1E917A472C22606D00272EE1 /* FavoriteSyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSyncTest.swift; sourceTree = "<group>"; };
 		1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSourceImplTest.swift; sourceTree = "<group>"; };
+		1E949A322C231FB9008A2277 /* NetworkingConnectionValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingConnectionValidator.swift; sourceTree = "<group>"; };
 		1E9633482C202AC500E5509B /* FavoriteSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSync.swift; sourceTree = "<group>"; };
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				1E2464872C109BEF00745CA8 /* InputValidator.swift */,
+				1E949A322C231FB9008A2277 /* NetworkingConnectionValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -1427,6 +1430,7 @@
 				1E2464782C1098C000745CA8 /* User.swift in Sources */,
 				1E2464882C109BF000745CA8 /* InputValidator.swift in Sources */,
 				1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */,
+				1E949A332C231FB9008A2277 /* NetworkingConnectionValidator.swift in Sources */,
 				43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */,
 				DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */,
 				1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */,

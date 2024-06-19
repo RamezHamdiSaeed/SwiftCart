@@ -38,6 +38,8 @@ class DetailsViewController: UIViewController {
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
  
     override func viewDidLoad() {
+        startMonitoringConnection()
+
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -96,7 +98,10 @@ class DetailsViewController: UIViewController {
         }
         detailsViewModel.getProductDetails(productID: self.productID)
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
+    }
     @IBAction func selectSizeSegControl(_ sender: Any) {
         let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
         let selectedSegmentTitle = (sender as AnyObject).titleForSegment(at: selectedSegmentIndex)
@@ -130,8 +135,7 @@ class DetailsViewController: UIViewController {
     }
 
     func updateView(title:String,price:String){
-        self.productTitle.text = title + " $"
-        self.productPrice.text = price + " $"
+        self.productTitle.text = title
     }
     
     

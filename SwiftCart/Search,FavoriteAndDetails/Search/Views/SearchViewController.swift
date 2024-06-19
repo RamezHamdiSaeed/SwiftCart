@@ -40,6 +40,8 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
        }
     
     override func viewDidLoad() {
+        startMonitoringConnection()
+
         super.viewDidLoad()
         productViewModel.rateClosure = {
             [weak self] rate in
@@ -60,7 +62,10 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
+    }
    
     func setupSearchController() {
         searchController = UISearchController(searchResultsController: nil)

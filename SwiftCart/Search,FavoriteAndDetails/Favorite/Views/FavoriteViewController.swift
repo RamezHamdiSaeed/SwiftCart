@@ -41,6 +41,8 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMonitoringConnection()
+
         productViewModel.rateClosure = {
             [weak self] rate in
                 DispatchQueue.main.async {
@@ -59,6 +61,10 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
     }
     
    

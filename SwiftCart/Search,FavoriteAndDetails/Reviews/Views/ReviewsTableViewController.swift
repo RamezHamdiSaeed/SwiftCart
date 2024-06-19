@@ -12,10 +12,15 @@ class ReviewsTableViewController: UITableViewController {
     let viewModel = ReviewsViewModel()
 
     override func viewDidLoad() {
+        startMonitoringConnection()
+
         super.viewDidLoad()
-        setHeader()
+        setHeader(view: self, title: "Reviews")
         viewModel.getReviewsForProduct()
         self.tableView.reloadData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        stopMonitoringConnection()
     }
 
     // MARK: - Table view data source
@@ -37,13 +42,5 @@ class ReviewsTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
-    }
-    func setHeader() {
-        let settingsLabel = UILabel()
-        settingsLabel.text = "Reviews"
-        settingsLabel.textColor = .systemPink
-        settingsLabel.font = .boldSystemFont(ofSize: 25)
-        settingsLabel.sizeToFit()
-        self.navigationItem.titleView = settingsLabel
     }
 }

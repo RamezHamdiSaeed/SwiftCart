@@ -19,12 +19,14 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMonitoringConnection()
+
         authVC = AuthViewModelImpl()
            authVC?.setSuccessMessage(successMessage: {
                FeedbackManager.successSwiftMessage(title: "Prompt", body: "Logged In Successfully")
            })
            authVC?.setFailMessage(failMessage: {
-               FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
+               FeedbackManager.errorSwiftMessage(title: "Prompt", body: "Not Signed Up Yet")
            })
         
         SwiftCart.setHeader(view: self, title: "Log In")
@@ -32,7 +34,10 @@ class LogInViewController: UIViewController {
         password.isSecureTextEntry = true
 
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
+    }
     @IBAction func userLogInBtn(_ sender: Any) {
         self.userLogIn()
 

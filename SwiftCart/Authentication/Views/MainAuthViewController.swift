@@ -15,6 +15,12 @@ class MainAuthViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMonitoringConnection()
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopMonitoringConnection()
     }
 
     @IBAction func continuseAsAGuestBtn(_ sender: Any) {
