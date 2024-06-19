@@ -57,6 +57,8 @@
 		1EC52DF72C17A1F0005A79F2 /* LocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */; };
 		1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */; };
 		1ECA88BB2C23B12C004A1C16 /* DetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */; };
+		1ECA88BD2C23B63B004A1C16 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */; };
+		1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
 		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
@@ -210,6 +212,8 @@
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelImplTest.swift; sourceTree = "<group>"; };
 		1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
+		1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTest.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -458,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				1E2464B52C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift */,
+				1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 		1E917A452C22604E00272EE1 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA88BE2C23B6F1004A1C16 /* ViewModels */,
 				1E917A462C22605C00272EE1 /* Models */,
 			);
 			path = Favorite;
@@ -653,6 +659,14 @@
 			isa = PBXGroup;
 			children = (
 				1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1ECA88BE2C23B6F1004A1C16 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1438,6 +1452,7 @@
 				1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */,
 				43AC2B472C077F48007A674E /* CategoriesViewModel.swift in Sources */,
 				DAE2A67F2C18C8D600F80C5E /* AdressTableViewCell.swift in Sources */,
+				1ECA88BD2C23B63B004A1C16 /* FavoriteViewModel.swift in Sources */,
 				1EF89CDA2C1B0849006E6114 /* ReviewsViewModel.swift in Sources */,
 				1EF89CD82C1B056B006E6114 /* ReviewsRepo.swift in Sources */,
 				4380A4F12C02A3960035CF76 /* ProductsViewModel.swift in Sources */,
@@ -1512,6 +1527,7 @@
 				1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */,
 				1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */,
 				1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */,
+				1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */,
 				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
 				1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */,
 				1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */,

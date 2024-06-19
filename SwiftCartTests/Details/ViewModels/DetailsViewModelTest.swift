@@ -26,8 +26,8 @@ final class DetailsViewModelTest: XCTestCase {
     }
     
 
-    func testUnRegisteredUser() throws {
-        let expect = expectation(description: "Unregistered User Login")
+    func testFetchProductDetails() throws {
+        let expect = expectation(description: "test Fetch Product Details")
         self.detailsViewModel?.getProductDetails(productID: "8624930816251", whenSuccess: {
             XCTAssertTrue(true)
             expect.fulfill()

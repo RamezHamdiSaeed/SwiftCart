@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SearchFavoriteProductsViewModel {
+class SearchFavoriteProductsViewModel : FavoriteViewModel{
     
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
