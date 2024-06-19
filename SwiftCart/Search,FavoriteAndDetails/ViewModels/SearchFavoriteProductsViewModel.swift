@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SearchFavoriteProductsViewModel : FavoriteViewModel{
+class SearchFavoriteProductsViewModel : FavoriteViewModel,SearchViewModel{
     
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
@@ -35,8 +35,9 @@ class SearchFavoriteProductsViewModel : FavoriteViewModel{
         self.networkService = networkService
         
     }
-     func fetchProducts() {
+    func fetchProducts(whenSuccess:(()->())?) {
         networkService.fetchProducts { [weak self] products in
+            whenSuccess?()
             guard let self = self else { return }
             self.isProductsFetchedSuccessfully.accept(true)
             print("Products fetched: \(products)")

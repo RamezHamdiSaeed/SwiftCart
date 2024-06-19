@@ -25,7 +25,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
     private let viewModel: SearchFavoriteProductsViewModel = {
         
         let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
-        searchFavoriteProductsVC.fetchProducts()
+        searchFavoriteProductsVC.fetchProducts(whenSuccess: nil)
         searchFavoriteProductsVC.getFavoriteProductsDB()
         return searchFavoriteProductsVC
     }()
