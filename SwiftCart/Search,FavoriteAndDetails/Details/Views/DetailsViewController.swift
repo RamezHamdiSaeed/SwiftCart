@@ -55,6 +55,7 @@ class DetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+
         addToCartBtn.isEnabled = false
         detailsViewModel = DetailsViewModel(detailsnetworkService: DetailsNetworkService(networkingManager: NetworkingManagerImpl()))
         detailsViewModel.updateView = { [self] in
@@ -127,11 +128,16 @@ class DetailsViewController: UIViewController {
             print("No variant selected")
             return
         }
-        
-        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
-        cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
-
-        print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
+        if User.id == nil{
+            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+        }
+        else{
+            let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
+            cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
+            
+            print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
+            FeedbackManager.successSwiftMessage(title: "Prompt", body: "added to cart successfully")
+        }
     }
 
     func updateView(title:String,price:String){
