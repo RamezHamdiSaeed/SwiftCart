@@ -161,6 +161,7 @@
                                                     <constraint firstAttribute="width" constant="99" id="X2m-Ha-yTy"/>
                                                     <constraint firstAttribute="height" constant="26" id="cr4-rB-kbG"/>
                                                 </constraints>
+                                                <color key="tintColor" red="1" green="0.65374312810000001" blue="0.41435371929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Reviews"/>
                                                 <connections>
@@ -250,7 +251,7 @@
                                                     <outlet property="delegate" destination="exT-jU-07C" id="8W0-RC-iDo"/>
                                                 </connections>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9c-Du-orm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9c-Du-orm">
                                                 <rect key="frame" x="244" y="430" width="132" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="d49-9h-iUW"/>
