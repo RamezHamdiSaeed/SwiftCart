@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     var productCell : ProductTemp? = nil
-    var viewModel : SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    var viewModel : SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
     var rate : Double!
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     var whenRemoved : (()->())? = nil

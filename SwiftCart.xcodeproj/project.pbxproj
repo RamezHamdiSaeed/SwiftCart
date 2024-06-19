@@ -43,10 +43,14 @@
 		1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */; };
 		1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */; };
 		1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535102C22185B00D088D8 /* NetworkingManager.swift */; };
-		1E8535132C22190800D088D8 /* MockNetworkingManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */; };
 		1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535142C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift */; };
 		1E8E54372C176B1500D94B03 /* ProductDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E54352C176B1500D94B03 /* ProductDB+CoreDataProperties.swift */; };
 		1E8E54382C176B1500D94B03 /* ProductDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8E54362C176B1500D94B03 /* ProductDB+CoreDataClass.swift */; };
+		1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A3C2C22546C00272EE1 /* SearchNetworkServiceTest.swift */; };
+		1E917A402C2256C400272EE1 /* MockNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A3F2C2256C400272EE1 /* MockNetworkingManager.swift */; };
+		1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A432C225BBB00272EE1 /* DetailsNetworkServiceTest.swift */; };
+		1E917A482C22606D00272EE1 /* FavoriteSyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A472C22606D00272EE1 /* FavoriteSyncTest.swift */; };
+		1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */; };
 		1E9633492C202AC500E5509B /* FavoriteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9633482C202AC500E5509B /* FavoriteSync.swift */; };
 		1EA3CE9E2C21BABD000C4911 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */; };
 		1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */; };
@@ -190,12 +194,16 @@
 		1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthImpl.swift; sourceTree = "<group>"; };
 		1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImplTest.swift; sourceTree = "<group>"; };
 		1E8535102C22185B00D088D8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingManagerImpl.swift; sourceTree = "<group>"; };
 		1E8535142C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkServiceImplTest.swift; sourceTree = "<group>"; };
 		1E8E54352C176B1500D94B03 /* ProductDB+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1E8E54362C176B1500D94B03 /* ProductDB+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProductDB+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSourceImpl.swift; sourceTree = "<group>"; };
+		1E917A3C2C22546C00272EE1 /* SearchNetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNetworkServiceTest.swift; sourceTree = "<group>"; };
+		1E917A3F2C2256C400272EE1 /* MockNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingManager.swift; sourceTree = "<group>"; };
+		1E917A432C225BBB00272EE1 /* DetailsNetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNetworkServiceTest.swift; sourceTree = "<group>"; };
+		1E917A472C22606D00272EE1 /* FavoriteSyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSyncTest.swift; sourceTree = "<group>"; };
+		1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSourceImplTest.swift; sourceTree = "<group>"; };
 		1E9633482C202AC500E5509B /* FavoriteSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSync.swift; sourceTree = "<group>"; };
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -532,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */,
-				1E8535122C22190800D088D8 /* MockNetworkingManagerImpl.swift */,
 			);
 			path = Mockes;
 			sourceTree = "<group>";
@@ -552,6 +559,70 @@
 				1E8E54352C176B1500D94B03 /* ProductDB+CoreDataProperties.swift */,
 				1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */,
 				1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */,
+			);
+			path = ProductsDB;
+			sourceTree = "<group>";
+		};
+		1E917A3A2C22542900272EE1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A3B2C22542F00272EE1 /* Models */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		1E917A3B2C22542F00272EE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A3E2C22569F00272EE1 /* Mocks */,
+				1E917A3C2C22546C00272EE1 /* SearchNetworkServiceTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E917A3E2C22569F00272EE1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		1E917A412C225B6500272EE1 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A422C225B7000272EE1 /* Models */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		1E917A422C225B7000272EE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A432C225BBB00272EE1 /* DetailsNetworkServiceTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E917A452C22604E00272EE1 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A462C22605C00272EE1 /* Models */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		1E917A462C22605C00272EE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A472C22606D00272EE1 /* FavoriteSyncTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1E917A492C226C0900272EE1 /* ProductsDB */ = {
+			isa = PBXGroup;
+			children = (
+				1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */,
 			);
 			path = ProductsDB;
 			sourceTree = "<group>";
@@ -622,6 +693,10 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E917A492C226C0900272EE1 /* ProductsDB */,
+				1E917A452C22604E00272EE1 /* Favorite */,
+				1E917A412C225B6500272EE1 /* Details */,
+				1E917A3A2C22542900272EE1 /* Search */,
 				1E8535092C2206F900D088D8 /* Authentication */,
 				43444BDF2C1F15EC00E93BC4 /* Mocks */,
 				1ED98EBC2BFF882300948409 /* SwiftCartTests.swift */,
@@ -704,6 +779,7 @@
 		43444BDF2C1F15EC00E93BC4 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				1E917A3F2C2256C400272EE1 /* MockNetworkingManager.swift */,
 				43444BE02C1F160A00E93BC4 /* MockNetworkServices.swift */,
 			);
 			path = Mocks;
@@ -1411,12 +1487,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */,
 				1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */,
 				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
+				1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */,
+				1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */,
+				1E917A402C2256C400272EE1 /* MockNetworkingManager.swift in Sources */,
 				43444BE12C1F160A00E93BC4 /* MockNetworkServices.swift in Sources */,
-				1E8535132C22190800D088D8 /* MockNetworkingManagerImpl.swift in Sources */,
 				1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */,
 				1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */,
+				1E917A482C22606D00272EE1 /* FavoriteSyncTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

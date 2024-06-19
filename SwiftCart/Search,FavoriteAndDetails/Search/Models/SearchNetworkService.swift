@@ -10,10 +10,15 @@ import RxSwift
 
 class SearchNetworkService {
     
+    var networkingManager :NetworkingManager? = nil
+    init(networkingManager : NetworkingManager){
+        self.networkingManager = networkingManager
+    }
+    
     var products  : Observable<[ProductTemp]> = Observable.just([ProductTemp]())
     
     func fetchProducts(fetchedProducts: @escaping ([ProductTemp]) -> Void) {
-        AppCommon.networkingManager.networkingRequest(
+        self.networkingManager!.networkingRequest(
             path: "/products.json",
             queryItems: nil,
             method: .GET,

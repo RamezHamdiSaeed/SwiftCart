@@ -64,7 +64,7 @@ class BrandDetailViewController: UIViewController {
         
         //
        favViewModel = {
-            let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+            let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
             searchFavoriteProductsVC.getFavoriteProductsDB()
             return searchFavoriteProductsVC
         }()

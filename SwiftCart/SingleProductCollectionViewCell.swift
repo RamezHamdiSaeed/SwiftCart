@@ -11,7 +11,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var favBtnOUtlet: UIButton!
     var product : ProductTemp!
-    var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
     
     var whenRemoved : (()->())? = nil
     var whenRemoving : (()->())? = nil

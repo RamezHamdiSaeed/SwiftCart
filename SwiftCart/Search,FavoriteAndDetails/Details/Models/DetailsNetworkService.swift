@@ -12,8 +12,13 @@ class DetailsNetworkService {
     
 //    var productDetailsResponse : ProductDetailsResponse?
     
+    var networkingManager :NetworkingManager? = nil
+    init(networkingManager : NetworkingManager){
+        self.networkingManager = networkingManager
+    }
+    
     func fetchProductDetails(id:String,productsDetailsResult:@escaping(ProductDetailsResponse)->()){
-        AppCommon.networkingManager.networkingRequest(
+        self.networkingManager!.networkingRequest(
             path: "/products/\(id).json",
             queryItems: nil,
             method: .GET,

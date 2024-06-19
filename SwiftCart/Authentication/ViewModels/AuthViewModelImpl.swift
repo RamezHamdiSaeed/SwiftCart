@@ -49,7 +49,7 @@ class AuthViewModelImpl : AuthViewModel{
     static func logOut() {
         FirebaseAuthImpl.user.signOut(whenSuccess:{
             guard let favoriteProducts = LocalDataSourceImpl.shared.getProductsFromFav() else {return}
-            FavoriteSync.uploadProducts(for: User.email!, products: favoriteProducts )
+            FavoriteSync.uploadProducts(for: User.email!, products: favoriteProducts)
             favoriteProducts.forEach{
                 currentProduct in
                 LocalDataSourceImpl.shared.deleteProductFromFav(product: currentProduct)

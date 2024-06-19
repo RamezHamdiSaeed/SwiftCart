@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class FavoriteSync{
     
-    static func uploadProducts(for userEmail: String, products: [ProductTemp]) {
+    static func uploadProducts(for userEmail: String, products: [ProductTemp],whenSuccess : (()->())? = nil) {
         let db = Firestore.firestore()
         products.forEach{
             currentProduct in
@@ -26,6 +26,7 @@ class FavoriteSync{
                         print("Error uploading product: \(error.localizedDescription)")
                     } else {
                         print("Product successfully uploaded!")
+                        whenSuccess?()
                     }
                 }
         }

@@ -24,7 +24,7 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
     
     private let viewModel: SearchFavoriteProductsViewModel = {
         
-        let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+        let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
         searchFavoriteProductsVC.getFavoriteProductsDB()
         searchFavoriteProductsVC.setupBindings(allProducts: searchFavoriteProductsVC.allProductsDB)
         return searchFavoriteProductsVC

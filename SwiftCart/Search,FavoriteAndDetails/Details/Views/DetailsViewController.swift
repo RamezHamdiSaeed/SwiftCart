@@ -47,7 +47,7 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addToCartBtn.isEnabled = false
-        detailsViewModel = DetailsViewModel(detailsnetworkService: DetailsNetworkService())
+        detailsViewModel = DetailsViewModel(detailsnetworkService: DetailsNetworkService(networkingManager: NetworkingManagerImpl()))
         detailsViewModel.updateView = { [self] in
             
 

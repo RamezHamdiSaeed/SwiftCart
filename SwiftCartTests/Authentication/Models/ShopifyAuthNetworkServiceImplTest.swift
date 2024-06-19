@@ -16,7 +16,7 @@ final class ShopifyAuthNetworkServiceImplTest: XCTestCase {
     var signedUpCustomer : SignedUpCustomer = SignedUpCustomer()
     
        override func setUpWithError() throws {
-           signedUpCustomer = SignedUpCustomer(customer: SignedUpCustomerInfo(email: "testCreationAndRetrievingCustomer123456@gmail.com",verifiedEmail: true, state: "enabled"))
+           signedUpCustomer = SignedUpCustomer(customer: SignedUpCustomerInfo(email: "testCreationAndRetrievingCustomer2000@gmail.com",verifiedEmail: true, state: "enabled"))
        }
 
        override func tearDownWithError() throws {
