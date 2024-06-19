@@ -37,6 +37,14 @@ class MeViewController: UIViewController {
     
     
     @IBAction func wishListBtn(_ sender: Any) {
+        if User.id == nil {
+            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+        }else{
+            let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+            let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
+            self.navigationController?.pushViewController(SearchViewController, animated: true)
+        }
+        
     }
     @IBAction func ordersBtn(_ sender: Any) {
         if User.id == nil {

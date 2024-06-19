@@ -8,11 +8,9 @@
 import UIKit
 
 class MainAuthViewController: UIViewController {
-     var authVC : AuthViewModel?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-         authVC = AuthViewModelImpl(signUPNavigationHandler: signUpNavigation, logInNavigationHandler: logInNavigation, continueAsAGuestHandler: continueAsAGuest, logInHandler: {}, signUpHandler: {})
         navigationItem.hidesBackButton = true
     }
     override func viewDidLoad() {
@@ -20,17 +18,17 @@ class MainAuthViewController: UIViewController {
     }
 
     @IBAction func continuseAsAGuestBtn(_ sender: Any) {
-      authVC!.continueAsAGuest()
+      self.continueAsAGuest()
     }
     
     
     @IBAction func signUpBtn(_ sender: Any) {
-       authVC!.signUpNavigation()
+       self.signUpNavigation()
     }
     
     
     @IBAction func logInBtn(_ sender: Any) {
-    authVC!.logInNavigation()
+    self.logInNavigation()
     }
     
     func signUpNavigation(){

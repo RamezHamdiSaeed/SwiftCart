@@ -1212,7 +1212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1ED98E9A2BFF882100948409 /* Build configuration list for PBXProject "SwiftCart" */;
+			buildConfigurationList = 1ED98E9A2BFF882100948409 /* Build configuration list for PBXProject "Trendy" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1669,6 +1669,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Trendy;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1699,6 +1700,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftCart/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Trendy;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1797,7 +1799,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1ED98E9A2BFF882100948409 /* Build configuration list for PBXProject "SwiftCart" */ = {
+		1ED98E9A2BFF882100948409 /* Build configuration list for PBXProject "Trendy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1ED98ECA2BFF882300948409 /* Debug */,

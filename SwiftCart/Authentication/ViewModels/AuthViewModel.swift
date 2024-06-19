@@ -8,12 +8,9 @@
 import Foundation
 
 protocol AuthViewModel{
-    func  signUpNavigation()
-    func  logInNavigation()
-    func continueAsAGuest()
-    func logIn()
-    func signUp()
-    static func logOut()
     func setSuccessMessage(successMessage:@escaping(()->()))
     func setFailMessage(failMessage: @escaping (() -> ()))
+    func logIn(email:String,password:String,whenSuccess:(()->())?)
+    func signUp(email:String,password:String,whenSuccess:(()->())?)
+     func logOut(whenSuccess:(()->())?)
 }

@@ -16,19 +16,17 @@ class LogInViewController: UIViewController {
     
      var authVC : AuthViewModel?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-     authVC = AuthViewModelImpl(signUPNavigationHandler: signUpNavigation, logInNavigationHandler: {}, continueAsAGuestHandler: {}, logInHandler: userLogIn, signUpHandler: {})
-        authVC?.setSuccessMessage(successMessage: {
-            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Logged In Successfully")
-        })
-        authVC?.setFailMessage(failMessage: {
-            FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
-        })
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       // setHeader()
+        authVC = AuthViewModelImpl()
+           authVC?.setSuccessMessage(successMessage: {
+               FeedbackManager.successSwiftMessage(title: "Prompt", body: "Logged In Successfully")
+           })
+           authVC?.setFailMessage(failMessage: {
+               FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
+           })
+        
         SwiftCart.setHeader(view: self, title: "Log In")
 
         password.isSecureTextEntry = true
@@ -36,12 +34,12 @@ class LogInViewController: UIViewController {
     }
 
     @IBAction func userLogInBtn(_ sender: Any) {
-          authVC!.logIn()
+        self.userLogIn()
 
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-          authVC!.signUpNavigation()
+          self.signUpNavigation()
 
     }
    
@@ -52,27 +50,14 @@ class LogInViewController: UIViewController {
         
         if(isValidEmail && isValidPassword){
             
-            FirebaseAuthImpl.user.logIn(email: email.text!, password: password.text!){
-                
-//                guard let userEmail = User.email else {return}
-                FavoriteSync.fetchProducts(for: User.email!, completion: {
-                    products in
-                    products.forEach{
-                        currentProduct in
-                      LocalDataSourceImpl.shared.insertProductToFav(product: currentProduct)
-                    }
-                })
-                
-                AppCommon.userSessionManager.setIsNotSignedOutUser()
-                
+            authVC?.logIn(email: email.text!, password: password.text!, whenSuccess: {
                 DispatchQueue.main.async{
                     let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
                            let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
                     
                     self.navigationController?.pushViewController(home, animated: true)
                 }
-
-            }
+            })
             
             
         }

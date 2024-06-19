@@ -129,11 +129,13 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var pullDownMenu: UIButton!
 
     var locationViewModel = LocationViewModel()
+    var authVC : AuthViewModel?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+        authVC = AuthViewModelImpl()
         logout.layer.cornerRadius = 10
         setHeader(view: self, title: "Settings")
         loadSelectedCurrency()
@@ -204,7 +206,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func LogOut(_ sender: Any) {
-        AuthViewModelImpl.logOut()
+        self.authVC!.logOut(whenSuccess: nil)
         AppCommon.userSessionManager.setIsSignedOutUser()
         AppCommon.feedbackManager.showCancelableAlert(alertTitle: "Prompt", alertMessage: "Do you want to log out?", alertStyle: .alert, view: self, okCompletion: {
             let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
