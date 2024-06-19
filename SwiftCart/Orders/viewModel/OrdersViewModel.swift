@@ -22,10 +22,7 @@ class OrdersViewModel {
     }
     //rwanId = 7520873382139
     var customerId :  String = "\(User.id ?? 7495574716667)"
-    //"7495574651131"
-    //"\(User.id ?? 7495574716667)"
-    //"7520873382139"
-    //defaultId "7495574716667"
+
     
     func getOrders (){
         if User.id == nil{}else{

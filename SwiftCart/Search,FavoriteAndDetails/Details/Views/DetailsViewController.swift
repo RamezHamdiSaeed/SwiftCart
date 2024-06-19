@@ -57,7 +57,7 @@ class DetailsViewController: UIViewController {
         detailsViewModel = DetailsViewModel(detailsnetworkService: DetailsNetworkService(networkingManager: NetworkingManagerImpl()))
         detailsViewModel.updateView = { [self] in
             
-
+            
             DispatchQueue.main.async { [self] in
                 let currentProduct = detailsViewModel.productDetails?.product
                 self.productImage.sd_setImage(with: URL(string: (currentProduct?.image?.src)!), placeholderImage: UIImage(named: "placeholder"))
@@ -70,11 +70,11 @@ class DetailsViewController: UIViewController {
                     }
                     self.productImages.reloadData()
                 }
-
-
+                
+                
                 self.productTitle.text = currentProduct?.title
                 var convertedPrice = convertPrice(price: (currentProduct?.variants![0].price)!, rate: self.rate)
-
+                
                 self.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
                 self.productDetails.text = currentProduct?.bodyHtml
                 
@@ -91,10 +91,12 @@ class DetailsViewController: UIViewController {
                 for i in 0 ..< colors!.count{
                     self.productColors.insertSegment(withTitle: colors![i], at: i, animated: true)
                 }
-
+                
             }
         }
         detailsViewModel.getProductDetails(productID: self.productID)
+        
+        
     }
 
     @IBAction func selectSizeSegControl(_ sender: Any) {

@@ -26,7 +26,6 @@ class CollectionViewDesign{
         cell.contentView.layer.cornerRadius = 25
         cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         cell.contentView.backgroundColor = UIColor.white
-            //.withAlphaComponent(0.5) // 0.5 for 50% opacity
 
         
     }

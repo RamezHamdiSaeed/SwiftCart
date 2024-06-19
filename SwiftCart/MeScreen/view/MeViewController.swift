@@ -26,15 +26,7 @@ class MeViewController: UIViewController {
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
-//    @IBAction func wishlistBtn(_ sender: Any) {
-//    }
-    
-//    @IBAction func ordersBtn(_ sender: Any) {
-//        let ordersViewController = storyboard?.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController
-//        navigationController?.pushViewController(ordersViewController!, animated: true)
-//    }
-    
-    
+
     
     @IBAction func wishListBtn(_ sender: Any) {
         if User.id == nil {
