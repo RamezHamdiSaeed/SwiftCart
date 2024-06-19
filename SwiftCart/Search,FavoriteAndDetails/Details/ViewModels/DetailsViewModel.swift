@@ -23,6 +23,13 @@ class DetailsViewModel{
                 self.detailsnetworkService = detailsnetworkService
 
     }
+    var rateClosure : (Double)->Void = {_ in }
+    
+    func getRate(){
+        getPrice() { [weak self] rate in
+            self?.rateClosure(rate)
+        }
+    }
     
     func getProductDetails(productID:String){
         detailsnetworkService.fetchProductDetails(id: productID,productsDetailsResult: {productDetails in

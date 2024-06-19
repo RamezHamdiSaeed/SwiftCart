@@ -8,9 +8,7 @@
 import Foundation
 
 protocol CategoriesViewModel {
-    
  
-    
     var productsClosure: ([Product]) -> Void { get set }
     func getProducts(collectionId: String)
     var rateClosure : (Double)->Void { get set }
