@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ReviewsRepos{
-    static let shared = ReviewsRepos()
+class ReviewsRepo{
+    static let shared = ReviewsRepo()
     private init(){}
     let reviews : [Review] = [Review(userName: "John", message: "Excellent"),Review(userName: "Ebrahim", message: "Awesome"),Review(userName: "Micheal", message: "goooood"),Review(userName: "Rowan", message: "Excellent"),Review(userName: "Marwa", message: "not bad"),Review(userName: "Ramez", message: "WoW")]
     

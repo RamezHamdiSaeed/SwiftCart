@@ -61,6 +61,7 @@
 		1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */; };
 		1ECA88C22C23BDF8004A1C16 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88C12C23BDF8004A1C16 /* SearchViewModel.swift */; };
 		1ECA88C52C23BFFE004A1C16 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88C42C23BFFE004A1C16 /* SearchViewModelTest.swift */; };
+		1ECA88C92C23C598004A1C16 /* ReviewsRepoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88C82C23C598004A1C16 /* ReviewsRepoTest.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
 		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
@@ -218,6 +219,7 @@
 		1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTest.swift; sourceTree = "<group>"; };
 		1ECA88C12C23BDF8004A1C16 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		1ECA88C42C23BFFE004A1C16 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
+		1ECA88C82C23C598004A1C16 /* ReviewsRepoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsRepoTest.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -677,6 +679,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		1ECA88C62C23C56E004A1C16 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA88C72C23C57D004A1C16 /* Models */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		1ECA88C72C23C57D004A1C16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA88C82C23C598004A1C16 /* ReviewsRepoTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1ED98E962BFF882100948409 = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				DA988ED12C23A13600AE04AA /* CartTesting */,
+				1ECA88C62C23C56E004A1C16 /* Reviews */,
 				1E917A492C226C0900272EE1 /* ProductsDB */,
 				1E917A452C22604E00272EE1 /* Favorite */,
 				1E917A412C225B6500272EE1 /* Details */,
@@ -1543,6 +1562,7 @@
 				1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */,
 				1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */,
 				1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */,
+				1ECA88C92C23C598004A1C16 /* ReviewsRepoTest.swift in Sources */,
 				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
 				1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */,
 				1ECA88C52C23BFFE004A1C16 /* SearchViewModelTest.swift in Sources */,
