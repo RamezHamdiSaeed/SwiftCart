@@ -35,9 +35,14 @@ class CartTableViewCell: UITableViewCell {
         delegate?.didChangeQuantity(cell: self, quantity: newQuantity)
     }
     
-    func configure(with lineItem: LineItems) {
+    func configure(with lineItem: LineItems ,rate : Double,userCurrency : String) {
+        var convertedPrice = convertPrice(price: String(lineItem.price  ?? ""), rate: rate)
+
+        itemPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+         
+        
         itemName.text = lineItem.title
-        itemPrice.text = "\(lineItem.price ?? "") $"
+       // itemPrice.text = "\(lineItem.price  ?? "") $"
         quantity.text = "\(lineItem.quantity ?? 0)"
         stepprButton.value = Double(lineItem.quantity ?? 0)
         

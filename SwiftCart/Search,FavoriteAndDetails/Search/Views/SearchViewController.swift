@@ -85,7 +85,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
 //                layout.minimumLineSpacing = 10
                 
 //                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: 150, height: 254)
+                layout.itemSize = CGSize(width: 150, height: 250)
 //                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
                 layout.invalidateLayout()
 
