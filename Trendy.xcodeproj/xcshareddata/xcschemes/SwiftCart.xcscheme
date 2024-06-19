@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1ED98E9E2BFF882100948409"
                BuildableName = "SwiftCart.app"
                BlueprintName = "SwiftCart"
-               ReferencedContainer = "container:SwiftCart.xcodeproj">
+               ReferencedContainer = "container:Trendy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -37,7 +37,7 @@
                BlueprintIdentifier = "1ED98EB72BFF882300948409"
                BuildableName = "SwiftCartTests.xctest"
                BlueprintName = "SwiftCartTests"
-               ReferencedContainer = "container:SwiftCart.xcodeproj">
+               ReferencedContainer = "container:Trendy.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -48,7 +48,7 @@
                BlueprintIdentifier = "1ED98EC12BFF882300948409"
                BuildableName = "SwiftCartUITests.xctest"
                BlueprintName = "SwiftCartUITests"
-               ReferencedContainer = "container:SwiftCart.xcodeproj">
+               ReferencedContainer = "container:Trendy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,7 +70,7 @@
             BlueprintIdentifier = "1ED98E9E2BFF882100948409"
             BuildableName = "SwiftCart.app"
             BlueprintName = "SwiftCart"
-            ReferencedContainer = "container:SwiftCart.xcodeproj">
+            ReferencedContainer = "container:Trendy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "1ED98E9E2BFF882100948409"
             BuildableName = "SwiftCart.app"
             BlueprintName = "SwiftCart"
-            ReferencedContainer = "container:SwiftCart.xcodeproj">
+            ReferencedContainer = "container:Trendy.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

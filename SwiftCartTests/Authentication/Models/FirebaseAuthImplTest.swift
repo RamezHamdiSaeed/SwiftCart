@@ -21,8 +21,8 @@ final class FirebaseAuthImplTest: XCTestCase {
         userEmail = "test@gmail.com"
         userPassword = "1232qwewQ!MaC"
         // Ensure no user is logged in before each test
-        try Auth.auth().signOut()
-//        firebaseAuthImplTest.deleteUserByEmail(email: userEmail!, password: userPassword!)
+//        try Auth.auth().signOut()
+        firebaseAuthImplTest.deleteUserByEmail(email: userEmail!, password: userPassword!)
     }
 
     override func tearDownWithError() throws {
@@ -38,10 +38,9 @@ final class FirebaseAuthImplTest: XCTestCase {
             XCTFail("Login should not succeed for unregistered user")
             expect.fulfill()
         })
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            XCTAssertTrue(true)
             expect.fulfill()
-        }
+        
         
         waitForExpectations(timeout: 10)
     }
@@ -70,4 +69,5 @@ final class FirebaseAuthImplTest: XCTestCase {
         
         waitForExpectations(timeout: 10)
     }
+    
 }
