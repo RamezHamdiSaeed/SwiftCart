@@ -10,5 +10,5 @@ import Foundation
 class ReviewsViewModel{
     var reviews : [Review] = [Review]()
     func getReviewsForProduct(){
-       reviews = ReviewsRepos.shared.getReviewsForProduct()
+       reviews = ReviewsRepo.shared.getReviewsForProduct()
     }}
