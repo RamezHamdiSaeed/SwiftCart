@@ -152,7 +152,7 @@ class HomeViewController: UIViewController {
     
     @objc func favTapped() {
         if User.id == nil {
-            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+            AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
         }else{
             let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
             let SearchViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "FavoriteViewController"))
@@ -164,7 +164,7 @@ class HomeViewController: UIViewController {
     
      @objc func cartTapped() {
          if User.id == nil {
-             AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+             AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
          }else{
              let cart = NewCartViewController()
              cart.cartItemCountUpdated = { [weak self] count in

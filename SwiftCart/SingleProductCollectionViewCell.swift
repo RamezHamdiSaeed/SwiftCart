@@ -29,7 +29,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
                 guestClosure?()
             }else{
                 viewModel.insertProductToFavDB(product: product!)
-                FeedbackManager.successSwiftMessage(title: "prompt", body: "Product inserted into the favorite successfully")
+                FeedbackManager.successSwiftMessage(title: "", body: "Product inserted into the favorite successfully")
                 favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 product?.isFavorite = true
             }
@@ -59,7 +59,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
     }
     func okRemovingCellBtn (){
         viewModel.deleteProductFromFav(product: product!)
-        FeedbackManager.successSwiftMessage(title: "prompt", body: "Product removed from the favorite successfully")
+        FeedbackManager.successSwiftMessage(title: "", body: "Product removed from the favorite successfully")
         if let whenRemoved = whenRemoved {
             whenRemoved()
         }

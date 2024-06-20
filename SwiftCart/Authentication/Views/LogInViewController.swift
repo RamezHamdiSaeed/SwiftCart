@@ -21,18 +21,22 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         authVC = AuthViewModelImpl()
            authVC?.setSuccessMessage(successMessage: {
-               FeedbackManager.successSwiftMessage(title: "Prompt", body: "Logged In Successfully")
+               FeedbackManager.successSwiftMessage(title: "", body: "Logged In Successfully")
            })
            authVC?.setFailMessage(failMessage: {
                FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
            })
         
-        SwiftCart.setHeader(view: self, title: "Log In")
+        SwiftCart.setHeader(view: self, title: "Login")
 
         password.isSecureTextEntry = true
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
 
+    }
     @IBAction func userLogInBtn(_ sender: Any) {
         self.userLogIn()
 

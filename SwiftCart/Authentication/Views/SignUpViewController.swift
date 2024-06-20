@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         authVC = AuthViewModelImpl()
         authVC?.setSuccessMessage(successMessage: {
-            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed Up Successfully")
+            FeedbackManager.successSwiftMessage(title: "", body: "Signed Up Successfully")
         })
         authVC?.setFailMessage(failMessage: {
             FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
@@ -33,6 +33,12 @@ class SignUpViewController: UIViewController {
 
         password.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+
     }
     
 

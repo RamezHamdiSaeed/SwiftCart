@@ -400,12 +400,12 @@ extension BrandDetailViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.whenRemoving = {
-            AppCommon.feedbackManager.showCancelableAlert(alertTitle: "Prompt", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self) {
+            AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self) {
                 cell.okRemovingCellBtn()
             }
         }
         cell.guestClosure = {
-            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+            AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
         }
         
         let product = isSearching ? filteredProductsArray[indexPath.item] : productsArray[indexPath.item]

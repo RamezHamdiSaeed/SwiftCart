@@ -15,6 +15,7 @@ class MainAuthViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        setHeader(view: self, title: "Trendy")
     }
 
     @IBAction func continuseAsAGuestBtn(_ sender: Any) {
