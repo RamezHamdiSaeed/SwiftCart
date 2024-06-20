@@ -252,7 +252,7 @@
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9c-Du-orm">
-                                                <rect key="frame" x="244" y="430" width="132" height="28"/>
+                                                <rect key="frame" x="212" y="430" width="164" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="d49-9h-iUW"/>
                                                 </constraints>
@@ -274,7 +274,7 @@
                                             <constraint firstItem="KZu-U1-Dh4" firstAttribute="centerX" secondItem="5nr-fh-Kug" secondAttribute="centerX" id="S4b-xE-ShX"/>
                                             <constraint firstItem="ln3-WZ-vUv" firstAttribute="top" secondItem="CQ0-5b-mmK" secondAttribute="bottom" constant="8.6666666666666288" id="SK3-e0-iSA"/>
                                             <constraint firstItem="LXF-Iy-aOr" firstAttribute="leading" secondItem="KZu-U1-Dh4" secondAttribute="leading" id="Too-dC-6M2"/>
-                                            <constraint firstItem="Q9c-Du-orm" firstAttribute="leading" secondItem="LXF-Iy-aOr" secondAttribute="trailing" constant="-60" id="UmL-h4-mkW"/>
+                                            <constraint firstItem="Q9c-Du-orm" firstAttribute="leading" secondItem="LXF-Iy-aOr" secondAttribute="trailing" constant="-92" id="UmL-h4-mkW"/>
                                             <constraint firstItem="3vD-3q-yzY" firstAttribute="top" secondItem="LXF-Iy-aOr" secondAttribute="bottom" constant="12" id="aMh-KF-kEd"/>
                                             <constraint firstItem="LXF-Iy-aOr" firstAttribute="leading" secondItem="LKZ-sO-SNj" secondAttribute="leading" constant="-1" id="adm-oQ-dyn"/>
                                             <constraint firstAttribute="trailing" secondItem="0dt-xq-gb7" secondAttribute="trailing" constant="17" id="bRb-GR-EbK"/>

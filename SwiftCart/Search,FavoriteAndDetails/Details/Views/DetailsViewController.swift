@@ -73,9 +73,11 @@ class DetailsViewController: UIViewController {
                 
                 
                 self.productTitle.text = currentProduct?.title
-                var convertedPrice = convertPrice(price: (currentProduct?.variants![0].price)!, rate: self.rate)
-                
-                self.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    var convertedPrice = convertPrice(price: (currentProduct?.variants![0].price)!, rate: self.rate)
+                    
+                    self.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
+                }
                 self.productDetails.text = currentProduct?.bodyHtml
                 
                 // setup segment control of sizes
@@ -131,8 +133,12 @@ class DetailsViewController: UIViewController {
         detailsViewModel.filterProductVarients()
         addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
         if addToCartBtn.isEnabled {
-            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price: (detailsViewModel.selectedProductVarient?.price)!)
+            let selectedProductConvertedPrice = convertPrice(price: (detailsViewModel.selectedProductVarient?.price)!, rate: self.rate)
+            
+            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price:  selectedProductConvertedPrice)
+            
         }
+        
     }
     @IBAction func selectColorSegControl(_ sender: Any) {
         let selectedSegmentIndex = ((sender as AnyObject).selectedSegmentIndex)!
@@ -141,7 +147,9 @@ class DetailsViewController: UIViewController {
         detailsViewModel.filterProductVarients()
         addToCartBtn.isEnabled = detailsViewModel.selectedProductVarient != nil
         if addToCartBtn.isEnabled {
-            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price: (detailsViewModel.selectedProductVarient?.price)!!)
+            let selectedProductConvertedPrice = convertPrice(price: (detailsViewModel.selectedProductVarient?.price)!, rate: self.rate)
+            
+            updateView(title: (detailsViewModel.selectedProductVarient?.title)!, price:  selectedProductConvertedPrice)
         }
     }
     @IBAction func addToCartBtn(_ sender: Any) {
@@ -157,9 +165,10 @@ class DetailsViewController: UIViewController {
         print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
     }
 
-    func updateView(title:String,price:String){
+    func updateView(title:String,price:Double){
         self.productTitle.text = title
-        self.productPrice.text = price + " $"
+        self.productPrice.text = "\(String(format: "%.2f", price)) \(userCurrency)"
+        
     }
     
     
