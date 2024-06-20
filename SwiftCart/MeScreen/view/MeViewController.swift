@@ -12,7 +12,7 @@ class MeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground(view: self.view)
-        userNameLabel.text = extractName(from: User.email ?? "MeMe@gmail.com")
+        userNameLabel.text = extractName(from: User.email ?? "Guest@gmail.com")
 
     }
     
