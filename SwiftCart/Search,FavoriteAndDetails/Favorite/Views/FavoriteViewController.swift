@@ -83,12 +83,7 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
         CollectionViewDesign.collectionView(colView: productsCollectionView)
         
             if let layout = productsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//                layout.minimumInteritemSpacing = 10
-//                layout.minimumLineSpacing = 10
-
-//                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: 150, height: 254)
-//                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+                layout.itemSize = CGSize(width: 170, height: 300)
                 layout.invalidateLayout()
 
             }

@@ -81,16 +81,10 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
 
             
             if let layout = productsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//                layout.minimumInteritemSpacing = 10
-//                layout.minimumLineSpacing = 10
-                
-//                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: 150, height: 250)
-//                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+                layout.itemSize = CGSize(width: 170, height: 300)
                 layout.invalidateLayout()
 
             }
-//        CGSize(width: 150, height: 254)
         }
     private func setupBindings() {
         searchController.searchBar.rx.text.orEmpty
@@ -131,7 +125,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
                     cell.productImage.image = UIImage(named: "processing")
                 }
 
-                var convertedPrice = convertPrice(price: String(describing: product.price), rate: self.rate)
+                let convertedPrice = convertPrice(price: String(describing: product.price), rate: self.rate)
 
                 cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(self.userCurrency)"
                 CollectionViewDesign.collectionViewCell(cell: cell)
