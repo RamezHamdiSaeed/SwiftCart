@@ -56,6 +56,7 @@
 		1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */; };
 		1EC52DF72C17A1F0005A79F2 /* LocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */; };
 		1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */; };
+		1ECA88BB2C23B12C004A1C16 /* DetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
 		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
@@ -208,6 +209,7 @@
 		1E9633482C202AC500E5509B /* FavoriteSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSync.swift; sourceTree = "<group>"; };
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelImplTest.swift; sourceTree = "<group>"; };
+		1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 		1E917A412C225B6500272EE1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA88B92C23B118004A1C16 /* ViewModels */,
 				1E917A422C225B7000272EE1 /* Models */,
 			);
 			path = Details;
@@ -642,6 +645,14 @@
 			isa = PBXGroup;
 			children = (
 				1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1ECA88B92C23B118004A1C16 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1509,6 +1520,7 @@
 				1ED98EBD2BFF882300948409 /* SwiftCartTests.swift in Sources */,
 				1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */,
 				1E917A482C22606D00272EE1 /* FavoriteSyncTest.swift in Sources */,
+				1ECA88BB2C23B12C004A1C16 /* DetailsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

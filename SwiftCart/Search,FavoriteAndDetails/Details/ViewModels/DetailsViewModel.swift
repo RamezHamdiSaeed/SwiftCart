@@ -31,9 +31,9 @@ class DetailsViewModel{
         }
     }
     
-    func getProductDetails(productID:String){
+    func getProductDetails(productID:String,whenSuccess:(()->())? = nil){
         detailsnetworkService.fetchProductDetails(id: productID,productsDetailsResult: {productDetails in
-            
+            whenSuccess?()
             self.productDetails = productDetails
             self.productVarients = productDetails.product?.variants ?? []
             self.updateView()
