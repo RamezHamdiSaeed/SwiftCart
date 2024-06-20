@@ -96,6 +96,13 @@ class DetailsViewController: UIViewController {
         }
         detailsViewModel.getProductDetails(productID: self.productID)
         
+        cartViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        cartViewModel.getRate()
         
     }
     func showSnackbar(message: String) {

@@ -498,7 +498,6 @@ final class SwiftCartTests: XCTestCase {
     var mockNetworkServices : MockNetworkServices!
     var networkServices : NetworkServices!
    
-    
     override func setUpWithError() throws {
         mockNetworkServices = MockNetworkServices(shouldReturnError: false)
         networkServices = NetworkServicesImpl()
