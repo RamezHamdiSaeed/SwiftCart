@@ -6,26 +6,68 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class FavoriteViewController: UIViewController, UISearchResultsUpdating  {
+class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var feedbackImage: UIImageView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var searchController: UISearchController!
 
+    @IBOutlet weak var priceLabel: UILabel!
+    
     @IBOutlet weak var priceSlider: UISlider!
+    
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
+    private let viewModel: SearchFavoriteProductsViewModel = {
+        
+        let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
+
+        return searchFavoriteProductsVC
+    }()
+       private let disposeBag = DisposeBag()
+    
+    var productViewModel = ProductsViewModel()
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
+       
+       required init?(coder: NSCoder) {
+           super.init(coder: coder)
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        productViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        productViewModel.getRate()
+        setHeader(view: self, title: "Wish List")
+       
         setupSearchController()
+        setupCollectionView()
+        setupBindings()
+
+
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            self.viewModel.getFavoriteProductsDB()
+            self.viewModel.setupBindings(allProducts: self.viewModel.allProductsDB)
+        }
 
     }
     
-    
+   
     func setupSearchController() {
         searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Products"
         
@@ -33,14 +75,100 @@ class FavoriteViewController: UIViewController, UISearchResultsUpdating  {
         definesPresentationContext = true
         
     }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text ?? ""
-        filterContentForSearchText(searchText)
-    }
-
-    func filterContentForSearchText(_ searchText: String) {
-    }
     
+    func setupCollectionView() {
+        
+        let productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
+        productsCollectionView.register(productNibFile, forCellWithReuseIdentifier: "cell")
+        CollectionViewDesign.collectionView(colView: productsCollectionView)
+        
+            if let layout = productsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                layout.itemSize = CGSize(width: 170, height: 300)
+                layout.invalidateLayout()
+
+            }
+        }
+    private func setupBindings() {
+        searchController.searchBar.rx.text.orEmpty
+               .bind(to: viewModel.searchText)
+               .disposed(by: disposeBag)
+           
+           priceSlider.rx.value
+            .map { Double(0.0)...Double($0) }
+               .bind(to: viewModel.priceRange)
+               .disposed(by: disposeBag)
+        
+        priceSlider.rx.value
+            .map {
+                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 0 )) + " " + self.userCurrency
+                
+            }
+            .bind(to: priceLabel.rx.text)
+            .disposed(by: disposeBag)
+           
+               
+        viewModel.filteredProducts
+            .bind(to: productsCollectionView.rx.items(cellIdentifier: "cell", cellType: SingleProductCollectionViewCell.self)) { row, product, cell in
+                
+                cell.whenTransactionFulfilledWithDB = {
+                    message in
+                    self.showSnackbar(message: message)
+                }
+                
+                cell.whenRemoving = {
+                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                        cell.okRemovingCellBtn()
+                    }
+                }
+                cell.guestClosure = {
+                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                }
+                var myProduct = product
+                myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
+                
+                cell.whenRemoved = {
+                    self.viewModel.getFavoriteProductsDB()
+                    self.productsCollectionView.reloadData()
+                }
+                cell.productName.text = product.name
+                if let imageUrl = URL(string: product.image) {
+                    cell.productImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "processing"))
+                } else {
+                    cell.productImage.image = UIImage(named: "processing")
+                }
+
+                let convertedPrice = convertPrice(price: String(describing: product.price), rate: self.rate ?? 1.0)
+
+                cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(self.userCurrency)"
+                CollectionViewDesign.collectionViewCell(cell: cell)
+     
+                cell.product = myProduct
+                cell.toggleFavBtn()
+
+
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.filteredProducts
+            .observe(on: MainScheduler.instance)
+            .map { !$0.isEmpty && self.viewModel.isProductsFetchedSuccessfully.value}
+            .bind(to: feedbackImage.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isProductsFetchedSuccessfully
+            .observe(on: MainScheduler.instance)
+            .map { !$0 }
+            .bind(to: activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+           productsCollectionView.rx.modelSelected(ProductTemp.self)
+               .subscribe(onNext: { [weak self] product in
+                           let productsSearchDetailsAndFav = UIStoryboard(name: "ProductsSearchDetailsAndFav", bundle: nil)
+                   let detailsViewController = (productsSearchDetailsAndFav.instantiateViewController(withIdentifier: "DetailsViewController")) as! DetailsViewController
+                   detailsViewController.productID = String(product.id)
+                   self?.navigationController?.pushViewController(detailsViewController, animated: true)
+               })
+               .disposed(by: disposeBag)
+       }
 
 }

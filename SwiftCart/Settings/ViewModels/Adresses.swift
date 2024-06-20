@@ -7,47 +7,58 @@
 import Foundation
 import CoreLocation
 
-struct Address: Decodable {
-    var city: String?
-    var address2: String?
+// MARK: - AddressDataModel
+struct AddressDataModel: Codable {
+    let addresses: [Address]?
 }
 
-struct Customer: Decodable {
-    var verified_email: Bool?
-    var first_name: String?
-    var addresses: [Address]?
-}
-
-struct CustomerResponse: Decodable {
-    var customer: Customer?
-}
-
-struct AddressData: Decodable {
-    var address1: String?
-    var address2: String?
-    var city: String?
-    var country: String?
-    var countryCode: String?
-    var countryName: String?
-    var company: String?
-    var customerId:Int?
-    
+// MARK: - Address
+struct Address: Codable {
+    let id, customerID: Int?
+    let firstName, lastName, company: String?
+    let address1, address2, city, province: String?
+    let country, zip, phone, name: String?
+    let provinceCode, countryCode, countryName: String?
+    let addressDefault: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case address1
-        case address2
-        case city
-        case country
+        case id
+        case customerID = "customer_id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case company, address1, address2, city, province, country, zip, phone, name
+        case provinceCode = "province_code"
         case countryCode = "country_code"
         case countryName = "country_name"
-        case company
-        case customerId = "customer_id"
+        case addressDefault = "default"
+    }
+}
+struct PostCustomerAddress: Codable {
+    let address: AddressData?
+}
+
+struct PostAddressResponse: Codable {
+    let customerAddress: Address?
+
+    enum CodingKeys: String, CodingKey {
+        case customerAddress = "customer_address"
     }
 }
 
-struct CustomerId: Decodable {
-    var id: Int?
-     var email: String?
-     var addresses: [Address]?
-}
+// MARK: - Address
+struct AddressData: Codable {
+    let address1, address2, city, company: String?
+    let firstName, lastName, phone, province: String?
+    let country, zip, name, provinceCode: String?
+    let countryCode, countryName: String?
 
+    enum CodingKeys: String, CodingKey {
+        case address1, address2, city, company
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case phone, province, country, zip, name
+        case provinceCode = "province_code"
+        case countryCode = "country_code"
+        case countryName = "country_name"
+    }
+}

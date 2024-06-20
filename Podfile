@@ -8,15 +8,12 @@ target 'SwiftCart' do
   # Pods for SwiftCart
 
 pod 'SDWebImage'
-pod 'Alamofire'
 pod 'NVActivityIndicatorView'
 pod 'lottie-ios'
 pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
-pod 'ReachabilitySwift'
 pod 'RxSwift'
 pod 'RxCocoa'
-
 
   target 'SwiftCartTests' do
     inherit! :search_paths

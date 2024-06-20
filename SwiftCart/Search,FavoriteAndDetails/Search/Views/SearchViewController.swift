@@ -9,8 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var feedbackImage: UIImageView!
     var searchController: UISearchController!
 
     @IBOutlet weak var priceLabel: UILabel!
@@ -20,8 +22,18 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
-    private let viewModel: SearchFavoriteProductsViewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService())
+    private let viewModel: SearchFavoriteProductsViewModel = {
+        
+        let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
+        searchFavoriteProductsVC.fetchProducts(whenSuccess: nil)
+        searchFavoriteProductsVC.getFavoriteProductsDB()
+        return searchFavoriteProductsVC
+    }()
        private let disposeBag = DisposeBag()
+    
+    var productViewModel = ProductsViewModel()
+    var rate : Double!
+    let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
        
        required init?(coder: NSCoder) {
            super.init(coder: coder)
@@ -29,6 +41,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        productViewModel.rateClosure = {
+            [weak self] rate in
+                DispatchQueue.main.async {
+                    self?.rate = rate
+                }
+        }
+        productViewModel.getRate()
+        setHeader(view: self, title: "search")
+
         setupSearchController()
         setupCollectionView()
         setupBindings()
@@ -52,14 +73,15 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     }
     
     func setupCollectionView() {
+        
+        let productNibFile = UINib(nibName: "SingleProductCollectionViewCell", bundle: nil)
+        productsCollectionView.register(productNibFile, forCellWithReuseIdentifier: "cell")
+        
+        CollectionViewDesign.collectionView(colView: productsCollectionView)
+
             
             if let layout = productsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                layout.minimumInteritemSpacing = 10
-                layout.minimumLineSpacing = 10
-                
-                let itemWidth = (productsCollectionView.bounds.width - 30) / 2
-                layout.itemSize = CGSize(width: itemWidth, height: itemWidth * 2)
-                layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+                layout.itemSize = CGSize(width: 170, height: 300)
                 layout.invalidateLayout()
 
             }
@@ -75,15 +97,61 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
                .disposed(by: disposeBag)
         
         priceSlider.rx.value
-            .map { String(format: "%.2f", $0) }
+            .map {
+                
+                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 0 )) + " " + self.userCurrency
+                
+            }
             .bind(to: priceLabel.rx.text)
             .disposed(by: disposeBag)
            
                
         viewModel.filteredProducts
-            .bind(to: productsCollectionView.rx.items(cellIdentifier: "CollectionViewCell", cellType: CollectionViewCell.self)) { row, product, cell in
-                cell.configure(with: product)
+            .bind(to: productsCollectionView.rx.items(cellIdentifier: "cell", cellType: SingleProductCollectionViewCell.self)) { row, product, cell in
+                cell.whenTransactionFulfilledWithDB = {
+                    message in
+                    self.showSnackbar(message: message)
+                }
+                cell.whenRemoving = {
+                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                        cell.okRemovingCellBtn()
+                    }
+                }
+                cell.guestClosure = {
+                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                }
+                var myProduct = product
+                myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
+                cell.productName.text = product.name
+                if let imageUrl = URL(string: product.image) {
+                    cell.productImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "processing"))
+                } else {
+                    cell.productImage.image = UIImage(named: "processing")
+                }
+
+                let convertedPrice = convertPrice(price: String(describing: product.price), rate: self.rate)
+
+                cell.productPrice.text = "\(String(format: "%.2f", convertedPrice)) \(self.userCurrency)"
+                CollectionViewDesign.collectionViewCell(cell: cell)
+                
+                cell.product = myProduct
+                cell.toggleFavBtn()
+
+
+            
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.filteredProducts
+            .observe(on: MainScheduler.instance)
+            .map { !$0.isEmpty && self.viewModel.isProductsFetchedSuccessfully.value}
+            .bind(to: feedbackImage.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.isProductsFetchedSuccessfully
+            .observe(on: MainScheduler.instance)
+            .map { !$0 }
+            .bind(to: activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
         
            productsCollectionView.rx.modelSelected(ProductTemp.self)

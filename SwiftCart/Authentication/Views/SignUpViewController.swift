@@ -19,36 +19,42 @@ class SignUpViewController: UIViewController {
     
     var authVC : AuthViewModel?
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        authVC = AuthViewModelImpl(signUPNavigationHandler: {}, logInNavigationHandler: logInNavigation, continueAsAGuestHandler: {}, logInHandler: {}, signUpHandler: userSignUp)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        authVC = AuthViewModelImpl()
         authVC?.setSuccessMessage(successMessage: {
-            FeedbackManager.successSwiftMessage(title: "Prompt", body: "Signed In Successfully")
+            self.showSnackbar(message: "Signed Up Successfully")
+
         })
         authVC?.setFailMessage(failMessage: {
             FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
         })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        SwiftCart.setHeader(view: self, title: "Sign Up")
+
         password.isSecureTextEntry = true
         confirmPassword.isSecureTextEntry = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesBackButton = true
+
+    }
+    
 
     @IBAction func userSignUpBtn(_ sender: Any) {
-        authVC!.signUp()
+        self.userSignUp()
 
        
         
     }
     
     @IBAction func logInBtn(_ sender: Any) {
-        authVC!.logInNavigation()
+        self.logInNavigation()
 
     }
-    
+
     
     func userSignUp(){
         let isValidEmail = InputValidator.isValidEmail(email: email.text ?? "")
@@ -56,17 +62,26 @@ class SignUpViewController: UIViewController {
         
         if(isValidEmail && isValidPassword){
             
-            FirebaseAuthImpl.user.signUp(email: email.text!, password: password.text!)
-
+            authVC?.signUp(email: email.text!, password: password.text!, whenSuccess: {
+                DispatchQueue.main.async{
+                    self.logInNavigation()
+                }
+            })
+            
         }
         else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
+
         }
         else{
             
             password.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            self.email.text = ""
+            self.password.text = ""
 
         }
         
@@ -75,5 +90,13 @@ class SignUpViewController: UIViewController {
     func logInNavigation(){
         let logInVC:LogInViewController = (self.storyboard?.instantiateViewController(withIdentifier: "LogInViewController")) as! LogInViewController
         self.navigationController?.pushViewController(logInVC, animated: true)
+    }
+    func setHeader() {
+        let settingsLabel = UILabel()
+        settingsLabel.text = "Sign Up"
+        settingsLabel.textColor = .systemPink
+        settingsLabel.font = .boldSystemFont(ofSize: 25)
+        settingsLabel.sizeToFit()
+        self.navigationItem.titleView = settingsLabel
     }
 }

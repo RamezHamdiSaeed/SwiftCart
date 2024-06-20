@@ -17,9 +17,15 @@ class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !OnBoardingManager.shared.isNewuser() {
-
-            navigate()
-
+            if AppCommon.userSessionManager.isLoggedInuser(){
+                let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
+                       let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
+                
+                self.navigationController?.pushViewController(home, animated: true)
+            }
+            else{
+                navigateToAuthentication()
+            }
         }
         configure()
     }
@@ -55,12 +61,12 @@ class ViewController: UIViewController {
             
             label.textAlignment = .center
             label.font = UIFont(name: "Helvetica-Bold", size: 32)
-            label.textColor = UIColor(named: "HintTextAndIcon")
+            label.textColor = UIColor.systemOrange
             label.text = titles[x]
             page.addSubview(label)
             
-            button.setTitleColor(UIColor(named: "ScreenAndUIText"), for: .normal)
-            button.backgroundColor = UIColor(named: "UIButtonsAndText")
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.backgroundColor = UIColor.systemOrange
             button.setTitle("Continue", for: .normal)
             if x == 1 {
                 button.setTitle("Get Started", for: .normal)
@@ -80,14 +86,14 @@ class ViewController: UIViewController {
     @objc func didTapButton(_ button:UIButton){
         guard button.tag < 2 else{
             OnBoardingManager.shared.setIsNotNewUser()
-            navigate()
+            navigateToAuthentication()
             return
         }
         scrollView.setContentOffset(CGPoint(x: horizontalScrollOnBoarding.frame.size.width * CGFloat(button.tag), y: 0), animated: true)
         
     }
     
-    func navigate(){
+    func navigateToAuthentication(){
         let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
         let mainAuthVC = authenticationStoryBoard.instantiateViewController(withIdentifier: "MainAuthViewController")
         self.navigationController?.pushViewController(mainAuthVC, animated: true)

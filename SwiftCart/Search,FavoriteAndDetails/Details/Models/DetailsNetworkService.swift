@@ -10,14 +10,18 @@ import RxSwift
 
 class DetailsNetworkService {
     
-//    var productDetailsResponse : ProductDetailsResponse?
+    
+    var networkingManager :NetworkingManager? = nil
+    init(networkingManager : NetworkingManager){
+        self.networkingManager = networkingManager
+    }
     
     func fetchProductDetails(id:String,productsDetailsResult:@escaping(ProductDetailsResponse)->()){
-        AppCommon.networkingManager.networkingRequest(
+        self.networkingManager!.networkingRequest(
             path: "/products/\(id).json",
             queryItems: nil,
             method: .GET,
-            requestBody: nil,
+            requestBody: nil, completeBaseURL: nil,
             networkResponse: { (result: Result<ProductDetailsResponse, NetworkError>) in
                 switch result {
                 case .success(let productDetailsResponse):

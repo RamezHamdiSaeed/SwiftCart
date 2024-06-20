@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentViewController" customModule="SwiftCart" customModuleProvider="target">
+            <connections>
+                <outlet property="appleButton" destination="j7f-7F-tHe" id="Jps-KE-27f"/>
+                <outlet property="cashButton" destination="AQc-E4-P8O" id="w6D-p3-e3K"/>
+                <outlet property="couponText" destination="e3N-br-zcD" id="JHF-p4-nbu"/>
+                <outlet property="totalLabel" destination="ogJ-Dp-D9b" id="kDR-Ea-VBo"/>
+                <outlet property="validButton" destination="IIJ-ax-lPu" id="JzJ-19-qPi"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="290" placeholderIntrinsicHeight="34" text="Do you have a coupon ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-jB-S0M">
+                    <rect key="frame" x="52" y="244" width="290" height="34"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" placeholderIntrinsicWidth="194" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3N-br-zcD">
+                    <rect key="frame" x="100" y="301" width="194" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="74" placeholderIntrinsicHeight="21" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-Fn-PWZ">
+                    <rect key="frame" x="26" y="376" width="74" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogJ-Dp-D9b">
+                    <rect key="frame" x="73" y="405" width="100" height="20.666666666666686"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="219" placeholderIntrinsicHeight="64" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-E4-P8O">
+                    <rect key="frame" x="91" y="648" width="219" height="64"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Cash On Delivery"/>
+                    <connections>
+                        <action selector="buyWithCash:" destination="-1" eventType="touchUpInside" id="yLb-42-HIT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="199" placeholderIntrinsicHeight="60" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7f-7F-tHe">
+                    <rect key="frame" x="101" y="550" width="199" height="60"/>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Apple Pay"/>
+                    <connections>
+                        <action selector="buyWithApple:" destination="-1" eventType="touchUpInside" id="2jB-C1-yKZ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YE-bF-G5y">
+                    <rect key="frame" x="77" y="143" width="248" height="44"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="37"/>
+                    <color key="textColor" systemColor="systemOrangeColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIJ-ax-lPu">
+                    <rect key="frame" x="303" y="300" width="85" height="35"/>
+                    <color key="backgroundColor" red="1" green="0.57638462660000001" blue="0.2880411088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Validate"/>
+                    <connections>
+                        <action selector="validate:" destination="-1" eventType="touchUpInside" id="Yd3-cA-Txa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ogJ-Dp-D9b" firstAttribute="top" secondItem="q8z-Fn-PWZ" secondAttribute="bottom" constant="8" symbolic="YES" id="07X-l2-o0p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j7f-7F-tHe" secondAttribute="trailing" constant="90" id="BTp-NT-2OM"/>
+                <constraint firstItem="j7f-7F-tHe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="CQO-oQ-dYo"/>
+                <constraint firstItem="IIJ-ax-lPu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="253" id="EYp-T5-xfS"/>
+                <constraint firstItem="e3N-br-zcD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="Gjj-aj-HAX"/>
+                <constraint firstItem="PHc-jB-S0M" firstAttribute="top" secondItem="8YE-bF-G5y" secondAttribute="bottom" constant="57" id="HfY-IX-jjx"/>
+                <constraint firstItem="8YE-bF-G5y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="77" id="OJK-X4-3GK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AQc-E4-P8O" secondAttribute="trailing" constant="80" id="TkT-ip-nCn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8YE-bF-G5y" secondAttribute="trailing" constant="65" id="Trg-sj-pHx"/>
+                <constraint firstItem="PHc-jB-S0M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="52" id="Uou-EE-rNo"/>
+                <constraint firstItem="q8z-Fn-PWZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="ew0-hp-ARF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IIJ-ax-lPu" secondAttribute="trailing" constant="2" id="fkZ-4D-Hud"/>
+                <constraint firstItem="AQc-E4-P8O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="91" id="lGm-q1-iRF"/>
+                <constraint firstItem="8YE-bF-G5y" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="96" id="lVO-wF-0iC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AQc-E4-P8O" secondAttribute="bottom" constant="98" id="lxn-Mt-h01"/>
+                <constraint firstItem="AQc-E4-P8O" firstAttribute="top" secondItem="j7f-7F-tHe" secondAttribute="bottom" constant="38" id="mzO-KO-cBD"/>
+                <constraint firstItem="ogJ-Dp-D9b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="73" id="qFR-7R-8Hg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ogJ-Dp-D9b" secondAttribute="trailing" constant="217" id="qr4-61-GDk"/>
+                <constraint firstItem="q8z-Fn-PWZ" firstAttribute="top" secondItem="PHc-jB-S0M" secondAttribute="bottom" constant="98" id="rwx-IW-uu7"/>
+                <constraint firstItem="e3N-br-zcD" firstAttribute="top" secondItem="PHc-jB-S0M" secondAttribute="bottom" constant="23" id="tCi-HZ-sGS"/>
+                <constraint firstItem="IIJ-ax-lPu" firstAttribute="leading" secondItem="e3N-br-zcD" secondAttribute="trailing" constant="9" id="wtp-Xe-jck"/>
+            </constraints>
+            <point key="canvasLocation" x="130.76923076923077" y="-11.374407582938389"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

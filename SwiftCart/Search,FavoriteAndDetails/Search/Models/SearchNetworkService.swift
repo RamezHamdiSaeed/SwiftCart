@@ -10,14 +10,19 @@ import RxSwift
 
 class SearchNetworkService {
     
+    var networkingManager :NetworkingManager? = nil
+    init(networkingManager : NetworkingManager){
+        self.networkingManager = networkingManager
+    }
+    
     var products  : Observable<[ProductTemp]> = Observable.just([ProductTemp]())
     
     func fetchProducts(fetchedProducts: @escaping ([ProductTemp]) -> Void) {
-        AppCommon.networkingManager.networkingRequest(
+        self.networkingManager!.networkingRequest(
             path: "/products.json",
             queryItems: nil,
             method: .GET,
-            requestBody: nil,
+            requestBody: nil, completeBaseURL: nil,
             networkResponse: { (result: Result<SearchedProductsResponse, NetworkError>) in
                 switch result {
                 case .success(let searchedProductsResponse):
@@ -31,7 +36,7 @@ class SearchNetworkService {
                                let title = product.title
                                let price = product.variants?.first?.price
                                 let imageSrc = product.image?.src
-                            let productTemp = ProductTemp(id: id!, name: title!, price: price!, isFavorite: false, image: imageSrc!)
+                            let productTemp = ProductTemp(id: id!, name: title!, price: Double(price!)!, isFavorite: false, image: imageSrc!)
                                 fetchedProductsOverTheNetwork.append(productTemp)
                             
                         }
