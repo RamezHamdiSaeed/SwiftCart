@@ -158,7 +158,7 @@ class DetailsViewController: UIViewController {
     }
 
     func updateView(title:String,price:String){
-        self.productTitle.text = title + " $"
+        self.productTitle.text = title
         self.productPrice.text = price + " $"
     }
     
