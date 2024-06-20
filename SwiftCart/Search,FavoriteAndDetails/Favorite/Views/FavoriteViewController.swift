@@ -25,8 +25,7 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
     private let viewModel: SearchFavoriteProductsViewModel = {
         
         let searchFavoriteProductsVC = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
-        searchFavoriteProductsVC.getFavoriteProductsDB()
-        searchFavoriteProductsVC.setupBindings(allProducts: searchFavoriteProductsVC.allProductsDB)
+
         return searchFavoriteProductsVC
     }()
        private let disposeBag = DisposeBag()
@@ -59,6 +58,11 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            self.viewModel.getFavoriteProductsDB()
+            self.viewModel.setupBindings(allProducts: self.viewModel.allProductsDB)
+        }
+
     }
     
    
