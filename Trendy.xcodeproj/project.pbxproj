@@ -55,6 +55,8 @@
 		1EA3CE9E2C21BABD000C4911 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */; };
 		1EC4CE512C24661F0062377A /* CartNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE502C24661F0062377A /* CartNetworkTest.swift */; };
 		1EC4CE552C2468990062377A /* InputValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE542C2468990062377A /* InputValidatorTest.swift */; };
+		1EC4CE582C246C510062377A /* OnBoardingManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE572C246C510062377A /* OnBoardingManagerTest.swift */; };
+		1EC4CE5A2C246E370062377A /* UserSessionManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE592C246E370062377A /* UserSessionManagerTest.swift */; };
 		1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B72C175C54009CF99F /* LocalDataSource.swift */; };
 		1EC52DF72C17A1F0005A79F2 /* LocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EB8B82C175C54009CF99F /* LocalDataSourceImpl.swift */; };
 		1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */; };
@@ -217,6 +219,8 @@
 		1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManager.swift; sourceTree = "<group>"; };
 		1EC4CE502C24661F0062377A /* CartNetworkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartNetworkTest.swift; sourceTree = "<group>"; };
 		1EC4CE542C2468990062377A /* InputValidatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidatorTest.swift; sourceTree = "<group>"; };
+		1EC4CE572C246C510062377A /* OnBoardingManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingManagerTest.swift; sourceTree = "<group>"; };
+		1EC4CE592C246E370062377A /* UserSessionManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionManagerTest.swift; sourceTree = "<group>"; };
 		1ECA88B72C23A84D004A1C16 /* AuthViewModelImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelImplTest.swift; sourceTree = "<group>"; };
 		1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
 		1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
@@ -654,6 +658,7 @@
 		1EC4CE522C24687E0062377A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1EC4CE562C246C400062377A /* Managers */,
 				1EC4CE532C2468870062377A /* Validators */,
 			);
 			path = Utilities;
@@ -665,6 +670,15 @@
 				1EC4CE542C2468990062377A /* InputValidatorTest.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		1EC4CE562C246C400062377A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1EC4CE572C246C510062377A /* OnBoardingManagerTest.swift */,
+				1EC4CE592C246E370062377A /* UserSessionManagerTest.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		1ECA88B62C23A82A004A1C16 /* ViewModels */ = {
@@ -1581,8 +1595,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC4CE5A2C246E370062377A /* UserSessionManagerTest.swift in Sources */,
 				1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */,
 				1ECA88B82C23A84D004A1C16 /* AuthViewModelImplTest.swift in Sources */,
+				1EC4CE582C246C510062377A /* OnBoardingManagerTest.swift in Sources */,
 				1EC4CE552C2468990062377A /* InputValidatorTest.swift in Sources */,
 				1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */,
 				1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */,
