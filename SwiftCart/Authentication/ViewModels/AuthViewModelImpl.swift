@@ -49,6 +49,7 @@ class AuthViewModelImpl : AuthViewModel{
             favoriteProducts.forEach{
                 currentProduct in
                 LocalDataSourceImpl.shared.deleteProductFromFav(product: currentProduct)
+                whenSuccess?()
             }
         })
        
