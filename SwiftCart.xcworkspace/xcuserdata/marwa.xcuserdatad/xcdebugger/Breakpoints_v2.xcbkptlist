@@ -7,70 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "95452E16-6414-41B8-9C63-3EA82CA54DEC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6 - be745641aa09e13d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in SwiftCart.BrandDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "6C0AD296-7927-4D1D-9A41-62B5BD8B7BB6 - 3f513ebd2157c2b0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in SwiftCart.BrandDetailViewController.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
-                  moduleName = "SwiftCart"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FF653A21-2FED-4D17-AFFC-A41652854212"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -199,22 +135,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "47B16638-B137-4B61-9B63-ADDD445A2D00"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftCart/BrandProducts/view/BrandDetailsViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "13BC44A5-A9A8-4F98-A795-FA3202A74D04"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -226,6 +146,54 @@
             endingLineNumber = "54"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04432FF7-98F1-448F-926E-E3EB33CB78B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Search,FavoriteAndDetails/Details/Views/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "04432FF7-98F1-448F-926E-E3EB33CB78B0 - e6e02aa6d36a259b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in SwiftCart.DetailsViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Search,FavoriteAndDetails/Details/Views/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "16822">
+               </Location>
+               <Location
+                  uuid = "04432FF7-98F1-448F-926E-E3EB33CB78B0 - ab2ee42d8e1de99d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #1 () -&gt; () in SwiftCart.DetailsViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marwa/Desktop/Graduation%20Project/SwiftCart/SwiftCart/Search,FavoriteAndDetails/Details/Views/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "117">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -29,9 +29,12 @@ class OrdersViewModel {
             networkService.fetchOrders(customerId: customerId) { [weak self] res in
                 switch res {
                 case .success(let response) :
-                    self?.ordersClosure(response.orders!)
-                    print("fetchOrderss viewmodel success")
-                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1){
+                        self?.ordersClosure(response.orders!)
+                        print("fetchOrderss viewmodel success")
+                        
+                    }
+                
                 case .failure(_):
                     print("fetchOrderss viewmodel error")
                     

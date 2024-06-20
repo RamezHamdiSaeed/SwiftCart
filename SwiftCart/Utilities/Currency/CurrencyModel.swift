@@ -100,10 +100,6 @@ enum Coins: String {
 }
 
 func getPrice( completion: @escaping (Double) -> Void) {
-   // guard let priceD = Double(price) else {
-//        completion(0.0)
-//        return
-//    }
 
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults()
     let coin: Coins
