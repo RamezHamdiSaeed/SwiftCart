@@ -9,6 +9,7 @@ import UIKit
 
 class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewDataSource {
     
+    @IBOutlet weak var ordersIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var noOrdersImage: UIImageView!
     var orders : [Order] = []
@@ -20,6 +21,7 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
     @IBOutlet weak var ordersTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ordersIndicator.startAnimating()
         setBackground(view: self.view)
         styleTableView(tableView: ordersTableView)
         ordersTableView.delegate = self
@@ -30,11 +32,12 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         ordersViewModel = OrdersViewModel(networkService: NetworkServicesImpl())
         ordersViewModel.ordersClosure = {
          [weak self]   res in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 
                 self?.orders = res
                 self?.ordersTableView.reloadData()
                 self?.updateEmptyImageView()
+                self?.ordersIndicator.stopAnimating()
 
             }        }
         ordersViewModel.getOrders()
@@ -70,7 +73,8 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         var convertedPrice = convertPrice(price: String(order.totalPrice ?? "0.0" ), rate: self.rate)
         cell.orderPriceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
 
-        cell.orderSippedLabel.text = order.shippingAddress?.address1
+        cell.orderSippedLabel.text = order.shippingAddress?.city
+
 
         return cell
     }

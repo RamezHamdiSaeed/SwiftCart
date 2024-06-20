@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLc-vW-vfZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="739"/>
+            <point key="canvasLocation" x="5911" y="1019"/>
         </scene>
         <!--Category-->
         <scene sceneID="WCQ-pl-WPa">
@@ -491,21 +491,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-vv-4HO">
+                                <rect key="frame" x="63" y="237" width="276" height="357"/>
+                                <color key="tintColor" red="1" green="0.65374312810000001" blue="0.41435371929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bOJ-Wh-rlg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bOJ-Wh-rlg" firstAttribute="trailing" secondItem="nBE-vv-4HO" secondAttribute="trailing" constant="63" id="0iD-FG-NU3"/>
+                            <constraint firstItem="bOJ-Wh-rlg" firstAttribute="bottom" secondItem="nBE-vv-4HO" secondAttribute="bottom" constant="224" id="17L-JE-PWH"/>
                             <constraint firstAttribute="trailing" secondItem="k7P-QK-S1s" secondAttribute="trailing" constant="14" id="CtB-Tc-CGG"/>
                             <constraint firstItem="4nZ-rz-JgF" firstAttribute="top" secondItem="xd2-jE-z9c" secondAttribute="topMargin" constant="-59" id="WNZ-zI-eU6"/>
+                            <constraint firstItem="nBE-vv-4HO" firstAttribute="leading" secondItem="bOJ-Wh-rlg" secondAttribute="leading" constant="63" id="aP5-FR-F1z"/>
                             <constraint firstItem="k7P-QK-S1s" firstAttribute="centerY" secondItem="4nZ-rz-JgF" secondAttribute="centerY" id="c6Q-ro-uVm"/>
                             <constraint firstItem="4nZ-rz-JgF" firstAttribute="leading" secondItem="xd2-jE-z9c" secondAttribute="leading" id="dQV-KQ-Xct"/>
                             <constraint firstAttribute="trailing" secondItem="4nZ-rz-JgF" secondAttribute="trailing" id="hfS-u6-7a5"/>
                             <constraint firstItem="k7P-QK-S1s" firstAttribute="top" secondItem="bOJ-Wh-rlg" secondAttribute="top" constant="36" id="jyc-ku-07d"/>
                             <constraint firstItem="k7P-QK-S1s" firstAttribute="leading" secondItem="xd2-jE-z9c" secondAttribute="leading" constant="14" id="tLy-Ef-uUr"/>
+                            <constraint firstItem="nBE-vv-4HO" firstAttribute="top" secondItem="bOJ-Wh-rlg" secondAttribute="top" constant="178" id="wKu-3v-sXh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noOrdersImage" destination="4nZ-rz-JgF" id="hOH-Kk-fYJ"/>
+                        <outlet property="ordersIndicator" destination="nBE-vv-4HO" id="qFg-Yl-hUK"/>
                         <outlet property="ordersTableView" destination="k7P-QK-S1s" id="cV4-eL-8uK"/>
                     </connections>
                 </viewController>
@@ -521,12 +530,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50B-HL-awi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50B-HL-awi">
                                 <rect key="frame" x="203" y="111" width="154" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Kjc-7u-RWX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
