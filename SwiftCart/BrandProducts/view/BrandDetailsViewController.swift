@@ -114,6 +114,10 @@ extension BrandDetailViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SingleProductCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.whenTransactionFulfilledWithDB = {
+            message in
+            self.showSnackbar(message: message)
+        }
         cell.whenRemoving = {
             AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self) {
                 cell.okRemovingCellBtn()

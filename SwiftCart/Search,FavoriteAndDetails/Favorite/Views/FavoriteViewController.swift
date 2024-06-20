@@ -109,6 +109,12 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
                
         viewModel.filteredProducts
             .bind(to: productsCollectionView.rx.items(cellIdentifier: "cell", cellType: SingleProductCollectionViewCell.self)) { row, product, cell in
+                
+                cell.whenTransactionFulfilledWithDB = {
+                    message in
+                    self.showSnackbar(message: message)
+                }
+                
                 cell.whenRemoving = {
                     AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
                         cell.okRemovingCellBtn()
