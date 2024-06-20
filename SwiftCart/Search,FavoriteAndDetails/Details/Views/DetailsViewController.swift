@@ -157,12 +157,18 @@ class DetailsViewController: UIViewController {
             print("No variant selected")
             return
         }
-        
-        let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
-        cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
-        showSnackbar(message: "added successfully")
+        if User.id == nil {
+                    AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                }
+        else {
+            let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)
+            cartViewModel.addToCart(customerId: customerID ?? 0, lineItem: lineItem)
+            showSnackbar(message: "added successfully")
 
-        print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
+            print("Added 1 unit of the selected product variant to cart: \(detailsViewModel.selectedProductVarient!)")
+        }
+        
+       
     }
 
     func updateView(title:String,price:Double){
@@ -191,7 +197,7 @@ extension DetailsViewController : UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80) 
+        return CGSize(width: 80, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
