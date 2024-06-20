@@ -59,6 +59,8 @@
 		1ECA88BB2C23B12C004A1C16 /* DetailsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */; };
 		1ECA88BD2C23B63B004A1C16 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */; };
 		1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */; };
+		1ECA88C22C23BDF8004A1C16 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88C12C23BDF8004A1C16 /* SearchViewModel.swift */; };
+		1ECA88C52C23BFFE004A1C16 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA88C42C23BFFE004A1C16 /* SearchViewModelTest.swift */; };
 		1ED98EA32BFF882100948409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA22BFF882100948409 /* AppDelegate.swift */; };
 		1ED98EA52BFF882100948409 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA42BFF882100948409 /* SceneDelegate.swift */; };
 		1ED98EA72BFF882100948409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED98EA62BFF882100948409 /* ViewController.swift */; };
@@ -214,6 +216,8 @@
 		1ECA88BA2C23B12C004A1C16 /* DetailsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTest.swift; sourceTree = "<group>"; };
 		1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTest.swift; sourceTree = "<group>"; };
+		1ECA88C12C23BDF8004A1C16 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		1ECA88C42C23BFFE004A1C16 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		1ED98E9F2BFF882100948409 /* SwiftCart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED98EA22BFF882100948409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ED98EA42BFF882100948409 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 			children = (
 				1E2464B52C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift */,
 				1ECA88BC2C23B63B004A1C16 /* FavoriteViewModel.swift */,
+				1ECA88C12C23BDF8004A1C16 /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 		1E917A3A2C22542900272EE1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA88C32C23BFDA004A1C16 /* ViewModels */,
 				1E917A3B2C22542F00272EE1 /* Models */,
 			);
 			path = Search;
@@ -584,17 +590,9 @@
 		1E917A3B2C22542F00272EE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1E917A3E2C22569F00272EE1 /* Mocks */,
 				1E917A3C2C22546C00272EE1 /* SearchNetworkServiceTest.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		1E917A3E2C22569F00272EE1 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		1E917A412C225B6500272EE1 /* Details */ = {
@@ -667,6 +665,14 @@
 			isa = PBXGroup;
 			children = (
 				1ECA88BF2C23B71F004A1C16 /* FavoriteViewModelTest.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1ECA88C32C23BFDA004A1C16 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA88C42C23BFFE004A1C16 /* SearchViewModelTest.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1432,6 +1438,7 @@
 				43F01F662C0C8426008CAD0D /* AddsCollectionViewCell.swift in Sources */,
 				43E5D7912C131DC100F2D8AB /* MeViewController.swift in Sources */,
 				43C64FE52C00C047002BBDBA /* HomeViewModel.swift in Sources */,
+				1ECA88C22C23BDF8004A1C16 /* SearchViewModel.swift in Sources */,
 				4380A4ED2C02A3520035CF76 /* ProductsModel.swift in Sources */,
 				1EF89CD62C1AE0CE006E6114 /* Review.swift in Sources */,
 				DAC6B0F52C1A2CB70099C630 /* AddressDelegate.swift in Sources */,
@@ -1530,6 +1537,7 @@
 				1ECA88C02C23B71F004A1C16 /* FavoriteViewModelTest.swift in Sources */,
 				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
 				1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */,
+				1ECA88C52C23BFFE004A1C16 /* SearchViewModelTest.swift in Sources */,
 				1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */,
 				1E917A402C2256C400272EE1 /* MockNetworkingManager.swift in Sources */,
 				43444BE12C1F160A00E93BC4 /* MockNetworkServices.swift in Sources */,
