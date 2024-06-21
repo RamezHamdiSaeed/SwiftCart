@@ -68,7 +68,7 @@ class CartNetworkTest: XCTestCase {
             
             let invalidCustomerID = -1
             let invalidDraftOrderID = -1
-            let lineItem = LineItemRequest(variantID: 0, quantity: 0, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7") 
+            let lineItem = LineItemRequest(variantID: 0, quantity: 0, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7")
             
             cartNetwork.updateOrder(customerID: invalidCustomerID, draftOrderID: invalidDraftOrderID, lineItem: lineItem) { result in
                 switch result {

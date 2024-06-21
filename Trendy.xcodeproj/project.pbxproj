@@ -145,6 +145,7 @@
 		DAE2A6802C18C8D600F80C5E /* AdressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */; };
 		DAE2A6832C19B7C400F80C5E /* NewCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2A6812C19B7C400F80C5E /* NewCartViewController.swift */; };
 		DAE2A6842C19B7C400F80C5E /* NewCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */; };
+		DAEA1A4A2C25459F0022D33D /* DiscountServiceTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA1A492C25459F0022D33D /* DiscountServiceTesting.swift */; };
 		DAFDD3692C03265D00A842A4 /* Adresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD3682C03265D00A842A4 /* Adresses.swift */; };
 		DAFDD36C2C0327C200A842A4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */; };
 		DAFDD36E2C032CC700A842A4 /* AdressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */; };
@@ -317,6 +318,7 @@
 		DAE2A67E2C18C8D600F80C5E /* AdressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressTableViewCell.xib; sourceTree = "<group>"; };
 		DAE2A6812C19B7C400F80C5E /* NewCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCartViewController.swift; sourceTree = "<group>"; };
 		DAE2A6822C19B7C400F80C5E /* NewCartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCartViewController.xib; sourceTree = "<group>"; };
+		DAEA1A492C25459F0022D33D /* DiscountServiceTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountServiceTesting.swift; sourceTree = "<group>"; };
 		DAFDD3682C03265D00A842A4 /* Adresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Adresses.swift; path = SwiftCart/Settings/ViewModels/Adresses.swift; sourceTree = SOURCE_ROOT; };
 		DAFDD36B2C0327C200A842A4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DAFDD36D2C032CC700A842A4 /* AdressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressesTableViewController.swift; sourceTree = "<group>"; };
@@ -798,6 +800,7 @@
 		1ED98EBB2BFF882300948409 /* SwiftCartTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAEA1A482C2545620022D33D /* CouponTesting */,
 				1EC4CE522C24687E0062377A /* Utilities */,
 				DA988ED12C23A13600AE04AA /* CartTesting */,
 				1ECA88C62C23C56E004A1C16 /* Reviews */,
@@ -1234,6 +1237,14 @@
 			path = Addresses;
 			sourceTree = "<group>";
 		};
+		DAEA1A482C2545620022D33D /* CouponTesting */ = {
+			isa = PBXGroup;
+			children = (
+				DAEA1A492C25459F0022D33D /* DiscountServiceTesting.swift */,
+			);
+			path = CouponTesting;
+			sourceTree = "<group>";
+		};
 		DAFDD36A2C03276A00A842A4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1618,6 +1629,7 @@
 				1ECA88C92C23C598004A1C16 /* ReviewsRepoTest.swift in Sources */,
 				1E8535152C221B4500D088D8 /* ShopifyAuthNetworkServiceImplTest.swift in Sources */,
 				1E917A3D2C22546C00272EE1 /* SearchNetworkServiceTest.swift in Sources */,
+				DAEA1A4A2C25459F0022D33D /* DiscountServiceTesting.swift in Sources */,
 				1ECA88C52C23BFFE004A1C16 /* SearchViewModelTest.swift in Sources */,
 				1E917A442C225BBB00272EE1 /* DetailsNetworkServiceTest.swift in Sources */,
 				1E917A402C2256C400272EE1 /* MockNetworkingManager.swift in Sources */,
