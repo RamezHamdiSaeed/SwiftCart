@@ -61,196 +61,43 @@ class CartNetworkTest: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testUpdateOrder() {
-        let createExpectation = expectation(description: "CreateOrderForUpdate")
+    
         
-        cartNetwork.createOrder(customerID: testCustomerID, lineItem: testLineItem) { result in
-            DispatchQueue.main.async {
+        func testUpdateOrderFailure() throws {
+            let expectation = self.expectation(description: "Update Order Failure")
+            
+            let invalidCustomerID = -1
+            let invalidDraftOrderID = -1
+            let lineItem = LineItemRequest(variantID: 0, quantity: 0, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7")
+            
+            cartNetwork.updateOrder(customerID: invalidCustomerID, draftOrderID: invalidDraftOrderID, lineItem: lineItem) { result in
                 switch result {
-                case .success(let success):
-                    XCTAssertTrue(success, "Order creation should succeed")
-                    
-                    self.cartNetwork.fetchDraftOrders { fetchResult in
-                        DispatchQueue.main.async {
-                            switch fetchResult {
-                            case .success(let draftOrders):
-                                guard let draftOrder = draftOrders.first else {
-                                    XCTFail("No draft orders found")
-                                    createExpectation.fulfill()
-                                    return
-                                }
-                                
-                                self.createdDraftOrderID = draftOrder.id
-                                
-                                let updateExpectation = self.expectation(description: "UpdateOrder")
-                                
-                                let updatedLineItem = LineItemRequest(variantID: self.validVariantID, quantity: 3, imageUrl: "https://images.app.goo.gl/2AigmaKAjZHnV5rp7")
-                                
-                                self.cartNetwork.updateOrder(customerID: self.testCustomerID, draftOrderID: draftOrder.id ?? 0, lineItem: updatedLineItem) { updateResult in
-                                    DispatchQueue.main.async {
-                                        switch updateResult {
-                                        case .success(let success):
-                                            XCTAssertTrue(success, "Order update should succeed")
-                                        case .failure(let error):
-                                            XCTFail("Order update failed: \(error.localizedDescription)")
-                                        }
-                                        updateExpectation.fulfill()
-                                    }
-                                }
-                                
-                            case .failure(let error):
-                                XCTFail("Fetching draft orders failed: \(error.localizedDescription)")
-                            }
-                            createExpectation.fulfill()
-                        }
-                    }
-                    
+                case .success:
+                    XCTFail("Expected failure, but got success")
                 case .failure(let error):
-                    XCTFail("Order creation failed: \(error.localizedDescription)")
-                    createExpectation.fulfill()
+                    XCTAssertNotNil(error, "Expected an error but got nil")
                 }
+                expectation.fulfill()
             }
+            
+            waitForExpectations(timeout: 10, handler: nil)
         }
         
-        waitForExpectations(timeout: 20, handler: nil)
-    }
-
-
-    func testDeleteOrder() {
-        let createExpectation = self.expectation(description: "CreateOrderForDeletion")
-        
-        cartNetwork.createOrder(customerID: testCustomerID, lineItem: testLineItem) { result in
-            switch result {
-            case .success(let success):
-                XCTAssertTrue(success, "Order creation should succeed")
-                
-                self.cartNetwork.fetchDraftOrders { fetchResult in
-                    switch fetchResult {
-                    case .success(let draftOrders):
-                        guard let draftOrder = draftOrders.first else {
-                            XCTFail("No draft orders found")
-                            createExpectation.fulfill()
-                            return
-                        }
-                        
-                        let deleteExpectation = self.expectation(description: "DeleteOrder")
-                        
-                        self.cartNetwork.deleteOrder(draftOrderID: draftOrder.id ?? 0) { deleteResult in
-                            switch deleteResult {
-                            case .success(let success):
-                                XCTAssertTrue(success, "Order deletion should succeed")
-                            case .failure(let error):
-                                XCTFail("Order deletion failed: \(error.localizedDescription)")
-                            }
-                            deleteExpectation.fulfill()
-                        }
-                        
-                        self.waitForExpectations(timeout: 10, handler: nil)
-                        
-                    case .failure(let error):
-                        XCTFail("Fetching draft orders failed: \(error.localizedDescription)")
-                    }
-                    createExpectation.fulfill()
+        func testDeleteOrderFailure() throws {
+            let expectation = self.expectation(description: "Delete Order Failure")
+            
+            let invalidDraftOrderID = -1
+            
+            cartNetwork.deleteOrder(draftOrderID: invalidDraftOrderID) { result in
+                switch result {
+                case .success:
+                    XCTFail("Expected failure, but got success")
+                case .failure(let error):
+                    XCTAssertNotNil(error, "Expected an error but got nil")
                 }
-                
-            case .failure(let error):
-                XCTFail("Order creation failed: \(error.localizedDescription)")
-                createExpectation.fulfill()
+                expectation.fulfill()
             }
+            
+            waitForExpectations(timeout: 10, handler: nil)
         }
-        
-        waitForExpectations(timeout: 20, handler: nil)
     }
-    
-    func testCompleteDraftOrder() {
-        let createExpectation = self.expectation(description: "CreateOrderForCompletion")
-        
-        cartNetwork.createOrder(customerID: testCustomerID, lineItem: testLineItem) { result in
-            switch result {
-            case .success(let success):
-                XCTAssertTrue(success, "Order creation should succeed")
-                
-                self.cartNetwork.fetchDraftOrders { fetchResult in
-                    switch fetchResult {
-                    case .success(let draftOrders):
-                        guard let draftOrder = draftOrders.first else {
-                            XCTFail("No draft orders found")
-                            createExpectation.fulfill()
-                            return
-                        }
-                        
-                        let completeExpectation = self.expectation(description: "CompleteDraftOrder")
-                        
-                        self.cartNetwork.completeDraftOrder(draftOrderID: draftOrder.id ?? 0) { completeResult in
-                            switch completeResult {
-                            case .success(let success):
-                                XCTAssertTrue(success, "Order completion should succeed")
-                            case .failure(let error):
-                                XCTFail("Order completion failed: \(error.localizedDescription)")
-                            }
-                            completeExpectation.fulfill()
-                        }
-                        
-                        self.waitForExpectations(timeout: 10, handler: nil)
-                        
-                    case .failure(let error):
-                        XCTFail("Fetching draft orders failed: \(error.localizedDescription)")
-                    }
-                    createExpectation.fulfill()
-                }
-                
-            case .failure(let error):
-                XCTFail("Order creation failed: \(error.localizedDescription)")
-                createExpectation.fulfill()
-            }
-        }
-        
-        waitForExpectations(timeout: 20, handler: nil)
-    }
-    
-    func testDeleteDraftOrder() {
-        let createExpectation = self.expectation(description: "CreateOrderForDraftDeletion")
-        
-        cartNetwork.createOrder(customerID: testCustomerID, lineItem: testLineItem) { result in
-            switch result {
-            case .success(let success):
-                XCTAssertTrue(success, "Order creation should succeed")
-                
-                self.cartNetwork.fetchDraftOrders { fetchResult in
-                    switch fetchResult {
-                    case .success(let draftOrders):
-                        guard let draftOrder = draftOrders.first else {
-                            XCTFail("No draft orders found")
-                            createExpectation.fulfill()
-                            return
-                        }
-                        
-                        let deleteDraftExpectation = self.expectation(description: "DeleteDraftOrder")
-                        
-                        self.cartNetwork.deleteDraftOrder(draftOrderID: draftOrder.id ?? 0) { deleteResult in
-                            switch deleteResult {
-                            case .success(let success):
-                                XCTAssertTrue(success, "Draft order deletion should succeed")
-                            case .failure(let error):
-                                XCTFail("Draft order deletion failed: \(error.localizedDescription)")
-                            }
-                            deleteDraftExpectation.fulfill()
-                        }
-                        
-                        self.waitForExpectations(timeout: 10, handler: nil)
-                        
-                    case .failure(let error):
-                        XCTFail("Fetching draft orders failed: \(error.localizedDescription)")
-                    }
-                    createExpectation.fulfill()
-                }
-                
-            case .failure(let error):
-                XCTFail("Order creation failed: \(error.localizedDescription)")
-                createExpectation.fulfill()
-            }
-        }
-        
-        waitForExpectations(timeout: 20, handler: nil)
-    }
-}

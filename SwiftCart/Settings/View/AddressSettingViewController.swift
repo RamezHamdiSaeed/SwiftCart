@@ -27,6 +27,8 @@ class AddressSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBtn.layer.cornerRadius = 10
+       // setHeader(view: self, title: "Add Your Address")
+
     }
     
     @IBAction func addAddresse(_ sender: Any) {

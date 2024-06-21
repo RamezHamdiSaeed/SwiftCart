@@ -43,6 +43,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         cartViewModel.getRate()
+        setHeader(view: self, title: "Your Cart")
+
         
         styleTableView(tableView: cartTable)
         setBackground(view: self.view)
