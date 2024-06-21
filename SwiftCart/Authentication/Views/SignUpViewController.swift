@@ -24,7 +24,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         authVC = AuthViewModelImpl()
         authVC?.setSuccessMessage(successMessage: {
-            FeedbackManager.successSwiftMessage(title: "", body: "Signed Up Successfully")
+            self.showSnackbar(message: "Signed Up Successfully")
+
         })
         authVC?.setFailMessage(failMessage: {
             FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")

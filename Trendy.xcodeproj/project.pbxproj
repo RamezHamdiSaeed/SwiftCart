@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E20F52F2C2536F1006C8EF5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */; };
 		1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464732C10985D00745CA8 /* FirebaseAuth.swift */; };
 		1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */; };
 		1E2464782C1098C000745CA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464772C1098C000745CA8 /* User.swift */; };
@@ -169,6 +170,7 @@
 /* Begin PBXFileReference section */
 		08F974D75784EEB17C3E4BAE /* Pods-SwiftCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12C42DFE4584376420AB7FD7 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
+		1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1E2464732C10985D00745CA8 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImpl.swift; sourceTree = "<group>"; };
 		1E2464772C1098C000745CA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -348,6 +350,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E20F52D2C2536CF006C8EF5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1E24646D2C1096BF00745CA8 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -754,6 +764,7 @@
 		1ED98EA12BFF882100948409 /* SwiftCart */ = {
 			isa = PBXGroup;
 			children = (
+				1E20F52D2C2536CF006C8EF5 /* Extensions */,
 				DAD98F552C1CED370076F8CE /* Discounts */,
 				DAC6B0F82C1B438B0099C630 /* SwiftCart.entitlements */,
 				DAC6B0EE2C1A18FC0099C630 /* Payment */,
@@ -1531,6 +1542,7 @@
 				DAD98F5D2C1CF0C60076F8CE /* DiscountViewModel.swift in Sources */,
 				1EC52DF62C17A1F0005A79F2 /* LocalDataSource.swift in Sources */,
 				DAE2A6772C18443300F80C5E /* CartTableCellDelegate.swift in Sources */,
+				1E20F52F2C2536F1006C8EF5 /* UIViewControllerExtension.swift in Sources */,
 				1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */,
 				1E2464782C1098C000745CA8 /* User.swift in Sources */,
 				1E2464882C109BF000745CA8 /* InputValidator.swift in Sources */,

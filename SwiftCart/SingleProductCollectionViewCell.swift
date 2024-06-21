@@ -14,6 +14,8 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
     var viewModel = SearchFavoriteProductsViewModel(networkService: SearchNetworkService(networkingManager: NetworkingManagerImpl()))
     
     var whenRemoved : (()->())? = nil
+    var whenTransactionFulfilledWithDB : ((_ message:String)->())? = nil
+
     var whenRemoving : (()->())? = nil
     var guestClosure : (()->())? = nil
     
@@ -29,7 +31,8 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
                 guestClosure?()
             }else{
                 viewModel.insertProductToFavDB(product: product!)
-                FeedbackManager.successSwiftMessage(title: "", body: "Product inserted into the favorite successfully")
+//                FeedbackManager.successSwiftMessage(title: "", body: "Product inserted into the favorite successfully")
+                whenTransactionFulfilledWithDB?("Product inserted into the favorite successfully")
                 favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 product?.isFavorite = true
             }
@@ -59,7 +62,9 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
     }
     func okRemovingCellBtn (){
         viewModel.deleteProductFromFav(product: product!)
-        FeedbackManager.successSwiftMessage(title: "", body: "Product removed from the favorite successfully")
+        whenTransactionFulfilledWithDB?("Product removed from the favorite successfully")
+
+//        FeedbackManager.successSwiftMessage(title: "", body: "Product removed from the favorite successfully")
         if let whenRemoved = whenRemoved {
             whenRemoved()
         }

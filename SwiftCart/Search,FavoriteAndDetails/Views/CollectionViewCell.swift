@@ -18,6 +18,7 @@ class CollectionViewCell: UICollectionViewCell {
     var rate : Double!
     let userCurrency = CurrencyImp.getCurrencyFromUserDefaults().uppercased()
     var whenRemoved : (()->())? = nil
+    var whenTransactionFulfilledWithDB : ((_ message:String)->())? = nil
 
     
     func configure(with product: ProductTemp) {
@@ -46,7 +47,8 @@ class CollectionViewCell: UICollectionViewCell {
         if currentProductCell.isFavorite {
             print(productCell?.isFavorite)
             viewModel.deleteProductFromFav(product: productCell!)
-            FeedbackManager.successSwiftMessage(title: "", body: "Product removed from the favorite successfully")
+            whenTransactionFulfilledWithDB?("Product removed from the favorite successfully")
+//            FeedbackManager.successSwiftMessage(title: "", body: "Product removed from the favorite successfully")
             if let whenRemoved = whenRemoved {
                 whenRemoved()
             }
@@ -58,7 +60,8 @@ class CollectionViewCell: UICollectionViewCell {
         }
         else{
             viewModel.insertProductToFavDB(product: productCell!)
-            FeedbackManager.successSwiftMessage(title: "", body: "Product inserted into the favorite successfully")
+            whenTransactionFulfilledWithDB?("Product inserted into the favorite successfully")
+//            FeedbackManager.successSwiftMessage(title: "", body: "Product inserted into the favorite successfully")
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             productCell?.isFavorite = true
         }

@@ -21,7 +21,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         authVC = AuthViewModelImpl()
            authVC?.setSuccessMessage(successMessage: {
-               FeedbackManager.successSwiftMessage(title: "", body: "Logged In Successfully")
+               self.showSnackbar(message: "Logged In Successfully")
            })
            authVC?.setFailMessage(failMessage: {
                FeedbackManager.errorSwiftMessage(title: "Error", body: "Not Signed Up Yet")
