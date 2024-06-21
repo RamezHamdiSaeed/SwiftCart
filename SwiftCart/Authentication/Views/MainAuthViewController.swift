@@ -19,6 +19,7 @@ class MainAuthViewController: UIViewController {
     }
 
     @IBAction func continuseAsAGuestBtn(_ sender: Any) {
+        AppCommon.userSessionManager.setIsSignedOutUser()
       self.continueAsAGuest()
     }
     
