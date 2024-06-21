@@ -35,7 +35,7 @@ class CurrencyServiceImp {
     private init() {}
 
     static func fetchConversionRate(coinStr: String, completion: @escaping (Double?) -> Void) {
-        let urlStr = "https://v6.exchangerate-api.com/v6/afd5df0075af54af2600201d/latest/USD"
+        let urlStr = "https://v6.exchangerate-api.com/v6/78219de05fb62a95f557f803/latest/USD"
         guard let url = URL(string: urlStr) else {
             completion(nil)
             print("Invalid URL")
