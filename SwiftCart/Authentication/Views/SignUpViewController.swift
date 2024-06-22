@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
 
         })
         authVC?.setFailMessage(failMessage: {
-            FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
+            FeedbackManager.errorSwiftMessage(title: "", body: "The Account Already Exists")
         })
         SwiftCart.setHeader(view: self, title: "Sign Up")
 
@@ -71,17 +71,28 @@ class SignUpViewController: UIViewController {
         }
         else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            FeedbackManager.errorSwiftMessage(title: "Invalid Input", body: "Wrong Email")
             self.email.text = ""
             self.password.text = ""
+            self.confirmPassword.text = ""
 
         }
         else{
             
             password.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
+            AppCommon.feedbackManager.showFeedbackAlert(alertTitle: "Invalid Input", alertMessage: """
+    Your password must meet the following criteria:
+    
+    - At least 8 characters long
+    - Contains at least one uppercase letter
+    - Contains at least one lowercase letter
+    - Contains at least one number
+    - Contains at least one special character (@$!%*?&)
+    """, alertStyle: .actionSheet, view: self)
             self.email.text = ""
             self.password.text = ""
+            self.confirmPassword.text = ""
+
 
         }
         
