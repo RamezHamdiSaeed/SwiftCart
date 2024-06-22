@@ -58,29 +58,57 @@ class GoogleAuthImpl : GoogleAuth{
     }
     func logInWithGoogle(view:UIViewController,whenSuccess: @escaping () -> ()) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        let config = GIDConfiguration(clientID: clientID)
-        GIDSignIn.sharedInstance.configuration = config
-        GIDSignIn.sharedInstance.signIn(withPresenting: view) { signInResult, error in
-            guard error == nil else {
-                print("error while logged in : \(error?.localizedDescription)")
-                return }
-            guard let signInResult = signInResult else { return }
+               let config = GIDConfiguration(clientID: clientID)
+               
+               GIDSignIn.sharedInstance.configuration = config
+               GIDSignIn.sharedInstance.signIn(withPresenting: view) { signInResult, error in
+                   guard error == nil else {
+                       print("Error while logging in: \(error?.localizedDescription ?? "Unknown error")")
+                       return
+                   }
+                   guard let signInResult = signInResult else { return }
 
-            let userEmail = signInResult.user.profile?.email
+                   let user = signInResult.user
+                   let userEmail = user.profile?.email
 
-            if let email = userEmail {
-              print("Logged in user email: \(email)")
-                self.shopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: ""){
-                    whenSuccess()
-                }
-            }
-                else {
-                print("Email is not available")
-                    self.failMessage!()
-            }
-          }
-        
-            
+                   user.refreshTokensIfNeeded { auth, error in
+                       if let error = error {
+                           print("Error during token refresh: \(error.localizedDescription)")
+                           return
+                       }
+
+                       guard let auth = auth else {
+                           print("No authentication object found")
+                           return
+                       }
+
+                       let idToken = auth.idToken
+                       let accessToken = auth.accessToken
+
+                       let credential = GoogleAuthProvider.credential(withIDToken: idToken!.tokenString, accessToken: accessToken.tokenString)
+
+                       Auth.auth().signIn(with: credential) { authResult, error in
+                           if let error = error {
+                               print("Firebase sign-in error: \(error.localizedDescription)")
+                               return
+                           }
+
+                           guard let authResult = authResult else { return }
+
+                           if let email = userEmail {
+                               print("Logged in user email: \(email)")
+                               self.shopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: email) {
+                                   whenSuccess()
+                               }
+                           } else {
+                               print("Email is not available")
+                               self.failMessage?()
+                           }
+                       }
+                   }
+               }
+                
+                    
         }
     
     
