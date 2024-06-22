@@ -51,6 +51,9 @@ class AuthViewModelImpl : AuthViewModel{
                 LocalDataSourceImpl.shared.deleteProductFromFav(product: currentProduct)
                 whenSuccess?()
             }
+            AppCommon.userSessionManager.setIsSignedOutUser()
+
+                
         })
        
     }

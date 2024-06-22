@@ -41,7 +41,7 @@ class MeViewController: UIViewController {
     @IBAction func ordersBtn(_ sender: Any) {
         if User.id == nil {
        
-            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You are not signed In", alertStyle: .alert, view: self)
+            AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You are not signed In", alertStyle: .alert, view: self)
         }else{
             let ordersViewController = storyboard?.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController
             navigationController?.pushViewController(ordersViewController!, animated: true)
