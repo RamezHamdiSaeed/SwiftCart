@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-protocol FirebaseAuth{
+protocol GoogleAuth{
     func signUp(email : String, password : String,whenSuccess:@escaping()->())
     func logIn(email : String, password : String,whenSuccess:@escaping()->())
+    func logInWithGoogle(view : UIViewController,whenSuccess:@escaping()->())
     func signOut(whenSuccess:@escaping()->())
 }

@@ -10,7 +10,7 @@ import Firebase
 import XCTest
 @testable import SwiftCart
 
-class MockFirebaseAuthImpl : FirebaseAuth{
+class MockFirebaseAuthImpl : GoogleAuth{
 
     init() {
         if FirebaseApp.app() == nil {

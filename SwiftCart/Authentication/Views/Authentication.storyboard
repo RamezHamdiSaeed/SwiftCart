@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgE-cU-DBL">
-                                <rect key="frame" x="87" y="552" width="219" height="52"/>
+                                <rect key="frame" x="85.999999999999986" y="519" width="218.66666666666663" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="fO1-5S-6Ak"/>
                                 </constraints>
@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aV2-eW-WnT">
-                                <rect key="frame" x="87" y="627" width="219" height="52"/>
+                                <rect key="frame" x="86.999999999999986" y="596" width="218.66666666666663" height="52"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up">
                                     <color key="baseForegroundColor" name="ScreenAndUIText"/>
@@ -70,31 +70,42 @@
                                     <action selector="logInBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gtb-T2-q56"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9GH-ic-1bu" customClass="GIDSignInButton">
+                                <rect key="frame" x="86.999999999999986" y="674" width="218.66666666666663" height="52"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="ScreenAndUIText"/>
                         <constraints>
-                            <constraint firstItem="cgE-cU-DBL" firstAttribute="centerX" secondItem="xZB-Hs-7KE" secondAttribute="centerX" id="4QI-Kg-9KQ"/>
+                            <constraint firstItem="cgE-cU-DBL" firstAttribute="centerX" secondItem="xZB-Hs-7KE" secondAttribute="centerX" constant="-1.1666666666666572" id="4QI-Kg-9KQ"/>
                             <constraint firstItem="RuL-bT-hX3" firstAttribute="centerY" secondItem="O9U-dn-6vv" secondAttribute="centerY" id="8e6-Ea-ytl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="27I-mW-uxG" secondAttribute="trailing" constant="61" id="Cy9-Oh-Sb2"/>
                             <constraint firstItem="O9U-dn-6vv" firstAttribute="top" secondItem="RuL-bT-hX3" secondAttribute="top" id="JZT-i9-rDu"/>
                             <constraint firstItem="27I-mW-uxG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="58" id="PUk-jt-ApZ"/>
-                            <constraint firstItem="aV2-eW-WnT" firstAttribute="top" secondItem="cgE-cU-DBL" secondAttribute="bottom" constant="23" id="Swg-sH-8xx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cgE-cU-DBL" secondAttribute="bottom" constant="214" id="U0m-4J-sqX"/>
+                            <constraint firstItem="9GH-ic-1bu" firstAttribute="top" secondItem="aV2-eW-WnT" secondAttribute="bottom" constant="26" id="QTM-NT-a0Z"/>
+                            <constraint firstItem="aV2-eW-WnT" firstAttribute="top" secondItem="cgE-cU-DBL" secondAttribute="bottom" constant="25" id="Swg-sH-8xx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cgE-cU-DBL" secondAttribute="bottom" constant="247" id="U0m-4J-sqX"/>
+                            <constraint firstItem="9GH-ic-1bu" firstAttribute="centerX" secondItem="aV2-eW-WnT" secondAttribute="centerX" id="UHR-o5-4rN"/>
+                            <constraint firstItem="9GH-ic-1bu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="86.999999999999986" id="b5p-6W-Ass"/>
                             <constraint firstItem="27I-mW-uxG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="31" id="bdX-hO-BhM"/>
-                            <constraint firstItem="aV2-eW-WnT" firstAttribute="leading" secondItem="cgE-cU-DBL" secondAttribute="leading" id="csc-Zg-qOb"/>
-                            <constraint firstItem="aV2-eW-WnT" firstAttribute="trailing" secondItem="cgE-cU-DBL" secondAttribute="trailing" id="ePB-6g-XTU"/>
+                            <constraint firstItem="aV2-eW-WnT" firstAttribute="leading" secondItem="cgE-cU-DBL" secondAttribute="leading" constant="1" id="csc-Zg-qOb"/>
+                            <constraint firstItem="aV2-eW-WnT" firstAttribute="trailing" secondItem="cgE-cU-DBL" secondAttribute="trailing" constant="1" id="ePB-6g-XTU"/>
                             <constraint firstItem="O9U-dn-6vv" firstAttribute="leading" secondItem="RuL-bT-hX3" secondAttribute="trailing" id="eVD-h2-Rzy"/>
                             <constraint firstItem="RuL-bT-hX3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="49" id="g4T-va-8oe"/>
                             <constraint firstItem="xZB-Hs-7KE" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="iHT-vW-N7T"/>
                             <constraint firstItem="xZB-Hs-7KE" firstAttribute="top" secondItem="27I-mW-uxG" secondAttribute="bottom" constant="51" id="jt7-cg-Sun"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="27I-mW-uxG" secondAttribute="bottom" constant="455" id="o6s-fa-ute"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aV2-eW-WnT" secondAttribute="bottom" constant="139" id="tC2-q7-1b1"/>
-                            <constraint firstItem="cgE-cU-DBL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="87" id="x15-fh-gvx"/>
-                            <constraint firstItem="O9U-dn-6vv" firstAttribute="top" secondItem="aV2-eW-WnT" secondAttribute="bottom" constant="55" id="ywp-cy-B4f"/>
+                            <constraint firstItem="RuL-bT-hX3" firstAttribute="top" secondItem="9GH-ic-1bu" secondAttribute="bottom" constant="8" id="p4p-7s-e7m"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aV2-eW-WnT" secondAttribute="bottom" constant="170" id="tC2-q7-1b1"/>
+                            <constraint firstItem="cgE-cU-DBL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="86" id="x15-fh-gvx"/>
+                            <constraint firstItem="O9U-dn-6vv" firstAttribute="top" secondItem="aV2-eW-WnT" secondAttribute="bottom" constant="86" id="ywp-cy-B4f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W3k-uz-cCc"/>
+                    <connections>
+                        <outlet property="googleLoginBtn" destination="9GH-ic-1bu" id="mQI-qm-Tju"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,6 +321,9 @@
         <namedColor name="ScreenAndUIText">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

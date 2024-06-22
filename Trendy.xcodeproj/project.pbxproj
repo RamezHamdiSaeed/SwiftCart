@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E20F52F2C2536F1006C8EF5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */; };
-		1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464732C10985D00745CA8 /* FirebaseAuth.swift */; };
-		1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */; };
+		1E2464742C10985D00745CA8 /* GoogleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464732C10985D00745CA8 /* GoogleAuth.swift */; };
+		1E2464762C10987400745CA8 /* GoogleAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464752C10987400745CA8 /* GoogleAuthImpl.swift */; };
 		1E2464782C1098C000745CA8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464772C1098C000745CA8 /* User.swift */; };
 		1E24647A2C1099BE00745CA8 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2464792C1099BD00745CA8 /* Authentication.storyboard */; };
 		1E24647E2C1099DD00745CA8 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24647B2C1099DD00745CA8 /* LogInViewController.swift */; };
@@ -35,12 +35,12 @@
 		1E2464B62C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464B52C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift */; };
 		1E2464B82C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2464B72C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard */; };
 		1E2464C02C10B33400745CA8 /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464BF2C10B33400745CA8 /* AppCommon.swift */; };
-		1E4A618D2C13484700F09A35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */; };
 		1E4A618F2C134B4700F09A35 /* ShopifyAuthNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */; };
 		1E4A61912C134C7D00F09A35 /* SignedUpCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */; };
 		1E4A61932C134D4D00F09A35 /* LoggedInCustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */; };
 		1E4A61952C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */; };
 		1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */; };
+		1E7BB44E2C270F10009AE899 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E7BB44D2C270F0F009AE899 /* GoogleService-Info.plist */; };
 		1E85350D2C2207A500D088D8 /* MockFirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */; };
 		1E85350F2C2207C100D088D8 /* FirebaseAuthImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */; };
 		1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8535102C22185B00D088D8 /* NetworkingManager.swift */; };
@@ -54,6 +54,8 @@
 		1E917A4B2C226C1800272EE1 /* LocalDataSourceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E917A4A2C226C1800272EE1 /* LocalDataSourceImplTest.swift */; };
 		1E9633492C202AC500E5509B /* FavoriteSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9633482C202AC500E5509B /* FavoriteSync.swift */; };
 		1EA3CE9E2C21BABD000C4911 /* UserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA3CE9D2C21BABD000C4911 /* UserSessionManager.swift */; };
+		1EA6C76A2C271FD1005FFCE6 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA6C7692C271FD1005FFCE6 /* GoogleSignIn */; };
+		1EA6C76C2C271FD1005FFCE6 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA6C76B2C271FD1005FFCE6 /* GoogleSignInSwift */; };
 		1EC4CE512C24661F0062377A /* CartNetworkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE502C24661F0062377A /* CartNetworkTest.swift */; };
 		1EC4CE552C2468990062377A /* InputValidatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE542C2468990062377A /* InputValidatorTest.swift */; };
 		1EC4CE582C246C510062377A /* OnBoardingManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4CE572C246C510062377A /* OnBoardingManagerTest.swift */; };
@@ -172,8 +174,8 @@
 		08F974D75784EEB17C3E4BAE /* Pods-SwiftCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12C42DFE4584376420AB7FD7 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
 		1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		1E2464732C10985D00745CA8 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
-		1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImpl.swift; sourceTree = "<group>"; };
+		1E2464732C10985D00745CA8 /* GoogleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuth.swift; sourceTree = "<group>"; };
+		1E2464752C10987400745CA8 /* GoogleAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthImpl.swift; sourceTree = "<group>"; };
 		1E2464772C1098C000745CA8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1E2464792C1099BD00745CA8 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1E24647B2C1099DD00745CA8 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -199,12 +201,12 @@
 		1E2464B52C109EFB00745CA8 /* SearchFavoriteProductsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFavoriteProductsViewModel.swift; sourceTree = "<group>"; };
 		1E2464B72C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductsSearchDetailsAndFav.storyboard; sourceTree = "<group>"; };
 		1E2464BF2C10B33400745CA8 /* AppCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
-		1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkService.swift; sourceTree = "<group>"; };
 		1E4A61902C134C7D00F09A35 /* SignedUpCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUpCustomerInfo.swift; sourceTree = "<group>"; };
 		1E4A61922C134D4D00F09A35 /* LoggedInCustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCustomerInfo.swift; sourceTree = "<group>"; };
 		1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyAuthNetworkServiceImpl.swift; sourceTree = "<group>"; };
 		1E5A69352BFF9A7000654FE6 /* HomeAndCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeAndCategories.storyboard; sourceTree = "<group>"; };
+		1E7BB44D2C270F0F009AE899 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1E85350C2C2207A500D088D8 /* MockFirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthImpl.swift; sourceTree = "<group>"; };
 		1E85350E2C2207C100D088D8 /* FirebaseAuthImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImplTest.swift; sourceTree = "<group>"; };
 		1E8535102C22185B00D088D8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -329,7 +331,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EA6C76C2C271FD1005FFCE6 /* GoogleSignInSwift in Frameworks */,
 				35240D42E0CA4EF4B5881EAE /* Pods_SwiftCart.framework in Frameworks */,
+				1EA6C76A2C271FD1005FFCE6 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,8 +417,8 @@
 		1E2464722C10983900745CA8 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				1E2464732C10985D00745CA8 /* FirebaseAuth.swift */,
-				1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */,
+				1E2464732C10985D00745CA8 /* GoogleAuth.swift */,
+				1E2464752C10987400745CA8 /* GoogleAuthImpl.swift */,
 				1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */,
 				1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */,
 			);
@@ -788,7 +792,7 @@
 				1ED98EA42BFF882100948409 /* SceneDelegate.swift */,
 				1ED98EAE2BFF882300948409 /* Assets.xcassets */,
 				1ED98EB02BFF882300948409 /* LaunchScreen.storyboard */,
-				1E4A618C2C13484700F09A35 /* GoogleService-Info.plist */,
+				1E7BB44D2C270F0F009AE899 /* GoogleService-Info.plist */,
 				1ED98EB32BFF882300948409 /* Info.plist */,
 				1ED98EAB2BFF882100948409 /* SwiftCart.xcdatamodeld */,
 				43AFF4402C18E1EA007C649C /* SingleProductCollectionViewCell.swift */,
@@ -1274,6 +1278,10 @@
 			dependencies = (
 			);
 			name = SwiftCart;
+			packageProductDependencies = (
+				1EA6C7692C271FD1005FFCE6 /* GoogleSignIn */,
+				1EA6C76B2C271FD1005FFCE6 /* GoogleSignInSwift */,
+			);
 			productName = SwiftCart;
 			productReference = 1ED98E9F2BFF882100948409 /* SwiftCart.app */;
 			productType = "com.apple.product-type.application";
@@ -1349,6 +1357,9 @@
 				Base,
 			);
 			mainGroup = 1ED98E962BFF882100948409;
+			packageReferences = (
+				1EA6C7682C271FD1005FFCE6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = 1ED98EA02BFF882100948409 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1375,10 +1386,10 @@
 				1ED98EAF2BFF882300948409 /* Assets.xcassets in Resources */,
 				1ED98EAA2BFF882100948409 /* Main.storyboard in Resources */,
 				DAC6B0F22C1A19DA0099C630 /* PaymentViewController.xib in Resources */,
-				1E4A618D2C13484700F09A35 /* GoogleService-Info.plist in Resources */,
 				1E5A69362BFF9A7000654FE6 /* HomeAndCategories.storyboard in Resources */,
 				1E2464B82C109F1700745CA8 /* ProductsSearchDetailsAndFav.storyboard in Resources */,
 				DAE2A6842C19B7C400F80C5E /* NewCartViewController.xib in Resources */,
+				1E7BB44E2C270F10009AE899 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1510,7 +1521,7 @@
 				1E2464A62C109DAB00745CA8 /* ProductTemp.swift in Sources */,
 				1E2464C02C10B33400745CA8 /* AppCommon.swift in Sources */,
 				1E4A61952C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift in Sources */,
-				1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */,
+				1E2464742C10985D00745CA8 /* GoogleAuth.swift in Sources */,
 				1E24649F2C109D9F00745CA8 /* CollectionViewCell.swift in Sources */,
 				DA79E2062C0DF8C2006A9DAB /* AddressSettingViewController.swift in Sources */,
 				DAC6B0F12C1A19DA0099C630 /* PaymentViewController.swift in Sources */,
@@ -1561,7 +1572,7 @@
 				43A232112BFFC67F000BCF24 /* HomeViewController.swift in Sources */,
 				DAE2A6732C18415600F80C5E /* CartNetwork.swift in Sources */,
 				1E8535112C22185B00D088D8 /* NetworkingManager.swift in Sources */,
-				1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */,
+				1E2464762C10987400745CA8 /* GoogleAuthImpl.swift in Sources */,
 				1E24648F2C109C0400745CA8 /* NetworkingManagerImpl.swift in Sources */,
 				1E4A618F2C134B4700F09A35 /* ShopifyAuthNetworkService.swift in Sources */,
 				43EBCB062C00B14F00A2A49A /* BrandServiceImp.swift in Sources */,
@@ -1977,6 +1988,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EA6C7682C271FD1005FFCE6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EA6C7692C271FD1005FFCE6 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EA6C7682C271FD1005FFCE6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		1EA6C76B2C271FD1005FFCE6 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EA6C7682C271FD1005FFCE6 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1ED98EAB2BFF882100948409 /* SwiftCart.xcdatamodeld */ = {

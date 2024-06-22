@@ -7,12 +7,15 @@
 
 import Foundation
 import Firebase
-class FirebaseAuthImpl : FirebaseAuth{
+import GoogleSignIn
+
+class GoogleAuthImpl : GoogleAuth{
     
-    static let user = FirebaseAuthImpl()
+    static let user = GoogleAuthImpl()
     let shopifyAuthNetworkServiceImpl:ShopifyAuthNetworkServiceImpl = ShopifyAuthNetworkServiceImpl(networkingManager: NetworkingManagerImpl())
      var successMessage : (()->())?
     var failMessage : (()->())?
+    
     private init(){
         FirebaseApp.configure()
     }
@@ -53,6 +56,33 @@ class FirebaseAuthImpl : FirebaseAuth{
             print(error.localizedDescription)
         }
     }
+    func logInWithGoogle(view:UIViewController,whenSuccess: @escaping () -> ()) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        GIDSignIn.sharedInstance.signIn(withPresenting: view) { signInResult, error in
+            guard error == nil else {
+                print("error while logged in : \(error?.localizedDescription)")
+                return }
+            guard let signInResult = signInResult else { return }
+
+            let userEmail = signInResult.user.profile?.email
+
+            if let email = userEmail {
+              print("Logged in user email: \(email)")
+                self.shopifyAuthNetworkServiceImpl.getLoggedInCustomerByEmail(email: ""){
+                    whenSuccess()
+                }
+            }
+                else {
+                print("Email is not available")
+                    self.failMessage!()
+            }
+          }
+        
+            
+        }
+    
     
     func signOut(whenSuccess:@escaping()->()) {
         do{

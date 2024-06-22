@@ -6,19 +6,21 @@
 //
 
 import Foundation
-
+import UIKit
 class AuthViewModelImpl : AuthViewModel{
+
+    
     
     func setSuccessMessage(successMessage: @escaping (() -> ())) {
-        FirebaseAuthImpl.user.successMessage(successMessage: successMessage)
+        GoogleAuthImpl.user.successMessage(successMessage: successMessage)
     }
         func setFailMessage(failMessage: @escaping (() -> ())){
-        FirebaseAuthImpl.user.failMessage(failMessage: failMessage)
+        GoogleAuthImpl.user.failMessage(failMessage: failMessage)
     }
     
     func signUp(email:String,password:String,whenSuccess:(()->())?) {
         
-        FirebaseAuthImpl.user.signUp(email: email, password: password){
+        GoogleAuthImpl.user.signUp(email: email, password: password){
             whenSuccess?()
         }
 
@@ -27,7 +29,7 @@ class AuthViewModelImpl : AuthViewModel{
     
     func logIn(email:String,password:String,whenSuccess:(()->())?) {
         
-        FirebaseAuthImpl.user.logIn(email: email, password: password){
+        GoogleAuthImpl.user.logIn(email: email, password: password){
             
             FavoriteSync.fetchProducts(for: User.email!, completion: {
                 products in
@@ -42,8 +44,24 @@ class AuthViewModelImpl : AuthViewModel{
         }
     }
     
+    func logInWithGoogle(view : UIViewController,whenSuccess: @escaping () -> ()) {
+    
+        GoogleAuthImpl.user.logInWithGoogle(view: view, whenSuccess: {
+            FavoriteSync.fetchProducts(for: User.email!, completion: {
+                products in
+                products.forEach{
+                    currentProduct in
+                  LocalDataSourceImpl.shared.insertProductToFav(product: currentProduct)
+                }
+            })
+            
+            AppCommon.userSessionManager.setIsNotSignedOutUser()
+            whenSuccess()
+        })
+    }
+    
     func logOut(whenSuccess:(()->())?) {
-        FirebaseAuthImpl.user.signOut(whenSuccess:{
+        GoogleAuthImpl.user.signOut(whenSuccess:{
             guard let favoriteProducts = LocalDataSourceImpl.shared.getProductsFromFav() else {return}
             FavoriteSync.uploadProducts(for: User.email!, products: favoriteProducts)
             favoriteProducts.forEach{
