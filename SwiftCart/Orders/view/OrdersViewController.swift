@@ -67,12 +67,14 @@ class OrdersViewController: UIViewController ,UITableViewDelegate , UITableViewD
         // Configure Cell
         let order = orders[indexPath.item]
         
-        cell.orderDateLabel.text = order.createdAt
-       
+       // cell.orderDateLabel.text = order.createdAt
+        var dateStr = extractDate(from: order.createdAt!)
+        cell.orderDateLabel.text = dateStr
+        
         cell.orderNumberLabel.text = "\(indexPath.item)"
         var convertedPrice = convertPrice(price: String(order.totalPrice ?? "0.0" ), rate: self.rate)
         cell.orderPriceLabel.text = "\(String(format: "%.2f", convertedPrice)) \(userCurrency)"
-
+        
         cell.orderSippedLabel.text = order.shippingAddress?.city
 
 
