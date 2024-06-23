@@ -37,12 +37,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="167" placeholderIntrinsicHeight="44" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ol6-Zq-ncD">
-                    <rect key="frame" x="115" y="739" width="167" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="209" placeholderIntrinsicHeight="41" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ol6-Zq-ncD">
+                    <rect key="frame" x="93" y="739" width="209" height="41"/>
                     <color key="backgroundColor" red="1" green="0.57638462660000001" blue="0.2880411088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="gray" title="ProceedCheckOut"/>
+                    <buttonConfiguration key="configuration" style="gray" title="Proceed To CheckOut"/>
                     <connections>
                         <action selector="checkOut:" destination="-1" eventType="touchUpInside" id="veD-Wy-UtK"/>
                     </connections>
@@ -51,17 +51,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Ol6-Zq-ncD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="115" id="298-yD-0Ov"/>
+                <constraint firstItem="Ol6-Zq-ncD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="93" id="298-yD-0Ov"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qpy-mc-X1k" secondAttribute="bottom" constant="100" id="Gta-ku-4e3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="QOU-55-eN8" secondAttribute="bottom" constant="141" id="NMG-mz-N9k"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QOU-55-eN8" secondAttribute="trailing" constant="5" id="OAh-eh-HxI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bKE-Tv-x8R" secondAttribute="bottom" constant="100" id="S95-Hr-I4i"/>
                 <constraint firstItem="QOU-55-eN8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="93" id="TBO-IB-8VR"/>
                 <constraint firstItem="qpy-mc-X1k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="23" id="ZgA-rw-Wjk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ol6-Zq-ncD" secondAttribute="trailing" constant="108" id="eyS-bL-NdA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ol6-Zq-ncD" secondAttribute="trailing" constant="88" id="eyS-bL-NdA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bKE-Tv-x8R" secondAttribute="trailing" constant="158" id="pCK-Fy-ZEB"/>
                 <constraint firstItem="QOU-55-eN8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="11" id="qCe-K6-q2H"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ol6-Zq-ncD" secondAttribute="bottom" constant="27" id="xV9-tg-7eI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Ol6-Zq-ncD" secondAttribute="bottom" constant="30" id="xV9-tg-7eI"/>
             </constraints>
             <point key="canvasLocation" x="130.76923076923077" y="-11.374407582938389"/>
         </view>

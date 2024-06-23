@@ -40,6 +40,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             DispatchQueue.main.async { [self] in
                 self?.rate = rate
                 self?.calculateTotalPrice()
+                setHeader(view: self!, title: "Your Cart")
+
             }
         }
         cartViewModel.getRate()

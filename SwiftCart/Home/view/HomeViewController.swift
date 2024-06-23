@@ -242,7 +242,7 @@ extension HomeViewController: UICollectionViewDataSource {
         print("Coupon code \(code) copied to clipboard")
         
         // Optionally, show a message to the user
-        let alert = UIAlertController(title: "Copied", message: "Coupon code \(code) copied to clipboard", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Copied", message: "Coupon code  copied ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

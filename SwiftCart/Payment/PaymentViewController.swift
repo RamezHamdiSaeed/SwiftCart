@@ -95,11 +95,13 @@ class PaymentViewController: UIViewController {
                     self?.viewModel.deleteDraftOrders(draftOrderIDs: draftOrders.map { $0.id ?? 0 }) { deleteSuccess in
                         DispatchQueue.main.async {
                             if deleteSuccess {
-                                let successAlert = UIAlertController(title: "Success", message: "Your order has been completed .", preferredStyle: .alert)
-                                successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                                let successAlert = UIAlertController(title: "Success", message: "Your order has been completed.", preferredStyle: .alert)
+                                successAlert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                                    self?.navigateBackToHome()
+                                })
                                 self?.present(successAlert, animated: true, completion: nil)
                             } else {
-                                let failureAlert = UIAlertController(title: "Warning", message: "Your order has been completed .", preferredStyle: .alert)
+                                let failureAlert = UIAlertController(title: "Warning", message: "Your order has been completed, but there was an issue deleting the draft orders.", preferredStyle: .alert)
                                 failureAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                 self?.present(failureAlert, animated: true, completion: nil)
                             }
@@ -113,6 +115,16 @@ class PaymentViewController: UIViewController {
             }
         }
     }
+    
+    private func navigateBackToHome() {
+        let storyboard1 = UIStoryboard(name: "HomeAndCategories", bundle: nil)
+               let home = (storyboard1.instantiateViewController(withIdentifier: "tb") as? UITabBarController)!
+        
+        self.navigationController?.pushViewController(home, animated: true)
+            
+     
+    }
+
     
     private func calculateTotalAmount() -> Decimal? {
         guard let draftOrders = draftOrders else { return nil }

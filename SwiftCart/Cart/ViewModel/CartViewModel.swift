@@ -25,7 +25,6 @@ class CartViewModel {
        
     var bindResultToViewController: (() -> Void)?
     
-    // Method to add a line item to the cart
     func addToCart(customerId: Int, lineItem: LineItemRequest) {
         print("Adding to cart with customerId: \(customerId) and lineItem: \(lineItem)")
         CartNetwork.shared.createOrder(customerID: customerId, lineItem: lineItem) { (result: Result<Bool, Error>) in

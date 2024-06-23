@@ -199,6 +199,11 @@ struct LineItemRequest: Encodable {
     }
 }
 
+struct Properties:Encodable{
+    let name:String?
+    let value:String?
+}
+
 // MARK: - CustomerID
 struct CustomerID: Encodable {
     let id: Int
