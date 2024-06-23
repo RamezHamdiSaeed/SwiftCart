@@ -53,14 +53,13 @@ extension FeedbackManager{
             print("cancel tapped")
         }
         alertController.addAction(cancelAction)
-      //  present(alertController)
         view.present(alertController, animated: true, completion: nil)
       }
     
     func showCancelableAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,view : UIViewController , okCompletion : @escaping () -> Void ) {
           let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: alertStyle)
         let attributedTitle = NSAttributedString(string: alertTitle, attributes: [
-            NSAttributedString.Key.foregroundColor : UIColor.systemOrange // Change color as needed
+            NSAttributedString.Key.foregroundColor : UIColor.systemOrange
         ])
         alertController.setValue(attributedTitle, forKey: "attributedTitle")
         
@@ -75,7 +74,20 @@ extension FeedbackManager{
           }
           alertController.addAction(okAction)
 
-      //  present(alertController)
+        view.present(alertController, animated: true, completion: nil)
+      }
+    func showFeedbackAlert(alertTitle:String,alertMessage:String,alertStyle:UIAlertController.Style,view : UIViewController) {
+          let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: alertStyle)
+        let attributedTitle = NSAttributedString(string: alertTitle, attributes: [
+            NSAttributedString.Key.foregroundColor : UIColor.systemOrange
+        ])
+        alertController.setValue(attributedTitle, forKey: "attributedTitle")
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+              print("OK tapped")
+          }
+          alertController.addAction(okAction)
+
         view.present(alertController, animated: true, completion: nil)
       }
 }

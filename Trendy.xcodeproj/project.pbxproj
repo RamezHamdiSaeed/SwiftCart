@@ -400,9 +400,9 @@
 		1E2464712C10982300745CA8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E24647C2C1099DD00745CA8 /* SignUpViewController.swift */,
 				1E24647B2C1099DD00745CA8 /* LogInViewController.swift */,
 				1E24647D2C1099DD00745CA8 /* MainAuthViewController.swift */,
-				1E24647C2C1099DD00745CA8 /* SignUpViewController.swift */,
 				1E2464792C1099BD00745CA8 /* Authentication.storyboard */,
 			);
 			path = Views;
