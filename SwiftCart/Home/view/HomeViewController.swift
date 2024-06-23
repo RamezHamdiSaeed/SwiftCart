@@ -186,6 +186,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     @objc func buttonTapped() {
         print("Floating action button tapped!")
     }
@@ -199,7 +200,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return brandsArray.count
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == AdsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? AddsCollectionViewCell
@@ -207,14 +208,18 @@ extension HomeViewController: UICollectionViewDataSource {
             
             if !couponsList.isEmpty {
                 cell.adsLabel.text = couponsList[indexPath.row].code
-                cell.adsImage.image = UIImage(named: imageNames[indexPath.item])
                 
                 if indexPath.row < imageNames.count {
                     cell.adsImage.image = UIImage(named: imageNames[indexPath.row])
                 } else {
                     cell.adsImage.image = UIImage(named: imageNames[3])
                 }
-                
+
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+                cell.adsImage.addGestureRecognizer(tapGesture)
+                cell.adsImage.isUserInteractionEnabled = true
+                cell.adsImage.tag = indexPath.row
+
                 CollectionViewDesign.collectionViewCell(cell: cell)
             }
             return cell
@@ -223,12 +228,26 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = cell else { return UICollectionViewCell() }
             
             cell.cellImage.sd_setImage(with: URL(string: brandsArray[indexPath.item].image.src ?? ""), placeholderImage: UIImage(named: "processing"))
-             
+
             CollectionViewDesign.collectionViewCell(cell: cell)
             return cell
         }
     }
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        guard let tappedImageView = sender.view as? UIImageView else { return }
+        let index = tappedImageView.tag
+        let code = couponsList[index].code
+        UIPasteboard.general.string = code
+        print("Coupon code \(code) copied to clipboard")
+        
+        // Optionally, show a message to the user
+        let alert = UIAlertController(title: "Copied", message: "Coupon code \(code) copied to clipboard", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
+
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -27,7 +27,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "emptyCart") 
+        imageView.image = UIImage(named: "emptyCart")
         return imageView
     }()
 
@@ -43,8 +43,6 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         cartViewModel.getRate()
-        setHeader(view: self, title: "Your Cart")
-
         
         styleTableView(tableView: cartTable)
         setBackground(view: self.view)
@@ -76,7 +74,10 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func toggleEmptyCartBackground() {
-        emptyCartBackgroundImageView.isHidden = !lineItems.isEmpty
+        let isEmpty = lineItems.isEmpty
+        emptyCartBackgroundImageView.isHidden = !isEmpty
+        goToPayment.isEnabled = !isEmpty
+        goToPayment.alpha = isEmpty ? 0.5 : 1.0 // Optional: to visually indicate button is disabled
     }
     
     func didCompletePurchase() {
@@ -129,6 +130,8 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartCell", for: indexPath) as! CartTableViewCell
         cell.delegate = self
+        cell.contentView.layer.backgroundColor = UIColor.white.cgColor
+        cell.layer.backgroundColor = UIColor.white.cgColor
 
         let draftOrder = draftOrders[indexPath.section]
         if let lineItem = draftOrder.lineItems?[indexPath.row] {
@@ -143,15 +146,17 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
         return 130
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let draftOrder = draftOrders[indexPath.section]
-        if let draftOrderID = draftOrder.id {
-            let alertController = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item from the cart?", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-                self.cartViewModel.deleteFromCart(draftOrderID: draftOrderID)
-            }))
-            present(alertController, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let draftOrder = draftOrders[indexPath.section]
+            if let draftOrderID = draftOrder.id {
+                let alertController = UIAlertController(title: "Delete Item", message: "Are you sure you want to delete this item from the cart?", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    self.cartViewModel.deleteFromCart(draftOrderID: draftOrderID)
+                }))
+                present(alertController, animated: true, completion: nil)
+            }
         }
     }
     

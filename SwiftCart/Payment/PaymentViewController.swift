@@ -77,6 +77,7 @@ class PaymentViewController: UIViewController {
         if let coupon = availableCoupons.first(where: { $0.code == couponCode }),
            let priceRule = viewModelDis.getPriceRule(for: coupon) {
             applyDiscount(priceRule)
+            couponText.text = ""
         } else {
             showInvalidCouponAlert(message: "The entered coupon code is invalid.")
         }
@@ -94,11 +95,11 @@ class PaymentViewController: UIViewController {
                     self?.viewModel.deleteDraftOrders(draftOrderIDs: draftOrders.map { $0.id ?? 0 }) { deleteSuccess in
                         DispatchQueue.main.async {
                             if deleteSuccess {
-                                let successAlert = UIAlertController(title: "Success", message: "Your order has been completed and draft orders have been deleted.", preferredStyle: .alert)
+                                let successAlert = UIAlertController(title: "Success", message: "Your order has been completed .", preferredStyle: .alert)
                                 successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                 self?.present(successAlert, animated: true, completion: nil)
                             } else {
-                                let failureAlert = UIAlertController(title: "Warning", message: "Your order has been completed but failed to delete draft orders.", preferredStyle: .alert)
+                                let failureAlert = UIAlertController(title: "Warning", message: "Your order has been completed .", preferredStyle: .alert)
                                 failureAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                 self?.present(failureAlert, animated: true, completion: nil)
                             }
