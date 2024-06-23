@@ -28,12 +28,22 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showBtn()
         setupEmptyAddressBackgroundImage()
         addNibFile()
         setupViewModel()
         
         add.layer.cornerRadius = 10
         loadLocations()
+    }
+    
+    func showBtn(){
+        var add = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(addAddress))
+        add.tintColor = .orange
+        self.navigationItem.setRightBarButton(add, animated: false)
+    }
+    @objc func addAddress(){
+        
     }
 
     private func setupEmptyAddressBackgroundImage() {

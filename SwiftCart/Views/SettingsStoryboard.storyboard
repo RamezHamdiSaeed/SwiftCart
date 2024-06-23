@@ -142,7 +142,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Hom-5v-eNB" secondAttribute="trailing" constant="40" id="y1Z-Jo-W6o"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Eaa-3a-3qr"/>
+                    <navigationItem key="navigationItem" id="Eaa-3a-3qr">
+                        <barButtonItem key="backBarButtonItem" title="setting" id="Tt5-8f-gl1"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="address" destination="OGT-oj-1et" id="iJn-LN-uXM"/>
                         <outlet property="currency" destination="7fl-3e-Ash" id="HGb-Rl-rp5"/>
