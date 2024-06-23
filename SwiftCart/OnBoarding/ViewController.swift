@@ -32,7 +32,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Start monitoring
+        Reachability.shared.startMonitoring()
+
+        // Observe reachability changes
+        NotificationCenter.default.addObserver(self, selector: #selector(handleReachabilityChanged), name: .reachabilityChanged, object: nil)
+
     }
+    
+    @objc func handleReachabilityChanged() {
+            if Reachability.shared.isReachable {
+                FeedbackManager.successSwiftMessage(title: "", body: "Network is reachable")
+                print("Network is reachable")
+            } else {
+                FeedbackManager.errorSwiftMessage(title: "", body: "Network is not reachable")
+                print("Network is not reachable")
+            }
+        }
+
+        deinit {
+            NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
+        }
     
     private func configure(){
         scrollView.frame = horizontalScrollOnBoarding.bounds

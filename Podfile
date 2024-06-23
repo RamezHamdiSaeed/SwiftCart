@@ -14,6 +14,7 @@ pod 'SwiftMessages'
 pod 'JJFloatingActionButton'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'ReachabilitySwift'
 
   target 'SwiftCartTests' do
     inherit! :search_paths
