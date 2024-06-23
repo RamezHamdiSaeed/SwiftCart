@@ -99,7 +99,7 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
         
         priceSlider.rx.value
             .map {
-                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 0 )) + " " + self.userCurrency
+                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 1.0 )) + " " + self.userCurrency
                 
             }
             .bind(to: priceLabel.rx.text)

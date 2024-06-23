@@ -117,8 +117,13 @@ class SettingViewController: UIViewController {
     }
 
     @IBAction func LogOut(_ sender: Any) {
+        
+        self.authVC!.logOut(whenSuccess: nil)
+
         AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to logout?", alertStyle: .alert, view: self, okCompletion: {
-            AppCommon.userSessionManager.setIsSignedOutUser()
+            let authenticationStoryBoard = UIStoryboard(name: "Authentication", bundle: nil)
+                        let logInVC:LogInViewController = (authenticationStoryBoard.instantiateViewController(withIdentifier: "LogInViewController")) as! LogInViewController
+                                self.navigationController?.pushViewController(logInVC, animated: true)
         })
     }
 }
