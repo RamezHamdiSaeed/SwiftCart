@@ -28,7 +28,7 @@ class DetailsNetworkService {
                     print(productDetailsResponse)
                     productsDetailsResult(productDetailsResponse)
                 case .failure(error: let error):
-                    print(error.localizedDescription)
+                    print("error :(",error.localizedDescription)
                 }
                 
             })

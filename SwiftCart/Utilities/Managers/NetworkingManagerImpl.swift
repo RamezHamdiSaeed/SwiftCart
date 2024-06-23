@@ -31,7 +31,8 @@ class NetworkingManagerImpl : NetworkingManager{
         if method == .POST {
             request.addValue(NetworkingKeys.adminKey.rawValue, forHTTPHeaderField: "X-Shopify-Access-Token")
         }
-        if let requestBody = requestBody {
+        if let requestBody = requestBody
+        {
             do {
                 
                 request.httpBody = try JSONEncoder().encode(requestBody)
