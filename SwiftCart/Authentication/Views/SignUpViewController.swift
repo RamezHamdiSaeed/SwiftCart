@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
 
         })
         authVC?.setFailMessage(failMessage: {
-            FeedbackManager.errorSwiftMessage(title: "Error", body: "The Account Already Exists")
+            FeedbackManager.errorSwiftMessage(title: "", body: "The Account Already Exists")
         })
         SwiftCart.setHeader(view: self, title: "Sign Up")
 
@@ -60,7 +60,29 @@ class SignUpViewController: UIViewController {
         let isValidEmail = InputValidator.isValidEmail(email: email.text ?? "")
         let isValidPassword = InputValidator.isValidPassword(password: password.text ?? "")
         
-        if(isValidEmail && isValidPassword){
+
+         if (!isValidEmail){
+            email.layer.borderColor = UIColor.red.cgColor
+            FeedbackManager.errorSwiftMessage(title: "", body: "Wrong Email")
+            self.email.text = ""
+            self.password.text = ""
+             self.confirmPassword.text = ""
+
+        }
+        else if (!isValidPassword){
+            
+            password.layer.borderColor = UIColor.red.cgColor
+            FeedbackManager.errorSwiftMessage(title: "", body: "WrongPassword")
+            self.password.text = ""
+            self.confirmPassword.text = ""
+
+        }
+        else if self.confirmPassword.text != self.password.text{
+            FeedbackManager.errorSwiftMessage(title: "", body: "Don't Match")
+            self.password.text = ""
+            self.confirmPassword.text = ""
+        }
+        else {
             
             authVC?.signUp(email: email.text!, password: password.text!, whenSuccess: {
                 DispatchQueue.main.async{
@@ -68,21 +90,6 @@ class SignUpViewController: UIViewController {
                 }
             })
             
-        }
-        else if (!isValidEmail){
-            email.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
-            self.email.text = ""
-            self.password.text = ""
-
-        }
-        else{
-            
-            password.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.errorSwiftMessage(title: "InValidInput", body: "Wrong Email Or Password")
-            self.email.text = ""
-            self.password.text = ""
-
         }
         
     }

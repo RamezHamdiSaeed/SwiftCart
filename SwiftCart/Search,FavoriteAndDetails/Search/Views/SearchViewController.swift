@@ -113,12 +113,12 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
                     self.showSnackbar(message: message)
                 }
                 cell.whenRemoving = {
-                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from wishlist", alertStyle: .alert, view: self){
                         cell.okRemovingCellBtn()
                     }
                 }
                 cell.guestClosure = {
-                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Login", alertStyle: .alert, view: self)
                 }
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)

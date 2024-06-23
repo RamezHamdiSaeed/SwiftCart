@@ -135,7 +135,7 @@ class DetailsViewController: UIViewController {
             return
         }
         if User.id == nil {
-                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Login", alertStyle: .alert, view: self)
                 }
         else {
             let lineItem = LineItemRequest(variantID: selectedVariant.id ?? 0, quantity: 1, imageUrl: productimgUrl)

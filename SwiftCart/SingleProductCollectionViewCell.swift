@@ -31,7 +31,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
                 guestClosure?()
             }else{
                 viewModel.insertProductToFavDB(product: product!)
-                whenTransactionFulfilledWithDB?("Product inserted into the favorite successfully")
+                whenTransactionFulfilledWithDB?("Product inserted into the wishlist successfully")
                 favBtnOUtlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 product?.isFavorite = true
             }
@@ -61,7 +61,7 @@ class SingleProductCollectionViewCell: UICollectionViewCell {
     }
     func okRemovingCellBtn (){
         viewModel.deleteProductFromFav(product: product!)
-        whenTransactionFulfilledWithDB?("Product removed from the favorite successfully")
+        whenTransactionFulfilledWithDB?("Product removed from the wishlist successfully")
 
         if let whenRemoved = whenRemoved {
             whenRemoved()

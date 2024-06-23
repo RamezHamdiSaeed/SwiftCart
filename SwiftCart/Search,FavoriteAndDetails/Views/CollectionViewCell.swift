@@ -47,7 +47,7 @@ class CollectionViewCell: UICollectionViewCell {
         if currentProductCell.isFavorite {
             print(productCell?.isFavorite)
             viewModel.deleteProductFromFav(product: productCell!)
-            whenTransactionFulfilledWithDB?("Product removed from the favorite successfully")
+            whenTransactionFulfilledWithDB?("Product removed from the wishlist successfully")
             if let whenRemoved = whenRemoved {
                 whenRemoved()
             }
@@ -59,7 +59,7 @@ class CollectionViewCell: UICollectionViewCell {
         }
         else{
             viewModel.insertProductToFavDB(product: productCell!)
-            whenTransactionFulfilledWithDB?("Product inserted into the favorite successfully")
+            whenTransactionFulfilledWithDB?("Product inserted into the wishlist successfully")
             favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             productCell?.isFavorite = true
         }

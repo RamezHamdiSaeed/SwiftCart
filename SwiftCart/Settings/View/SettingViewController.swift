@@ -117,10 +117,8 @@ class SettingViewController: UIViewController {
     }
 
     @IBAction func LogOut(_ sender: Any) {
-        self.authVC!.logOut(whenSuccess: nil)
-        AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to log out?", alertStyle: .alert, view: self, okCompletion: {
+        AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to logout?", alertStyle: .alert, view: self, okCompletion: {
             AppCommon.userSessionManager.setIsSignedOutUser()
-            exit(0)
         })
     }
 }
