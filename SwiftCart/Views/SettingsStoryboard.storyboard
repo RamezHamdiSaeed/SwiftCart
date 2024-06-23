@@ -47,8 +47,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="176" placeholderIntrinsicHeight="31" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="52Q-9h-7cG">
                                 <rect key="frame" x="115" y="668.33333333333337" width="176" height="32"/>
                                 <segments>
-                                    <segment title="Light Mood"/>
-                                    <segment title="Dark Mood"/>
+                                    <segment title="Light"/>
+                                    <segment title="Dark"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>

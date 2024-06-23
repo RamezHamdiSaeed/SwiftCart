@@ -14,6 +14,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var quantity: UILabel!
     @IBOutlet weak var stepprButton: UIStepper!
+    var ordersViewModel = OrdersViewModel()
+
     
     weak var delegate: CartTableCellDelegate?
     
@@ -49,10 +51,22 @@ class CartTableViewCell: UITableViewCell {
             stepprButton.maximumValue = 3
         }
         
-        if let imageUrlString = lineItem.productImage, let imageUrl = URL(string: imageUrlString) {
-            itemImg.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholder"))
-        } else {
-            itemImg.image = UIImage(named: "TrendyIcon")
+//        if let imageUrlString = lineItem.productImage, let imageUrl = URL(string: imageUrlString) {
+//            itemImg.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholder"))
+//        } else {
+//            itemImg.image = UIImage(named: "TrendyIcon")
+//        }
+        ordersViewModel.getProductDetails(productID: String(lineItem.productID!)){
+            res in
+            DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+                if let imageUrlString = res, let imageUrl = URL(string: imageUrlString) {
+                    self?.itemImg.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "TrendyIcon"))
+                } else {
+                    self?.itemImg.image = UIImage(named: "TrendyIcon")
+                }
+                print("resppp",res)
+            }
+        
         }
     }
 }

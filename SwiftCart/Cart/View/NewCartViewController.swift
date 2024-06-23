@@ -18,6 +18,7 @@ class NewCartViewController: UIViewController, UITableViewDataSource, UITableVie
     var customerId = User.id
     var img: String?
     var cartItemCountUpdated: ((Int) -> Void)?
+    
 
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var cartTable: UITableView!
