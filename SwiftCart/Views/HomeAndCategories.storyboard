@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="kTg-qx-RxO">
             <objects>
-                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" id="CRq-Uf-X1T" customClass="HomeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" title="Home" id="CRq-Uf-X1T" customClass="HomeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEh-HQ-Td3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +121,14 @@
                                 <rect key="frame" x="96" y="326" width="200" height="200"/>
                                 <color key="tintColor" red="1" green="0.65374312810000001" blue="0.41435371929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt4-Kg-rLw">
+                                <rect key="frame" x="92" y="117" width="211" height="33"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="32"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <color key="highlightedColor" systemColor="systemOrangeColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BO1-0r-vCq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,8 +141,12 @@
                             <constraint firstItem="BO1-0r-vCq" firstAttribute="bottom" secondItem="ESx-h3-AYJ" secondAttribute="bottom" constant="243" id="Pys-d1-gdF"/>
                             <constraint firstItem="BO1-0r-vCq" firstAttribute="trailing" secondItem="I3x-iH-iCI" secondAttribute="trailing" constant="18" id="TVY-bY-iDS"/>
                             <constraint firstItem="6Us-AF-hqX" firstAttribute="centerX" secondItem="I3x-iH-iCI" secondAttribute="centerX" constant="3" id="VOV-BD-Y6B"/>
+                            <constraint firstItem="BO1-0r-vCq" firstAttribute="trailing" secondItem="qt4-Kg-rLw" secondAttribute="trailing" constant="90" id="XlV-bN-wie"/>
                             <constraint firstItem="BO1-0r-vCq" firstAttribute="bottom" secondItem="I3x-iH-iCI" secondAttribute="bottom" constant="27" id="bex-6h-B9G"/>
+                            <constraint firstItem="qt4-Kg-rLw" firstAttribute="top" secondItem="BO1-0r-vCq" secondAttribute="top" constant="14" id="eSt-DE-gk7"/>
+                            <constraint firstItem="8co-ag-vZY" firstAttribute="top" secondItem="qt4-Kg-rLw" secondAttribute="bottom" constant="15" id="fxx-lC-GY7"/>
                             <constraint firstItem="ESx-h3-AYJ" firstAttribute="top" secondItem="BO1-0r-vCq" secondAttribute="top" constant="223" id="n9v-IO-Oof"/>
+                            <constraint firstItem="qt4-Kg-rLw" firstAttribute="leading" secondItem="BO1-0r-vCq" secondAttribute="leading" constant="92" id="pGM-US-Osk"/>
                             <constraint firstItem="8co-ag-vZY" firstAttribute="leading" secondItem="BO1-0r-vCq" secondAttribute="leading" constant="19" id="q8a-qN-trm"/>
                             <constraint firstItem="BO1-0r-vCq" firstAttribute="trailing" secondItem="8co-ag-vZY" secondAttribute="trailing" constant="18" id="sQo-kp-Hvr"/>
                             <constraint firstItem="6Us-AF-hqX" firstAttribute="top" secondItem="8co-ag-vZY" secondAttribute="bottom" constant="22" id="vv4-xK-frb"/>
@@ -175,7 +187,7 @@
         <!--Category-->
         <scene sceneID="WCQ-pl-WPa">
             <objects>
-                <viewController storyboardIdentifier="CategoriesViewController" id="UWP-rb-BDh" customClass="CategoriesViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesViewController" title="Category" id="UWP-rb-BDh" customClass="CategoriesViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fk0-C1-gMI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="2452.6717557251909" y="707.04225352112678"/>
         </scene>
-        <!--Me-->
+        <!--Profile-->
         <scene sceneID="qjN-6n-yNE">
             <objects>
-                <viewController storyboardIdentifier="MeViewController" id="t7k-Pg-wid" customClass="MeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeViewController" title="Profile" id="t7k-Pg-wid" customClass="MeViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lKe-WO-shl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,10 +372,10 @@
             </objects>
             <point key="canvasLocation" x="3377.8625954198474" y="707.04225352112678"/>
         </scene>
-        <!--Orders View Controller-->
+        <!--Orders-->
         <scene sceneID="hGS-13-LNm">
             <objects>
-                <viewController storyboardIdentifier="OrdersViewController" id="1gK-R6-jUa" customClass="OrdersViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersViewController" title="Orders" id="1gK-R6-jUa" customClass="OrdersViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xd2-jE-z9c">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -695,10 +707,10 @@
             </objects>
             <point key="canvasLocation" x="5002.2900763358775" y="707.04225352112678"/>
         </scene>
-        <!--Brand Detail View Controller-->
+        <!--Products-->
         <scene sceneID="wAn-zi-hPb">
             <objects>
-                <viewController storyboardIdentifier="BrandDetailViewController" id="ZvL-Ff-W3A" customClass="BrandDetailViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrandDetailViewController" title="Products" id="ZvL-Ff-W3A" customClass="BrandDetailViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="97Y-Md-4bN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

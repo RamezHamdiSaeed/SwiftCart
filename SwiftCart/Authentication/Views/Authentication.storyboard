@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="1019.0839694656488" y="-34.507042253521128"/>
         </scene>
-        <!--Sign Up View Controller-->
+        <!--sign up-->
         <scene sceneID="s9g-1b-WNw">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="HUc-CF-plr" customClass="SignUpViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" title="sign up" id="HUc-CF-plr" customClass="SignUpViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dg5-gE-JsY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,10 +197,10 @@
             </objects>
             <point key="canvasLocation" x="1936.6412213740457" y="-464.08450704225356"/>
         </scene>
-        <!--Log In View Controller-->
+        <!--Login-->
         <scene sceneID="1Y9-qb-4hV">
             <objects>
-                <viewController storyboardIdentifier="LogInViewController" id="5ff-3F-Yjv" customClass="LogInViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" title="Login" id="5ff-3F-Yjv" customClass="LogInViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1hV-0B-NGq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

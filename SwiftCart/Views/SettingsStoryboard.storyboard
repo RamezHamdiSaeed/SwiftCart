@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wt-Sl-fYy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wt-Sl-fYy">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting View Controller-->
+        <!--Settings-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="SettingViewController" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" title="Settings" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="2916.9230769230767" y="-29.14691943127962"/>
         </scene>
-        <!--About Us View Controller-->
+        <!--About Us-->
         <scene sceneID="2hS-iT-0Tc">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="eer-FY-lVf" customClass="AboutUsViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" title="About Us" id="eer-FY-lVf" customClass="AboutUsViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a8K-Zk-ngH">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -346,10 +346,10 @@
             </objects>
             <point key="canvasLocation" x="3321.5384615384614" y="-677.48815165876772"/>
         </scene>
-        <!--Adresses Table View Controller-->
+        <!--Addresses-->
         <scene sceneID="VYt-0l-Fnm">
             <objects>
-                <tableViewController storyboardIdentifier="AdressesTableViewController" id="Gyw-oc-YPS" customClass="AdressesTableViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AdressesTableViewController" title="Addresses" id="Gyw-oc-YPS" customClass="AdressesTableViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1sT-No-UzD">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
