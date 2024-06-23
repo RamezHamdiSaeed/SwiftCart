@@ -47,8 +47,7 @@ class FavoriteViewController: UIViewController,UICollectionViewDelegateFlowLayou
                 }
         }
         productViewModel.getRate()
-        setHeader(view: self, title: "Wish List")
-       
+        setHeader(view: self, title: "Wishlist")
         setupSearchController()
         setupCollectionView()
         setupBindings()

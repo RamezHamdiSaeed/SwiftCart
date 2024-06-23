@@ -41,6 +41,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         productViewModel.rateClosure = {
             [weak self] rate in
                 DispatchQueue.main.async {
