@@ -97,6 +97,10 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.countryText.text = address.country
             cell.cityText.text = address.city
             cell.addressText.text = address.address1
+            styleTableViewCell(cell: cell)
+            cell.layer.backgroundColor = UIColor.white.cgColor
+            cell.backgroundColor = UIColor.white
+            
             // cell.phoneText.text = address.phone
             // cell.zipCodeText.text = address.zip
         }

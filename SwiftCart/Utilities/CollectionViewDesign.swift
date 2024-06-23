@@ -68,7 +68,7 @@ func extractName(from email: String) -> String? {
     cell.contentView.layer.borderColor = UIColor.systemOrange.cgColor
     cell.contentView.layer.cornerRadius = 25
     cell.contentView.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-    cell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+   // cell.contentView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
    
 }
 func setHeader(view: UIViewController, title: String) {
