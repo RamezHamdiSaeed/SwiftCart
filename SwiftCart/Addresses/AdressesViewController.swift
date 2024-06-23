@@ -11,7 +11,6 @@ import UIKit
 class AdressesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReloadProtocol {
     
     @IBOutlet weak var addressTable: UITableView!
-    @IBOutlet weak var add: UIButton!
     var viewModel: LocationViewModel!
     let customerId = User.id
     var draftOrders: [DraftOrder] = []
@@ -33,7 +32,6 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
         addNibFile()
         setupViewModel()
         
-        add.layer.cornerRadius = 10
         loadLocations()
     }
     
@@ -43,6 +41,13 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationItem.setRightBarButton(add, animated: false)
     }
     @objc func addAddress(){
+        let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
+        if let addressSettingVC = storyboard.instantiateViewController(withIdentifier: "AddressSettingViewController") as? AddressSettingViewController {
+            addressSettingVC.viewModel = viewModel
+            addressSettingVC.customerId = customerId
+            addressSettingVC.delegate = self
+            self.present(addressSettingVC, animated: true, completion: nil)
+        }
         
     }
 
@@ -98,16 +103,7 @@ class AdressesViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
 
-    @IBAction func addingAddress(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SettingsStoryboard", bundle: nil)
-        if let addressSettingVC = storyboard.instantiateViewController(withIdentifier: "AddressSettingViewController") as? AddressSettingViewController {
-            addressSettingVC.viewModel = viewModel
-            addressSettingVC.customerId = customerId
-            addressSettingVC.delegate = self
-            self.present(addressSettingVC, animated: true, completion: nil)
-        }
-    }
-
+   
     func reload() {
         loadLocations()
     }
