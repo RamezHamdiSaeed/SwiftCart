@@ -34,9 +34,12 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         orderItemsTableView.dataSource = self
         orderItemsTableView.reloadData()
         orderItems = order.lineItems!
-        orderdateLabel.text = order.createdAt
+        //orderdateLabel.text = order.createdAt
+        var dateStr = extractDate(from: order.createdAt!)
+        orderdateLabel.text = dateStr
+        print("orderdateLabel",order.createdAt)
 
-        totalPriceLabel.text = order.totalPrice
+        totalPriceLabel.text = String(order.id!)
         shippingAddressLabel.text = order.shippingAddress?.address1
         setHeader(view: self, title: "Order Details")
   
@@ -68,7 +71,7 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
                 }
         }
         ordersViewModel.getRate()
-        cell.orderProductsQuantity.text = "Qouantity : \(product.quantity!)"
+        cell.orderProductsQuantity.text = "Quantity : \(product.quantity!)"
 //        if let imageUrl = URL(string: product.properties!.first) {
 //            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
 //        } else {
@@ -101,4 +104,6 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180 }
+    
+ 
 }

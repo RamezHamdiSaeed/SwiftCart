@@ -90,3 +90,10 @@ func setHeader(view: UIViewController, title: String) {
     settingsLabel.sizeToFit()
     view.navigationItem.titleView = settingsLabel
 }
+func extractDate(from dateTimeString: String) -> String? {
+    let components = dateTimeString.split(separator: "T")
+    if let datePart = components.first {
+        return String(datePart)
+    }
+    return nil
+}
