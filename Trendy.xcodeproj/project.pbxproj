@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0689C12C29527A00A4CBE6 /* CustomerInfoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0689C02C29527A00A4CBE6 /* CustomerInfoSync.swift */; };
 		1E20F52F2C2536F1006C8EF5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */; };
 		1E2464742C10985D00745CA8 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464732C10985D00745CA8 /* FirebaseAuth.swift */; };
 		1E2464762C10987400745CA8 /* FirebaseAuthImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */; };
@@ -173,6 +174,7 @@
 /* Begin PBXFileReference section */
 		08F974D75784EEB17C3E4BAE /* Pods-SwiftCartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCartTests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCartTests/Pods-SwiftCartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		12C42DFE4584376420AB7FD7 /* Pods-SwiftCart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCart.debug.xcconfig"; path = "Target Support Files/Pods-SwiftCart/Pods-SwiftCart.debug.xcconfig"; sourceTree = "<group>"; };
+		1E0689C02C29527A00A4CBE6 /* CustomerInfoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfoSync.swift; sourceTree = "<group>"; };
 		1E20F52E2C2536F1006C8EF5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1E2464732C10985D00745CA8 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthImpl.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				1E2464752C10987400745CA8 /* FirebaseAuthImpl.swift */,
 				1E4A618E2C134B4700F09A35 /* ShopifyAuthNetworkService.swift */,
 				1E4A61942C134FC700F09A35 /* ShopifyAuthNetworkServiceImpl.swift */,
+				1E0689C02C29527A00A4CBE6 /* CustomerInfoSync.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -1512,6 +1515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0689C12C29527A00A4CBE6 /* CustomerInfoSync.swift in Sources */,
 				1E2464902C109C0400745CA8 /* OnBoardingManager.swift in Sources */,
 				1E2464A62C109DAB00745CA8 /* ProductTemp.swift in Sources */,
 				1E2464C02C10B33400745CA8 /* AppCommon.swift in Sources */,

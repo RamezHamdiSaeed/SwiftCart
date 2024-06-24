@@ -7,17 +7,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6983604E-AD5E-4031-A6B7-83D36A9F8B32"
+            uuid = "2AAB08CB-7BE7-4958-A61B-03D1C312A676"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftCart/OnBoarding/ViewController.swift"
+            filePath = "SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "viewDidLayoutSubviews()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "fetchPhoneNumber(for:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2AAB08CB-7BE7-4958-A61B-03D1C312A676 - f4157b83b0c977cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static SwiftCart.CustomerInfoSync.fetchPhoneNumber(for: Swift.String, completion: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/ffff/SwiftCart/SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1177">
+               </Location>
+               <Location
+                  uuid = "2AAB08CB-7BE7-4958-A61B-03D1C312A676 - f4157b83b0c977cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static SwiftCart.CustomerInfoSync.fetchPhoneNumber(for: Swift.String, completion: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/ffff/SwiftCart/SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1238">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90D6206B-B118-4FD4-BF0F-896A7D9A7AA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fetchPhoneNumber(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "90D6206B-B118-4FD4-BF0F-896A7D9A7AA1 - f4157b83b0c977a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static SwiftCart.CustomerInfoSync.fetchPhoneNumber(for: Swift.String, completion: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/ffff/SwiftCart/SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1333">
+               </Location>
+               <Location
+                  uuid = "90D6206B-B118-4FD4-BF0F-896A7D9A7AA1 - f4157b83b0c977a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static SwiftCart.CustomerInfoSync.fetchPhoneNumber(for: Swift.String, completion: (Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "SwiftCart"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramezhamdisaeed/Desktop/ffff/SwiftCart/SwiftCart/Authentication/Models/Authentication/CustomerInfoSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

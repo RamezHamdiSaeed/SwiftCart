@@ -11,6 +11,7 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     
+    @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var password: UITextField!
     
     
@@ -22,6 +23,8 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        phone.keyboardType = .numberPad
+
         authVC = AuthViewModelImpl()
         authVC?.setSuccessMessage(successMessage: {
             self.showSnackbar(message: "Signed Up Successfully")
@@ -59,9 +62,18 @@ class SignUpViewController: UIViewController {
     func userSignUp(){
         let isValidEmail = InputValidator.isValidEmail(email: email.text ?? "")
         let isValidPassword = InputValidator.isValidPassword(password: password.text ?? "")
-        
+        let isValidPhone = self.phone.text?.count == 11
 
-         if (!isValidEmail){
+        if (!isValidPhone){
+            phone.layer.borderColor = UIColor.red.cgColor
+            FeedbackManager.errorSwiftMessage(title: "", body: "Wrong phone number")
+            self.phone.text = ""
+            self.email.text = ""
+            self.password.text = ""
+             self.confirmPassword.text = ""
+            
+        }
+        else if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "", body: "Wrong Email")
             self.email.text = ""
@@ -84,7 +96,8 @@ class SignUpViewController: UIViewController {
         }
         else {
             
-            authVC?.signUp(email: email.text!, password: password.text!, whenSuccess: {
+            authVC?.signUp(email: email.text!, password: password.text!, phone: phone.text!, whenSuccess: {
+                
                 DispatchQueue.main.async{
                     self.logInNavigation()
                 }
