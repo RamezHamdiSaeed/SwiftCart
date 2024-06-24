@@ -41,8 +41,10 @@ class AuthViewModelImpl : AuthViewModel{
             CustomerInfoSync.fetchPhoneNumber(for: email, completion: {phone in
                 User.phone = phone
             })
-            
-            AppCommon.userSessionManager.setIsNotSignedOutUser()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                AppCommon.userSessionManager.setIsNotSignedOutUser()
+
+            }
             whenSuccess?()
         }
     }

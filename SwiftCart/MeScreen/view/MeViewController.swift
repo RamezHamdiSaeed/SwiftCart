@@ -13,8 +13,13 @@ class MeViewController: UIViewController {
         super.viewDidLoad()
         setBackground(view: self.view)
         userNameLabel.text = extractName(from: User.email ?? "Guest@gmail.com")
-
+        if User.phone != nil {
+            phoneNumber.text = User.phone
+        }else{
+            phoneNumber.text = "Phone Number"
+        }
     }
+    @IBOutlet weak var phoneNumber: UILabel!
     
 
     @IBOutlet weak var userNameLabel: UILabel!
