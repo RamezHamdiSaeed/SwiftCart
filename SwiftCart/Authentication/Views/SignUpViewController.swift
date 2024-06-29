@@ -64,22 +64,23 @@ class SignUpViewController: UIViewController {
         let isValidPassword = InputValidator.isValidPassword(password: password.text ?? "")
         let isValidPhone = self.phone.text?.count == 11
 
-        if (!isValidPhone){
-            phone.layer.borderColor = UIColor.red.cgColor
-            FeedbackManager.errorSwiftMessage(title: "", body: "Wrong phone number")
-            self.phone.text = ""
-            self.email.text = ""
-            self.password.text = ""
-             self.confirmPassword.text = ""
-            
-        }
-        else if (!isValidEmail){
+
+         if (!isValidEmail){
             email.layer.borderColor = UIColor.red.cgColor
             FeedbackManager.errorSwiftMessage(title: "", body: "Wrong Email")
             self.email.text = ""
+             self.phone.text = ""
             self.password.text = ""
              self.confirmPassword.text = ""
 
+        }
+        else if (!isValidPhone){
+            phone.layer.borderColor = UIColor.red.cgColor
+            FeedbackManager.errorSwiftMessage(title: "", body: "Wrong phone number")
+            self.phone.text = ""
+            self.password.text = ""
+             self.confirmPassword.text = ""
+            
         }
         else if (!isValidPassword){
             
