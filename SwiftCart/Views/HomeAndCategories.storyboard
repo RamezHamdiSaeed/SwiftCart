@@ -312,7 +312,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFD-N1-zDW">
-                                <rect key="frame" x="17" y="521" width="106.33333333333331" height="28"/>
+                                <rect key="frame" x="16.999999999999993" y="521" width="106.33333333333331" height="28"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="28"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,6 +333,12 @@
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="162" placeholderIntrinsicHeight="39" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9C-Tv-db2">
+                                <rect key="frame" x="215" y="295" width="162" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="1" green="0.65374312810000001" blue="0.41435371929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u09-ai-pRi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -348,6 +354,8 @@
                             <constraint firstItem="08d-rZ-1mS" firstAttribute="top" secondItem="DUq-kD-EIM" secondAttribute="bottom" constant="28" id="IZh-0E-XKT"/>
                             <constraint firstItem="LSH-at-81o" firstAttribute="leading" secondItem="08d-rZ-1mS" secondAttribute="trailing" constant="202" id="M0s-qN-UdL"/>
                             <constraint firstItem="u09-ai-pRi" firstAttribute="trailing" secondItem="iMb-zf-6Yw" secondAttribute="trailing" constant="21" id="OsH-y7-BkW"/>
+                            <constraint firstItem="u09-ai-pRi" firstAttribute="trailing" secondItem="s9C-Tv-db2" secondAttribute="trailing" constant="16" id="QzF-Pi-dav"/>
+                            <constraint firstItem="s9C-Tv-db2" firstAttribute="top" secondItem="vd0-Ua-HjU" secondAttribute="bottom" constant="25" id="RKc-5e-hEe"/>
                             <constraint firstItem="WMN-ap-vd1" firstAttribute="leading" secondItem="Dxp-Fe-79O" secondAttribute="trailing" constant="54.670000000000002" id="W2o-L5-p5C"/>
                             <constraint firstItem="LSH-at-81o" firstAttribute="top" secondItem="nQ4-aX-9eO" secondAttribute="bottom" constant="16" id="YSU-kK-ndk"/>
                             <constraint firstItem="nQ4-aX-9eO" firstAttribute="leading" secondItem="DUq-kD-EIM" secondAttribute="trailing" constant="192.66666666666669" id="Z3j-61-CfQ"/>
@@ -365,6 +373,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="person.circle" catalog="system" id="wz6-IR-DIY"/>
                     <connections>
+                        <outlet property="phoneNumber" destination="s9C-Tv-db2" id="Dg3-Um-6WZ"/>
                         <outlet property="userNameLabel" destination="vd0-Ua-HjU" id="RG7-ba-TR3"/>
                     </connections>
                 </viewController>
@@ -590,7 +599,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojd-wy-rrT">
                                                     <rect key="frame" x="20" y="30" width="315" height="130"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-Z4-RlA">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="processing" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-Z4-RlA">
                                                             <rect key="frame" x="8" y="8" width="120" height="120"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="120" id="4FN-aX-fWv"/>
@@ -824,6 +833,7 @@
         <image name="kidface" width="225" height="225"/>
         <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
+        <image name="processing" width="1300" height="1390"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

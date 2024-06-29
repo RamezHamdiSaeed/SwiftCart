@@ -16,9 +16,10 @@ class AuthViewModelImpl : AuthViewModel{
         FirebaseAuthImpl.user.failMessage(failMessage: failMessage)
     }
     
-    func signUp(email:String,password:String,whenSuccess:(()->())?) {
+    func signUp(email:String,password:String,phone:String,whenSuccess:(()->())?) {
         
         FirebaseAuthImpl.user.signUp(email: email, password: password){
+            CustomerInfoSync.uploadCustomerPhoneNumber(for: email, phoneNumber: phone)
             whenSuccess?()
         }
 
@@ -37,7 +38,13 @@ class AuthViewModelImpl : AuthViewModel{
                 }
             })
             
-            AppCommon.userSessionManager.setIsNotSignedOutUser()
+            CustomerInfoSync.fetchPhoneNumber(for: email, completion: {phone in
+                User.phone = phone
+            })
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                AppCommon.userSessionManager.setIsNotSignedOutUser()
+
+            }
             whenSuccess?()
         }
     }

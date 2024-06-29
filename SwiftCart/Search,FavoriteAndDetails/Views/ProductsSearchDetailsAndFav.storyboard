@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--search-->
         <scene sceneID="Dni-e9-K73">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="QC1-0w-ihj" customClass="SearchViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" title="search" id="QC1-0w-ihj" customClass="SearchViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OCl-gF-Cax">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
                             <constraint firstItem="CBA-Zx-BxL" firstAttribute="trailing" secondItem="u6n-Kf-vCe" secondAttribute="trailing" constant="19" id="zbx-Q7-FEx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZNz-wr-hjE"/>
+                    <navigationItem key="navigationItem" title="Search" id="ZNz-wr-hjE"/>
                     <connections>
                         <outlet property="activityIndicator" destination="fRd-kT-5wE" id="8tz-Ad-5yO"/>
                         <outlet property="feedbackImage" destination="Dat-Pu-JVV" id="e5T-aE-Q7M"/>
@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="1135.1145038167938" y="-364.08450704225356"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Details-->
         <scene sceneID="6oi-i7-cyR">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="exT-jU-07C" customClass="DetailsViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" title="Details" id="exT-jU-07C" customClass="DetailsViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l55-C3-nDb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,10 +469,10 @@
             </objects>
             <point key="canvasLocation" x="208.3969465648855" y="-364.08450704225356"/>
         </scene>
-        <!--Favorite View Controller-->
+        <!--Favourite-->
         <scene sceneID="BN7-Zv-4Qy">
             <objects>
-                <viewController storyboardIdentifier="FavoriteViewController" id="WqU-4w-1WB" customClass="FavoriteViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteViewController" title="Favourite" id="WqU-4w-1WB" customClass="FavoriteViewController" customModule="SwiftCart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UfR-KM-XbQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -549,7 +549,7 @@
                             <constraint firstItem="ABG-rj-iHd" firstAttribute="leading" secondItem="S0G-pZ-fsP" secondAttribute="leading" constant="13" id="zkP-Va-xil"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rjN-FX-MIh"/>
+                    <navigationItem key="navigationItem" title="Wishlist" id="rjN-FX-MIh"/>
                     <connections>
                         <outlet property="activityIndicator" destination="tme-tD-smE" id="8zp-Jv-oYv"/>
                         <outlet property="feedbackImage" destination="kfA-iF-BiQ" id="ybd-ro-yWu"/>

@@ -13,8 +13,13 @@ class MeViewController: UIViewController {
         super.viewDidLoad()
         setBackground(view: self.view)
         userNameLabel.text = extractName(from: User.email ?? "Guest@gmail.com")
-
+        if User.phone != nil {
+            phoneNumber.text = User.phone
+        }else{
+            phoneNumber.text = "Phone Number"
+        }
     }
+    @IBOutlet weak var phoneNumber: UILabel!
     
 
     @IBOutlet weak var userNameLabel: UILabel!
@@ -41,7 +46,7 @@ class MeViewController: UIViewController {
     @IBAction func ordersBtn(_ sender: Any) {
         if User.id == nil {
        
-            AppCommon.feedbackManager.showAlert(alertTitle: "Prompt", alertMessage: "You are not signed In", alertStyle: .alert, view: self)
+            AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You are not logged in", alertStyle: .alert, view: self)
         }else{
             let ordersViewController = storyboard?.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController
             navigationController?.pushViewController(ordersViewController!, animated: true)

@@ -10,6 +10,9 @@ class OrdersViewModel {
     var ordersClosure : ([Order])->Void = {_ in }
     var productsClosure : ([Product])->Void = {_ in }
     var rateClosure : (Double)->Void = {_ in }
+    var imageUrlClosure : (String?)->Void = {_ in }
+    private let detailsnetworkService = DetailsNetworkService(networkingManager: NetworkingManagerImpl())
+
     
     private var networkService: NetworkServices
     init(networkService: NetworkServices = NetworkServicesImpl()) {
@@ -29,7 +32,7 @@ class OrdersViewModel {
             networkService.fetchOrders(customerId: customerId) { [weak self] res in
                 switch res {
                 case .success(let response) :
-                    DispatchQueue.main.asyncAfter(deadline: .now()+1){
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.3){
                         self?.ordersClosure(response.orders!)
                         print("fetchOrderss viewmodel success")
                         
@@ -44,4 +47,19 @@ class OrdersViewModel {
       //  }
         
     }
+    
+    func getProductDetails(productID:String,whenSuccess:((String?)->())? = nil){
+        ProductDetailsNetworkMgr.fetchProductsDetailsImage(singleCollectionId: productID){[weak self] res in
+            switch res {
+            case .success(let response) :
+                self?.imageUrlClosure(response.product?.image?.src)
+                whenSuccess?(response.product?.image?.src)
+                print("getProductDetails success")
+                
+            case .failure(let error):
+                print("getProductDetails error :",error.localizedDescription)
+            }
+        }
+    }
+    
 }

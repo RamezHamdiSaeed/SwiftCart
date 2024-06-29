@@ -42,6 +42,7 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         totalPriceLabel.text = String(order.id!)
         shippingAddressLabel.text = order.shippingAddress?.address1
         setHeader(view: self, title: "Order Details")
+      
   
     }
   
@@ -72,32 +73,23 @@ class OrderDetailsViewController: UIViewController ,UITableViewDelegate, UITable
         }
         ordersViewModel.getRate()
         cell.orderProductsQuantity.text = "Quantity : \(product.quantity!)"
-//        if let imageUrl = URL(string: product.properties!.first) {
-//            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
-//        } else {
-//            cell.orderProductsImage.image = UIImage(named: "catimg")
-//        }
 
-//        detailsViewModel.getProductDetails(productID: String(describing: product.id) )
-//
-//        if let imageUrl = URL(string: (detailsViewModel.productDetails?.product?.image?.src) ?? "catimg") {
-//            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "catimg"))
-//        } else {
-//            cell.orderProductsImage.image = UIImage(named: "catimg")
-//        }
-//
+       let placeholderImage = UIImage(named: "fixed")
 
-        let placeholderImage = UIImage(named: "fixed")
-
-        if let imageUrlString = product.properties?.first , let imageUrl = URL(string: imageUrlString) {
-            cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: placeholderImage)
-        } else {
-            cell.orderProductsImage.image = placeholderImage
+        ordersViewModel.getProductDetails(productID: String(product.productId!)){
+            res in
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                if let imageUrlString = res, let imageUrl = URL(string: imageUrlString) {
+                    cell.orderProductsImage.sd_setImage(with: imageUrl, placeholderImage: placeholderImage)
+                } else {
+                    cell.orderProductsImage.image = placeholderImage
+                }
+                print("resppp",res)
+            }
+        
         }
 
-
-
-            print("",product.sku!)
+        print("pID",product.productId)
 
         return cell
     }

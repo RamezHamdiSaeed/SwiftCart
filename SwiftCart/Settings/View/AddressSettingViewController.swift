@@ -38,7 +38,7 @@ class AddressSettingViewController: UIViewController {
 //                    let phone = phoneText.text, !phone.isEmpty,
 //                    let zip = zipText.text, !zip.isEmpty
         else {
-            showAlert(title: "Error", message: "All fields are required.")
+            showAlert(title: "", message: "All fields are required.")
                   return
             
         }

@@ -41,6 +41,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         productViewModel.rateClosure = {
             [weak self] rate in
                 DispatchQueue.main.async {
@@ -99,7 +100,7 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
         priceSlider.rx.value
             .map {
                 
-                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 0 )) + " " + self.userCurrency
+                String(format: "%.2f", convertPrice(price: String(describing: $0), rate: self.rate ?? 1.0 )) + " " + self.userCurrency
                 
             }
             .bind(to: priceLabel.rx.text)
@@ -113,12 +114,12 @@ class SearchViewController: UIViewController,UICollectionViewDelegateFlowLayout 
                     self.showSnackbar(message: message)
                 }
                 cell.whenRemoving = {
-                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from Favs", alertStyle: .alert, view: self){
+                    AppCommon.feedbackManager.showCancelableAlert(alertTitle: "", alertMessage: "Do you want to remove from wishlist", alertStyle: .alert, view: self){
                         cell.okRemovingCellBtn()
                     }
                 }
                 cell.guestClosure = {
-                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Log In", alertStyle: .alert, view: self)
+                    AppCommon.feedbackManager.showAlert(alertTitle: "", alertMessage: "You need to Login", alertStyle: .alert, view: self)
                 }
                 var myProduct = product
                 myProduct.isFavorite = self.viewModel.isProductFavorite(product: product)
